@@ -48,7 +48,7 @@ body {
 }
 
 .heading_container h2 span {
-  color: #f89cab;
+  color: #808f5b;
 }
 
 .heading_container.heading_center {
@@ -781,7 +781,7 @@ a:focus {
   outline: none;
   border: none;
   color: #ffffff;
-  background: #f89cab;
+  background: #808f5b;
   margin-top: 15px;
   text-transform: uppercase;
 }
