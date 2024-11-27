@@ -852,5 +852,49 @@ a:focus {
   color: #cbc9c9;
 }
 
+
+
+
+
+
+.banner {
+  position: relative;
+  text-align: center;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#shop-now {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+#shop-now:hover {
+  background-color: #ff3f31;
+}
+
+
+
+
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
