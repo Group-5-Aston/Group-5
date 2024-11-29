@@ -1,140 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up - Pup & Purr</title>
-  
-  <!-- Include Bootstrap and Custom Styles -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-  <style>
-    /* Sign-Up Page Styles */
-    body {
-      background-color: #faf8f2;
-    }
-    .signup-container {
-        width: 100%;
-      max-width: 400px;
-      background-color: #fefbe6;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-    input[type="text"], input[type="email"], input[type="password"] {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-    .signup-btn {
-      width: 100%;
-      background-color: #7b8e4e;
-      color: #fff;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .signup-btn:hover {
-      background-color: #426b1f;
-    }
-    .already-registered {
-      margin-top: 1rem;
-      text-align: center;
-    }
-    .already-registered a {
-      color: #7b8e4e;
-      text-decoration: none;
-    }
-  </style>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="pet shop, sign-up, Pup&Purr" />
+  <meta name="description" content="Sign up for Pup&Purr and get the best products for your furry friends." />
+  <meta name="author" content="Pup&Purr" />
+  <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+
+  <title>Sign Up - Pup&Purr</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- Responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
+  <div class="hero_area">
+    <!-- Header Section Starts -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="index.html">
+          <span style="color: #426b1f;">Pup&Purr</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="why.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Get in Touch</a>
+            </li>
+          </ul>
+          <div class="user_option">
+            <a href="login.html">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>Login</span>
+            </a>
+            <a href="basket.html">
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            </a>
+            <form class="form-inline">
+              <button class="btn nav_search-btn" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- End Header Section -->
 
-  <!-- Header & Navbar -->
-  <header class="header_section">
-    <nav class="navbar navbar-expand-lg custom_nav-container">
-      <a class="navbar-brand" href="index.html">
-        <span style="color: #426b1f;">Pup & Purr</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-        <span class=""></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="why.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Get in Touch</a></li>
-        </ul>
-        <div class="user_option">
-          <a href="login.html"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
-          <a href="basket.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-          <form class="form-inline">
-            <button class="btn nav_search-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
+    <!-- Sign-Up Form Section -->
+    <section class="layout_padding">
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h2>Create an Account</h2>
+          <p>Join Pup&Purr for exclusive offers and tailored services for your pets.</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="form_container">
+              <form action="/signup" method="POST">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+              </form>
+              <div class="text-center mt-3">
+                <p>Already have an account? <a href="login.html" style="color: #7b8e4e;">Log in here</a>.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
+    </section>
+    <!-- End Sign-Up Form Section -->
 
-  <!-- Sign-Up Form Section -->
-  <div class="signup-container">
-    <h2>Create Your Account</h2>
-    <form action="/signup" method="post">
-      <input type="text" name="fullname" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-      <button type="submit" class="signup-btn">Sign Up</button>
-    </form>
-    <div class="already-registered">
-      <p>Already have an account? <a href="login.html">Log in here</a>.</p>
-    </div>
+    <!-- Footer Section -->
+    <footer class="footer_section">
+      <div class="container">
+        <p>&copy; <span id="displayYear"></span> All Rights Reserved by <a href="index.html">Pup&Purr</a></p>
+      </div>
+    </footer>
+    <!-- End Footer Section -->
   </div>
 
-  <!-- Footer Section -->
-  <footer class="footer_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <h6>ABOUT US</h6>
-          <p>We specialize in premium pet essentials for cats and dogs.</p>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <h5>Newsletter</h5>
-          <form>
-            <input type="email" placeholder="Enter your email">
-            <button>Subscribe</button>
-          </form>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <h6>NEED HELP?</h6>
-          <p>Contact us for assistance anytime! 🐶🐱</p>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <h6>CONTACT US</h6>
-          <p>
-            <i class="fa fa-map-marker"></i> 64 Aston Road Birmingham, UK <br>
-            <i class="fa fa-phone"></i> +44 (0)121 204 3001 <br>
-            <i class="fa fa-envelope"></i> contact@pupandpurr.com
-          </p>
-        </div>
-      </div>
-      <p>&copy; <span id="displayYear"></span> Pup & Purr. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
-
 </body>
+
 </html>
