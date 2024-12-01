@@ -5,10 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'check.cart'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 });
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index']); // Only accessible by admin users
+    // Add other admin routes here
+});
+
 
 Route::get('/',[HomeController::class,'home']);
 
