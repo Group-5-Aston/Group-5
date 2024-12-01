@@ -853,6 +853,13 @@ a:focus {
 }
 
 
+a.active .fa-shopping-bag {
+  background-color: #ffffff;  /* Background color */
+  padding: 8px;  /* Adjust the padding to control the size of the background */
+  border-radius: 50%;  /* Make the background round */
+  margin-right: 5px;
+  position: relative;
+}
 
 
 
