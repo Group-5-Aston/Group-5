@@ -103,4 +103,10 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Cart cleared');
     }
+
+    public function getCart()
+    {
+        $cart = session()->get('cart', []);
+        return response()->json($cart); // You can return it as JSON for frontend use
+    }
 }
