@@ -2,21 +2,17 @@
 <html lang="en">
 
 <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
-    <title>Pup&Purr | Checkout</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pup&Purr | Payment</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <div class="hero_area">
-        <!-- header section starts -->
-        <header class="header_section" style="background-color: #fefbe6;">
+       <!-- header section starts -->
+       <header class="header_section" style="background-color: #fefbe6;">
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <a class="navbar-brand" href="{{ url('index.html') }}">
                     <span style="color: #426b1f;">
@@ -70,38 +66,53 @@
     </div>
     <!-- end hero area -->
 
-    <!-- checkout section -->
-    <section class="checkout_section layout_padding" style="padding-top: 48px">
+    <!-- payment section -->
+    <section class="payment_section layout_padding" style="padding-top: 48px">
         <div class="container">
             <div class="heading_container">
-                <h2>Checkout</h2>
-            </div>
-
-            <div class="row">
-                <!-- Cart items will be populated dynamically -->
-                @foreach ($cart as $item)
-                <div class="col-md-12 cart-item" data-item-id="{{ $item['id'] }}">
-                    <div class="cart-item-details">
-                        <span>{{ $item['name'] }}</span>
-                        <span>${{ number_format($item['price'], 2) }}</span>
-                        <span>Quantity: {{ $item['quantity'] }}</span>
-                        <span>Total: ${{ number_format($item['price'] * $item['quantity'], 2) }}</span>
-                    </div>
-                </div>
-                @endforeach
+                <h2>Payment Information</h2>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="total-price">
-                        <p><strong>Total Price:</strong> ${{ number_format($totalPrice, 2) }}</p>
-                    </div>
-                    <a href="{{ route('payment.index') }}" class="btn btn-success btn-block">Proceed to Payment</a>
+                    <form action="{{ route('payment.process') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" name="card_number" class="form-control" placeholder="Enter Card Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="text" id="expiry-date" name="expiry_date" class="form-control" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" class="form-control" placeholder="CVV" required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Pay Now</button>
+                    </form>
                 </div>
             </div>
+
+            <!-- Payment status message -->
+            @if (isset($paymentStatus))
+                @if ($paymentStatus === 'success')
+                    <div class="alert alert-success mt-4">
+                        <strong>Payment Successful!</strong> Your order has been processed. Thank you for shopping with us.
+                    </div>
+                @elseif ($paymentStatus === 'failure')
+                    <div class="alert alert-danger mt-4">
+                        <strong>Payment Failed!</strong> Please try again or check your payment details.
+                    </div>
+                @else
+                    <div class="alert alert-info mt-4">
+                        <strong>Processing payment...</strong> Please wait while we process your payment.
+                    </div>
+                @endif
+            @endif
         </div>
     </section>
-    <!-- end checkout section -->
+    <!-- end payment section -->
 
     <!-- footer section -->
     <footer class="footer_section">
@@ -113,49 +124,10 @@
         </div>
     </footer>
     <!-- footer section -->
-    </section>
 
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-
-    <script>
-        // Fetch the current cart data on page load
-        $(document).ready(function () {
-            loadCart();
-
-            // Load cart items for checkout page
-            function loadCart() {
-                $.ajax({
-                    url: '{{ route('cart.get') }}',
-                    method: 'GET',
-                    success: function(response) {
-                        const cartData = response;
-                        const cartItemsContainer = $('#cart-items');
-                        cartItemsContainer.empty();  // Clear existing items
-
-                        let total = 0;
-                        cartData.items.forEach(item => {
-                            cartItemsContainer.append(`
-                                <div class="col-md-12 cart-item" data-item-id="${item.id}">
-                                    <div class="cart-item-details">
-                                        <span>${item.name}</span>
-                                        <span>$${item.price}</span>
-                                        <span>Quantity: ${item.quantity}</span>
-                                        <span>Total: $${(item.price * item.quantity).toFixed(2)}</span>
-                                    </div>
-                                </div>
-                            `);
-                            total += item.price * item.quantity;
-                        });
-
-                        // Update total price
-                        $('#cart-total').text(total.toFixed(2));
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

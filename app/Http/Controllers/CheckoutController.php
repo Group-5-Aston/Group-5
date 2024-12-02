@@ -13,11 +13,11 @@ class CheckoutController extends Controller
     public function index()
     {
         $cart = session()->get('cart', []);
-        $total = array_reduce($cart, function ($sum, $item) {
+        $totalPrice = array_reduce($cart, function ($sum, $item) {
             return $sum + ($item['price'] * $item['quantity']);
         }, 0);
 
-        return view('checkout.index', compact('cart', 'total'));
+        return view('checkout.index', compact('cart', 'totalPrice'));
     }
 
     // Process the order and checkout
