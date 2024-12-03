@@ -8,12 +8,12 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <meta name="keywords" content="pet shop, login, Pup&Purr" />
-  <meta name="description" content="Login to Pup&Purr to access your account and shop for your pets." />
+  <meta name="keywords" content="pet shop, sign-up, Pup&Purr" />
+  <meta name="description" content="Sign up for Pup&Purr and get the best products for your furry friends." />
   <meta name="author" content="Pup&Purr" />
   <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
 
-  <title>Login - Pup&Purr</title>
+  <title>Sign Up - Pup&Purr</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -56,7 +56,7 @@
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>Login</span>
             </a>
-            <a href="cart">
+            <a href="basket.php">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </a>
             <form class="form-inline">
@@ -70,37 +70,42 @@
     </header>
     <!-- End Header Section -->
 
-    <!-- Login Form Section -->
+    <!-- Sign-Up Form Section -->
     <section class="layout_padding" style="padding-top: 48px">
       <div class="container">
         <div class="heading_container heading_center">
-          <h2>Login to Your Account</h2>
+          <h2>Create an Account</h2>
           <p></p>
-          <p>Access your account to explore our pet essentials and manage your orders.</p>
+          <p>Join Pup&Purr for exclusive offers and tailored services for your pets.</p>
           <p></p>
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
             <div class="form_container">
-              <form action="/login" method="POST">
+              <form action="/signup" method="POST">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="fullname" placeholder="Full Name" required>
+                </div>
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" name="password" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-success btn-block" style="background-color: #426b1f;">Login</button>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-success btn-block" style="background-color: #426b1f;">Sign Up</button>
               </form>
               <div class="text-center mt-3">
-                <p>Don't have an account? <a href="signup.html" style="color: #7b8e4e;">Sign up here.</a></p>
-                <p><a href="reset-password.html" style="color: #7b8e4e;">Forgot your password?</a></p>
+                <p>Already have an account? <a href="login.html" style="color: #7b8e4e;">Log in here.</a></p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Login Form Section -->
+    <!-- End Sign-Up Form Section -->
 
     <!-- Footer Section -->
     <footer class="footer_section">
@@ -118,4 +123,3 @@
 </body>
 
 </html>
-

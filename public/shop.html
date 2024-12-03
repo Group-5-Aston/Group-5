@@ -29,6 +29,9 @@
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
+
+
+
 <body>
   <div class="hero_area">
     <!-- header section strats -->
@@ -48,11 +51,16 @@
             <li class="nav-item ">
               <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="shop.html">
-                Shop
-              </a>
-            </li>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropbtn" href="shop.html">Shop</a>
+              <ul class="dropdown-menu">
+                  <li><a href="cat.html" class="dropdown-item">cats</a></li>
+                  <li><a href="dog.html" class="dropdown-item">dogs</a></li>
+                  
+              </ul>
+          </li>
+
             <li class="nav-item">
               <a class="nav-link" href="why.html">
                 About Us
@@ -70,7 +78,7 @@
                 Login
               </span>
             </a>
-            <a href="basket.html">
+            <a href="basket.php">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </a>
             <form class="form-inline ">
@@ -87,9 +95,9 @@
   </div>
   <!-- end hero area -->
 
-  <!-- shop section -->
 
-  <section class="shop_section layout_padding" style="padding-top: 50px">
+
+  <section class="shop_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -99,18 +107,45 @@
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="p1.html">
               <div class="img-box">
 
-              </div>
+              <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
+            </div> 
               <div class="detail-box">
                 <h6>
-                  Ring
+                bundle- dogfood
                 </h6>
                 <h6>
                   Price
                   <span>
-                    $200
+                    £45
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="p2.html">
+              <div class="img-box">
+                <img src="images/p2.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+              </div>
+              <div class="detail-box">
+                <h6>
+                  bundle- catfood
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    £55
                   </span>
                 </h6>
               </div>
@@ -124,18 +159,18 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="p3.html">
               <div class="img-box">
-
+                <img src="images/p3.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Watch
+                  dog biscuits
                 </h6>
                 <h6>
                   Price
                   <span>
-                    $300
+                    £10
                   </span>
                 </h6>
               </div>
@@ -149,18 +184,18 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="p4.html">
               <div class="img-box">
-
+                <img src="images/p4.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Teddy Bear
+                  cat biscuits
                 </h6>
                 <h6>
                   Price
                   <span>
-                    $110
+                    £15
                   </span>
                 </h6>
               </div>
@@ -174,18 +209,18 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="p5.html">
               <div class="img-box">
-
+                <img src="images/p5.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Flower Bouquet
+                  protein dog food 
                 </h6>
                 <h6>
                   Price
                   <span>
-                    $45
+                    £35
                   </span>
                 </h6>
               </div>
@@ -199,18 +234,18 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="p6.html">
               <div class="img-box">
-
+                <img src="images/p6.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Teddy Bear
+                  wet mixed dog food
                 </h6>
                 <h6>
                   Price
                   <span>
-                    $95
+                    £10
                   </span>
                 </h6>
               </div>
@@ -224,18 +259,18 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="p7.html">
               <div class="img-box">
-
+                <img src="images/p7.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Flower Bouquet
+                  wet mixed cat food
                 </h6>
                 <h6>
                   Price
                   <span>
-                    $70
+                    £20
                   </span>
                 </h6>
               </div>
@@ -249,43 +284,18 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="p8.html">
               <div class="img-box">
-
+                <img src="images/p8.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Watch
+                  cat protein food
                 </h6>
                 <h6>
                   Price
                   <span>
-                    $400
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Ring
-                </h6>
-                <h6>
-                  Price
-                  <span>
-                    $450
+                    £50
                   </span>
                 </h6>
               </div>
@@ -298,8 +308,15 @@
           </div>
         </div>
       </div>
+
+
+
+
+  
+        
+
       <div class="btn-box">
-        <a href="">
+        <a href="shop1.html">
           View All Products
         </a>
       </div>
@@ -307,7 +324,7 @@
   </section>
 
   <!-- end shop section -->
-
+   
   <!-- info section -->
 
   <section class="info_section  layout_padding2-top">
