@@ -43,7 +43,7 @@
                                 About Us
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ url('contact.html') }}">Get in Touch</a>
                         </li>
                     </ul>

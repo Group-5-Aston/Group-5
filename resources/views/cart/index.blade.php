@@ -48,7 +48,7 @@
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <span>Login</span>
                         </a>
-                        <a href="{{ url('basket.php') }}">
+                        <a href="basket.php" class="active">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                         </a>
                         <form class="form-inline">
