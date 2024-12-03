@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
@@ -28,8 +29,20 @@ Route::middleware(['admin'])->group(function () {
     // Add other admin routes here
 });
 
+// Home routes
+Route::get('/',[HomeController::class,'home'])->name('home');
 
-Route::get('/',[HomeController::class,'home']);
+ // Shop routes
+Route::get('/shop',[ShopController::class,'shop'])->name('shop');
+Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
+Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
+Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
+Route::get('/productx',[ShopController::class,'productPage'])->name('product');
+
+//About us page route
+Route::get('/why', function () {
+    return view('newpages.newwhy');
+})->name('why');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
