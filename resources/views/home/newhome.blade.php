@@ -1,4 +1,4 @@
-<x-newlayout>
+<x-newheader>
     <section class="slider_section">
         <div class="slider_container">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -346,8 +346,7 @@
     </div>
     <section></section>
 
-    <x-newfooter>
-    </x-newfooter>
-</x-newlayout>
+    @include ('components.newfooter')
+</x-newheader>
 
 
