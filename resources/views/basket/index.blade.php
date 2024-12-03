@@ -205,61 +205,47 @@
         </nav>
     </header>
 
+    <!-- Basket Section -->
+    <main class="basket-container">
+        <section class="basket-items">
+            <h1 class="basket-title">Basket</h1>
 
-    <!-- Checkout Section -->
-    <section class="checkout-container">
-        <!-- Checkout Items -->
-        <div class="checkout-details">
-            <h2 class="checkout-title">Your Items</h2>
-    @foreach($basket as $item)
-    <div class="item">
-        <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}">
-        <p class="item-name">{{ $item['name'] }}</p>
-        <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
-        <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
-    </div>
-@endforeach
-
-
-        </div>
+            @foreach($basket as $item)
+            <div class="item">
+                <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
+                <p class="item-name">{{ $item['name'] }}</p>
+                <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
+            </div>
+            @endforeach
+        </section>
 
         <!-- Order Summary -->
-        <div class="order-summary">
-            <h2 class="summary-title">Order Summary</h2>
-            <div class="summary-details">
-                <span>Subtotal:</span>
-                <span>£{{ number_format($subtotal, 2) }}</span>
-            </div>
-            <div class="summary-details">
-                <span>Shipping:</span>
-                <span>£{{ number_format($shipping, 2) }}</span>
-            </div>
-            <div class="summary-details">
-                <span>VAT:</span>
-                <span>£{{ number_format($subtotal, 2) }}</span>
-            </div>
-            <div class="summary-details summary-total">
-                <span>Total:</span>
-                <span>£{{ number_format($total, 2) }}</span>
-            </div>
-            <a href="{{ route('payment.index') }}" class="checkout-button">Proceed to Payment</a>
-        </div>
-    </section>
+<aside class="order-summary">
+    <h2 class="summary-title">Order Summary</h2>
+    
+    <div class="summary-details">
+        <p>Subtotal</p>
+        <p>£{{ number_format($subtotal, 2) }}</p>
+    </div>
+    <div class="summary-details">
+        <p>Shipping</p>
+        <p>£{{ number_format($shipping, 2) }}</p>
+    </div>
+    <div class="summary-details">
+        <p>V.A.T</p>
+        <p>£{{ number_format($vat, 2) }}</p>
+    </div>
+    <div class="summary-details summary-total">
+        <p>Total</p>
+        <p>£{{ number_format($total, 2) }}</p>
+    </div>
 
-    <!-- Footer Section -->
-    <footer class="footer_section">
-        <div class="container">
-            <p>
-                &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="#">Pup & Purr</a>
-            </p>
-        </div>
-    </footer>
+    <a href="{{ route('checkout.index') }}" class="basket-button">Continue to Checkout →</a>
+</aside>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
+
+
+    </main>
 </body>
 
 </html>
