@@ -1,31 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pup & Purr - Checkout</title>
     <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
 
-    <title>
-        Pup&Purr
-    </title>
-
-    <!-- slider stylesheet -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
-
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <!-- responsive style -->
-    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
     <style>
         body {
@@ -58,10 +43,6 @@
         .navbar-links {
             display: flex;
             gap: 20px;
-            align-items: center;
-            position: relative;
-            margin: 0%;
-            padding: 0%;
         }
 
         .navbar-links a {
@@ -69,17 +50,8 @@
             color: #426b1f;
             font-size: 16px;
             text-transform: uppercase;
-            padding: 10px;
-            display: inline-block;
         }
 
-        .nav-item.dropdown{
-            position: relative;
-        }
-
-        .navbar-links li{
-            list-style: none;
-        }
         .navbar-links a:hover {
             font-weight: bold;
         }
@@ -192,31 +164,37 @@
             font-size: 18px;
             margin-left: 10px;
         }
+
+        .checkout-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #426b1f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background: #355716;
+        }
     </style>
 </head>
 
 <body>
-<div class="hero_area">
-    <!-- header section strats -->
+    <!-- The Header Section -->
     <header>
         <nav class="navbar">
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <a class="navbar-brand" href="index.html">
                 <img src="images/logo.jpg" alt="Pup & Purr Logo" style="height: 75px;">
                 <span style="color: #426b1f; font-size: 28px; font-weight: bold;">Pup & Purr</span>
             </a>
 
             <div class="navbar-links">
-                <a href="{{ route('home') }}">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropbtn" href="{{ route('shop') }}">Shop</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('catshop') }}" class="dropdown-item">Cats</a></li>
-                        <li><a href="{{route('dogshop') }}" class="dropdown-item">Dogs</a></li>
-
-                    </ul>
-                </li>
-                <a href="{{route('why')}}">About Us</a>
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="why.html">About Us</a>
                 <a href="contact.html">Contact Us</a>
             </div>
 
@@ -226,11 +204,48 @@
             </div>
         </nav>
     </header>
-    <!-- end header section -->
 
-</div>
+    <!-- Basket Section -->
+    <main class="basket-container">
+        <section class="basket-items">
+            <h1 class="basket-title">Basket</h1>
 
-{{ $slot }}
+            @foreach($basket as $item)
+            <div class="item">
+                <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
+                <p class="item-name">{{ $item['name'] }}</p>
+                <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
+            </div>
+            @endforeach
+        </section>
+
+        <!-- Order Summary -->
+<aside class="order-summary">
+    <h2 class="summary-title">Order Summary</h2>
+    
+    <div class="summary-details">
+        <p>Subtotal</p>
+        <p>£{{ number_format($subtotal, 2) }}</p>
+    </div>
+    <div class="summary-details">
+        <p>Shipping</p>
+        <p>£{{ number_format($shipping, 2) }}</p>
+    </div>
+    <div class="summary-details">
+        <p>V.A.T</p>
+        <p>£{{ number_format($vat, 2) }}</p>
+    </div>
+    <div class="summary-details summary-total">
+        <p>Total</p>
+        <p>£{{ number_format($total, 2) }}</p>
+    </div>
+
+    <a href="{{ route('checkout.index') }}" class="basket-button">Continue to Checkout →</a>
+</aside>
+
+
+
+    </main>
 </body>
-</html>
 
+</html>
