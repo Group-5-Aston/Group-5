@@ -954,5 +954,34 @@ header {
   margin-bottom: 20px;
 }
 
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.item img {
+  width: 80px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.item-name {
+  flex: 1;
+  margin: 0 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.item-price {
+  font-weight: bold;
+  color: #7b8e4e;
+}
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
