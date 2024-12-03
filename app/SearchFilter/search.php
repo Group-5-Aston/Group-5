@@ -1,4 +1,5 @@
 namespace App\Models;
+<?php
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,3 +26,4 @@ public function brand()
 return $this->belongsTo(Brand::class);
 }
 }
+
