@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pup & Purr - Checkout</title>
+
+    <!-- Import Shared Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #fefbe6;
+            padding: 10px 20px;
+            border-bottom: 2px solid #7b8e4e;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: #426b1f;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .navbar-links a:hover {
+            font-weight: bold;
+        }
+
+        .navbar-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-icons a {
+            color: #426b1f;
+            font-size: 18px;
+        }
+
+        /* Checkout Page Styling */
+        .checkout-container {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .checkout-items,
+        .order-summary {
+            background-color: #fefefe;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(123, 142, 78, 0.2); /* Soft green shadow */
+            padding: 20px;
+        }
+
+        .checkout-items {
+            flex: 2;
+        }
+
+        .order-summary {
+            flex: 1;
+        }
+
+        .checkout-title {
+            font-size: 28px;
+            color: #426b1f; /* Primary green */
+            margin-bottom: 20px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .item img {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .item-name {
+            flex: 1;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #7b8e4e; /* Light green */
+        }
+
+        .summary-title {
+            font-size: 24px;
+            color: #426b1f; /* Primary green */
+            margin-bottom: 15px;
+        }
+
+        .summary-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-total {
+            font-weight: bold;
+            font-size: 18px;
+            color: #426b1f;
+        }
+
+        .checkout-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #7b8e4e; /* Button green */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background-color: #355716;
+        }
+
+        .checkout-button span {
+            margin-left: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section -->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.jpg" alt="Pup & Purr Logo">
+                <span style="color: #426b1f; font-size: 28px; font-weight: bold;">Pup & Purr</span>
+            </a>
+
+            <!-- Links Section -->
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <!-- Icons Section -->
+            <div class="navbar-icons">
+                <a href="account.html">
+                    <i class="fa fa-user"></i>
+                </a>
+                <a href="basket.html">
+                    <i class="fa fa-shopping-basket"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Checkout Section -->
+    <main class="checkout-container">
+        <!-- Checkout Items -->
+        <section class="checkout-items">
+            <h1 class="checkout-title">Basket</h1>
+            <div class="item">
+                <img src="cat-bed.jpg" alt="Cat Bed">
+                <p class="item-name">Cat Bed</p>
+                <p class="item-price">£15.99</p>
+            </div>
+            <div class="item">
+                <img src="dog-collar.jpg" alt="Luxury Dog Collar">
+                <p class="item-name">Luxury Dog Collar</p>
+                <p class="item-price">£32.00</p>
+            </div>
+            <div class="item">
+                <img src="cat-tower.jpg" alt="Cat Tower">
+                <p class="item-name">Cat Tower</p>
+                <p class="item-price">£70.00</p>
+            </div>
+        </section>
+
+        <!-- Order Summary -->
+        <aside class="order-summary">
+            <h2 class="summary-title">Order Summary</h2>
+            <div class="summary-details">
+                <p>Subtotal</p>
+                <p>£117.99</p>
+            </div>
+            <div class="summary-details">
+                <p>Shipping</p>
+                <p>£3.99</p>
+            </div>
+            <div class="summary-details">
+                <p>V.A.T</p>
+                <p>£2.00</p>
+            </div>
+            <div class="summary-details summary-total">
+                <p>Total</p>
+                <p>£123.98</p>
+            </div>
+            <button class="checkout-button">
+                Continue to Payment →
+            </button>
+        </aside>
+    </main>
+</body>
+
+</html>
+
+
