@@ -10,7 +10,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
 
     <title>
         Pup&Purr
@@ -20,12 +20,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
 
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- responsive style -->
-    <link href="css/responsive.css" rel="stylesheet" />
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -33,11 +33,11 @@
     <!-- header section strats -->
     <header class="header_section" style="background-color: #fefbe6;">
         <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="{{ route('home') }}">
           <span style="color: #426b1f;">
             Pup&Purr
           </span>
-                <img src="images/logo.jpg" alt="Logo" style="height: 60px; margin-right: 10px;">
+                <img src="{{ asset('images/logo.jpg') }}" alt="Logo" style="height: 60px; margin-right: 10px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class=""></span>
@@ -46,12 +46,12 @@
             <div class="collapse navbar-collapse innerpage_navbar" id="navbarSupportedContent" style="background-color: #CFDCC0;">
                 <ul class="navbar-nav">
                     <li class="nav-item ">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropbtn" href="/shop">Shop</a>
+                        <a class="nav-link dropbtn" href="{{ route('shop') }}">Shop</a>
                         <ul class="dropdown-menu">
-                            <li><a href="cat.html" class="dropdown-item">cats</a></li>
+                            <li><a href="{{ route('catshop') }}" class="dropdown-item">cats</a></li>
                             <li><a href="dog.html" class="dropdown-item">dogs</a></li>
                         </ul>
                     </li>

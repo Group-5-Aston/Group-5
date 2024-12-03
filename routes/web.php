@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
@@ -46,9 +47,11 @@ Route::middleware(['admin'])->group(function () {
 });
 
 
-Route::get('/',[HomeController::class,'home']);
+Route::get('/',[HomeController::class,'home'])->name('home');
 
-Route::get('/shop',[HomeController::class,'shop']);
+Route::get('/shop',[ShopController::class,'shop'])->name('shop');
+Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
+Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

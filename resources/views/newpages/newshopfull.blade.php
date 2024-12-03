@@ -211,15 +211,213 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <a href="p9.html">
+                            <div class="img-box">
 
-
-
-
-
+                                <img src="images/p9.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    dog toys
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
+                    £45
+                  </span>
+                                </h6>
+                            </div>
+                            <div class="new">
+                <span>
+                  New
+                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <a href="p10.html">
+                            <div class="img-box">
+                                <img src="images/p10.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    cat toys
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
+                    £55
+                  </span>
+                                </h6>
+                            </div>
+                            <div class="new">
+                <span>
+                  New
+                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <a href="p11.html">
+                            <div class="img-box">
+                                <img src="images/p11.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    dog shampoo
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
+                    £10
+                  </span>
+                                </h6>
+                            </div>
+                            <div class="new">
+                <span>
+                  New
+                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <a href="p12.html">
+                            <div class="img-box">
+                                <img src="images/p12.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    cat shampoo
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
+                    £15
+                  </span>
+                                </h6>
+                            </div>
+                            <div class="new">
+                <span>
+                  New
+                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <a href="p13.html">
+                            <div class="img-box">
+                                <img src="images/p13.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    dog bed
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
+                    £35
+                  </span>
+                                </h6>
+                            </div>
+                            <div class="new">
+                <span>
+                  New
+                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <a href="p14.html">
+                            <div class="img-box">
+                                <img src="images/p14.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    cat bed
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
+                    £10
+                  </span>
+                                </h6>
+                            </div>
+                            <div class="new">
+                <span>
+                  New
+                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <a href="p15.html">
+                            <div class="img-box">
+                                <img src="images/p15.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    cat dental products
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
+                    £20
+                  </span>
+                                </h6>
+                            </div>
+                            <div class="new">
+                <span>
+                  New
+                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <a href="p16.html">
+                            <div class="img-box">
+                                <img src="images/p16.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    dog dental products
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
+                    £50
+                  </span>
+                                </h6>
+                            </div>
+                            <div class="new">
+                <span>
+                  New
+                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <div class="btn-box">
-                <a href="{{ route('fullshop') }}">
-                    View All Products
+                <a href="{{ route('shop') }}">
+                    View less Products
                 </a>
             </div>
         </div>
