@@ -1,18 +1,17 @@
- 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
- 
-    <meta charset="UTF-8">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pup & Purr - Basket</title>
-    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+    <title>Pup & Purr - Checkout</title>
+    <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
 
-   
-    <!-- main styles of the project -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
-    
     <style>
         body {
             font-family: "Poppins", sans-serif;
@@ -165,6 +164,21 @@
             font-size: 18px;
             margin-left: 10px;
         }
+
+        .checkout-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #426b1f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background: #355716;
+        }
     </style>
 </head>
 
@@ -191,47 +205,46 @@
         </nav>
     </header>
 
-    <!-- THE Basket Section -->
+    <!-- Basket Section -->
     <main class="basket-container">
         <section class="basket-items">
             <h1 class="basket-title">Basket</h1>
+
+            @foreach($basket as $item)
             <div class="item">
-                <img src="images/cat bed.webp" alt="Cat Bed">
-                <p class="item-name">Cat Bed</p>
-                <p class="item-price">£15.99</p>
+                <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
+                <p class="item-name">{{ $item['name'] }}</p>
+                <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
             </div>
-            <div class="item">
-                <img src="images/dog collar.jpg" alt="Luxury Dog Collar">
-                <p class="item-name">Luxury Dog Collar</p>
-                <p class="item-price">£32.00</p>
-            </div>
-            <div class="item">
-                <img src="images/cat tower.jpg" alt="Cat Tower">
-                <p class="item-name">Cat Tower</p>
-                <p class="item-price">£70.00</p>
-            </div>
+            @endforeach
         </section>
 
-        <aside class="order-summary">
-            <h2 class="summary-title">Order Summary</h2>
-            <div class="summary-details">
-                <p>Subtotal</p>
-                <p>£117.99</p>
-            </div>
-            <div class="summary-details">
-                <p>Shipping</p>
-                <p>£3.99</p>
-            </div>
-            <div class="summary-details">
-                <p>V.A.T</p>
-                <p>£2.00</p>
-            </div>
-            <div class="summary-details summary-total">
-                <p>Total</p>
-                <p>£123.98</p>
-            </div>
-            <a href="checkout" class="basket-button">Continue to Checkout →</a>
-        </aside>
+        <!-- Order Summary -->
+<aside class="order-summary">
+    <h2 class="summary-title">Order Summary</h2>
+    
+    <div class="summary-details">
+        <p>Subtotal</p>
+        <p>£{{ number_format($subtotal, 2) }}</p>
+    </div>
+    <div class="summary-details">
+        <p>Shipping</p>
+        <p>£{{ number_format($shipping, 2) }}</p>
+    </div>
+    <div class="summary-details">
+        <p>V.A.T</p>
+        <p>£{{ number_format($vat, 2) }}</p>
+    </div>
+    <div class="summary-details summary-total">
+        <p>Total</p>
+        <p>£{{ number_format($total, 2) }}</p>
+    </div>
+
+    <a href="{{ route('checkout.index') }}" class="basket-button">Continue to Checkout →</a>
+</aside>
+
+
+
     </main>
 </body>
 
