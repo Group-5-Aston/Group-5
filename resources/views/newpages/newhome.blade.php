@@ -7,7 +7,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="detail-box">
+                                    <div class="detail-box" style="background-color: ;">
                                         <h1>
                                             Welcome To Our <br>
                                             Pet Shop
@@ -57,7 +57,7 @@
                         <a href="p1.html">
                             <div class="img-box">
 
-                                <img src = "images/ring_img.jpg" alt="ring" style="width: 100%; height: auto;"></src>
+                                <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
                             </div>
                             <div class="detail-box">
                                 <h6>
@@ -81,9 +81,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="">
+                        <a href="p2.html">
                             <div class="img-box">
-
+                                <img src="images/p2.jpg" alt="p2" style="width: 100%; height: auto;"></src>
                             </div>
                             <div class="detail-box">
                                 <h6>
@@ -106,9 +106,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="">
+                        <a href="p3.html">
                             <div class="img-box">
-
+                                <img src="images/p3.jpg" alt="p2" style="width: 100%; height: auto;"></src>
                             </div>
                             <div class="detail-box">
                                 <h6>
@@ -131,9 +131,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="">
+                        <a href="p4.html">
                             <div class="img-box">
-
+                                <img src="images/p4.jpg" alt="p2" style="width: 100%; height: auto;"></src>
                             </div>
                             <div class="detail-box">
                                 <h6>
@@ -156,9 +156,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="">
+                        <a href="p5.html">
                             <div class="img-box">
-
+                                <img src="images/p5.jpg" alt="p2" style="width: 100%; height: auto;"></src>
                             </div>
                             <div class="detail-box">
                                 <h6>
@@ -181,9 +181,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="">
+                        <a href="p6.html">
                             <div class="img-box">
-
+                                <img src="images/p6.jpg" alt="p2" style="width: 100%; height: auto;"></src>
                             </div>
                             <div class="detail-box">
                                 <h6>
@@ -206,9 +206,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="">
+                        <a href="p7.html">
                             <div class="img-box">
-
+                                <img src="images/p7.jpg" alt="p2" style="width: 100%; height: auto;"></src>
                             </div>
                             <div class="detail-box">
                                 <h6>
@@ -231,9 +231,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="">
+                        <a href="p8.html">
                             <div class="img-box">
-
+                                <img src="images/p8.jpg" alt="p2" style="width: 100%; height: auto;"></src>
                             </div>
                             <div class="detail-box">
                                 <h6>
@@ -262,19 +262,12 @@
 
 
             <section>
-                <div class="banner">
-                    <img class="banner-img"
-                         src=" images/dog1_img.JPG"
-                         alt="banner-img">
-                    <div class="banner-content">
-                        <h4>Products for your pets you cant resist
-                        </h4>
-                        <a id="shop-now" href="shop.html">buy now</a>
-                    </div>
-                </div>\
+
+                <a id="shop-now" href="shop.html" >buy now</a>
+
             </section>
 
-            //edit
+            <section> </section>
             <!-- Testimonial Section -->
             <section class="testimonial_section">
 
@@ -322,7 +315,7 @@
     </section>
     <!-- Include Swiper JS and CSS -->
 
-    //edit
+
     <link
         rel="stylesheet"
         href="https://unpkg.com/swiper/swiper-bundle.min.css"
