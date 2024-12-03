@@ -876,5 +876,35 @@ header {
   height: 50px;
 }
 
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #426b1f;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.navbar-links a:hover {
+  font-weight: bold;
+}
+
+.navbar-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-icons a {
+  color: #426b1f;
+  font-size: 20px;
+}
+
+.navbar-icons a:hover {
+  color: #355716;
+}
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
