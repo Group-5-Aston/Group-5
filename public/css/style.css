@@ -842,6 +842,21 @@ a:focus {
   color: #ffffff;
 }
 /* end info section */
+
+/*banner section*/
+#shop-now{display: inline-block; margin-top: 10px; padding: 10px 20px;background-color:#426b1f; color: white;}
+#shop-now:hover{background-color: #0f1609;} section{padding-top: 2rem;}
+.banner{position:relative; text-align: center;margin-top: 2rem;}
+.banner-content{position: absolute;top: 50%;left: 50%; 
+transform: translate(-50%, -50%);background-color: rgba(0, 0, 0, 0.1); color:white; padding: 20px; border: radius 5px; }
+.banner-img{width: 60%;height: 50%;}
+/*end of banner*/
+/* fitting the images*/
+.img-box{overflow: hidden; display: flex;align-items: center;width: 100%; height: 100%;background-color: transparent;justify-content: center;}
+/*producta hover zoom*/
+.shop_section .box{transition: transform 0.3s ease-in-out;}
+.shop_section .box:hover{transform: scale(1.1);}
+
 /* footer section*/
 
 footer {
