@@ -4,21 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    // Display the contents of the cart
     public function index()
     {
-        // Get the cart from the session or an empty array if no cart exists
+        // Get the cart from the session
         $cart = session()->get('cart', []);
-
+    
         // Calculate the total price of items in the cart
         $total = array_reduce($cart, function ($sum, $item) {
             return $sum + ($item['price'] * $item['quantity']);
         }, 0);
+    
+        $userName = Auth::check() ? Auth::user()->name : 'Guest';
+        
 
-        // Return the cart view with cart items and total price
+        // Return the cart view with cart items, total price, and user name
         return view('cart.index', compact('cart', 'total'));
     }
 
