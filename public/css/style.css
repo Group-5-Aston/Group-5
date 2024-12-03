@@ -906,5 +906,28 @@ header {
   color: #355716;
 }
 
+/* Dropdown Menu area */
+.dropdown-menu {
+  position: absolute;
+  display: none;
+  background: #fff;
+  border: 1px solid #7b8e4e;
+  border-radius: 5px;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  color: #426b1f;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background: #eaf6e1;
+}
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
