@@ -46,14 +46,19 @@ Route::middleware(['admin'])->group(function () {
     // Add other admin routes here
 });
 
-
+// Home routes
 Route::get('/',[HomeController::class,'home'])->name('home');
 
+ // Shop routes
 Route::get('/shop',[ShopController::class,'shop'])->name('shop');
 Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
 Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
 Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
 
+//About us page route
+Route::get('/why', function () {
+    return view('newpages.newwhy');
+})->name('why');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

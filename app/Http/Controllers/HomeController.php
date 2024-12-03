@@ -13,8 +13,4 @@ class HomeController extends Controller
     public function home() {
         return view('newpages.newhome');
     }
-
-    public function shop() {
-        return view('newpages.newshop');
-    }
 }
