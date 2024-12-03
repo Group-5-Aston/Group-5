@@ -983,5 +983,39 @@ header {
   color: #7b8e4e;
 }
 
+/* Order Summary */
+.summary-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.summary-total {
+  font-size: 18px;
+  font-weight: bold;
+  color: #426b1f;
+}
+
+/* the Buttons */
+.checkout-button {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: #426b1f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background: #355716;
+}
+
+
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
