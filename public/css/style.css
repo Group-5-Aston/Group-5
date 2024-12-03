@@ -929,5 +929,30 @@ header {
   background: #eaf6e1;
 }
 
+/* Basket Section */
+.basket-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.basket-items,
+.order-summary {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(123, 142, 78, 0.3);
+}
+
+.basket-title,
+.summary-title {
+  font-size: 28px;
+  color: #426b1f;
+  margin-bottom: 20px;
+}
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
