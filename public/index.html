@@ -71,6 +71,10 @@
       .navbar-links {
           display: flex;
           gap: 20px;
+          align-items: center;
+          position: relative;
+          margin: 0%;
+          padding: 0%;
       }
 
       .navbar-links a {
@@ -78,8 +82,17 @@
           color: #426b1f;
           font-size: 16px;
           text-transform: uppercase;
+          padding: 10px;
+          display: inline-block;
       }
+      
+.nav-item.dropdown{
+  position: relative;
+}
 
+.navbar-links li{
+  list-style: none;
+}
       .navbar-links a:hover {
           font-weight: bold;
       }
@@ -207,11 +220,15 @@
 
           <div class="navbar-links">
               <a href="index.html">Home</a>
-              <a href="shop.html">Shop</a>
-              <ul class="dropdown-menu">
-                <li><a href="cat.html" class="dropdown-item">Cats</a></li>
-                <li><a href="dog.html" class="dropdown-item">Dogs</a></li>     
-            </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropbtn" href="shop.html">Shop</a>
+                <ul class="dropdown-menu">
+                    <li><a href="cat.html" class="dropdown-item">Cats</a></li>
+                    <li><a href="dog.html" class="dropdown-item">Dogs</a></li>
+                    
+                </ul>
+            </li>
               <a href="why.html">About Us</a>
               <a href="contact.html">Contact Us</a>
           </div>
