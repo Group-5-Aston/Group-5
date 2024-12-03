@@ -1,18 +1,21 @@
 <x-newheader>
     <section class="slider_section">
-        <div class="slider_container">
+        <div class="slider_container" style="background-color: #fefbe6;">
+
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="detail-box" style="background-color: ;">
-                                        <h1>
+                                    <div class="detail-box">
+                                        <h1 style="-webkit-text-fill-color: #355716;">
                                             Welcome To Our <br>
                                             Pet Shop
                                         </h1>
-                                        <p>
+                                        <p></p>
+                                        <p></p>
+                                        <p style="-webkit-text-fill-color: #294313;">
 
                                             Your pets deserve the very best, and we’re here to deliver! Explore our wide range of stylish pet clothing, delicious treats, and essential supplies for cats and dogs. Whether you’re pampering your furry companion or stocking up on the basics, we’ve got everything you need to keep them happy, healthy, and looking their best.                      </p>
                                         <a href="contact.html">
@@ -22,9 +25,9 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-md-5 ">
-                                    <div class="img-box">
-                                        <img src="images/mainbanner.jpg" alt="Pet Shop" class="img-fluid full-width-img">
+                                <div class="col-md-5">
+                                    <div class="img-box" style="padding-top: 10px; position: relative;">
+                                        <img src="images/logo.jpg" alt="Pet Shop" class="img-fluid" style="width: 100%; height: auto; position: relative; left: -20px; top: 10px;">
                                     </div>
                                 </div>
                             </div>
@@ -44,14 +47,14 @@
 
     <!-- shop section -->
 
-    <section class="shop_section layout_padding">
+    <section class="shop_section layout_padding" style="padding-top: 0px;">
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
                     Latest Products
                 </h2>
             </div>
-            <div class="row">
+            <div class="row" style="padding-top: 20px;">
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
                         <a href="p1.html">
@@ -61,7 +64,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    bundle- dogfood
+                                    Bundle- Dogfood
                                 </h6>
                                 <h6>
                                     Price
@@ -87,7 +90,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    bundle- catfood
+                                    Bundle- Catfood
                                 </h6>
                                 <h6>
                                     Price
@@ -112,7 +115,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    dog biscuits
+                                    Dog biscuits
                                 </h6>
                                 <h6>
                                     Price
@@ -137,7 +140,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    cat biscuits
+                                    Cat biscuits
                                 </h6>
                                 <h6>
                                     Price
@@ -162,7 +165,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    protein dog food
+                                    Protein dog food
                                 </h6>
                                 <h6>
                                     Price
@@ -187,7 +190,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    wet mixed dog food
+                                    Wet mixed dog food
                                 </h6>
                                 <h6>
                                     Price
@@ -212,7 +215,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    wet mixed cat food
+                                    Wet mixed cat food
                                 </h6>
                                 <h6>
                                     Price
@@ -237,7 +240,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    cat protein food
+                                    Cat protein food
                                 </h6>
                                 <h6>
                                     Price
@@ -263,81 +266,101 @@
 
             <section>
 
-                <a id="shop-now" href="shop.html" >buy now</a>
+                <div class="btn-box" style="padding-top: 0px">
+                    <a href="shop1.html">
+                        Buy Now
+                    </a>
+                </div>
 
             </section>
 
             <section> </section>
-            <!-- Testimonial Section -->
-            <section class="testimonial_section">
+            <section class="client_section layout_padding" style="padding-top: 10px;">
 
                 <div class="heading_container heading_center">
-                    <h2>What Our Customers Say</h2>
+                    <h2>
+                        Customer reviews
+                    </h2>
                 </div>
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <!-- Testimonial 1 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial_box">
-                                <p>
-                                    "Pup&Purr has the best pet products! My dog loves his new toy, and the delivery was super fast. Highly recommend!"
-                                </p>
-                                <h5>- Sarah L.</h5>
+
+                <div class="container px-0" style="padding-top: 20px;">
+                    <div id="customCarousel2" class="carousel  carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="box" style="background-color: #ffffff;">
+                                    <div class="client_info">
+                                        <div class="client_name">
+                                            <h5>
+                                                Harry M
+                                            </h5>
+                                            <h6>
+                                                "You cannot go wrong with these products"
+                                            </h6>
+                                        </div>
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        "I recently bought a puppy and purchased come products from this website. May i say not a penny gone to waste.""           </p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="box" style="background-color: #ffffff;">
+                                    <div class="client_info">
+                                        <div class="client_name">
+                                            <h5>
+                                                Brian H.
+                                            </h5>
+                                            <h6>
+                                                "these products blew my mind away"
+                                            </h6>
+                                        </div>
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        "Ive purchased items from other pet websites but none seemed to do the job. After buying the cat bed for my kitten, it shocked my how the quality was so good."
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="box" style="background-color: #ffffff;">
+                                    <div class="client_info">
+                                        <div class="client_name">
+                                            <h5>
+                                                Sarah L.
+                                            </h5>
+                                            <h6>
+                                                " excellent service!"
+                                            </h6>
+                                        </div>
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        "Had i have known this pet website offered 0 shipping fee and fast delivery i would have been buying from this store years ago" </p>
+                                </div>
                             </div>
                         </div>
-                        <!-- Testimonial 2 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial_box">
-                                <p>
-                                    "I bought a bundle of treats for my cat and she can't get enough of them. Excellent quality and customer service!"
-                                </p>
-                                <h5>- John D.</h5>
-                            </div>
+                        <div class="carousel_btn-box">
+                            <a class="carousel-control-prev" href="#customCarousel2" role="button" data-slide="prev">
+                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#customCarousel2" role="button" data-slide="next">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                        <!-- Testimonial 3 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial_box">
-                                <p>
-                                    "Amazing experience shopping here! I found everything I needed for my pets at great prices."
-                                </p>
-                                <h5>- Emily W.</h5>
-                            </div>
-                        </div>
-                        <!-- Add more testimonials as needed -->
                     </div>
-                    <!-- Add Navigation -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
                 </div>
+            </section>
+            <!-- end client review section -->
+
+            <!-- client review section -->
+
+            <!-- end client review section -->
+
         </div>
-    </section>
-    <!-- Include Swiper JS and CSS -->
 
-
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
-    <script>
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-    </script>
-    </div>
-    <section></section>
+        <section></section>
 
     @include ('components.newfooter')
 </x-newheader>
