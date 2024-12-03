@@ -17,4 +17,8 @@ class ShopController extends Controller
     public function catShop() {
         return view('newpages.newcat');
     }
+
+    public function dogShop() {
+        return view('newpages.newdog');
+    }
 }

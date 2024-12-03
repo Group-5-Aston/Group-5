@@ -52,6 +52,8 @@ Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/shop',[ShopController::class,'shop'])->name('shop');
 Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
 Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
+Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

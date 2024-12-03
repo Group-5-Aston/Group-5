@@ -52,7 +52,7 @@
                         <a class="nav-link dropbtn" href="{{ route('shop') }}">Shop</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('catshop') }}" class="dropdown-item">cats</a></li>
-                            <li><a href="dog.html" class="dropdown-item">dogs</a></li>
+                            <li><a href="{{ route ('dogshop') }}" class="dropdown-item">dogs</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
