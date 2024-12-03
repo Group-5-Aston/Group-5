@@ -48,6 +48,8 @@ Route::middleware(['admin'])->group(function () {
 
 Route::get('/',[HomeController::class,'home']);
 
+Route::get('/shop',[HomeController::class,'shop']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

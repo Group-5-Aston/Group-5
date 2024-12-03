@@ -33,7 +33,7 @@
     <!-- header section strats -->
     <header class="header_section" style="background-color: #fefbe6;">
         <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
           <span style="color: #426b1f;">
             Pup&Purr
           </span>
@@ -46,10 +46,10 @@
             <div class="collapse navbar-collapse innerpage_navbar" id="navbarSupportedContent" style="background-color: #CFDCC0;">
                 <ul class="navbar-nav">
                     <li class="nav-item ">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropbtn" href="shop.html">Shop</a>
+                        <a class="nav-link dropbtn" href="/shop">Shop</a>
                         <ul class="dropdown-menu">
                             <li><a href="cat.html" class="dropdown-item">cats</a></li>
                             <li><a href="dog.html" class="dropdown-item">dogs</a></li>
