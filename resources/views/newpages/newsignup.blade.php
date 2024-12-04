@@ -23,7 +23,7 @@
                 </div>
                 <button type="submit" style="width: 100%; padding: 12px; background-color: #426b1f; color: #ffffff; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer;">Sign Up</button>
             </form>
-            <p style="margin-top: 16px; font-size: 14px; color: #000;">Already have an account? <a href="login.html" style="color: #426b1f; text-decoration: none;">Log in here.</a></p>
+            <p style="margin-top: 16px; font-size: 14px; color: #000;">Already have an account? <a href="{{route('loginpage')}}" style="color: #426b1f; text-decoration: none;">Log in here.</a></p>
         </div>
     </section>
 
