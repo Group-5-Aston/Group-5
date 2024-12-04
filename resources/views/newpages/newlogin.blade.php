@@ -16,13 +16,13 @@
                 </div>
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label>
-                        <input type="checkbox" name="keep_logged_in" style="margin-right: 6px;"> Keep me logged in
+                        <input type="checkbox" id="remember_me" name="remember" style="margin-right: 6px;"> Keep me logged in
                     </label>
                 </div>
                 <button type="submit" style="width: 100%; padding: 12px; background-color: #426b1f; color: #ffffff; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer;">Log in</button>
             </form>
             <p style="margin-top: 16px; font-size: 14px; color: #000;">
-                <a href="" style="color: #426b1f; text-decoration: none;">Forgot password?</a>
+                <a href="{{ route('password.request') }}" style="color: #426b1f; text-decoration: none;">Forgot password?</a>
             </p>
             <p style="margin-top: 16px; font-size: 14px; color: #000;">Don't have an account? <a href="{{ route('signup') }}" style="color: #426b1f; text-decoration: none;">Sign up here.</a></p>
         </div>
