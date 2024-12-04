@@ -45,6 +45,11 @@ Route::get('/why', function () {
     return view('newpages.newwhy');
 })->name('why');
 
+//Contact us page route
+Route::get('/contact', function () {
+    return view('newpages.newcontact');
+})->name('contact');
+
 Route::get('/products/filter', 'ProductController@filter');
 
 Route::get('/dashboard', function () {

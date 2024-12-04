@@ -217,7 +217,7 @@
                     </ul>
                 </li>
                 <a href="{{route('why')}}">About Us</a>
-                <a href="contact.html">Contact Us</a>
+                <a href="{{ route('contact') }}">Contact Us</a>
             </div>
 
             <div class="navbar-icons">
