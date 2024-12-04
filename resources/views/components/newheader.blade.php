@@ -1,18 +1,32 @@
- 
- <!DOCTYPE html>
-<html lang="en">
-    <head>
- 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pup & Purr - Basket</title>
-    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
 
-   
-    <!-- main styles of the project -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>
+        Pup&Purr
+    </title>
 
-    
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- responsive style -->
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+
     <style>
         body {
             font-family: "Poppins", sans-serif;
@@ -44,6 +58,10 @@
         .navbar-links {
             display: flex;
             gap: 20px;
+            align-items: center;
+            position: relative;
+            margin: 0%;
+            padding: 0%;
         }
 
         .navbar-links a {
@@ -51,8 +69,17 @@
             color: #426b1f;
             font-size: 16px;
             text-transform: uppercase;
+            padding: 10px;
+            display: inline-block;
         }
 
+        .nav-item.dropdown{
+            position: relative;
+        }
+
+        .navbar-links li{
+            list-style: none;
+        }
         .navbar-links a:hover {
             font-weight: bold;
         }
@@ -169,18 +196,27 @@
 </head>
 
 <body>
-    <!-- The Header Section -->
+<div class="hero_area">
+    <!-- header section strats -->
     <header>
         <nav class="navbar">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="images/logo.jpg" alt="Pup & Purr Logo" style="height: 75px;">
                 <span style="color: #426b1f; font-size: 28px; font-weight: bold;">Pup & Purr</span>
             </a>
 
             <div class="navbar-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="why.html">About Us</a>
+                <a href="{{ route('home') }}">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropbtn" href="{{ route('shop') }}">Shop</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('catshop') }}" class="dropdown-item">Cats</a></li>
+                        <li><a href="{{route('dogshop') }}" class="dropdown-item">Dogs</a></li>
+
+                    </ul>
+                </li>
+                <a href="{{route('why')}}">About Us</a>
                 <a href="contact.html">Contact Us</a>
             </div>
 
@@ -190,49 +226,11 @@
             </div>
         </nav>
     </header>
+    <!-- end header section -->
 
-    <!-- THE Basket Section -->
-    <main class="basket-container">
-        <section class="basket-items">
-            <h1 class="basket-title">Basket</h1>
-            <div class="item">
-                <img src="images/cat bed.webp" alt="Cat Bed">
-                <p class="item-name">Cat Bed</p>
-                <p class="item-price">£15.99</p>
-            </div>
-            <div class="item">
-                <img src="images/dog collar.jpg" alt="Luxury Dog Collar">
-                <p class="item-name">Luxury Dog Collar</p>
-                <p class="item-price">£32.00</p>
-            </div>
-            <div class="item">
-                <img src="images/cat tower.jpg" alt="Cat Tower">
-                <p class="item-name">Cat Tower</p>
-                <p class="item-price">£70.00</p>
-            </div>
-        </section>
+</div>
 
-        <aside class="order-summary">
-            <h2 class="summary-title">Order Summary</h2>
-            <div class="summary-details">
-                <p>Subtotal</p>
-                <p>£117.99</p>
-            </div>
-            <div class="summary-details">
-                <p>Shipping</p>
-                <p>£3.99</p>
-            </div>
-            <div class="summary-details">
-                <p>V.A.T</p>
-                <p>£2.00</p>
-            </div>
-            <div class="summary-details summary-total">
-                <p>Total</p>
-                <p>£123.98</p>
-            </div>
-            <a href="checkout" class="basket-button">Continue to Checkout →</a>
-        </aside>
-    </main>
+{{ $slot }}
 </body>
-
 </html>
+

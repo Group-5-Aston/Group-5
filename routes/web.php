@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 
@@ -13,28 +14,11 @@ Route::post('/payment', [PaymentController::class, 'process'])->name('payment.pr
 
 
 
-// Define the route for getting the cart data
-Route::get('/cart', [CartController::class, 'getCart'])->name('cart.get');
-Route::prefix('cart')->group(function () {
-    // View cart contents
-    Route::get('/', [CartController::class, 'index'])->name('cart.index');
+Route::get('/basket', [BasketController::class, 'showBasket'])->name('basket');
 
-    // Add an item to the cart
-    Route::post('/add/{productId}', [CartController::class, 'add'])->name('cart.add');
-
-    // Update the quantity of an item
-    Route::post('/update', [CartController::class, 'update'])->name('cart.update');
-
-    // Remove an item from the cart
-    Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
-
-    // Clear the entire cart
-    Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
-
-    // Get the cart data (e.g., for AJAX requests)
-    Route::get('/get', [CartController::class, 'getCart'])->name('cart.get');
-});
-
+Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
+Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
+Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.index');
 
 //Route::middleware(['auth', 'check.cart'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
@@ -46,8 +30,20 @@ Route::middleware(['admin'])->group(function () {
     // Add other admin routes here
 });
 
+// Home routes
+Route::get('/',[HomeController::class,'home'])->name('home');
 
-Route::get('/',[HomeController::class,'home']);
+ // Shop routes
+Route::get('/shop',[ShopController::class,'shop'])->name('shop');
+Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
+Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
+Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
+Route::get('/productx',[ShopController::class,'productPage'])->name('product');
+
+//About us page route
+Route::get('/why', function () {
+    return view('newpages.newwhy');
+})->name('why');
 
 Route::get('/products/filter', 'ProductController@filter');
 

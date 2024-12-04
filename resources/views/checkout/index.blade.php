@@ -3,159 +3,263 @@
 
 <head>
     <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pup & Purr - Checkout</title>
     <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
-    <title>Pup&Purr | Checkout</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" />
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* the top header styles and designs  */
+        header {
+            background: #fefbe6;
+            padding: 10px 20px;
+            border-bottom: 2px solid #7b8e4e;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: #426b1f;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .navbar-links a:hover {
+            font-weight: bold;
+        }
+
+        .navbar-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-icons a {
+            color: #426b1f;
+            font-size: 18px;
+        }
+
+        /*The  Basket Page */
+        .basket-container {
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .basket-items,
+        .order-summary {
+            padding: 20px;
+            background: #fefefe;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(123, 142, 78, 0.2);
+        }
+
+        .basket-items {
+            flex: 2;
+        }
+
+        .order-summary {
+            flex: 1;
+        }
+
+        .basket-title {
+            font-size: 28px;
+            color: #426b1f;
+            margin-bottom: 20px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .item img {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .item-name {
+            flex: 1;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #7b8e4e;
+        }
+
+        .summary-title {
+            font-size: 24px;
+            color: #426b1f;
+            margin-bottom: 15px;
+        }
+
+        .summary-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-total {
+            font-size: 18px;
+            font-weight: bold;
+            color: #426b1f;
+        }
+
+        .basket-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #426b1f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .basket-button:hover {
+            background: #355716;
+        }
+
+        .basket-button span {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        .checkout-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #426b1f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background: #355716;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="hero_area">
-        <!-- header section starts -->
-        <header class="header_section" style="background-color: #fefbe6;">
-            <nav class="navbar navbar-expand-lg custom_nav-container">
-                <a class="navbar-brand" href="{{ url('index.html') }}">
-                    <span style="color: #426b1f;">
-                        Pup&Purr
-                    </span>
-                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo" style="height: 60px; margin-right: 10px;">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class=""></span>
-                </button>
+    <!-- The Header Section -->
+    <header>
+        <nav class="navbar">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.jpg" alt="Pup & Purr Logo" style="height: 75px;">
+                <span style="color: #426b1f; font-size: 28px; font-weight: bold;">Pup & Purr</span>
+            </a>
 
-                <div class="collapse navbar-collapse innerpage_navbar" id="navbarSupportedContent" style="background-color: #CFDCC0;">
-                    <ul class="navbar-nav">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ url('index.html') }}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('shop.html') }}">
-                                Shop
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('why.html') }}">
-                                About Us
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('contact.html') }}">Get in Touch</a>
-                        </li>
-                    </ul>
-                    <div class="user_option">
-                        <a href="{{ url('login.html') }}">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>
-                                Login
-                            </span>
-                        </a>
-                        <a href="{{ url('basket.php') }}">
-                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                        </a>
-                        <form class="form-inline">
-                            <button class="btn nav_search-btn" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <!-- end header section -->
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="why.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="navbar-icons">
+                <a href="login.html"><i class="fa fa-user"></i></a>
+                <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Checkout Section -->
+    <section class="checkout-container">
+        <!-- Checkout Items -->
+        <div class="checkout-details">
+            <h2 class="checkout-title">Your Items</h2>
+    @foreach($basket as $item)
+    <div class="item">
+        <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}">
+        <p class="item-name">{{ $item['name'] }}</p>
+        <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
+        <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
     </div>
-    <!-- end hero area -->
+@endforeach
 
-    <!-- checkout section -->
-    <section class="checkout_section layout_padding" style="padding-top: 48px">
-        <div class="container">
-            <div class="heading_container">
-                <h2>Checkout</h2>
-            </div>
 
-            <div class="row">
-                <!-- Cart items will be populated dynamically -->
-                @foreach ($cart as $item)
-                <div class="col-md-12 cart-item" data-item-id="{{ $item['id'] }}">
-                    <div class="cart-item-details">
-                        <span>{{ $item['name'] }}</span>
-                        <span>${{ number_format($item['price'], 2) }}</span>
-                        <span>Quantity: {{ $item['quantity'] }}</span>
-                        <span>Total: ${{ number_format($item['price'] * $item['quantity'], 2) }}</span>
-                    </div>
-                </div>
-                @endforeach
-            </div>
+        </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="total-price">
-                        <p><strong>Total Price:</strong> ${{ number_format($totalPrice, 2) }}</p>
-                    </div>
-                    <a href="{{ route('payment.index') }}" class="btn btn-success btn-block">Proceed to Payment</a>
-                </div>
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h2 class="summary-title">Order Summary</h2>
+            <div class="summary-details">
+                <span>Subtotal:</span>
+                <span>£{{ number_format($subtotal, 2) }}</span>
             </div>
+            <div class="summary-details">
+                <span>Shipping:</span>
+                <span>£{{ number_format($shipping, 2) }}</span>
+            </div>
+            <div class="summary-details">
+                <span>VAT:</span>
+                <span>£{{ number_format($subtotal, 2) }}</span>
+            </div>
+            <div class="summary-details summary-total">
+                <span>Total:</span>
+                <span>£{{ number_format($total, 2) }}</span>
+            </div>
+            <a href="{{ route('payment.index') }}" class="checkout-button">Proceed to Payment</a>
         </div>
     </section>
-    <!-- end checkout section -->
 
-    <!-- footer section -->
+    <!-- Footer Section -->
     <footer class="footer_section">
         <div class="container">
             <p>
                 &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="https://html.design/">Pup&Purr</a>
+                <a href="#">Pup & Purr</a>
             </p>
         </div>
     </footer>
-    <!-- footer section -->
-    </section>
 
+    <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-
-    <script>
-        // Fetch the current cart data on page load
-        $(document).ready(function () {
-            loadCart();
-
-            // Load cart items for checkout page
-            function loadCart() {
-                $.ajax({
-                    url: '{{ route('cart.get') }}',
-                    method: 'GET',
-                    success: function(response) {
-                        const cartData = response;
-                        const cartItemsContainer = $('#cart-items');
-                        cartItemsContainer.empty();  // Clear existing items
-
-                        let total = 0;
-                        cartData.items.forEach(item => {
-                            cartItemsContainer.append(`
-                                <div class="col-md-12 cart-item" data-item-id="${item.id}">
-                                    <div class="cart-item-details">
-                                        <span>${item.name}</span>
-                                        <span>$${item.price}</span>
-                                        <span>Quantity: ${item.quantity}</span>
-                                        <span>Total: $${(item.price * item.quantity).toFixed(2)}</span>
-                                    </div>
-                                </div>
-                            `);
-                            total += item.price * item.quantity;
-                        });
-
-                        // Update total price
-                        $('#cart-total').text(total.toFixed(2));
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>
