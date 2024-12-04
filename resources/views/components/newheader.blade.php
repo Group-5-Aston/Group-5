@@ -11,6 +11,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
         Pup&Purr
@@ -222,6 +223,7 @@
 
             <div class="navbar-icons">
                 <a href="{{ route('loginpage') }}"><i class="fa fa-user"></i></a>
+                {{ Auth::check() ? Auth::user()->name : 'Log In'; }}
                 <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
             </div>
         </nav>
