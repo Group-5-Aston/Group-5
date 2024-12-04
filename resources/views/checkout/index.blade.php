@@ -247,13 +247,11 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="footer_section">
-        <div class="container">
-            <p>
-                &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="#">Pup & Purr</a>
-            </p>
-        </div>
+    <footer class="footer_section" style="background-color: #fefbe6; text-align: center; padding: 20px 0; display: flex; justify-content: center; align-items: center;">
+    <p style="margin: 0; font-size: 14px; color: #355716;">
+        &copy; <span id="displayYear"></span> All Rights Reserved By 
+        <a href="index.html" style="color: #294313; text-decoration: none;">Pup & Purr</a>
+    </p>
     </footer>
 
     <!-- Scripts -->
