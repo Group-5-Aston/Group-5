@@ -53,6 +53,7 @@ Route::get('/contact', function () {
 
 //Login routes
 Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
+Route::get('/signup',[LoginController::class,'signUp'])->name('signup');
 
 Route::get('/products/filter', 'ProductController@filter');
 
