@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -16,19 +15,15 @@
   <title>
     Pup&Purr
   </title>
-
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
-
 <body>
   <div class="hero_area">
     <head>
@@ -265,10 +260,16 @@
             }
         </style>
     </head>
-    </html><div></div>
     <body>
-      
-  
+        <!-- Search Bar and Filter Button -->
+        <form method="GET" action="{{ route('product.search') }}">
+            <input type="text" name="q" placeholder="Search products...">
+            <button type="submit">Search</button>
+        </form>
+        <a href="#" class="filter-btn">Filter by category</a>
+    </body>
+    </html>
+
     <body>
       <div class="hero_area">
         <!-- header section strats -->
@@ -288,12 +289,11 @@
     
               <div class="navbar-icons">
                   <a href="login.html"><i class="fa fa-user"></i></a>
-                  <a href="basket"><i class="fa fa-shopping-basket"></i></a>
+                  <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
               </div>
           </nav>
       </header>
         <!-- end header section -->
-
   </div>
   <!-- end hero area -->
   <!-- Search Bar and Filter Button -->
@@ -328,9 +328,7 @@
   </div>
 </section>
 <!-- end about us section -->
-
   <!-- why section -->
-
   <section class="why_section layout_padding" style="padding-top: 0px">
     <div class="container">
       <div class="heading_container heading_center">
@@ -577,9 +575,7 @@
       </div>
     </div>
   </section>
-
   <!-- end why section -->
-
   <!-- client review section -->
   <section class="client_section layout_padding" style="padding-top: 10px;">
     
@@ -658,9 +654,8 @@
     </div>
   </section>
   <!-- end client review section -->
-
   <!-- info section -->
-  <section class="info_section  layout_padding2-top">
+  <section class="info_section  layout_padding2-top" style="width: 1500px;">
     <div class="social_container">
       <div class="social_box">
         <a href="https://facebook.com">
@@ -729,6 +724,7 @@
         </div>
       </div>
     </div>
+
     <!-- footer section -->
     <footer class=" footer_section">
       <div class="container">
@@ -739,18 +735,14 @@
       </div>
     </footer>
     <!-- footer section -->
-
+     
   </section>
 
   <!-- end info section -->
-
-
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
   <script src="js/custom.js"></script>
-
 </body>
-
 </html>

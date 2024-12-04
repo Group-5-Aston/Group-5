@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
@@ -40,10 +41,22 @@ Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
 Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
 Route::get('/productx',[ShopController::class,'productPage'])->name('product');
 
+//Login routes
+Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
+Route::get('/signup',[LoginController::class,'signUp'])->name('signup');
+
 //About us page route
 Route::get('/why', function () {
     return view('newpages.newwhy');
 })->name('why');
+
+//Contact us page route
+Route::get('/contact', function () {
+    return view('newpages.newcontact');
+})->name('contact');
+
+
+
 
 Route::get('/products/filter', 'ProductController@filter');
 

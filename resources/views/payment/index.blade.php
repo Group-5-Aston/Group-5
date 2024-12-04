@@ -10,61 +10,10 @@
 </head>
 
 <body>
-    <div class="hero_area">
-       <!-- header section starts -->
-       <header class="header_section" style="background-color: #fefbe6;">
-            <nav class="navbar navbar-expand-lg custom_nav-container">
-                <a class="navbar-brand" href="{{ url('index.html') }}">
-                    <span style="color: #426b1f;">
-                        Pup&Purr
-                    </span>
-                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo" style="height: 60px; margin-right: 10px;">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class=""></span>
-                </button>
-
-                <div class="collapse navbar-collapse innerpage_navbar" id="navbarSupportedContent" style="background-color: #CFDCC0;">
-                    <ul class="navbar-nav">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ url('index.html') }}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('shop.html') }}">
-                                Shop
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('why.html') }}">
-                                About Us
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('contact.html') }}">Get in Touch</a>
-                        </li>
-                    </ul>
-                    <div class="user_option">
-                        <a href="{{ url('login.html') }}">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>
-                                Login
-                            </span>
-                        </a>
-                        <a href="{{ url('basket.php') }}">
-                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                        </a>
-                        <form class="form-inline">
-                            <button class="btn nav_search-btn" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <!-- end header section -->
-    </div>
-    <!-- end hero area -->
+    
+    <x-newheader>
+       
+    
 
     <!-- payment section -->
     <section class="payment_section layout_padding" style="padding-top: 48px">
@@ -119,7 +68,7 @@
         <div class="container">
             <p>
                 &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="https://html.design/">Pup&Purr</a>
+                <a href="index.html">Pup&Purr</a>
             </p>
         </div>
     </footer>
@@ -128,6 +77,9 @@
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    </x-newheader>
+
 </body>
 
 </html>
