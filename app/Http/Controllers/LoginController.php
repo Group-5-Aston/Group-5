@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function login(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
-    {
+    public function login() {
         return view('newpages.newlogin');
+    }
+
+    public function signUp() {
+        return view('newpages.newsignup');
     }
 }

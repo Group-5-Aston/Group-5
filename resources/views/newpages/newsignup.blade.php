@@ -4,7 +4,7 @@
         <div style="max-width: 500px; margin: 0 auto; text-align: center;">
             <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; color: #000;">CREATE AN ACCOUNT</h2>
             <p style="font-size: 16px; margin-bottom: 24px; color: #333;">Join Pup&Purr for exclusive offers and tailored services for your pets.</p>
-            <form action="/register" method="POST" style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+            <form id="signupForm" action="/register" method="POST" style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label for="fullName" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;">Full Name</label>
                     <input type="text" id="fullName" name="fullName" placeholder="Full Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
