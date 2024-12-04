@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,9 @@ Route::get('/why', function () {
 Route::get('/contact', function () {
     return view('newpages.newcontact');
 })->name('contact');
+
+//Login routes
+Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
 
 Route::get('/products/filter', 'ProductController@filter');
 

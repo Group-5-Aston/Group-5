@@ -221,7 +221,7 @@
             </div>
 
             <div class="navbar-icons">
-                <a href="login.html"><i class="fa fa-user"></i></a>
+                <a href="{{ route('loginpage') }}"><i class="fa fa-user"></i></a>
                 <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
             </div>
         </nav>
