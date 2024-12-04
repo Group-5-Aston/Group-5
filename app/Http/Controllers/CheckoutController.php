@@ -19,7 +19,7 @@ class CheckoutController extends Controller
 
 
     $subtotal = collect($basket)->sum(fn($item) => $item['price'] * $item['quantity']);
-    $shipping = 3.99; // Example shipping cost
+    $shipping = 4.99; // Example shipping cost
     $vat = 2.00; // Example VAT
     $total = $subtotal + $shipping + $vat;
 
