@@ -208,6 +208,84 @@
   </style>
 </head>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pup & Purr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FAF8E9; /* Beige background */
+            color: #4B7C47; /* Green text */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 2px solid #4B7C47;
+            border-radius: 5px;
+            background-color: #FFFFF0; /* Light beige */
+            color: #4B7C47; /* Green text */
+        }
+
+        input[type="text"]::placeholder {
+            color: #9CAC9B; /* Lighter green for placeholder */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4B7C47; /* Green button */
+            color: #FAF8E9; /* Beige text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #3E6B3D; /* Darker green on hover */
+        }
+
+        .filter-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4B7C47; /* Green button */
+            color: #FAF8E9; /* Beige text */
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover {
+            background-color: #3E6B3D; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Search Bar and Filter Button -->
+    <form method="GET" action="{{ route('product.search') }}">
+        <input type="text" name="q" placeholder="Search products...">
+        <button type="submit">Search</button>
+    </form>
+    <a href="#" class="filter-btn">Filter by category</a>
+</body>
+</html>
+
 <body>
   <div class="hero_area">
     <!-- header section strats -->

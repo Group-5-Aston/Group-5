@@ -236,6 +236,20 @@ a:focus {
   color: #000000;
 }
 
+.filter-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: #444;
+}
+
 .user_option a span {
   margin-left: 5px;
 }
