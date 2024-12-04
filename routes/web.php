@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
@@ -47,6 +48,8 @@ Route::middleware(['admin'])->group(function () {
 
 
 Route::get('/',[HomeController::class,'home']);
+
+Route::get('/products/filter', 'ProductController@filter');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
