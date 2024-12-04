@@ -98,14 +98,7 @@
     </style>
 </head>
 <body>
-    <!-- Search Bar and Filter Button -->
-    <form method="GET" action="{{ route('product.search') }}">
-        <input type="text" name="q" placeholder="Search products...">
-        <button type="submit">Search</button>
-    </form>
-    <a href="#" class="filter-btn">Filter by category</a>
-</body>
-</html>
+   
 
 <head>
  
@@ -286,9 +279,6 @@
   </style>
 </head>
 
-<!--beginning of search bar and filter button-->
-<!-- Search Bar and Filter Button -->
-
 
 
 <!--this is the end of filter button--> 
@@ -328,7 +318,14 @@
 
   </div>
   <!-- end hero area -->
-
+ <!-- Search Bar and Filter Button -->
+ <form method="GET" action="{{ route('product.search') }}">
+  <input type="text" name="q" placeholder="Search products...">
+  <button type="submit">Search</button>
+</form>
+<a href="#" class="filter-btn">Filter by category</a>
+</body>
+</html>
 
 
   <section class="shop_section layout_padding" style="padding-top: 48px;">

@@ -265,16 +265,10 @@
             }
         </style>
     </head>
+    </html><div></div>
     <body>
-        <!-- Search Bar and Filter Button -->
-        <form method="GET" action="{{ route('product.search') }}">
-            <input type="text" name="q" placeholder="Search products...">
-            <button type="submit">Search</button>
-        </form>
-        <a href="#" class="filter-btn">Filter by category</a>
-    </body>
-    </html>
-
+      
+  
     <body>
       <div class="hero_area">
         <!-- header section strats -->
@@ -302,7 +296,14 @@
 
   </div>
   <!-- end hero area -->
-
+  <!-- Search Bar and Filter Button -->
+  <form method="GET" action="{{ route('product.search') }}">
+    <input type="text" name="q" placeholder="Search products...">
+    <button type="submit">Search</button>
+</form>
+<a href="#" class="filter-btn">Filter by category</a>
+</body>
+</html>
  <!-- about us section -->
  <section class="about_us_section layout_padding" style="padding-top: 50px;">
   <div class="container">
