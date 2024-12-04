@@ -4,14 +4,11 @@
         <div style="max-width: 500px; margin: 0 auto; text-align: center;">
             <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; color: #000;">CREATE AN ACCOUNT</h2>
             <p style="font-size: 16px; margin-bottom: 24px; color: #333;">Join Pup&Purr for exclusive offers and tailored services for your pets.</p>
-            <form id="signupForm" action="/register" method="POST" style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+            <form id="signupForm" action="{{route('register')}}" method="POST" style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+                @csrf
                 <div style="margin-bottom: 16px; text-align: left;">
-                    <label for="first_name" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
-                    <input type="text" id="first_name" name="first_name" placeholder="First Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
-                </div>
-                <div style="margin-bottom: 16px; text-align: left;">
-                    <label for="last_name" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
-                    <input type="text" id="last_name" name="last_name" placeholder="Last Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
+                    <label for="name" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
+                    <input type="text" id="name" name="name" placeholder="Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
                 </div>
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label for="email" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
@@ -19,19 +16,19 @@
                 </div>
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label for="phone" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
-                    <input type="email" id="phone" name="phone" placeholder="Phone Number" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
+                    <input type="text" id="phone" name="phone" placeholder="Phone Number" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
                 </div>
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label for="address" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
-                    <input type="email" id="address" name="address" placeholder="Address" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
+                    <input type="text" id="address" name="address" placeholder="Address" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
                 </div>
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label for="password" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
                     <input type="password" id="password" name="password" placeholder="Password" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
                 </div>
                 <div style="margin-bottom: 16px; text-align: left;">
-                    <label for="confirmPassword" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
+                    <label for="password_confirmation" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;"></label>
+                    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
                 </div>
                 <button type="submit" style="width: 100%; padding: 12px; background-color: #426b1f; color: #ffffff; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer;">Sign Up</button>
             </form>

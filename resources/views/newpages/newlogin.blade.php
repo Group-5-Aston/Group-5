@@ -3,7 +3,8 @@
         <div style="max-width: 400px; margin: 0 auto; text-align: center;">
             <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; color: #000;">LOG IN</h2>
             <p style="font-size: 16px; margin-bottom: 24px; color: #333;">Access your account to explore exclusive offers and manage your orders.</p>
-            <form action="/login" method="POST" style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+            <form action="{{ route('login') }}" method="POST" style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+                @csrf
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label for="email" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;">Email</label>
                     <input type="email" id="email" name="email" placeholder="Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
@@ -21,7 +22,6 @@
                 <button type="submit" style="width: 100%; padding: 12px; background-color: #426b1f; color: #ffffff; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer;">Log in</button>
             </form>
             <p style="margin-top: 16px; font-size: 14px; color: #000;">
-                <a href="" style="color: #426b1f; text-decoration: none;">Forgot username?</a> |
                 <a href="" style="color: #426b1f; text-decoration: none;">Forgot password?</a>
             </p>
             <p style="margin-top: 16px; font-size: 14px; color: #000;">Don't have an account? <a href="{{ route('signup') }}" style="color: #426b1f; text-decoration: none;">Sign up here.</a></p>
