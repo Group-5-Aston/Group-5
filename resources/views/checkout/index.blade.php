@@ -200,7 +200,7 @@
 
             <div class="navbar-icons">
                 <a href="login.html"><i class="fa fa-user"></i></a>
-                <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
+                <a href="basket"><i class="fa fa-shopping-basket"></i></a>
             </div>
         </nav>
     </header>
@@ -236,7 +236,7 @@
             </div>
             <div class="summary-details">
                 <span>VAT:</span>
-                <span>£{{ number_format($subtotal, 2) }}</span>
+                <span>£{{ number_format($vat, 2) }}</span>
             </div>
             <div class="summary-details summary-total">
                 <span>Total:</span>
