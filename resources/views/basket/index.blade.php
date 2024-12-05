@@ -222,13 +222,7 @@
     <main class="basket-container">
         <section class="basket-items">
             <h1 class="basket-title">Basket</h1>
-            
-            @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
+            @if(count($basket) > 0)          
             @foreach($basket as $index => $item)
             <div class="item">
                 <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
@@ -241,12 +235,15 @@
 
             </div>
             @endforeach
+            @else
+            <p>Your basket is empty!</p>
+            @endif
         </section>
 
         <!-- Order Summary -->
 <aside class="order-summary">
     <h2 class="summary-title">Order Summary</h2>
-    
+    @if(count($basket) > 0)
     <div class="summary-details">
         <p>Subtotal</p>
         <p>£{{ number_format($subtotal, 2) }}</p>
@@ -265,6 +262,9 @@
     </div>
 
     <a href="{{ route('checkout.index') }}" class="basket-button">Continue to Checkout →</a>
+    @else
+    <button class="checkout-button" disabled>Continue to Checkout →</button>
+@endif
 </aside>
 
 

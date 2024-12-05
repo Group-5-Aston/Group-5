@@ -15,6 +15,12 @@ class BasketController extends Controller
         ['name' => 'Luxury Dog Collar', 'price' => 32.00, 'quantity' => 1, 'image' => 'images/dog collar.jpg'],
         ['name' => 'Cat Tower', 'price' => 70.00, 'quantity' => 1, 'image' => 'images/cat tower.jpg'],
     ]);
+
+     // If basket is empty, redirect or show a message
+     if (empty($basket)) {
+        return view('basket.index', ['message' => 'Your basket is empty.']);
+    }
+
     // Calculate the subtotal
     $subtotal = 0;
     foreach ($basket as $item) {
