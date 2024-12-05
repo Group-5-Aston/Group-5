@@ -246,7 +246,7 @@
                     </a>
                 @endif
                 </div>
-                <a href="basket"><i class="fa fa-shopping-basket"></i></a>
+                <a href="{{ route('basket.index') }}"><i class="fa fa-shopping-basket"></i></a>
         </div>
         </nav>
     </header>
