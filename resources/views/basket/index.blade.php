@@ -124,6 +124,11 @@
             color: #7b8e4e;
         }
 
+        .item-quantity {
+            margin: 0 20px;
+            color: #7b8e4e;
+        }
+
         .summary-title {
             font-size: 24px;
             color: #426b1f;
@@ -227,6 +232,7 @@
                     <div class="item">
                         <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
                         <p class="item-name">{{ $item['name'] }}</p>
+                        <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
                         <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
                         <form action="{{ route('basket.remove', ['index' => $index]) }}" method="POST">
                             @csrf
