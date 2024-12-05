@@ -246,7 +246,7 @@
                     </a>
                 @endif
                 </div>
-                <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
+                <a href="basket"><i class="fa fa-shopping-basket"></i></a>
         </div>
         </nav>
     </header>
