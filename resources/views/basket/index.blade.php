@@ -227,6 +227,7 @@
     <main class="basket-container">
         <section class="basket-items">
             <h1 class="basket-title">Basket</h1>
+            <a href="shop.html" class="basket-button">Continue Shopping</a>
             @if(count($basket) > 0)          
                 @foreach($basket as $index => $item)
                     <div class="item">
