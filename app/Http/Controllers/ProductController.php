@@ -43,20 +43,24 @@ class ProductController extends Controller
             'product1' => [
                 'name' => 'Bundle Dog Food',
                 'price' => 45,
-                'description' => 'High-quality dog food to keep your pet healthy and happy.',
-                'image' => 'images/p1.jpg'
-            ],
+                'label' => 'High-quality dog food to keep your pet healthy and happy.',
+                'image' => 'images/p1.jpg',
+                'description' => 'This premium dog food is designed to meet the highest nutritional standards. Perfect for active dogs and those with special dietary needs.',
+        ],
             'product2' => [
                 'name' => 'Bundle Cat Food',
                 'price' => 55,
-                'description' => 'High-quality cat food to keep your pet healthy and happy. Packed with nutrients and taste your cat will love!',
-                'image' => 'images/p2.jpg'
+                'label' => 'High-quality cat food to keep your pet healthy and happy. Packed with nutrients and taste your cat will love!',
+                'image' => 'images/p2.jpg',
+                'description' => 'This premium cat food is designed to meet the highest nutritional standards. Perfect for active cats and those with special dietary needs.'
             ],
+            
             'product3' => [
                 'name' => 'Dog Biscuits',
                 'price' => 10,
-                'description' => 'Treats for your dogs that would have your pet wanting to try again!',
-                'image' => 'images/p3.jpg'
+                'label' => 'Treats for your dogs that would have your pet wanting to try again!',
+                'image' => 'images/p3.jpg',
+                'description' => 'This premium dog snack is designed to meet the highest nutritional standards. Perfect for active dogs and those with special dietary needs.'
             ],
         ];
 

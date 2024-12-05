@@ -240,7 +240,7 @@
         <div class="product-details">
             <h1>{{ $product['name'] }}</h1>
             <h3>£{{ $product['price'] }}</h3>
-            <p>{{ $product['description'] }}</p>
+            <p>{{ $product['label'] }}</p>
 
             <!-- Product Options -->
             <form action="{{ route('basket.add') }}" method="POST">
@@ -249,7 +249,7 @@
                     <!-- Quantity -->
                     <div class="form-group">
                         <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" min="1" value="1" class="form-control">
+                        <input type="number" id="quantity" name="quantity" min="1" value="1"  class="form-control" style="width: 120px;">
                     </div>
 
                     <!-- Package Size -->
@@ -285,10 +285,24 @@
         </div>
     </div>
 
-    <!-- Description Section -->
-    <div class="container description-section">
-        <h2>Description</h2>
-        <p>{{ $product['description'] }}</p>
+    <!-- Tabs Section -->
+    <div class="tabs-section">
+      <ul class="nav nav-tabs" id="productTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="productTabContent">
+        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+        <p class="mt-3">{{ $product['description'] }}</p>
+        </div>
+        <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+          <p class="mt-3">No reviews yet. Be the first to review this product!</p>
+        </div>
+      </div>
     </div>
 
     <!-- Footer Section -->
