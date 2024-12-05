@@ -179,6 +179,19 @@
         .checkout-button:hover {
             background: #355716;
         }
+
+        .remove-button {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background: #e60000;
+        }
     </style>
 </head>
 
@@ -209,12 +222,23 @@
     <main class="basket-container">
         <section class="basket-items">
             <h1 class="basket-title">Basket</h1>
+            
+            @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
-            @foreach($basket as $item)
+            @foreach($basket as $index => $item)
             <div class="item">
                 <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
                 <p class="item-name">{{ $item['name'] }}</p>
                 <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
+                <form action="{{ route('basket.remove', ['index' => $index]) }}" method="POST">
+    @csrf
+    <button type="submit" class="remove-button">Remove</button>
+</form>
+
             </div>
             @endforeach
         </section>
