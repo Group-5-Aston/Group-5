@@ -223,20 +223,19 @@
         <section class="basket-items">
             <h1 class="basket-title">Basket</h1>
             @if(count($basket) > 0)          
-            @foreach($basket as $index => $item)
-            <div class="item">
-                <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
-                <p class="item-name">{{ $item['name'] }}</p>
-                <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
-                <form action="{{ route('basket.remove', ['index' => $index]) }}" method="POST">
-    @csrf
-    <button type="submit" class="remove-button">Remove</button>
-</form>
-
-            </div>
-            @endforeach
+                @foreach($basket as $index => $item)
+                    <div class="item">
+                        <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
+                        <p class="item-name">{{ $item['name'] }}</p>
+                        <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
+                        <form action="{{ route('basket.remove', ['index' => $index]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="remove-button">Remove</button>
+                        </form>
+                    </div>
+                @endforeach
             @else
-            <p>Your basket is empty!</p>
+                <p>Your basket is empty!</p>
             @endif
         </section>
 
