@@ -38,24 +38,6 @@ class BasketController extends Controller
     return view('basket.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total'));
 }
 
-    // Store basket in session
-    public function storeBasket(Request $request)
-{
-    // Retrieve the current basket from the session
-    $basket = session()->get('basket', []);
-
-    // Update the basket with the new data from the request
-    $newItem = $request->input('basket');  // Assuming basket is passed as an array from the request
-
-    // Here you can modify the basket or add to it, for example:
-    $basket[] = $newItem;
-
-    // Store the updated basket in the session
-    session()->put('basket', $basket);
-
-    return redirect()->route('checkout.index');
-}
-
 public function remove($index)
 {
     // Retrieve the basket from the session
