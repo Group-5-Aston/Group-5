@@ -213,17 +213,37 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('catshop') }}" class="dropdown-item">Cats</a></li>
                         <li><a href="{{route('dogshop') }}" class="dropdown-item">Dogs</a></li>
-
                     </ul>
+                </li>
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
 
-            <div class="navbar-icons">
-                <a href="{{ route('loginpage') }}"><i class="fa fa-user"></i></a>
-                {{ Auth::check() ? Auth::user()->name : 'Log In'; }}
+        <div class="navbar-icons">
+            <div class="nav-item dropdown">
+                @if(Auth::check())
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0);">
+                        <i class="fa fa-user"></i>
+                        {{Auth::User()->name}}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                @else
+                    <a href="{{ route('loginpage') }}">
+                        <i class="fa fa-user"></i>
+                        Login
+                    </a>
+                @endif
+                </div>
                 <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
-            </div>
+        </div>
         </nav>
     </header>
     <!-- end header section -->
