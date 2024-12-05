@@ -208,7 +208,6 @@
 
             <div class="navbar-links">
                 <a href="{{ route('home') }}">Home</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropbtn" href="{{ route('shop') }}">Shop</a>
                     <ul class="dropdown-menu">
@@ -216,7 +215,6 @@
                         <li><a href="{{route('dogshop') }}" class="dropdown-item">Dogs</a></li>
 
                     </ul>
-                </li>
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
