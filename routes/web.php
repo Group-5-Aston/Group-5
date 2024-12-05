@@ -8,12 +8,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\ProductController;
+//use App\Http\Controllers\ProductController;
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
 
 
+Route::post('/basket/remove/{index}', [BasketController::class, 'remove'])->name('basket.remove');
 
 Route::get('/basket', [BasketController::class, 'showBasket'])->name('basket');
 
@@ -58,7 +59,7 @@ Route::get('/contact', function () {
 
 
 
-Route::get('/products/filter', 'ProductController@filter');
+//Route::get('/products/filter', 'ProductController@filter');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
