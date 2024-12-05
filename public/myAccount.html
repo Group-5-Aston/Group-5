@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account - Pup&Purr</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .account-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #426b1f;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 10px 20px;
+      margin: 0 5px;
+      background-color: #CFDCC0;
+      color: #426b1f;
+      border-radius: 8px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .tab.active {
+      background-color: #426b1f;
+      color: #fff;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .form-group label {
+      font-weight: 500;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .edit-btn, .save-btn {
+      border-radius: 8px;
+      padding: 10px 20px;
+    }
+
+    .save-btn {
+      background-color: #426b1f;
+      color: white;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .save-btn:hover {
+      background-color: #365818;
+    }
+
+    .purchase-history {
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .purchase-item {
+      padding: 15px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .purchase-item:last-child {
+      border-bottom: none;
+    }
+
+    .purchase-item h5 {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header_section">
+    <nav class="navbar navbar-expand-lg" style="background-color: #CFDCC0;">
+      <a class="navbar-brand" href="index.html" style="color: #426b1f;">Pup&Purr</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="account-container">
+    <h2>Welcome, <span id="customerName">Customer Name</span>!</h2>
+
+    <!-- Tabs for toggling sections -->
+    <div class="tabs">
+      <div class="tab active" onclick="showSection('info')">Account Info</div>
+      <div class="tab" onclick="showSection('history')">Purchase History</div>
+    </div>
+
+    <!-- Account Information Section -->
+    <div id="info" class="section active">
+      <div class="summary-box">
+        <p><strong>Email:</strong> <span id="emailDisplay">customer_exp@email.com</span></p>
+        <p><strong>Address:</strong> <span id="addressDisplay">123 Pet Lane, Pet City</span></p>
+        <p><strong>Pet Type:</strong> <span id="petTypeDisplay">Dog</span></p>
+        <p><strong>Pet's Name:</strong> <span id="petNameDisplay">Fluffy</span></p>
+        <button class="edit-btn" onclick="toggleEdit()">Edit Info</button>
+      </div>
+
+      <form id="accountForm" style="display: none;">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control" value="customer_exp@email.com">
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" class="form-control" value="123 Pet Lane, Pet City">
+        </div>
+        <div class="form-group">
+          <label for="petType">Pet Type</label>
+          <select id="petType" class="form-control">
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="petName">Pet's Name</label>
+          <input type="text" id="petName" class="form-control" value="Buddy">
+        </div>
+        <button type="button" class="save-btn" onclick="saveChanges()">Save Changes</button>
+      </form>
+    </div>
+
+    <!-- Purchase History Section -->
+    <div id="history" class="section">
+      <div class="purchase-history">
+        <div class="purchase-item">
+          <h5>Order #12345</h5>
+          <p><strong>Date:</strong> 2023-11-01</p>
+          <p><strong>Items:</strong> Dog Collar, Treats</p>
+          <p><strong>Total:</strong> £45.00</p>
+        </div>
+        <div class="purchase-item">
+          <h5>Order #12346</h5>
+          <p><strong>Date:</strong> 2023-10-15</p>
+          <p><strong>Items:</strong> Cat Bed, Catnip Toys</p>
+          <p><strong>Total:</strong> £70.00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSection(section) {
+      document.querySelectorAll('.section').forEach((sec) => sec.classList.remove('active'));
+      document.querySelector(`#${section}`).classList.add('active');
+      document.querySelectorAll('.tab').forEach((tab) => tab.classList.remove('active'));
+      document.querySelector(`.tab[onclick="showSection('${section}')"]`).classList.add('active');
+    }
+
+    function toggleEdit() {
+      document.getElementById("accountForm").style.display = "block";
+      document.querySelector(".summary-box").style.display = "none";
+    }
+
+    function saveChanges() {
+      document.getElementById("emailDisplay").innerText = document.getElementById("email").value;
+      document.getElementById("addressDisplay").innerText = document.getElementById("address").value;
+      document.getElementById("petTypeDisplay").innerText = document.getElementById("petType").value;
+      document.getElementById("petNameDisplay").innerText = document.getElementById("petName").value;
+
+      document.getElementById("accountForm").style.display = "none";
+      document.querySelector(".summary-box").style.display = "block";
+
+      alert("Your changes have been saved!");
+    }
+  </script>
+
+</body>
+
+</html>
+
