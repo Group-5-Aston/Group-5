@@ -186,7 +186,8 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="p8.html">
+                    <a href="{{ route('product') }}">
+                    <a href="product/product8">
                             <div class="img-box">
                                 <img src="images/p8.jpg" alt="p2" style="width: 100%; height: auto;"></src>
                             </div>
@@ -214,7 +215,8 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="p9.html">
+                        <a href="{{ route('product') }}">
+            <a href="product/product8">
                             <div class="img-box">
 
                                 <img src="images/p9.jpg" alt="p2" style="width: 100%; height: auto;"></src>
