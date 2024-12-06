@@ -226,6 +226,7 @@
                 <a href="shop">Shop</a>
                 <a href="why.html">About Us</a>
                 <a href="contact.html">Contact Us</a>
+                
             </div>
 
             <div class="navbar-icons">
