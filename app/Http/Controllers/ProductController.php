@@ -142,6 +142,7 @@ class ProductController extends Controller
                         'flavor_options' => ['Chocolate', 'Vanilla', 'Strawberry'], // Available flavors
                         'package_size_options' => ['Small (2kg)', 'Medium (5kg)', 'Large (10kg)'] // Package sizes for food
                          ],
+                         
         
     
             //add rest of them here
