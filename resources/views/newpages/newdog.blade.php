@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p1.html">
+            <a href="product/product1">
               <div class="img-box">
 
               <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>

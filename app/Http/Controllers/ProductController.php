@@ -121,7 +121,7 @@ class ProductController extends Controller
                     'name' => 'Wet Mixed Cat Food',
                     'price' => 20,
                     'label' => 'High-quality cat food to keep your pet healthy and happy. Packed with nutrients and taste your cat will love!',
-                    'image' => 'images/p6.jpg',
+                    'image' => 'images/p7.jpg',
                     'description' => 'This premium cat food is designed to meet the highest nutritional standards. Perfect for active cats and those with special dietary needs',
                     'is_food' => true, // This is a food item
                     'is_toy_or_bed' => false, // Not a toy or bed
@@ -134,7 +134,7 @@ class ProductController extends Controller
                         'name' => 'Cat Protein Food',
                         'price' => 50,
                         'label' => 'High-quality cat food to keep your pet healthy and happy. Packed with nutrients and taste your cat will love!',
-                        'image' => 'images/p6.jpg',
+                        'image' => 'images/p8.jpg',
                         'description' => 'This premium cat food is designed to meet the highest nutritional standards. Perfect for active cats and those with special dietary needs',
                         'is_food' => true, // This is a food item
                         'is_toy_or_bed' => false, // Not a toy or bed
