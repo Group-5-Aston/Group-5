@@ -145,6 +145,15 @@
             color: #333
         }
 
+        .item-size {
+            flex: 1.6;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333
+            align-items: center;
+
+        }
+
         .summary-title {
             font-size: 24px;
             color: #426b1f;
@@ -241,6 +250,9 @@
         @endif
         @if(!empty($item['flavor']))
             <p class="item-flavor">Flavor: {{ ucfirst($item['flavor']) }}</p>
+        @endif
+        @if(!empty($item['size']))
+            <p class="item-size">Size: {{ ucfirst($item['size']) }}</p>
         @endif
         <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
         <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
