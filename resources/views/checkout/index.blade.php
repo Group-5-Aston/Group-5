@@ -124,6 +124,36 @@
             color: #7b8e4e;
         }
 
+        .item-quantity {
+            flex: 1;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .item-flavor {
+            flex: 0.5;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .item-psize {
+            flex: 1;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333
+        }
+
+        .item-size {
+            flex: 1.6;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333
+            align-items: center;
+
+        }
+
         .summary-title {
             font-size: 24px;
             color: #426b1f;
@@ -215,8 +245,18 @@
     <div class="item">
         <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}">
         <p class="item-name">{{ $item['name'] }}</p>
+        @if(!empty($item['psize']))
+            <p class="item-psize">Size: {{ ucfirst($item['psize']) }}</p>
+        @endif
+        @if(!empty($item['flavor']))
+            <p class="item-flavor">Flavor: {{ ucfirst($item['flavor']) }}</p>
+        @endif
+        @if(!empty($item['size']))
+            <p class="item-size">Size: {{ ucfirst($item['size']) }}</p>
+        @endif
         <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
         <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
+        
     </div>
 @endforeach
 

@@ -38,6 +38,46 @@ class BasketController extends Controller
     return view('basket.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total'));
 }
 
+public function addToBasket(Request $request)
+{
+    
+    // Retrieve the current basket from the session
+    $basket = session()->get('basket', []);
+    
+    // Create a new product array
+    $product = [
+        'name' => $request->input('name'),
+        'price' => $request->input('price'),
+        'quantity' => $request->input('quantity'),
+        'image' => $request->input('image'),
+        'size' => $request->input('size', null),
+        'flavor' => $request->input('flavor', null),
+        'psize' => $request->input('psize', null)
+
+    ];
+
+    $exists = false;
+    foreach ($basket as &$item) {
+        if ($item['name'] == $product['name']) {
+            $item['quantity'] += $product['quantity']; // Increment quantity
+            $exists = true;
+            break;
+        }
+    }
+
+    // If the product does not exist, add it to the basket
+    if (!$exists) {
+        $basket[] = $product;
+    }
+
+    // Store the updated basket in the session
+    session()->put('basket', $basket);
+
+    // Redirect back to the product page or basket page
+    return redirect()->route('basket.index')->with('success', 'Item added to basket');
+
+}
+
 public function remove($index)
 {
     // Retrieve the basket from the session
