@@ -252,26 +252,40 @@
                         <input type="number" id="quantity" name="quantity" min="1" value="1"  class="form-control" style="width: 120px;">
                     </div>
 
-                    <!-- Package Size -->
-                    <div class="form-group">
-                        <label for="size">Package Size:</label>
-                        <select id="size" name="size" class="form-control">
-                            <option value="small">Small (2kg)</option>
-                            <option value="medium">Medium (5kg)</option>
-                            <option value="large">Large (10kg)</option>
-                        </select>
-                    </div>
+                    <!-- Check if it's food -->
+        @if($product['is_food'])
+        <!-- Package Size Selection -->
+            <div class="form-group">
+                <label for="package_size">Package Size:</label>
+                <select id="package_size" name="package_size" class="form-control">
+                    @foreach($product['package_size_options'] as $key => $size)
+                        <option value="{{ $key }}">{{ $size }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <!-- Flavor Selection -->
+            <div class="form-group">
+                <label for="flavor">Flavor:</label>
+                <select id="flavor" name="flavor" class="form-control">
+                    @foreach($product['flavor_options'] as $flavor)
+                        <option value="{{ $flavor }}">{{ ucfirst($flavor) }}</option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
 
-                    <!-- Food Flavor -->
-                    <div class="form-group">
-                        <label for="flavor">Flavor:</label>
-                        <select id="flavor" name="flavor" class="form-control">
-                            <option value="chicken">Chocolate</option>
-                            <option value="beef">Vanilla</option>
-                            <option value="lamb">Strawberry</option>
-                            <option value="salmon">Coconut</option>
-                        </select>
-                    </div>
+        <!-- Check if it's a toy or bed -->
+        @if($product['is_toy_or_bed'])
+            <!-- Size Selection (for beds or toys that have a size) -->
+            <div class="form-group">
+                <label for="size">Size:</label>
+                <select id="size" name="size" class="form-control">
+                    @foreach($product['size_options'] as $size)
+                        <option value="{{ $size }}">{{ ucfirst($size) }}</option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
 
                     <!-- Hidden Inputs for the product details -->
                     <input type="hidden" name="name" value="{{ $product['name'] }}">
@@ -295,16 +309,16 @@
           <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
         </li>
       </ul>
-      <div class="tab-content" id="productTabContent">
+    <div class="tab-content" id="productTabContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
         <p class="mt-3">{{ $product['description'] }}</p>
         </div>
-        <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-          <p class="mt-3">No reviews yet. Be the first to review this product!</p>
+        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+        <p class="mt-3">No reviews yet. Be the first to review this product!</p>
         </div>
       </div>
     </div>
-
+    </div>
     <!-- Footer Section -->
     <footer class="footer_section">
         <div class="container">
