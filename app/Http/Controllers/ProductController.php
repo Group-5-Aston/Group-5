@@ -176,10 +176,8 @@ class ProductController extends Controller
                             'image' => 'images/p11.jpg',
                             'description' => 'This premium dog shampoo is designed to meet the highest healthy standards.',
                             'is_food' => null, // This is a food item
-                            'is_toy_or_bed' => null, // Not a toy or bed
-                            'is_shampoo' => true, // is or isnt shampoo
-                            'shampoo_size_options' =>['Small 500ml', 'Medium 1.5L', 'Large 2L'] , 
-                            'size_options' => null, // No size options
+                            'is_toy_or_bed' => true, // Not a toy or bed
+                            'size_options' => ['Small 500ml', 'Medium 1.5L', 'Large 2L'], // No size options
                             'flavor_options' => null, // Available flavors
                             'package_size_options' => null, // Package sizes for food
                              ],
@@ -191,10 +189,8 @@ class ProductController extends Controller
                                 'image' => 'images/p12.jpg',
                                 'description' => 'This premium cat shampoo is designed to meet the highest healthy standards.',
                                 'is_food' => null, // This is a food item
-                                'is_toy_or_bed' => null, // Not a toy or bed
-                                'is_shampoo' => true, // is or isnt shampoo
-                                'shampoo_size_options'  => ['Small 500ml', 'Medium 1.5L', 'Large 2L'],
-                                'size_options' => null, // No size options
+                                'is_toy_or_bed' => true, // Not a toy or bed
+                                'size_options' => ['Small 500ml', 'Medium 1.5L', 'Large 2L'], // No size options
                                 'flavor_options' => null, // Available flavors
                                 'package_size_options' => null, // Package sizes for food
                                  ],
@@ -236,10 +232,9 @@ class ProductController extends Controller
                                             'image' => 'images/p15.jpg',
                                             'description' => 'This premium Cat Dental Product is designed to meet the highest nutritional standards.',
                                             'is_food' => true, // This is a food item
-                                            'is_toy_or_bed' => null, // Not a toy or bed
-                                            'is_shampoo' => null, // is or isnt shampoo
-                                            'shampoo_size_options'  => null, 
-                                            'size_options' => ['mint', 'spearmint'],  // Available flavors
+                                            'is_toy_or_bed' => null, // Not a toy or bed 
+                                            'size_options' => null, // No size options
+                        'flavor_options' => ['mint', 'spearmint'], // Available flavors
                                             'package_size_options' => ['Small (2kg)', 'Medium (5kg)', 'Large (10kg)'] , // Package sizes for food
                                              ],
 
@@ -251,8 +246,6 @@ class ProductController extends Controller
                                                 'description' => 'This premium Dog Dental Product is designed to meet the highest nutritional standards.',
                                                 'is_food' => true, // This is a food item
                                                 'is_toy_or_bed' => null, // Not a toy or bed
-                                                'is_shampoo' => null, // is or isnt shampoo
-                                                'shampoo_size_options'  => null, 
                                                 'size_options' => ['mint', 'spearmint'] , // Available flavors
                                                 'package_size_options' => ['Small (2kg)', 'Medium (5kg)', 'Large (10kg)'] , // Package sizes for food
                                                  ],
