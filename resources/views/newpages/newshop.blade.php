@@ -7,33 +7,34 @@
         </h2>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-          <a href="{{ route('product') }}">
-          <a href="product/product1">
-            <div class="img-box">
-              <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
-            </div>
-              <div class="detail-box">
-                <h6>
-                bundle- dogfood
-                </h6>
-                <h6>
-                  Price
-                  <span>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                    <a href="{{ route('product') }}">
+                    <a href="product/product1">
+                            <div class="img-box">
+
+                                <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
+                            </div>
+                            <div class="detail-box">
+                                <h6>
+                                    bundle- dogfood
+                                </h6>
+                                <h6>
+                                    Price
+                                    <span>
                     £45
                   </span>
-                </h6>
-              </div>
-              <div class="new">
+                                </h6>
+                            </div>
+                            <div class="new">
                 <span>
                   New
                 </span>
-              </div>
-            </a>
-          </a>
-          </div>
-        </div>
+                            </div>
+                        </a>
+                        </a>
+                    </div>
+                </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
