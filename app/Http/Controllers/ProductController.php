@@ -91,6 +91,59 @@ class ProductController extends Controller
                 'package_size_options' => ['Small (2kg)', 'Medium (5kg)', 'Large (10kg)'] // Package sizes for food
                  ],
 
+                 'product5' => [
+                    'name' => 'Protein Dog Food',
+                    'price' => 35,
+                    'label' => 'High-quality dog food to keep your pet healthy and happy. Packed with nutrients and taste your dog will love!',
+                    'image' => 'images/p5.jpg',
+                    'description' => 'This premium dog food is designed to meet the highest nutritional standards. Perfect for active dogs and those with special dietary needs.',
+                    'is_food' => true, // This is a food item
+                    'is_toy_or_bed' => false, // Not a toy or bed
+                    'size_options' => null, // No size options
+                    'flavor_options' => ['Chocolate', 'Vanilla', 'Strawberry'], // Available flavors
+                    'package_size_options' => ['Small (2kg)', 'Medium (5kg)', 'Large (10kg)'] // Package sizes for food
+                     ],
+
+                     'product6' => [
+                    'name' => 'Wet Mixed Dog Food',
+                    'price' => 10,
+                    'label' => 'High-quality dog food to keep your pet healthy and happy. Packed with nutrients and taste your dog will love!',
+                    'image' => 'images/p6.jpg',
+                    'description' => 'This premium dog food is designed to meet the highest nutritional standards. Perfect for active dogs and those with special dietary needs',
+                    'is_food' => true, // This is a food item
+                    'is_toy_or_bed' => false, // Not a toy or bed
+                    'size_options' => null, // No size options
+                    'flavor_options' => ['Chocolate', 'Vanilla', 'Strawberry'], // Available flavors
+                    'package_size_options' => ['Small (2kg)', 'Medium (5kg)', 'Large (10kg)'] // Package sizes for food
+                     ],
+
+                     'product7' => [
+                    'name' => 'Wet Mixed Cat Food',
+                    'price' => 20,
+                    'label' => 'High-quality cat food to keep your pet healthy and happy. Packed with nutrients and taste your cat will love!',
+                    'image' => 'images/p6.jpg',
+                    'description' => 'This premium cat food is designed to meet the highest nutritional standards. Perfect for active cats and those with special dietary needs',
+                    'is_food' => true, // This is a food item
+                    'is_toy_or_bed' => false, // Not a toy or bed
+                    'size_options' => null, // No size options
+                    'flavor_options' => ['Chocolate', 'Vanilla', 'Strawberry'], // Available flavors
+                    'package_size_options' => ['Small (2kg)', 'Medium (5kg)', 'Large (10kg)'] // Package sizes for food
+                     ],
+
+                     'product8' => [
+                        'name' => 'Cat Protein Food',
+                        'price' => 50,
+                        'label' => 'High-quality cat food to keep your pet healthy and happy. Packed with nutrients and taste your cat will love!',
+                        'image' => 'images/p6.jpg',
+                        'description' => 'This premium cat food is designed to meet the highest nutritional standards. Perfect for active cats and those with special dietary needs',
+                        'is_food' => true, // This is a food item
+                        'is_toy_or_bed' => false, // Not a toy or bed
+                        'size_options' => null, // No size options
+                        'flavor_options' => ['Chocolate', 'Vanilla', 'Strawberry'], // Available flavors
+                        'package_size_options' => ['Small (2kg)', 'Medium (5kg)', 'Large (10kg)'] // Package sizes for food
+                         ],
+        
+    
             //add rest of them here
 
             'product14' => [
