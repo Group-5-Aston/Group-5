@@ -254,12 +254,12 @@
 
                     <!-- Check if it's food -->
         @if($product['is_food'])
-        <!-- Package Size Selection -->
+            <!-- Package Size Selection -->
             <div class="form-group">
-                <label for="package_size">Package Size:</label>
-                <select id="package_size" name="package_size" class="form-control">
-                    @foreach($product['package_size_options'] as $key => $size)
-                        <option value="{{ $key }}">{{ $size }}</option>
+                <label for="psize">Package Size:</label>
+                <select id="psize" name="psize" class="form-control">
+                    @foreach($product['package_size_options'] as $psize)
+                        <option value="{{ $psize }}">{{ ucfirst($psize) }}</option>
                     @endforeach
                 </select>
             </div>

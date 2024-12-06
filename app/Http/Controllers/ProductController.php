@@ -102,7 +102,9 @@ class ProductController extends Controller
                 'is_food' => false, // This is a food item
                 'is_toy_or_bed' => true, // Not a toy or bed
                 'size_options' => ['Small', 'Medium', 'Large'], // No size options
-                'flavor_options' => null // Available flavors
+                'flavor_options' => null, // Available flavors
+                'package_size_options' => null // Package sizes for food
+
             ],        
         ];
 

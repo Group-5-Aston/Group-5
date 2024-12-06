@@ -40,6 +40,7 @@ class BasketController extends Controller
 
 public function addToBasket(Request $request)
 {
+    
     // Retrieve the current basket from the session
     $basket = session()->get('basket', []);
     
@@ -49,8 +50,10 @@ public function addToBasket(Request $request)
         'price' => $request->input('price'),
         'quantity' => $request->input('quantity'),
         'image' => $request->input('image'),
-        'size' => $request->input('size'),
-        'flavor' => $request->input('flavor'),
+        'size' => $request->input('size', null),
+        'flavor' => $request->input('flavor', null),
+        'psize' => $request->input('psize', null)
+
     ];
 
     $exists = false;
@@ -72,6 +75,7 @@ public function addToBasket(Request $request)
 
     // Redirect back to the product page or basket page
     return redirect()->route('basket.index')->with('success', 'Item added to basket');
+
 }
 
 public function remove($index)
