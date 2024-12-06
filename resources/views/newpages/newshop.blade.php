@@ -10,8 +10,8 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
             <a href="{{ route('product') }}">
-              <div class="img-box">
-
+            <a href="product/product1">
+            <div class="img-box">
               <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
             </div>
               <div class="detail-box">
@@ -36,7 +36,7 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p2.html">
+            <a href="product/product2">
               <div class="img-box">
                 <img src="images/p2.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>

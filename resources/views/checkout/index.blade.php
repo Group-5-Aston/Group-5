@@ -223,7 +223,7 @@
 
             <div class="navbar-links">
                 <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
+                <a href="shop">Shop</a>
                 <a href="why.html">About Us</a>
                 <a href="contact.html">Contact Us</a>
             </div>
