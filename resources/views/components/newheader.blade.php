@@ -218,7 +218,7 @@
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
-
+        <!-- Profile dropdown -->
         <div class="navbar-icons">
             <div class="nav-item dropdown">
                 @if(Auth::check())

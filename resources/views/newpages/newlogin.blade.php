@@ -8,11 +8,13 @@
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label for="email" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;">Email</label>
                     <input type="email" id="email" name="email" placeholder="Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label for="password" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; display: block; color: #000;">Password</label>
                     <input type="password" id="password" name="password" placeholder="Password" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" required>
                     <span id="togglePassword" style="font-size: 12px; color: #426b1f; cursor: pointer; display: block; margin-top: 6px;">Show</span>
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label>
