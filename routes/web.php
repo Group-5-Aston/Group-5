@@ -59,6 +59,10 @@ Route::get('/contact', function () {
 
 Route::get('/search', 'SearchController@index');
 
+//product routes
+Route::get('products', [ProductController::class, 'index'])->name('product.index');
+Route::get('products/search', [ProductController::class, 'search'])->name('product.search');
+Route::get('products/{product}', [ProductController::class, 'show']);
 
 
 Route::get('/products/filter', 'ProductController@filter');
