@@ -19,16 +19,16 @@
         <div class="col-md-6 col-lg-5 px-0">
           <form action="#">
             <div>
-              <input type="text" placeholder="Name" style="background-color: #f9f7eb;"/>
+              <input type="text" placeholder="Name" style="background-color: #f9f7eb;" required/>
             </div>
             <div>
-              <input type="email" placeholder="Email" style="background-color: #f9f7eb;"/>
+              <input type="email" placeholder="Email" style="background-color: #f9f7eb;" required/>
             </div>
             <div>
               <input type="text" placeholder="Phone" style="background-color: #f9f7eb;"/>
             </div>
             <div>
-              <input type="text" class="message-box" placeholder="Message" style="background-color: #f9f7eb;"/>
+              <input type="text" class="message-box" placeholder="Message" style="background-color: #f9f7eb;" required/>
             </div>
             <div class="d-flex ">
               <button>
