@@ -1,5 +1,9 @@
+<?php
 <form method="GET" action="{{ route('product.filter') }}">
     @foreach($categories as $category)
+
+    ?>
+
         <div class="filter-option">
             <input type="radio" name="category" value="{{ $category->id }}" {{ $selectedCategory === $category->id
 ? 'checked' : '' }}>
@@ -20,3 +24,4 @@
         </div>
     @endforeach
 @endif
+

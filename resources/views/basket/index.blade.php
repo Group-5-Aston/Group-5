@@ -211,7 +211,7 @@
 
             <div class="navbar-links">
                 <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
+                <a href="shop">Shop</a>
                 <a href="why.html">About Us</a>
                 <a href="contact.html">Contact Us</a>
             </div>
@@ -227,7 +227,7 @@
     <main class="basket-container">
         <section class="basket-items">
             <h1 class="basket-title">Basket</h1>
-            <a href="shop.html" class="basket-button">Continue Shopping</a>
+            <a href="shop" class="basket-button">Continue Shopping</a>
             @if(count($basket) > 0)          
                 @foreach($basket as $index => $item)
                     <div class="item">
