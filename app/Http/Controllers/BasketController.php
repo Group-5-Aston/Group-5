@@ -10,16 +10,7 @@ class BasketController extends Controller
     public function index()
 {
     // Retrieve the basket from the session, or use a default basket if not set
-    $basket = session()->get('basket', [
-        ['name' => 'Cat Bed', 'price' => 16.99, 'quantity' => 1, 'image' => 'images/cat bed.webp'],
-        ['name' => 'Luxury Dog Collar', 'price' => 32.00, 'quantity' => 1, 'image' => 'images/dog collar.jpg'],
-        ['name' => 'Cat Tower', 'price' => 70.00, 'quantity' => 1, 'image' => 'images/cat tower.jpg'],
-    ]);
-
-     // If basket is empty, redirect or show a message
-     if (empty($basket)) {
-        return view('basket.index', ['message' => 'Your basket is empty.']);
-    }
+    $basket = session()->get('basket', []);
 
     // Calculate the subtotal
     $subtotal = 0;
@@ -27,15 +18,17 @@ class BasketController extends Controller
         $subtotal += $item['price'] * $item['quantity'];
     }
 
+
     // Example shipping cost and VAT
     $shipping = 4.99;
     $vat = 2.00;
 
     // Calculate the total
-    $total = $subtotal + $shipping + $vat;
+    $total = $subtotal > 0 ? $subtotal + $shipping + $vat : 0;
 
     // Pass data to the view
     return view('basket.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total'));
+    
 }
 
 public function addToBasket(Request $request)
@@ -58,7 +51,11 @@ public function addToBasket(Request $request)
 
     $exists = false;
     foreach ($basket as &$item) {
-        if ($item['name'] == $product['name']) {
+        if ($item['name'] == $product['name'] &&
+        $item['flavor'] === $product['flavor'] &&
+        $item['size'] === $product['size'] &&
+        $item['psize'] === $product['psize'])
+         {
             $item['quantity'] += $product['quantity']; // Increment quantity
             $exists = true;
             break;
@@ -92,17 +89,23 @@ public function remove($index)
         return redirect()->route('basket.index')->with('error', 'Item not found.');
     }
 
-    // Remove the item from the basket
-    unset($basket[$index]);
+    // Reduce the quantity of the item
+    if ($basket[$index]['quantity'] > 1) {
+        $basket[$index]['quantity'] -= 1;
+    } else {
+        // Remove the item if quantity reaches 0
+        unset($basket[$index]);
+        $basket = array_values($basket); // Reindex the array
+    }
 
-    // Reindex the array and update the session
-    $basket = array_values($basket);
     session()->put('basket', $basket);
 
 
     // Redirect with a success message
     return redirect()->route('basket.index')->with('success', 'Item removed from the basket.');
 }
+
+
 
 
 }
