@@ -5,7 +5,7 @@
     <!-- Basic -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pup & Purr - Checkout</title>
+    <title>Pup & Purr - Basket</title>
     <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
 
     <!-- Main Stylesheets -->
