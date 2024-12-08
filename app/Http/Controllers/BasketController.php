@@ -10,11 +10,8 @@ class BasketController extends Controller
     public function index()
 {
     // Retrieve the basket from the session, or use a default basket if not set
-    $basket = session()->get('basket', [
-        ['name' => 'Cat Bed', 'price' => 16.99, 'quantity' => 1, 'image' => 'images/cat bed.webp'],
-        ['name' => 'Luxury Dog Collar', 'price' => 32.00, 'quantity' => 1, 'image' => 'images/dog collar.jpg'],
-        ['name' => 'Cat Tower', 'price' => 70.00, 'quantity' => 1, 'image' => 'images/cat tower.jpg'],
-    ]);
+    $basket = session()->get('basket', []);
+    return view('basket.index', compact('basket'));
 
      // If basket is empty, redirect or show a message
      if (empty($basket)) {
