@@ -1,21 +1,29 @@
 <x-newheader>
-<section class="about_us_section layout_padding" style="padding-top: 50px">
+ <!-- about us section -->
+ <section class="about_us_section layout_padding" style="padding-top: 50px;">
   <div class="container">
     <div class="heading_container heading_center">
       <h2>About Us</h2>
-      <p style="padding-top: 25px"> At Pup&Purr, we believe pets aren’t just companions—they’re family. That’s why we’re dedicated to offering only the best for your furry friends, from stylish apparel to nutritious treats and everyday essentials. We’re passionate about creating a place where pet owners can find everything they need to keep their beloved cats and dogs happy, healthy, and thriving. </p>
-      <p> Every product we offer is carefully selected with your pet’s comfort, safety, and happiness in mind. Whether it’s a cozy sweater for chilly walks or a fun toy to keep them entertained, our mission is to provide items that bring joy to both pets and their owners. We understand how much love and care goes into making their lives special, and we’re here to make that journey easier and more enjoyable.</p>
-      <p style="padding-top:20px"><img src="images/aboutUs1.png" alt="review picture" style="width: 450px; height: auto;">
-        <img src="images/aboutUs2.png" alt="review picture" style="width: 375px; height: auto;">
+      <hr style="width: 90px; height: 3px; background-color: #426b1f; border: none; margin: 10px auto;">
+      <p style="padding-top: 25px;">At Pup&Purr, we believe pets aren’t just companions—they’re family. That’s why we’re dedicated to offering only the best for your furry friends, from stylish apparel to nutritious treats and everyday essentials. We’re passionate about creating a place where pet owners can find everything they need to keep their beloved cats and dogs happy, healthy, and thriving.</p>
+      <p>Every product we offer is carefully selected with your pet’s comfort, safety, and happiness in mind. Whether it’s a cozy sweater for chilly walks or a fun toy to keep them entertained, our mission is to provide items that bring joy to both pets and their owners. We understand how much love and care goes into making their lives special, and we’re here to make that journey easier and more enjoyable.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="heading_container heading_center">
+      <p style="padding-top: 20px;"><img src="images/aboutUs1.png" alt="review picture" style="width: 450px; height: auto; margin-right: 10px;">
+        <img src="images/aboutUs2.png" alt="review picture" style="width: 375px; height: auto; margin-right: 10px;">
         <img src="images/aboutUs3.png" alt="review picture" style="width: 250px; height: auto;"></p>
-      <p style="padding-top: 20px"> As pet lovers ourselves, we take pride in fostering a community of like-minded people who truly care about their animals. Thank you for letting us be part of your pet’s story—we’re excited to help you spoil them with the love and attention they deserve! 🐾</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="heading_container heading_center">
+      <p style="padding-top: 20px;">As pet lovers ourselves, we take pride in fostering a community of like-minded people who truly care about their animals. Thank you for letting us be part of your pet’s story—we’re excited to help you spoil them with the love and attention they deserve! 🐾</p>
     </div>
   </div>
 </section>
 <!-- end about us section -->
-
   <!-- why section -->
-
   <section class="why_section layout_padding" style="padding-top: 0px">
     <div class="container">
       <div class="heading_container heading_center">
@@ -258,6 +266,84 @@
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end why section -->
+  <!-- client review section -->
+  <section class="client_section layout_padding" style="padding-top: 10px;">
+    
+      <div class="heading_container heading_center">
+        <h2>
+          Reviews
+        </h2>
+      </div>
+    
+    <div class="container px-0" style="padding-top: 20px;">
+      <div id="customCarousel2" class="carousel  carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="box" style="background-color: #ffffff;">
+              <div class="client_info">
+                <div class="client_name">
+                  <h5>
+                    Emily R.
+                  </h5>
+                  <h6>
+                    "Amazing quality and so cute!"
+                  </h6>
+                </div>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+              </div>
+              <p>
+                I bought a sweater for my dog, and it’s absolutely adorable! The fabric is soft, durable, and fits perfectly. My pup loves it, and we’ve gotten so many compliments on our walks! 🐶              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box" style="background-color: #ffffff;">
+              <div class="client_info">
+                <div class="client_name">
+                  <h5>
+                    Brian T.
+                  </h5>
+                  <h6>
+                    "My cat can’t get enough of the treats!"
+                  </h6>
+                </div>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+              </div>
+              <p>
+                These treats have been a game-changer for training and rewarding my kitty. She’s super picky, but she goes crazy for these! I’m so happy to have found something she loves.  🐾              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box" style="background-color: #ffffff;">
+              <div class="client_info">
+                <div class="client_name">
+                  <h5>
+                    Sophia M.
+                  </h5>
+                  <h6>
+                    "Fast delivery and excellent service!"
+                  </h6>
+                </div>
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+              </div>
+              <p>
+                I ordered a new bed for my dog, and it arrived the next day! The quality is fantastic, and the customer service team was so helpful. Highly recommend this shop! 🐕               </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel_btn-box">
+          <a class="carousel-control-prev" href="#customCarousel2" role="button" data-slide="prev">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#customCarousel2" role="button" data-slide="next">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
     </div>

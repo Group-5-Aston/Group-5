@@ -124,6 +124,36 @@
             color: #7b8e4e;
         }
 
+        .item-quantity {
+            flex: 1;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .item-flavor {
+            flex: 0.5;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .item-psize {
+            flex: 1;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333
+        }
+
+        .item-size {
+            flex: 1.6;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333
+            align-items: center;
+
+        }
+
         .summary-title {
             font-size: 24px;
             color: #426b1f;
@@ -193,14 +223,15 @@
 
             <div class="navbar-links">
                 <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
+                <a href="shop">Shop</a>
                 <a href="why.html">About Us</a>
                 <a href="contact.html">Contact Us</a>
+                
             </div>
 
             <div class="navbar-icons">
                 <a href="login.html"><i class="fa fa-user"></i></a>
-                <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
+                <a href="basket"><i class="fa fa-shopping-basket"></i></a>
             </div>
         </nav>
     </header>
@@ -215,8 +246,18 @@
     <div class="item">
         <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}">
         <p class="item-name">{{ $item['name'] }}</p>
+        @if(!empty($item['psize']))
+            <p class="item-psize">Size: {{ ucfirst($item['psize']) }}</p>
+        @endif
+        @if(!empty($item['flavor']))
+            <p class="item-flavor">Flavor: {{ ucfirst($item['flavor']) }}</p>
+        @endif
+        @if(!empty($item['size']))
+            <p class="item-size">Size: {{ ucfirst($item['size']) }}</p>
+        @endif
         <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
         <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
+        
     </div>
 @endforeach
 
@@ -236,7 +277,7 @@
             </div>
             <div class="summary-details">
                 <span>VAT:</span>
-                <span>£{{ number_format($subtotal, 2) }}</span>
+                <span>£{{ number_format($vat, 2) }}</span>
             </div>
             <div class="summary-details summary-total">
                 <span>Total:</span>

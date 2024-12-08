@@ -282,6 +282,7 @@ a:focus {
     display: flex;
     justify-content: center;
     padding: 45px;
+    position: relative;
 
     img {
       width: 275px;
@@ -359,10 +360,15 @@ a:focus {
       align-items: center;
       padding: 15px 30px;
       height: 245px;
+      overflow: hidden;
+      border: 1px solid #ccc;
 
       img {
         max-width: 100%;
         max-height: 145px;
+        object-fit: cover;
+        display: block;
+        
       }
     }
 

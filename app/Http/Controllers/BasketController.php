@@ -10,12 +10,16 @@ class BasketController extends Controller
     public function index()
 {
     // Retrieve the basket from the session, or use a default basket if not set
-    $basket = [
+    $basket = session()->get('basket', [
         ['name' => 'Cat Bed', 'price' => 16.99, 'quantity' => 1, 'image' => 'images/cat bed.webp'],
         ['name' => 'Luxury Dog Collar', 'price' => 32.00, 'quantity' => 1, 'image' => 'images/dog collar.jpg'],
         ['name' => 'Cat Tower', 'price' => 70.00, 'quantity' => 1, 'image' => 'images/cat tower.jpg'],
-    ];
-    session()->put('basket', $basket);
+    ]);
+
+     // If basket is empty, redirect or show a message
+     if (empty($basket)) {
+        return view('basket.index', ['message' => 'Your basket is empty.']);
+    }
 
     // Calculate the subtotal
     $subtotal = 0;
@@ -34,21 +38,71 @@ class BasketController extends Controller
     return view('basket.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total'));
 }
 
-    // Store basket in session
-    public function storeBasket(Request $request)
+public function addToBasket(Request $request)
 {
+    
     // Retrieve the current basket from the session
     $basket = session()->get('basket', []);
+    
+    // Create a new product array
+    $product = [
+        'name' => $request->input('name'),
+        'price' => $request->input('price'),
+        'quantity' => $request->input('quantity'),
+        'image' => $request->input('image'),
+        'size' => $request->input('size', null),
+        'flavor' => $request->input('flavor', null),
+        'psize' => $request->input('psize', null)
 
-    // Update the basket with the new data from the request
-    $newItem = $request->input('basket');  // Assuming basket is passed as an array from the request
+    ];
 
-    // Here you can modify the basket or add to it, for example:
-    $basket[] = $newItem;
+    $exists = false;
+    foreach ($basket as &$item) {
+        if ($item['name'] == $product['name']) {
+            $item['quantity'] += $product['quantity']; // Increment quantity
+            $exists = true;
+            break;
+        }
+    }
+
+    // If the product does not exist, add it to the basket
+    if (!$exists) {
+        $basket[] = $product;
+    }
 
     // Store the updated basket in the session
     session()->put('basket', $basket);
 
-    return redirect()->route('checkout.index');
+    // Redirect back to the product page or basket page
+    return redirect()->route('basket.index')->with('success', 'Item added to basket');
+
 }
+
+public function remove($index)
+{
+    // Retrieve the basket from the session
+    $basket = session()->get('basket', []);
+
+    // Check if the basket is empty or the index doesn't exist
+    if (empty($basket)) {
+        return redirect()->route('basket.index')->with('error', 'Your basket is empty.');
+    }
+
+    if (!isset($basket[$index])) {
+        return redirect()->route('basket.index')->with('error', 'Item not found.');
+    }
+
+    // Remove the item from the basket
+    unset($basket[$index]);
+
+    // Reindex the array and update the session
+    $basket = array_values($basket);
+    session()->put('basket', $basket);
+
+
+    // Redirect with a success message
+    return redirect()->route('basket.index')->with('success', 'Item removed from the basket.');
+}
+
+
 }

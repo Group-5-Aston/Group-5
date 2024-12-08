@@ -11,6 +11,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
         Pup&Purr
@@ -207,23 +208,46 @@
 
             <div class="navbar-links">
                 <a href="{{ route('home') }}">Home</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropbtn" href="{{ route('shop') }}">Shop</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('catshop') }}" class="dropdown-item">Cats</a></li>
                         <li><a href="{{route('dogshop') }}" class="dropdown-item">Dogs</a></li>
-
                     </ul>
                 </li>
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
 
-            <div class="navbar-icons">
-                <a href="{{ route('loginpage') }}"><i class="fa fa-user"></i></a>
-                <a href="basket.html"><i class="fa fa-shopping-basket"></i></a>
-            </div>
+        <div class="navbar-icons">
+            <div class="nav-item dropdown">
+                @if(Auth::check())
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0);">
+                        <i class="fa fa-user"></i>
+                        {{Auth::User()->name}}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
+                        <li><a href="" class="dropdown-item">Orders</a></li>
+                        @if(Auth::User()->usertype == 'admin')
+                            <li><a href="" class="dropdown-item">Admin Dashboard</a></li>
+                        @endif
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                @else
+                    <a href="{{ route('loginpage') }}">
+                        <i class="fa fa-user"></i>
+                        Login
+                    </a>
+                @endif
+                </div>
+                <a href="{{ route('basket.index') }}"><i class="fa fa-shopping-basket"></i></a>
+        </div>
         </nav>
     </header>
     <!-- end header section -->

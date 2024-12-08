@@ -9,7 +9,8 @@
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p2.html">
+          <a href="{{ route('product') }}">
+          <a href="product/product2">
               <div class="img-box">
 
               <img src = "images/p2.jpg" alt="ring" style="width: 100%; height: auto;"></src>
@@ -36,7 +37,8 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p4.html">
+          <a href="{{ route('product') }}">
+          <a href="product/product4">
               <div class="img-box">
                 <img src="images/p4.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -61,7 +63,8 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p7.html">
+          <a href="{{ route('product') }}">
+          <a href="product/product7">
               <div class="img-box">
                 <img src="images/p7.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -86,7 +89,8 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p8.html">
+          <a href="{{ route('product') }}">
+          <a href="product/product8">
               <div class="img-box">
                 <img src="images/p8.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -111,7 +115,8 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p10.html">
+          <a href="{{ route('product') }}">
+          <a href="product/product10">
               <div class="img-box">
                 <img src="images/p10.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -136,7 +141,8 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p12.html">
+          <a href="{{ route('product') }}">
+          <a href="product/product12">
               <div class="img-box">
                 <img src="images/p12.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -161,7 +167,8 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p15.html">
+          <a href="{{ route('product') }}">
+          <a href="product/product15">
               <div class="img-box">
                 <img src="images/p15.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -186,7 +193,8 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="p14.html">
+          <a href="{{ route('product') }}">
+          <a href="product/product14">
               <div class="img-box">
                 <img src="images/p14.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
