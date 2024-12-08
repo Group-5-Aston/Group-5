@@ -249,7 +249,7 @@
         <!-- Order Summary -->
 <aside class="order-summary">
     <h2 class="summary-title">Order Summary</h2>
-    @if(count($basket) > 0)
+    @if(!empty($basket) && count($basket) > 0)
     <div class="summary-details">
         <p>Subtotal</p>
         <p>£{{ number_format($subtotal, 2) }}</p>
