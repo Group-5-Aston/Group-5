@@ -275,7 +275,7 @@
             <section>
 
                 <div class="btn-box" style="padding-top: 0px">
-                    <a href="shop1.html">
+                    <a href="{{route('fullshop')}}">
                         Buy Now
                     </a>
                 </div>
