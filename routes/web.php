@@ -9,6 +9,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
@@ -52,10 +53,11 @@ Route::get('/why', function () {
     return view('newpages.newwhy');
 })->name('why');
 
-//Contact us page route
-Route::get('/contact', function () {
-    return view('newpages.newcontact');
-})->name('contact');
+//Contact us routes
+Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
+Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
+
+
 
 Route::get('/search', 'SearchController@index');
 
