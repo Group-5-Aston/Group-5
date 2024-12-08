@@ -55,6 +55,7 @@ Route::get('/contact', function () {
     return view('newpages.newcontact');
 })->name('contact');
 
+Route::get('/search', 'SearchController@index');
 
 
 
