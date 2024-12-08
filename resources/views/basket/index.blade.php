@@ -228,7 +228,7 @@
         <section class="basket-items">
             <h1 class="basket-title">Basket</h1>
             <a href="shop" class="basket-button">Continue Shopping</a>
-            @if(count($basket) > 0)          
+            @if(!empty($basket) && count($basket) > 0)          
                 @foreach($basket as $index => $item)
                     <div class="item">
                         <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
@@ -249,7 +249,7 @@
         <!-- Order Summary -->
 <aside class="order-summary">
     <h2 class="summary-title">Order Summary</h2>
-    @if(count($basket) > 0)
+    @if(!empty($basket) && count($basket) > 0)
     <div class="summary-details">
         <p>Subtotal</p>
         <p>£{{ number_format($subtotal, 2) }}</p>

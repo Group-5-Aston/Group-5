@@ -1,6 +1,9 @@
+<?php
 @extends('layouts.app')
 
 @section('content')
+?>
+
     <div class="container">
         <h1>Products search results</h1>
         <form method="get" action="{{ route('product.search') }}">

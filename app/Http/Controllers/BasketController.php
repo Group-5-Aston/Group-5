@@ -10,16 +10,7 @@ class BasketController extends Controller
     public function index()
 {
     // Retrieve the basket from the session, or use a default basket if not set
-    $basket = session()->get('basket', [
-        ['name' => 'Cat Bed', 'price' => 16.99, 'quantity' => 1, 'image' => 'images/cat bed.webp'],
-        ['name' => 'Luxury Dog Collar', 'price' => 32.00, 'quantity' => 1, 'image' => 'images/dog collar.jpg'],
-        ['name' => 'Cat Tower', 'price' => 70.00, 'quantity' => 1, 'image' => 'images/cat tower.jpg'],
-    ]);
-
-     // If basket is empty, redirect or show a message
-     if (empty($basket)) {
-        return view('basket.index', ['message' => 'Your basket is empty.']);
-    }
+    $basket = session()->get('basket', []);
 
     // Calculate the subtotal
     $subtotal = 0;
@@ -27,15 +18,17 @@ class BasketController extends Controller
         $subtotal += $item['price'] * $item['quantity'];
     }
 
+
     // Example shipping cost and VAT
     $shipping = 4.99;
     $vat = 2.00;
 
     // Calculate the total
-    $total = $subtotal + $shipping + $vat;
+    $total = $subtotal > 0 ? $subtotal + $shipping + $vat : 0;
 
     // Pass data to the view
     return view('basket.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total'));
+    
 }
 
 public function addToBasket(Request $request)

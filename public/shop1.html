@@ -278,51 +278,102 @@
 <body>
   </body><div></div>
   
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  /* Adjust navbar alignment and spacing */
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px; /* Adjust padding to shift navbar to the left */
+  }
+
+  .navbar-links {
+      display: flex;
+      gap: 5px;
+  }
+
+  .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  /* Search bar and filter button alignment */
+  .search-bar {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 13px;
+  }
+
+  .search-button, .filter-btn {
+      background-color: #4B7C47; /* Green button */
+      color: white;
+      border: none;
+      padding: 11px 10px;
+      cursor: pointer;
+      font-size: 13px;
+  }
+
+  .search-button:hover, .filter-btn:hover {
+      background-color: #4b7c65;
+  }
+
+  .filter-btn {
+      display: inline-flex;
+     
+      font-size: 20px;
+  }
+
+  .navbar-icons {
+      display: flex;
+      gap: 15px;
+  }
+</style>
+</head>
+
 <body>
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header>
-      <nav class="navbar">
-          <a class="navbar-brand" href="index.html">
-              <img src="images/logo.jpg" alt="Pup & Purr Logo" style="height: 75px;">
-              <span style="color: #426b1f; font-size: 28px; font-weight: bold;">Pup & Purr</span>
-          </a>
+<div class="hero_area">
+  <!-- header section starts -->
+  <header>
+    <nav class="navbar">
+        <!-- Logo Section -->
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo.jpg" alt="Pup & Purr Logo" style="height: 75px;">
+            <span style="color: #426b1f; font-size: 28px; font-weight: bold;">Pup & Purr</span>
+        </a>
 
-          <div class="navbar-links">
-              <a href="index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropbtn" href="shop.html">Shop</a>
-                <ul class="dropdown-menu">
-                    <li><a href="cat.html" class="dropdown-item">Cats</a></li>
-                    <li><a href="dog.html" class="dropdown-item">Dogs</a></li>
-                    
-                </ul>
-            </li>
-              <a href="why.html">About Us</a>
-              <a href="contact.html">Contact Us</a>
-          </div>
+        <!-- Links Section -->
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="why.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
 
-          <div class="navbar-icons">
-              <a href="login.html"><i class="fa fa-user"></i></a>
-              <a href="basket"><i class="fa fa-shopping-basket"></i></a>
-          </div>
-      </nav>
-  </header>
-    <!-- end header section -->
+        <!-- Search and Filter Section -->
+        <div class="search-container">
+            <form method="GET" action="{{ route('product.search') }}">
+                <input type="text" class="search-bar" name="q" placeholder="Search products...">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+            <button class="filter-btn" title="Filter">
+                <i class="fas fa-filter"></i>
+            </button>
+        </div>
 
-  </div>
-  <!-- end hero area -->
-
-
-    <!-- Search Bar and Filter Button -->
-    <form method="GET" action="{{ route('product.search') }}">
-      <input type="text" name="q" placeholder="Search products...">
-      <button type="submit">Search</button>
-  </form>
-  <a href="#" class="filter-btn">Filter by category</a>
+        <!-- Icons Section -->
+        <div class="navbar-icons">
+            <a href="login.html"><i class="fa fa-user"></i></a>
+            <a href="basket"><i class="fa fa-shopping-basket"></i></a>
+        </div>
+    </nav>
+</header>
+</div>
 </body>
-</html>
+</div>
 
   <!-- shop section -->
 

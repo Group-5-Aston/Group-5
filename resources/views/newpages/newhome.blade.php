@@ -65,7 +65,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Bundle- Dogfood
+                                    Bundle - Dogfood
                                 </h6>
                                 <h6>
                                     Price
@@ -92,7 +92,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Bundle- Catfood
+                                    Bundle - Catfood
                                 </h6>
                                 <h6>
                                     Price
@@ -275,7 +275,7 @@
             <section>
 
                 <div class="btn-box" style="padding-top: 0px">
-                    <a href="shop1.html">
+                    <a href="{{route('fullshop')}}">
                         Buy Now
                     </a>
                 </div>
@@ -302,13 +302,13 @@
                                                 Harry M
                                             </h5>
                                             <h6>
-                                                "You cannot go wrong with these products"
+                                                "Perfect for my picky pup!"
                                             </h6>
                                         </div>
                                         <i class="fa fa-quote-left" aria-hidden="true"></i>
                                     </div>
                                     <p>
-                                        "I recently bought a puppy and purchased come products from this website. May i say not a penny gone to waste.""           </p>
+                                        "I’ve tried so many products for my dog, and this is the first shop where everything feels like it’s made with care. The toys are durable, the clothes fit perfectly, and my dog actually enjoys the treats! It’s now my go-to store for all his needs. 🐕"           </p>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -319,13 +319,13 @@
                                                 Brian H.
                                             </h5>
                                             <h6>
-                                                "these products blew my mind away"
+                                                "Great quality and adorable designs!"
                                             </h6>
                                         </div>
                                         <i class="fa fa-quote-left" aria-hidden="true"></i>
                                     </div>
                                     <p>
-                                        "Ive purchased items from other pet websites but none seemed to do the job. After buying the cat bed for my kitten, it shocked my how the quality was so good."
+                                        "I ordered a raincoat for my cat (yes, she loves being outside in the rain!), and it’s both functional and super cute. The material is high quality, and the fit is just right. This shop really understands pets and their owners! 🐱"
                                     </p>
                                 </div>
                             </div>
@@ -337,13 +337,13 @@
                                                 Sarah L.
                                             </h5>
                                             <h6>
-                                                " excellent service!"
+                                                "So much variety!"
                                             </h6>
                                         </div>
                                         <i class="fa fa-quote-left" aria-hidden="true"></i>
                                     </div>
                                     <p>
-                                        "Had i have known this pet website offered 0 shipping fee and fast delivery i would have been buying from this store years ago" </p>
+                                        "I’m amazed at how many options this shop has! I found unique treats, a stylish leash, and even matching sweaters for me and my dog. Everything arrived quickly, and the quality exceeded my expectations. Highly recommend for pet parents who want the best. 🐾" </p>
                                 </div>
                             </div>
                         </div>
