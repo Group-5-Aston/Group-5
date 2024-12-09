@@ -51,7 +51,11 @@ public function addToBasket(Request $request)
 
     $exists = false;
     foreach ($basket as &$item) {
-        if ($item['name'] == $product['name']) {
+        if ($item['name'] == $product['name'] &&
+        $item['flavor'] === $product['flavor'] &&
+        $item['size'] === $product['size'] &&
+        $item['psize'] === $product['psize'])
+         {
             $item['quantity'] += $product['quantity']; // Increment quantity
             $exists = true;
             break;
@@ -85,17 +89,23 @@ public function remove($index)
         return redirect()->route('basket.index')->with('error', 'Item not found.');
     }
 
-    // Remove the item from the basket
-    unset($basket[$index]);
+    // Reduce the quantity of the item
+    if ($basket[$index]['quantity'] > 1) {
+        $basket[$index]['quantity'] -= 1;
+    } else {
+        // Remove the item if quantity reaches 0
+        unset($basket[$index]);
+        $basket = array_values($basket); // Reindex the array
+    }
 
-    // Reindex the array and update the session
-    $basket = array_values($basket);
     session()->put('basket', $basket);
 
 
     // Redirect with a success message
     return redirect()->route('basket.index')->with('success', 'Item removed from the basket.');
 }
+
+
 
 
 }

@@ -4,7 +4,6 @@ use Controller;
 use Product;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 
 class SearchController extends Controller
 {

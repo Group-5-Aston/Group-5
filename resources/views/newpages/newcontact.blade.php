@@ -17,18 +17,19 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-5 px-0">
-          <form action="#">
+          <form method="POST" action="{{ route ('submitContact' )}}">
+              @csrf
             <div>
-              <input type="text" placeholder="Name" style="background-color: #f9f7eb;"/>
+              <input type="text" placeholder="Name" name="name" style="background-color: #f9f7eb;" required/>
             </div>
             <div>
-              <input type="email" placeholder="Email" style="background-color: #f9f7eb;"/>
+              <input type="email" placeholder="Email" name="email" style="background-color: #f9f7eb;" required/>
             </div>
             <div>
-              <input type="text" placeholder="Phone" style="background-color: #f9f7eb;"/>
+              <input type="text" placeholder="Phone" name="phone" style="background-color: #f9f7eb;"/>
             </div>
             <div>
-              <input type="text" class="message-box" placeholder="Message" style="background-color: #f9f7eb;"/>
+              <input type="text" class="message-box" name="message" placeholder="Message" style="background-color: #f9f7eb;" required/>
             </div>
             <div class="d-flex ">
               <button>
