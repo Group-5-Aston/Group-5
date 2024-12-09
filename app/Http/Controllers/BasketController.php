@@ -51,7 +51,11 @@ public function addToBasket(Request $request)
 
     $exists = false;
     foreach ($basket as &$item) {
-        if ($item['name'] == $product['name']) {
+        if ($item['name'] == $product['name'] &&
+        $item['flavor'] === $product['flavor'] &&
+        $item['size'] === $product['size'] &&
+        $item['psize'] === $product['psize'])
+         {
             $item['quantity'] += $product['quantity']; // Increment quantity
             $exists = true;
             break;
