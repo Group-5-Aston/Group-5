@@ -5,7 +5,7 @@
     <!-- Basic -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pup & Purr - Basket</title>
+    <title>Pup & Purr - Checkout</title>
     <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
 
     <!-- Main Stylesheets -->
@@ -24,7 +24,6 @@
             border-bottom: 2px solid #7b8e4e;
         }
 
-        
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -234,15 +233,6 @@
                     <div class="item">
                         <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
                         <p class="item-name">{{ $item['name'] }}</p>
-                        @if($item['flavor'])
-                            <p class="item-flavor">Flavor: {{ $item['flavor'] }}</p>
-                        @endif
-                        @if($item['psize'])
-                            <p class="item-psize">Package Size: {{ $item['psize'] }}</p>
-                        @endif
-                        @if($item['size'])
-                            <p class="item-size">Size: {{ $item['size'] }}</p>
-                        @endif
                         <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
                         <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
                         <form action="{{ route('basket.remove', ['index' => $index]) }}" method="POST">

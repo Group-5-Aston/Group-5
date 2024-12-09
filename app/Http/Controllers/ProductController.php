@@ -15,24 +15,25 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $query = Product::query();
+        $query = $request->input('q');
+        $products = Product::where('name', 'like', '%' . $query . '%')
+            ->orWhere('description', 'like', '%' . $query . '%')
+            ->get();
+        return view('product.search', compact('products'));
+    }
 
-        // Apply filters
-        $productFilter = new ProductFilter($query);
-        $productFilter
-            ->byCategory($request->input('category'))
-            ->byPriceRange($request->input('min_price'), $request->input('max_price'))
-            ->byStock($request->input('in_stock'));
+    public function filter(Request $request)
+    {
+        $category_id = $request->input('category');
+        $brand_id = $request->input('brand');
 
-        // Apply search
-        $searchFilter = new SearchFilter($query);
-        $searchFilter->byQuery($request->input('q'));
+        if ($category_id) {
+            $products = Product::where('category_id', $category_id)->get();
+        } elseif ($brand_id) {
+            $products = Product::where('brand_id', $brand_id)->get();
+        }
 
-        // Get results
-        $products = $productFilter->apply()->get();
-        $categories = Category::all();
-
-        return view('product.index', compact('products', 'categories'));
+        return view('product.filter', compact('products'));
     }
 
     public function show($product)
@@ -260,8 +261,7 @@ class ProductController extends Controller
         // Check if the product exists in the array
         if (isset($products[$product])) {
             return view('products.product', ['product' => $products[$product]]);
-        } 
-    
+        }
 
         // If product is not found, redirect to 404 or show an error page
         return abort(404, 'Product not found');

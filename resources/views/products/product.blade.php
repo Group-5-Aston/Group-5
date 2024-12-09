@@ -252,22 +252,6 @@
                         <input type="number" id="quantity" name="quantity" min="1" value="1"  class="form-control" style="width: 120px;">
                     </div>
 
-                    @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <h1 class="text-center my-4">Our Products</h1>
-
-    <!-- Search Form -->
-    <form method="GET" action="{{ route('product.search') }}" class="mb-4">
-        <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search products..." value="{{ request('q') }}">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
-
-
-
                     <!-- Check if it's food -->
         @if($product['is_food'])
             <!-- Package Size Selection -->

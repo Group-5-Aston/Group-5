@@ -17,7 +17,7 @@
             font-family: "Poppins", sans-serif;
         }
 
-        /* the top header styles and designs */
+        /* the top header styles and designs  */
         header {
             background: #fefbe6;
             padding: 10px 20px;
@@ -66,8 +66,8 @@
             font-size: 18px;
         }
 
-        /* The Checkout Page */
-        .checkout-container {
+        /*The  Basket Page */
+        .basket-container {
             margin: 0 auto;
             max-width: 1200px;
             padding: 50px 20px;
@@ -76,7 +76,7 @@
             gap: 20px;
         }
 
-        .checkout-items,
+        .basket-items,
         .order-summary {
             padding: 20px;
             background: #fefefe;
@@ -84,7 +84,7 @@
             box-shadow: 0 4px 8px rgba(123, 142, 78, 0.2);
         }
 
-        .checkout-items {
+        .basket-items {
             flex: 2;
         }
 
@@ -92,7 +92,7 @@
             flex: 1;
         }
 
-        .checkout-title {
+        .basket-title {
             font-size: 28px;
             color: #426b1f;
             margin-bottom: 20px;
@@ -125,8 +125,10 @@
         }
 
         .item-quantity {
+            flex: 1;
             margin: 0 20px;
-            color: #7b8e4e;
+            font-size: 16px;
+            color: #333;
         }
 
         .item-flavor {
@@ -147,8 +149,9 @@
             flex: 1.6;
             margin: 0 20px;
             font-size: 16px;
-            color: #333;
+            color: #333
             align-items: center;
+
         }
 
         .summary-title {
@@ -213,51 +216,56 @@
     <!-- The Header Section -->
     <header>
         <nav class="navbar">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.jpg') }}" alt="Pup & Purr Logo" style="height: 75px;">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.jpg" alt="Pup & Purr Logo" style="height: 75px;">
                 <span style="color: #426b1f; font-size: 28px; font-weight: bold;">Pup & Purr</span>
             </a>
 
             <div class="navbar-links">
-                <a href="{{ route('home') }}">Home</a>
-                <a href="{{ route('shop') }}">Shop</a>
-                <a href="{{ route('why') }}">About Us</a>
-                <a href="{{ route('contact') }}">Contact Us</a>
+                <a href="index.html">Home</a>
+                <a href="shop">Shop</a>
+                <a href="why.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                
             </div>
 
             <div class="navbar-icons">
-                <a href="{{ route('loginpage') }}"><i class="fa fa-user"></i></a>
-                <a href="{{ route('basket.index') }}"><i class="fa fa-shopping-basket"></i></a>
+                <a href="login.html"><i class="fa fa-user"></i></a>
+                <a href="basket"><i class="fa fa-shopping-basket"></i></a>
             </div>
         </nav>
     </header>
 
+
     <!-- Checkout Section -->
-    <main class="checkout-container">
+    <section class="checkout-container">
         <!-- Checkout Items -->
-        <section class="checkout-items">
+        <div class="checkout-details">
             <h2 class="checkout-title">Your Items</h2>
-            @foreach($basket as $item)
-            <div class="item">
-                <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}">
-                <p class="item-name">{{ $item['name'] }}</p>
-                @if(!empty($item['psize']))
-                    <p class="item-psize">Package Size: {{ ucfirst($item['psize']) }}</p>
-                @endif
-                @if(!empty($item['flavor']))
-                    <p class="item-flavor">Flavor: {{ ucfirst($item['flavor']) }}</p>
-                @endif
-                @if(!empty($item['size']))
-                    <p class="item-size">Size: {{ ucfirst($item['size']) }}</p>
-                @endif
-                <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
-                <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
-            </div>
-            @endforeach
-        </section>
+    @foreach($basket as $item)
+    <div class="item">
+        <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}">
+        <p class="item-name">{{ $item['name'] }}</p>
+        @if(!empty($item['psize']))
+            <p class="item-psize">Size: {{ ucfirst($item['psize']) }}</p>
+        @endif
+        @if(!empty($item['flavor']))
+            <p class="item-flavor">Flavor: {{ ucfirst($item['flavor']) }}</p>
+        @endif
+        @if(!empty($item['size']))
+            <p class="item-size">Size: {{ ucfirst($item['size']) }}</p>
+        @endif
+        <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
+        <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
+        
+    </div>
+@endforeach
+
+
+        </div>
 
         <!-- Order Summary -->
-        <aside class="order-summary">
+        <div class="order-summary">
             <h2 class="summary-title">Order Summary</h2>
             <div class="summary-details">
                 <span>Subtotal:</span>
@@ -275,13 +283,9 @@
                 <span>Total:</span>
                 <span>£{{ number_format($total, 2) }}</span>
             </div>
-            @if(count($basket) > 0)
-                <a href="{{ route('payment.index') }}" class="checkout-button">Proceed to Payment</a>
-            @else
-                <button class="checkout-button" disabled>Proceed to Payment</button>
-            @endif
-        </aside>
-    </main>
+            <a href="{{ route('payment.index') }}" class="checkout-button">Proceed to Payment</a>
+        </div>
+    </section>
 
     <!-- Footer Section -->
     <footer class="footer_section" style="background-color: #fefbe6; text-align: center; padding: 20px 0; display: flex; justify-content: center; align-items: center;">
