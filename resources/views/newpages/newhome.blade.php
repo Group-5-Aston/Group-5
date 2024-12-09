@@ -118,7 +118,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Dog biscuits
+                                    Dog Biscuits
                                 </h6>
                                 <h6>
                                     Price
@@ -144,7 +144,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Cat biscuits
+                                    Cat Biscuits
                                 </h6>
                                 <h6>
                                     Price
@@ -170,7 +170,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Protein dog food
+                                    Protein Dog Food
                                 </h6>
                                 <h6>
                                     Price
@@ -196,7 +196,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Wet mixed dog food
+                                    Wet Mixed Dog Food
                                 </h6>
                                 <h6>
                                     Price
@@ -222,7 +222,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Wet mixed cat food
+                                    Wet Mixed Cat Food
                                 </h6>
                                 <h6>
                                     Price
@@ -248,7 +248,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Cat protein food
+                                    Cat Protein Food
                                 </h6>
                                 <h6>
                                     Price

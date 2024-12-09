@@ -17,7 +17,7 @@
             </div>
               <div class="detail-box">
                 <h6>
-                bundle- dogfood
+                Bundle- Dogfood
                 </h6>
                 <h6>
                   Price
@@ -44,7 +44,7 @@
               </div>
               <div class="detail-box">
                 <h6>
-                  dog biscuits
+                  Dog Biscuits
                 </h6>
                 <h6>
                   Price
@@ -70,7 +70,7 @@
               </div>
               <div class="detail-box">
                 <h6>
-                  protein dog food
+                  Protein Dog Food
                 </h6>
                 <h6>
                   Price
@@ -96,7 +96,7 @@
               </div>
               <div class="detail-box">
                 <h6>
-                  cat biscuits
+                  Dog Biscuits
                 </h6>
                 <h6>
                   Price
@@ -122,7 +122,7 @@
               </div>
               <div class="detail-box">
                 <h6>
-                  dog toys
+                  Dog Toys
                 </h6>
                 <h6>
                   Price
@@ -148,7 +148,7 @@
               </div>
               <div class="detail-box">
                 <h6>
-                 dog shampoo
+                 Dog Shampoo
                 </h6>
                 <h6>
                   Price
@@ -174,7 +174,7 @@
               </div>
               <div class="detail-box">
                 <h6>
-                 dog bed
+                 Dog Bed
                 </h6>
                 <h6>
                   Price
@@ -200,7 +200,7 @@
               </div>
               <div class="detail-box">
                 <h6>
-                 dog dental products
+                 Dog Dental Products
                 </h6>
                 <h6>
                   Price
