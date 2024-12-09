@@ -85,17 +85,22 @@ public function remove($index)
         return redirect()->route('basket.index')->with('error', 'Item not found.');
     }
 
-    // Remove the item from the basket
-    unset($basket[$index]);
+    // Reduce the quantity of the item
+    if ($basket[$index]['quantity'] > 1) {
+        $basket[$index]['quantity'] -= 1;
+    } else {
+        // Remove the item if quantity reaches 0
+        unset($basket[$index]);
+        $basket = array_values($basket); // Reindex the array
+    }
 
-    // Reindex the array and update the session
-    $basket = array_values($basket);
+    // Update the session
     session()->put('basket', $basket);
 
-
     // Redirect with a success message
-    return redirect()->route('basket.index')->with('success', 'Item removed from the basket.');
+    return redirect()->route('basket.index')->with('success', 'Item updated in the basket.');
 }
+
 
 
 }
