@@ -210,14 +210,14 @@
             </a>
 
             <div class="navbar-links">
-                <a href="index.html">Home</a>
+                <a href="">Home</a>
                 <a href="shop">Shop</a>
-                <a href="why.html">About Us</a>
-                <a href="contact.html">Contact Us</a>
+                <a href="why">About Us</a>
+                <a href="contact">Contact Us</a>
             </div>
 
             <div class="navbar-icons">
-                <a href="login.html"><i class="fa fa-user"></i></a>
+                <a href="login"><i class="fa fa-user"></i></a>
                 <a href="basket"><i class="fa fa-shopping-basket"></i></a>
             </div>
         </nav>
