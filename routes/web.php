@@ -65,7 +65,7 @@ Route::get('/search', 'SearchController@index');
 Route::get('products', [ProductController::class, 'index'])->name('product.index');
 Route::get('products/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('products/{product}', [ProductController::class, 'show']);
-use App\Http\Controllers\ProductController;
+
 
 Route::get('/shop', [ProductController::class, 'index'])->name('shop.index');
 Route::get('/shop/{id}', [ProductController::class, 'show'])->name('shop.show');
