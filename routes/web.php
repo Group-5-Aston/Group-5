@@ -58,7 +58,7 @@ Route::get('/contact', [ContactController::class, 'showContact'])->name('contact
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
 
-
+//Searxh route
 Route::get('/search', 'SearchController@index');
 
 //product routes
@@ -67,6 +67,10 @@ Route::get('products/search', [ProductController::class, 'search'])->name('produ
 Route::get('products/{product}', [ProductController::class, 'show']);
 
 
+Route::get('/shop', [ProductController::class, 'index'])->name('shop.index');
+Route::get('/shop/{id}', [ProductController::class, 'show'])->name('shop.show');
+
+// prod filter routes
 Route::get('/products/filter', 'ProductController@filter');
 
 Route::get('/dashboard', function () {

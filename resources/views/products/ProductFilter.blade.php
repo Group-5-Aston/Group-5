@@ -1,5 +1,6 @@
-<?php
-<form method="GET" action="{{ route('product.filter') }}">
+<DOCTYPE>
+    <html lang=en>
+    <form method="GET" action="{{ route('product.filter') }}">
     @foreach($categories as $category)
 
     ?>
@@ -24,4 +25,3 @@
         </div>
     @endforeach
 @endif
-
