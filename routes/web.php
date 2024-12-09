@@ -58,15 +58,19 @@ Route::get('/contact', [ContactController::class, 'showContact'])->name('contact
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
 
-
+//Searxh route
 Route::get('/search', 'SearchController@index');
 
 //product routes
 Route::get('products', [ProductController::class, 'index'])->name('product.index');
 Route::get('products/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('products/{product}', [ProductController::class, 'show']);
+use App\Http\Controllers\ProductController;
 
+Route::get('/shop', [ProductController::class, 'index'])->name('shop.index');
+Route::get('/shop/{id}', [ProductController::class, 'show'])->name('shop.show');
 
+// prod filter routes
 Route::get('/products/filter', 'ProductController@filter');
 
 Route::get('/dashboard', function () {

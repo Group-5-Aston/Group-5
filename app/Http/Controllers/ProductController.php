@@ -261,6 +261,19 @@ class ProductController extends Controller
         if (isset($products[$product])) {
             return view('products.product', ['product' => $products[$product]]);
         }
+        public function index()
+        {
+            $products = Product::all(); // Fetch all products
+            return view('shop.index', compact('products')); // Pass products to the shop view
+        }
+    
+        // Fetch a single product and display its details
+        public function show($id)
+        {
+            $product = Product::findOrFail($id); // Find product by ID
+            return view('shop.show', compact('product')); // Pass product to the single view
+        }
+    }
 
         // If product is not found, redirect to 404 or show an error page
         return abort(404, 'Product not found');

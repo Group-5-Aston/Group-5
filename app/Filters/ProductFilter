@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 
 Route::get('/products/filter', [ProductController::class, 'filter']);
 
-public function filter(Request $request)
+public function Filter(Request $request)
 {
     $query = $request->input('search');
     $category_id = $request->input('category');
