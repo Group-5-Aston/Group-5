@@ -24,6 +24,7 @@
             border-bottom: 2px solid #7b8e4e;
         }
 
+        
         .navbar {
             display: flex;
             justify-content: space-between;
