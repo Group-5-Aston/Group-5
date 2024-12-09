@@ -153,6 +153,36 @@
             color: #7b8e4e;
         }
 
+        .item-quantity {
+            flex: 1;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .item-flavor {
+            flex: 0.5;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .item-psize {
+            flex: 1;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333
+        }
+
+        .item-size {
+            flex: 1.6;
+            margin: 0 20px;
+            font-size: 16px;
+            color: #333
+            align-items: center;
+
+        }
+
         .summary-title {
             font-size: 24px;
             color: #426b1f;
@@ -193,6 +223,38 @@
             font-size: 18px;
             margin-left: 10px;
         }
+
+        .product-options .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .checkout-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #426b1f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background: #355716;
+        }
+
+        .remove-button {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background: #e60000;
+        }
     </style>
 </head>
 
@@ -202,7 +264,7 @@
     <header>
         <nav class="navbar">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="images/logo.jpg" alt="Pup & Purr Logo" style="height: 75px;">
+                <img src="{{ asset('images/logo.jpg') }}" alt="Pup & Purr Logo" style="height: 75px;">
                 <span style="color: #426b1f; font-size: 28px; font-weight: bold;">Pup & Purr</span>
             </a>
 

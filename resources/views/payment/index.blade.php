@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-newheader>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pup & Purr - Payment</title>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-</head>
 
-<body>
-    
-    <x-newheader>
-       
-    
 
     <!-- payment section -->
     <section class="payment_section layout_padding" style="padding-top: 48px">
@@ -61,25 +48,6 @@
             @endif
         </div>
     </section>
-    <!-- end payment section -->
+    @include('components.newcompactfooter')
 
-    <!-- footer section -->
-    <footer class="footer_section">
-        <div class="container">
-            <p>
-                &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="index.html">Pup&Purr</a>
-            </p>
-        </div>
-    </footer>
-    <!-- footer section -->
-
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
-
-    </x-newheader>
-
-</body>
-
-</html>
+</x-newheader>
