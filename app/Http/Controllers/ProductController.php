@@ -32,7 +32,7 @@ class ProductController extends Controller
         $products = $productFilter->apply()->get();
         $categories = Category::all();
 
-        return view('products.index', compact('products', 'categories'));
+        return view('product.index', compact('products', 'categories'));
     }
 
     public function show($product)
@@ -260,20 +260,8 @@ class ProductController extends Controller
         // Check if the product exists in the array
         if (isset($products[$product])) {
             return view('products.product', ['product' => $products[$product]]);
-        }
-        public function index()
-        {
-            $products = Product::all(); // Fetch all products
-            return view('shop.index', compact('products')); // Pass products to the shop view
-        }
+        } 
     
-        // Fetch a single product and display its details
-        public function show($id)
-        {
-            $product = Product::findOrFail($id); // Find product by ID
-            return view('shop.show', compact('product')); // Pass product to the single view
-        }
-    }
 
         // If product is not found, redirect to 404 or show an error page
         return abort(404, 'Product not found');
