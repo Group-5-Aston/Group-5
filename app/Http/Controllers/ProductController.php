@@ -15,25 +15,24 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $query = $request->input('q');
-        $products = Product::where('name', 'like', '%' . $query . '%')
-            ->orWhere('description', 'like', '%' . $query . '%')
-            ->get();
-        return view('product.search', compact('products'));
-    }
+        $query = Product::query();
 
-    public function filter(Request $request)
-    {
-        $category_id = $request->input('category');
-        $brand_id = $request->input('brand');
+        // Apply filters
+        $productFilter = new ProductFilter($query);
+        $productFilter
+            ->byCategory($request->input('category'))
+            ->byPriceRange($request->input('min_price'), $request->input('max_price'))
+            ->byStock($request->input('in_stock'));
 
-        if ($category_id) {
-            $products = Product::where('category_id', $category_id)->get();
-        } elseif ($brand_id) {
-            $products = Product::where('brand_id', $brand_id)->get();
-        }
+        // Apply search
+        $searchFilter = new SearchFilter($query);
+        $searchFilter->byQuery($request->input('q'));
 
-        return view('product.filter', compact('products'));
+        // Get results
+        $products = $productFilter->apply()->get();
+        $categories = Category::all();
+
+        return view('products.index', compact('products', 'categories'));
     }
 
     public function show($product)
