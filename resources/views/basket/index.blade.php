@@ -27,7 +27,8 @@
                     </div>
                 @endforeach
             @else
-                <p>Your basket is empty!</p>
+            <p></p>    
+            <p>Your basket is empty!</p>
             @endif
         </section>
 
