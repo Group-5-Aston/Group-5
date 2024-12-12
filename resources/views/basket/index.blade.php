@@ -9,6 +9,15 @@
                     <div class="item">
                         <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
                         <p class="item-name">{{ $item['name'] }}</p>
+                        @if($item['flavor'])
+                            <p class="item-flavor">Flavor: {{ $item['flavor'] }}</p>
+                        @endif
+                        @if($item['psize'])
+                            <p class="item-psize">Package Size: {{ $item['psize'] }}</p>
+                        @endif
+                        @if($item['size'])
+                            <p class="item-size">Size: {{ $item['size'] }}</p>
+                        @endif
                         <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
                         <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
                         <form action="{{ route('basket.remove', ['index' => $index]) }}" method="POST">
@@ -18,7 +27,8 @@
                     </div>
                 @endforeach
             @else
-                <p>Your basket is empty!</p>
+            <p></p>    
+            <p>Your basket is empty!</p>
             @endif
         </section>
 
