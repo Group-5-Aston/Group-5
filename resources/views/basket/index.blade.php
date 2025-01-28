@@ -24,6 +24,17 @@
                             @csrf
                             <button type="submit" class="remove-button">Remove</button>
                         </form>
+                        <form action="{{ route('basket.add', ['index' => $index])}}" method="POST" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="name" value="{{ $item['name'] }}">
+                            <input type="hidden" name="price" value="{{ $item['price'] }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="image" value="{{ $item['image'] }}">
+                            <input type="hidden" name="size" value="{{ $item['size'] }}">
+                            <input type="hidden" name="flavor" value="{{ $item['flavor'] }}">
+                            <input type="hidden" name="psize" value="{{ $item['psize'] }}">
+                            <button type="submit" class="add-button">Add</button>
+                        </form>
                     </div>
                 @endforeach
             @else
@@ -56,6 +67,7 @@
     <a href="{{ route('checkout.index') }}" class="basket-button">Continue to Checkout →</a>
     @else
     <button class="checkout-button" disabled>Continue to Checkout →</button>
+    <p class="empty-basket-message">You can't checkout with an empty basket!</p>
 @endif
 </aside>
     </main>
