@@ -271,7 +271,14 @@
             <div class="navbar-links">
                 <a href="{{ route('home') }}">Home</a>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropbtn" href="{{ route('shop') }}">Shop</a>
+                    <a class="nav-link dropbtn" href="{{ route('shop') }}">Cats</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('catshop') }}" class="dropdown-item">Cats</a></li>
+                        <li><a href="{{route('dogshop') }}" class="dropdown-item">Dogs</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropbtn" href="{{ route('shop') }}">Dogs</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('catshop') }}" class="dropdown-item">Cats</a></li>
                         <li><a href="{{route('dogshop') }}" class="dropdown-item">Dogs</a></li>
