@@ -35,10 +35,10 @@
                         <div class="form-group">
                             <label for="flavor">Flavor:</label>
                             <select id="flavor" name="flavor" class="form-control">
-                                <option value="chicken">chocolate</option>
-                                <option value="beef">vanilla</option>
-                                <option value="lamb">strawberry</option>
-                                <option value="salmon">coconut</option>
+                                <option value="chicken">chicken</option>
+                                <option value="beef">beef</option>
+                                <option value="lamb">lamb</option>
+                                <option value="salmon">salmon</option>
                             </select>
                         </div>
                     </div>

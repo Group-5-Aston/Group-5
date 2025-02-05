@@ -360,6 +360,13 @@
                     </div>
                 </div>
             </section>
+
+            <style>
+                .carousel-item .box:hover {
+                transform: none !important; /* stops theh hover effect */
+                transition: none !important;
+                }
+            </style>
             <!-- end client review section -->
 
             <!-- client review section -->
