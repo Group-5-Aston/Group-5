@@ -18,7 +18,7 @@
                                         <p style="-webkit-text-fill-color: #294313;">
 
                                             Your pets deserve the very best, and we’re here to deliver! Explore our wide range of stylish pet clothing, delicious treats, and essential supplies for cats and dogs. Whether you’re pampering your furry companion or stocking up on the basics, we’ve got everything you need to keep them happy, healthy, and looking their best.                      </p>
-                                        <a href="contact.html">
+                                        <a href= {{route('contact')}}>
                                             Contact Us
 
 
