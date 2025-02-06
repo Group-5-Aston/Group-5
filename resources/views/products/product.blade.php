@@ -16,8 +16,8 @@
             <p>{{ $product['label'] }}</p>
 
             <!-- Product Options -->
-            <form action="{{ route('basket.add') }}" method="POST">
-                @csrf
+            <form action="{{ route('basket.add', $product->product_id) }}" method="POST">
+            @csrf
                 <div class="product-options">
                     <!-- Quantity -->
                     <div class="form-group">

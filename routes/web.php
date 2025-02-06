@@ -12,7 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 
 
-Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
@@ -20,7 +20,7 @@ Route::post('/payment', [PaymentController::class, 'process'])->name('payment.pr
 
 Route::post('/basket/remove/{index}', [BasketController::class, 'remove'])->name('basket.remove');
 
-Route::post('/basket/add', [BasketController::class, 'addToBasket'])->name('basket.add');
+Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
 Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.index');
