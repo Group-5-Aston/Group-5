@@ -19,7 +19,7 @@
     <tbody id="userTable">
     @if(isset($users) && $users->count() > 0)
         @foreach($users as $user)
-            <tr href="{{ route('users.show', $user->id) }}">
+            <tr class="clickable" data-href="{{ route('profile.show', $user->id) }}">
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
@@ -39,10 +39,9 @@
 </table>
 
 <script>
-    document.getElementById('search').addEventListener('keyup', function() {
+    document.getElementById('search').addEventListener('keyup', function () {
         let searchValue = this.value;
 
-        // Make an AJAX request using Fetch API with the proper header
         fetch(`{{ route('admin.customers') }}?search=${encodeURIComponent(searchValue)}`, {
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
@@ -54,7 +53,7 @@
 
                 data.users.forEach(user => {
                     tableRows += `
-                    <tr>
+                    <tr class="clickable" data-href="${user.profile_url}">
                         <td>${user.id}</td>
                         <td>${user.name}</td>
                         <td>${user.email}</td>
@@ -67,9 +66,23 @@
                 `;
                 });
 
+                // Update table content
                 document.getElementById('userTable').innerHTML = tableRows;
+
+                // Reattach event listeners for new rows
+                document.querySelectorAll('.clickable').forEach(row => {
+                    row.addEventListener('click', function () {
+                        window.location.href = this.dataset.href;
+                    });
+                });
             })
             .catch(error => console.error('Error:', error));
+    });
+
+    document.querySelectorAll('.clickable').forEach(row => {
+        row.addEventListener('click', function () {
+            window.location.href = this.dataset.href;
+        });
     });
 </script>
 

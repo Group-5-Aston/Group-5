@@ -87,5 +87,7 @@ Route::get('admin/dashboard',[HomeController::class,'index'])->
 Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->
 middleware(['auth','admin'])->name('admin.customers');
 
-Route::get('/user/{id}', [AdminProfileController::class, 'showUser'])->name('profile.show');
+//Admin view and edit user page route. Takes the user ID as a parameter and appends it to the url
+Route::get('/user/{id}', [AdminProfileController::class, 'showUser'])->
+middleware(['auth','admin'])->name('profile.show');
 

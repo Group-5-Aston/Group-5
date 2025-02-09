@@ -22,7 +22,21 @@ class AdminUserController extends Controller
         $users = $users->get();
 
         if ($request->ajax()) {
-            return response()->json(['users' => $users]);
+            return response()->json([
+                'users' => $users->map(function ($user) {
+                    return [
+                        'id' => $user->id,
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'usertype' => $user->usertype,
+                        'phone' => $user->phone,
+                        'address' => $user->address,
+                        'created_at' => $user->created_at->format('Y-m-d H:i:s'),
+                        'updated_at' => $user->updated_at->format('Y-m-d H:i:s'),
+                        'profile_url' => route('profile.show', $user->id)
+                    ];
+                })
+            ]);
         }
 
         return view('newpages.newadminpages.admincustomers', compact('users'));
