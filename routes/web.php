@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
@@ -77,5 +78,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
+//Admin dashboard route
 Route::get('admin/dashboard',[HomeController::class,'index'])->
     middleware(['auth','admin']);
+
+//Admin customers page route
+Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->
+middleware(['auth','admin'])->name('admin.customers');
