@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
@@ -85,3 +86,6 @@ Route::get('admin/dashboard',[HomeController::class,'index'])->
 //Admin customers page route
 Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->
 middleware(['auth','admin'])->name('admin.customers');
+
+Route::get('/user/{id}', [AdminProfileController::class, 'showUser'])->name('profile.show');
+
