@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminUpdateRequest;
 use App\Models\User;
 
 
@@ -14,7 +15,16 @@ class AdminProfileController extends Controller
       $user = User::findOrFail($id);
       return view('newpages.newadminpages.admineditcustomers', compact('user'));
   }
+
+    public function update(AdminUpdateRequest $request, User $user)
+    {
+        $user->update($request->validated());
+
+        return redirect()->route('profile.show', $user)->with('status', 'User updated successfully');
+    }
 }
+
+
 
 
 

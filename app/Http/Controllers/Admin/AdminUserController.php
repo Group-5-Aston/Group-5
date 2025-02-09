@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class AdminUserController extends Controller
 {
+    //Shows a table of all users.
+    //If the search bar has text then match the text to any user with matching email,
+    //name or usertype and show only those entries instead.
     public function adminCustomers(Request $request) {
         $search = $request->input('search');
         $users = User::query();
