@@ -91,7 +91,7 @@ middleware(['auth','admin'])->name('admin.customers');
 Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->
 middleware(['auth','admin'])->name('profile.show');
 
-//Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->
-//middleware(['auth','admin'])->name('adminprofile.edit');
+Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->
+middleware(['auth','admin'])->name('adminprofile.edit');
 
 

@@ -22,7 +22,7 @@ class AdminUpdateRequest extends FormRequest
     public function rules(): array
     {
 
-        $userId = $this->route('user') ?? $this->input('user_id');
+        $userId = $this->route('user');
 
         return [
             'name' => ['required', 'string', 'max:255'],
@@ -36,7 +36,6 @@ class AdminUpdateRequest extends FormRequest
             ],
             'phone' => ['required', 'string'],
             'address' => ['required', 'string', 'max:255'],
-            'role' => ['required', Rule::in(['admin', 'user'])],
         ];
     }
 }
