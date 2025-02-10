@@ -32,7 +32,7 @@ class AdminUpdateRequest extends FormRequest
                 'lowercase',
                 'email',
                 'max:255',
-                Rule::unique(User::class)->ignore($this->user()->id),
+                Rule::unique(User::class)->ignore($this->route('user')->id),
             ],
             'phone' => ['required', 'string'],
             'address' => ['required', 'string', 'max:255'],

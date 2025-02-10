@@ -1,5 +1,5 @@
 <p>User ID: {{$user->id}}</p>
-<form method="POST" action="{{ route('adminprofile.edit') }}">
+<form method="POST" action="{{ route('adminprofile.edit', ['user' => $user->id] )}}">
     @csrf
     @method('PATCH')
     <input type="text" name="name" value="{{$user->name}}">
