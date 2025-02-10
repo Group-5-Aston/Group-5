@@ -67,7 +67,7 @@
     <a href="{{ route('checkout.index') }}" class="basket-button">Continue to Checkout →</a>
     @else
     <button class="checkout-button" disabled>Continue to Checkout →</button>
-    <p class="empty-basket-message">You can't checkout with an empty basket!</p>
+    <p></p><p class="empty-basket-message">You can't checkout with an empty basket!</p>
 @endif
 </aside>
     </main>
