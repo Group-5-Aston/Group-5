@@ -12,28 +12,23 @@ CREATE TABLE IF NOT EXISTS Users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Categories table
-CREATE TABLE IF NOT EXISTS Categories (
-    category_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
 -- Create Products table
 CREATE TABLE IF NOT EXISTS Products (
     product_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
-    image_url TEXT,
-    category_id INTEGER NOT NULL,
-    stock INTEGER DEFAULT 0,
+    image TEXT,
+    label TEXT,
+    is_food BOOLEAN,
+    is_toy_or_bed BOOLEAN,
+    size_options TEXT,
+    flavor_options TEXT,
+    package_size_options TEXT,
+    stock INTEGER DEFAULT 10,
     low_stock_threshold INTEGER DEFAULT 10,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES Categories(category_id) ON DELETE CASCADE
 );
 
 -- Create Orders table

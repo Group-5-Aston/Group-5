@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
@@ -77,5 +79,19 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
+//Admin dashboard route
 Route::get('admin/dashboard',[HomeController::class,'index'])->
     middleware(['auth','admin']);
+
+//Admin customers page route
+Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->
+middleware(['auth','admin'])->name('admin.customers');
+
+//Admin view and edit user page route. Takes the user ID as a parameter and appends it to the url
+Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->
+middleware(['auth','admin'])->name('profile.show');
+
+Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->
+middleware(['auth','admin'])->name('adminprofile.edit');
+
+
