@@ -88,10 +88,10 @@ Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->
 middleware(['auth','admin'])->name('admin.customers');
 
 //Admin view and edit user page route. Takes the user ID as a parameter and appends it to the url
-Route::get('/user/{id}', [AdminProfileController::class, 'showUser'])->
+Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->
 middleware(['auth','admin'])->name('profile.show');
 
-Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->
-middleware(['auth','admin'])->name('adminprofile.edit');
+//Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->
+//middleware(['auth','admin'])->name('adminprofile.edit');
 
 

@@ -19,7 +19,7 @@
     <tbody id="userTable">
     @if(isset($users) && $users->count() > 0)
         @foreach($users as $user)
-            <tr class="clickable" data-href="{{ route('profile.show', $user->id) }}">
+            <tr class="clickable" data-href="{{ route('profile.show', $user) }}">
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
