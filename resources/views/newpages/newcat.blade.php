@@ -3,7 +3,7 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Check out our cat products
+          Check out our Cat Products
         </h2>
       </div>
       <div class="row">
@@ -17,7 +17,7 @@
             </div>
               <div class="detail-box">
                 <h6>
-                Bundle- Catfood
+                Bundle - Catfood
                 </h6>
                 <h6>
                   Price
@@ -220,7 +220,7 @@
       </div>
       <div class="btn-box">
         <a href="{{ route('shop') }}">
-          return to products main page
+          Return to Main Products Page
         </a>
       </div>
 

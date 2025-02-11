@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
@@ -76,6 +78,18 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-
-Route::get('admin/dashboard',[HomeController::class,'index'])->
-    middleware(['auth','admin']);
+//Admin only routes
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin/dashboard',[HomeController::class,'index']);
+    //Admin customers page route
+    Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
+    //Admin view and edit user page route. Takes the user as a parameter and appends the ID it to the url. Also passes the user as a parameter to the controller.
+    Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->name('profile.show');
+    /*
+    Patch route that allows admin to edit other users.
+    Passes the user as a parameter to the 'update' function.
+     */
+    Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->name('adminprofile.edit');
+    //Deletes the selected user.
+    Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
+});
