@@ -1,3 +1,50 @@
+<style>
+    .footer_section {
+        width: 100%; /* Ensures full width without forcing viewport width */
+        margin: 0;
+        padding: 20px 0;
+        background: #2D2D2D; /* Matches your design */
+        text-align: center;
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+
+    .footer_section .container {
+        width: 100%; /* Ensures no restriction */
+        max-width: 100%;
+        padding: 0;
+        margin: 0 auto; /* Centers content properly */
+    }
+
+    .info_section {
+        width: 100%; /* Full width without affecting viewport overflow */
+        margin: 0;
+        padding: 40px 0; /* Adjust spacing */
+        background: #2D2D2D; /* Ensures uniform color */
+    }
+
+    .info_container {
+        width: 100%;
+        max-width: 1200px; /* Prevents unnecessary stretching */
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    /* Fix for cropping issue */
+    body, html {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Prevents horizontal scrolling issues */
+    }
+
+    /* Ensure the main content does not get cropped */
+    .hero_area, .main-content {
+        padding-top: 150px; /* Adds space at the top of the page */
+    }
+</style>
+
 
 <section class="info_section  layout_padding2-top">
     <div class="social_container">

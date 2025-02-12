@@ -13,11 +13,11 @@
           <a href="product/product1">
               <div class="img-box">
 
-              <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
+              <img src = "images/clothes1.png" alt="ring" style="width: 100%; height: auto;"></src>
             </div>
               <div class="detail-box">
                 <h6>
-                Bundle - Dogfood
+                  Soft Fleece Jacket
                 </h6>
                 <h6>
                   Price
@@ -40,11 +40,11 @@
           <a href="{{ route('product') }}">
           <a href="product/product3">
               <div class="img-box">
-                <img src="images/p3.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/dclothes2.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Dog Biscuits
+                  Heart Sleeves Jumper
                 </h6>
                 <h6>
                   Price
@@ -66,11 +66,11 @@
           <a href="{{ route('product') }}">
           <a href="product/product5">
               <div class="img-box">
-                <img src="images/p5.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/dclothes3.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Protein Dog Food
+                  Dog Seat Belt 
                 </h6>
                 <h6>
                   Price
@@ -92,11 +92,11 @@
           <a href="{{ route('product') }}">
           <a href="product/product6">
               <div class="img-box">
-                <img src="images/p6.jpg" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/dclothes4.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Dog Biscuits
+                  Cozy Knit Sweater
                 </h6>
                 <h6>
                   Price
@@ -131,11 +131,6 @@
                   </span>
                 </h6>
               </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
             </a>
           </div>
         </div>
@@ -156,11 +151,6 @@
                     £10
                   </span>
                 </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
               </div>
             </a>
           </div>
@@ -183,11 +173,6 @@
                   </span>
                 </h6>
               </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
             </a>
           </div>
         </div>
@@ -208,11 +193,6 @@
                     £50
                   </span>
                 </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
               </div>
             </a>
           </div>
