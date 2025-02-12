@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminInventoryController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\LoginController;
@@ -92,4 +93,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->name('adminprofile.edit');
     //Deletes the selected user.
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
+    Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
 });

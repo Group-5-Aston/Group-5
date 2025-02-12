@@ -11,8 +11,8 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = ['product_id',
-        'name', 'price', 'label', 'image', 'description', 
-        'is_food', 'is_toy_or_bed', 'size', 'flavor', 'psize'
+        'name', 'price', 'label', 'image', 'description',
+        'is_food', 'is_toy_or_bed', 'package_size-options', 'low_stock_threshold',
     ];
 
     protected $primaryKey = 'product_id';
