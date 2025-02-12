@@ -31,6 +31,8 @@
     <style>
         body {
             font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding-top: 150px; /* Adjust this so content doesn’t get hidden behind the fixed header */
         }
 
         /* the top header styles and designs  */
@@ -38,12 +40,17 @@
             background: #fefbe6;
             padding: 10px 20px;
             border-bottom: 2px solid #7b8e4e;
+            position: fixed; /* Fixes the header in place */
+            top: 0; /* Aligns it at the top */
+            left: 0;
+            width: 100%; /* Makes sure it spans the whole width */
+            z-index: 1000; /* Ensures it stays above other elements */
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center;           
         }
 
         .navbar-brand {
