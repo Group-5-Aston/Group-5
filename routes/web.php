@@ -47,6 +47,10 @@ Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
 Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
 Route::get('/productx',[ShopController::class,'productPage'])->name('product');
 
+// additional shop pages
+Route::get('/dogclothes',[ShopController::class,'dogClothes'])->name('dogclothes');
+Route::get('/catclothes',[ShopController::class,'catClothes'])->name('catclothes');
+
 //Login routes
 Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
 Route::get('/signup',[LoginController::class,'signUp'])->name('signup');
