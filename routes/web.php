@@ -14,7 +14,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 
 
-Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
@@ -22,7 +22,7 @@ Route::post('/payment', [PaymentController::class, 'process'])->name('payment.pr
 
 Route::post('/basket/remove/{index}', [BasketController::class, 'remove'])->name('basket.remove');
 
-Route::post('/basket/add', [BasketController::class, 'addToBasket'])->name('basket.add');
+Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
 Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.index');
@@ -82,20 +82,18 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-
-//Admin dashboard route
-Route::get('admin/dashboard',[HomeController::class,'index'])->
-    middleware(['auth','admin']);
-
-//Admin customers page route
-Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->
-middleware(['auth','admin'])->name('admin.customers');
-
-//Admin view and edit user page route. Takes the user ID as a parameter and appends it to the url
-Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->
-middleware(['auth','admin'])->name('profile.show');
-
-Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->
-middleware(['auth','admin'])->name('adminprofile.edit');
-
-
+//Admin only routes
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin/dashboard',[HomeController::class,'index']);
+    //Admin customers page route
+    Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
+    //Admin view and edit user page route. Takes the user as a parameter and appends the ID it to the url. Also passes the user as a parameter to the controller.
+    Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->name('profile.show');
+    /*
+    Patch route that allows admin to edit other users.
+    Passes the user as a parameter to the 'update' function.
+     */
+    Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->name('adminprofile.edit');
+    //Deletes the selected user.
+    Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
+});

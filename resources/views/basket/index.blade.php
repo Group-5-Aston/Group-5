@@ -24,8 +24,8 @@
                             @csrf
                             <button type="submit" class="remove-button">Remove</button>
                         </form>
-                        <form action="{{ route('basket.add', ['index' => $index])}}" method="POST" class="d-inline">
-                            @csrf
+                        <form action="{{ route('basket.add', $item['product_id']) }}" method="POST">
+                        @csrf
                             <input type="hidden" name="name" value="{{ $item['name'] }}">
                             <input type="hidden" name="price" value="{{ $item['price'] }}">
                             <input type="hidden" name="quantity" value="1">
@@ -33,6 +33,14 @@
                             <input type="hidden" name="size" value="{{ $item['size'] }}">
                             <input type="hidden" name="flavor" value="{{ $item['flavor'] }}">
                             <input type="hidden" name="psize" value="{{ $item['psize'] }}">
+                            <!-- Hidden fields for subtotal, shipping, vat, and total -->
+                            <input type="hidden" name="subtotal" value="{{ $subtotal }}">
+                            <input type="hidden" name="shipping" value="{{ $shipping }}">
+                            <input type="hidden" name="vat" value="{{ $vat }}">
+                            <input type="hidden" name="total" value="{{ $total }}">
+
+    
+
                             <button type="submit" class="add-button">Add</button>
                         </form>
                     </div>

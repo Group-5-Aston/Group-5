@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ProductSeeder extends Seeder
+ class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,8 +22,6 @@ class ProductSeeder extends Seeder
                 'description' => 'This premium dog snack is designed to meet the highest nutritional standards.',
                 'is_food' => true,
                 'is_toy_or_bed' => false,
-                'size_options' => null,
-                'flavor_options' => json_encode(['chicken', 'beef', 'salmon']),
                 'package_size_options' => json_encode(['Small (2kg)', 'Medium (5kg)', 'Large (10kg)']),
             ],
         ]);
