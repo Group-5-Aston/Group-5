@@ -95,6 +95,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //Deletes the selected user.
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
     Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
-    Route::get('/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
+    Route::get('admin/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
 
 });

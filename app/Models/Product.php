@@ -16,4 +16,9 @@ class Product extends Model
     ];
 
     protected $primaryKey = 'product_id';
+
+    public function options()
+    {
+        return $this->hasMany(ProductOption::class, 'product_id');
+    }
 }
