@@ -14,7 +14,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 
 
-Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
+//Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
@@ -65,10 +65,17 @@ Route::get('/contact', [ContactController::class, 'showContact'])->name('contact
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
 //Search page route
-Route::get('/search', [ProductController::class, 'search'])->name('search');
-Route::get('/filter-products', [ProductController::class, 'filterProducts'])->name('filterProducts');
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.details');
 
+Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+
+// Route to handle the search functionality
+Route::get('/search', [ProductController::class, 'search'])->name('product.search');
+
+// Route to filter products by category or brand
+Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
+
+// Route to display a single product by its ID
+Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
 
 Route::get('/dashboard', function () {

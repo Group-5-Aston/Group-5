@@ -332,7 +332,7 @@
 
 <!-- Search and Filter Section -->
 <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
-    <form method="GET" action="{{ route('search') }}" style="display: flex; align-items: center; gap: 5px;">
+<form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 5px;">
         <input 
             type="text" 
             class="search-bar" 
