@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminInventoryController;
+use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\LoginController;
@@ -94,4 +95,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //Deletes the selected user.
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
     Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
+    Route::get('/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
+
 });
