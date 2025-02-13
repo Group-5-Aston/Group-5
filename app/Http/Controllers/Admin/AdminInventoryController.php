@@ -23,13 +23,13 @@ class AdminInventoryController extends Controller
             return response()->json([
                 'products' => $products->map(function ($product) {
                     return [
-                        'id' => $product->product_id,
+                        'product_id' => $product->product_id,
                         'name' => $product->name,
                         'price' => $product->price,
                         'label' => $product->label,
                         'is_food' => $product->is_food,
                         'is_toy_or_bed' => $product->is_toy_or_bed,
-                        'product_url' => route('adminproduct.show', $product)
+                        'product_url' => route('adminproduct.show', ['product' => $product->product_id])
                     ];
                 })
             ]);
