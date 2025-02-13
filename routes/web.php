@@ -64,8 +64,8 @@ Route::get('/why', function () {
 Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
-//Search page route
 
+//Search page routes
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 
 // Route to handle the search functionality
@@ -75,7 +75,9 @@ Route::get('/search', [ProductController::class, 'search'])->name('product.searc
 Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
 
 // Route to display a single product by its ID
-Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
+
+
 
 
 Route::get('/dashboard', function () {

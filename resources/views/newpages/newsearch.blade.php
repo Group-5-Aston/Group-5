@@ -40,7 +40,7 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-md-3 mb-4"> <!-- 4 products per row -->
-                    <a href="{{ route('product.show', ['product' => $product->id]) }}" class="product-card">
+                <a href="{{ route('product.show', ['product_id' => $product->id]) }}" class="product-card">
                         <div class="box shadow-sm p-3 rounded">
                             <div class="img-box">
                                 <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="img-fluid" style="width: 100%; height: 200px; object-fit: cover;">
