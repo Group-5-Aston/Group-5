@@ -50,7 +50,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product1">
+          <a href="product/product17">
               <div class="img-box">
 
               <img src = "images/clothes1.png" alt="ring" style="width: 100%; height: auto;"></src>
@@ -78,7 +78,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product3">
+          <a href="product/product18">
               <div class="img-box">
                 <img src="images/dclothes2.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -104,7 +104,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product5">
+          <a href="product/product19">
               <div class="img-box">
                 <img src="images/dclothes3.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -130,7 +130,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product6">
+          <a href="product/product20">
               <div class="img-box">
                 <img src="images/dclothes4.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -156,7 +156,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product9">
+          <a href="product/product21">
               <div class="img-box">
                 <img src="images/dogclothes5.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -177,7 +177,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product11">
+          <a href="product/product22">
               <div class="img-box">
                 <img src="images/dogclothes6.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -198,7 +198,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product13">
+          <a href="product/product23">
               <div class="img-box">
                 <img src="images/dogclothes7.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
@@ -219,7 +219,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product16">
+          <a href="product/product24">
               <div class="img-box">
                 <img src="images/dogclothes8.webp" alt="p2" style="width: 100%; height: auto;"></src>
               </div>

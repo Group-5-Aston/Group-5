@@ -39,28 +39,28 @@ class ProductController extends Controller
 
     public function show($productId)
 {
-    
     // Remove the 'product' prefix from the productId
     $productId = str_replace('product', '', $productId);
 
     // Now query the database with the correct product_id
     $product = Product::where('product_id', $productId)->first();
 
-    if ($product) {
-        // Convert the comma-separated strings into arrays
-        $product->package_size_options = explode(',', $product->package_size_options);
-        $product->flavor_options = explode(',', $product->flavor_options);
-        $product->size_options = explode(',', $product->size_options);
-
-    // Check if the product exists
-    if ($product) {
-        return view('products.product', ['product' => $product]);
+    if (!$product) {
+        // If product is not found, return a 404 error page
+        return abort(404, 'Product not found');
     }
 
-    // If product is not found, return a 404 error page
-    return abort(404, 'Product not found');
+    // Convert the comma-separated strings into arrays
+    $product->package_size_options = explode(',', $product->package_size_options);
+    $product->flavor_options = explode(',', $product->flavor_options);
+    $product->size_options = explode(',', $product->size_options);
+
+    // Debugging: Dump the product data to see its structure
+
+    // Return the product view with product data
+    return view('products.product', ['product' => $product]);
 }
 
-}
+
 }
 
