@@ -13,14 +13,15 @@ class ProductController extends Controller
         return view('product.index', compact('products'));
     }
 
-    public function search(Request $request)
+  /* public function search(Request $request)
     {
         $query = $request->input('q');
         $products = Product::where('name', 'like', '%' . $query . '%')
             ->orWhere('description', 'like', '%' . $query . '%')
             ->get();
         return view('product.search', compact('products'));
-    }
+    } */
+   
 
     public function filter(Request $request)
     {

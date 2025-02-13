@@ -102,6 +102,41 @@
             font-size: 18px;
         }
 
+        .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  /* Search bar and filter button alignment */
+  .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .search-bar {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      width: 250px;
+  }
+
+  .search-button {
+      background-color: #4B7C47; /* Green button */
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+  }
+
+  .search-button:hover {
+      background-color: #3a6240;
+  }
+
         /*The  Basket Page */
         .basket-container {
             margin: 0 auto;
@@ -294,6 +329,28 @@
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
+
+<!-- Search and Filter Section -->
+<div class="search-container" style="display: flex; align-items: center; gap: 10px;">
+    <form method="GET" action="{{ route('search') }}" style="display: flex; align-items: center; gap: 5px;">
+        <input 
+            type="text" 
+            class="search-bar" 
+            name="q" 
+            placeholder="Search products..." 
+            value="{{ request('q') }}">
+        <button 
+            type="submit" 
+            class="search-button">
+            Search
+        </button>
+   <!-- </form>
+    <button class="filter-btn" title="Filter">
+        <i class="fas fa-filter"></i>
+    </button> -->
+</div>
+
+
         <!-- Profile dropdown -->
         <div class="navbar-icons">
             <div class="nav-item dropdown">

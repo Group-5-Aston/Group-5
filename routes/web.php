@@ -64,11 +64,12 @@ Route::get('/why', function () {
 Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
-Route::get('/search', 'SearchController@index');
+//Search page route
+Route::get('/search', [ProductController::class, 'search'])->name('search');
+Route::get('/filter-products', [ProductController::class, 'filterProducts'])->name('filterProducts');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.details');
 
 
-
-Route::get('/products/filter', 'ProductController@filter');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
