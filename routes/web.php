@@ -35,7 +35,7 @@ Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.i
 //});
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index']); // Only accessible by admin users
+    //Route::get('/admin/dashboard', [AdminController::class, 'index']); // Only accessible by admin users
     // Add other admin routes here
 });
 
@@ -62,11 +62,11 @@ Route::get('/why', function () {
 Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
-Route::get('/search', 'SearchController@index');
+//Route::get('/search', 'SearchController@index');
 
 
 
-Route::get('/products/filter', 'ProductController@filter');
+//Route::get('/products/filter', 'ProductController@filter');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -96,5 +96,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
     Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
     Route::get('admin/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
+    Route::patch('admin/inventory/{option}', [AdminProductController::class, 'updateStock'])->name('adminstock.edit');
 
 });

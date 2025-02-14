@@ -5,18 +5,33 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductOption;
+use Illuminate\Http\Request;
+use Ramsey\Uuid\Type\Integer;
 
 Class  AdminProductController extends Controller
 {
+    //route to admin product page. passes along the product and the options to the view
     public function showProduct(Product $product)
     {
-        $productOptions = $this->productOptions();
+        $productOptions = $this->productOptions($product->product_id);
         return view('newpages.newadminpages.adminproduct', compact('product', 'productOptions'));
     }
 
 
-    public function productOptions()
+    //Gets every option for product by product id
+    public function productOptions(int $id)
     {
-        return ProductOption::where('product_id', 1)->get();
+        return ProductOption::where('product_id', $id)->get();
+    }
+
+    public function updateStock(Request $request, ProductOption $option)
+    {
+        $validate = $request->validate([
+            'stock' => 'required|integer|min:0',
+        ]);
+
+        $option->update($validate);
+        return redirect()->back()->with('success', 'Stock updated successfully.');
+
     }
 }
