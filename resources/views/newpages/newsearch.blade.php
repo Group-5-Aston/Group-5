@@ -30,32 +30,32 @@
     </form>
 </div>
 
-<!-- Search Results -->
-<div class="container mt-5">
-    <h1 class="text-center">Search Results</h1>
-
-    @if ($products->isEmpty())
-        <p class="text-center">No products found.</p>
-    @else
-        <div class="row">
-            @foreach ($products as $product)
-                <div class="col-md-3 mb-4"> <!-- 4 products per row -->
-                <a href="{{ route('product.show', ['product_id' => $product->id]) }}" class="product-card">
-                        <div class="box shadow-sm p-3 rounded">
-                            <div class="img-box">
-                                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="img-fluid" style="width: 100%; height: 200px; object-fit: cover;">
-                            </div>
-                            <div class="detail-box mt-3">
-                                <h6 class="text-center">{{ $product->name }}</h6>
-                                <h6 class="text-center text-success">£{{ $product->price }}</h6>
-                            </div>
+ <!-- Display Search Results --
+ <h1 class="text-center">Search Results</h1>
+@if ($products->isEmpty())
+    <p class="text-center">No products found.</p>
+@else
+    <div class="row">
+        @foreach($products as $product)
+            <div class="col-md-3 mb-4">
+                <!-- Link to the search-specific product details page -->
+                <a href="{{ route('product.searchshow', ['product_id' => $product->product_id]) }}" class="product-card">
+                    <div class="box shadow-sm p-3 rounded">
+                        <!-- Product Image --
+                        <div class="img-box">
+                            <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="img-fluid" style="width: 100%; height: 200px; object-fit: cover;">
                         </div>
-                    </a>
-                </div>
-            @endforeach
-        </div>
-    @endif
-</div>
+                        <!-- Product Name and Price --
+                        <div class="detail-box mt-3">
+                            <h6 class="text-center">{{ $product->name }}</h6>
+                            <h6 class="text-center text-success">£{{ $product->price }}</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+@endif
 
 @include('components.newfooter')
 

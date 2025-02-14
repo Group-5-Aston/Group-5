@@ -115,7 +115,7 @@ class BasketController extends Controller
         'shipping' => $shipping,
         'vat' => $total,
     ]);
-
+    
 
     return redirect()->route('basket.index')->with('success', 'Item added to basket');
 
@@ -126,7 +126,7 @@ public function remove($index)
 {
     // Retrieve the basket from the session
     $basket = session()->get('basket', []);
-    
+
     // Check if the basket is empty or the index doesn't exist
     if (empty($basket)) {
         return redirect()->route('basket.index')->with('error', 'Your basket is empty.');
@@ -150,12 +150,13 @@ public function remove($index)
 
     // Remove the item from the database
     Basket::where('product_id', $product_id)
-        ->where('quantity', $quantity) // This ensures you're deleting the correct quantity
+        ->where('quantity', $quantity)
         ->delete();
 
     // Redirect with a success message
     return redirect()->route('basket.index')->with('success', 'Item removed from the basket.');
 }
+
 
 
 

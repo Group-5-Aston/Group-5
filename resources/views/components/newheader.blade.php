@@ -329,10 +329,9 @@
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
-
-<!-- Search and Filter Section -->
+            <!-- Search and Filter Section --
 <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
-<form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 5px;">
+    <form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 5px;">
         <input 
             type="text" 
             class="search-bar" 
@@ -344,11 +343,16 @@
             class="search-button">
             Search
         </button>
-   <!-- </form>
+    </form>
+    <!--
     <button class="filter-btn" title="Filter">
         <i class="fas fa-filter"></i>
-    </button> -->
+    </button>
 </div>
+
+            
+
+
 
 
         <!-- Profile dropdown -->

@@ -16,4 +16,7 @@ class Product extends Model
     ];
 
     protected $primaryKey = 'product_id';
+
+    protected $table = 'Products';  // Make sure this is 'Products', not 
+
 }

@@ -21,8 +21,9 @@ class ProductController extends Controller
             ->orWhere('description', 'like', '%' . $query . '%')
             ->get();
 
-            return view('newpages.newsearch', compact('products')); 
-    }
+            return view('newpages.newsearch', ['products' => $products, 'products' => $products,
+            'showProductDetails' => false]);
+        }
 
     public function filter(Request $request)
     {
@@ -43,6 +44,22 @@ class ProductController extends Controller
 
         return view('product.filter', compact('products'));
     }
+
+    public function searchShow($product_id)
+{
+
+    // Find the product by its ID
+    $product = Product::find($product_id);
+
+    // If the product doesn't exist, return a 404 error
+    if (!$product) {
+        abort(404, 'Product not found');
+    }
+
+    // Return the search-specific product details view
+    return view('newpages.newsearch', ['product' => $product, 'products' => collect(), // Empty collection
+        'showProductDetails' => true,]);
+}
 
     public function show($productId)
     {

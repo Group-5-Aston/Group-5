@@ -14,15 +14,14 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 
 
-//Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
 
 
 Route::post('/basket/remove/{index}', [BasketController::class, 'remove'])->name('basket.remove');
-
-Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
+Route::post('/basket/add/{product_id}', [BasketController::class, 'addToBasket'])->name('basket.add');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
 Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.index');
@@ -64,20 +63,13 @@ Route::get('/why', function () {
 Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
-
 //Search page routes
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
-
 // Route to handle the search functionality
 Route::get('/search', [ProductController::class, 'search'])->name('product.search');
-
 // Route to filter products by category or brand
 Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
-
-// Route to display a single product by its ID
-Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
-
-
+Route::get('/product/product{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
 
 Route::get('/dashboard', function () {
