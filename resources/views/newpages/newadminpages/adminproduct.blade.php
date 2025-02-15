@@ -1,8 +1,14 @@
 <h1>Product Details</h1>
 
+<p>Product ID: {{ $product->product_id }}</p>
+<form method="POST" action="{{ route('adminimage.edit', ['product' => $product->product_id]) }}" enctype="multipart/form-data">
+    @csrf
+    @method('PATCH')
+    <img src="{{ Storage::url($product['image']) }}" alt="product image">
+    <input type="file" name="image" id="image" required>
+    <input type="submit" value="Change image">
+</form>
 <form>
-    <p>Product ID: {{ $product->product_id }}</p>
-    <img src="{{ asset('storage/' . $product->image) }}" alt="">
     <input type="text" value="{{ $product->name }}">
     <input type="text" value="{{ $product->price }}">
     <textarea rows="5" cols="50"> {{$product->label}}</textarea>

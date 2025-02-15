@@ -98,11 +98,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
     //Individual product route
     Route::get('admin/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
-    //Edit stock option route
+    //Change product image
+    Route::patch('admin/inventory/{product}', [AdminProductController::class, 'editImage'])->name('adminimage.edit');
+    //Edit stock option
     Route::patch('admin/inventory/{option}', [AdminProductController::class, 'updateOption'])->name('adminoption.edit');
-    //Add stock option route
+    //Add stock option
     Route::post('admin/inventory/{product}', [AdminProductController::class, 'addOption'])->name('adminoption.add');
-    //Delete stock option route
+    //Delete stock option
     Route::delete('admin/inventory/{option}', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
 
 });

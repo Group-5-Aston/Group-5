@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\ProductOption;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Type\Integer;
+use Illuminate\Support\Facades\Storage;
+
 
 Class  AdminProductController extends Controller
 {
@@ -59,4 +61,21 @@ Class  AdminProductController extends Controller
         $option->delete();
         return redirect()->back()->with('success', 'Option deleted successfully.');
     }
+
+    /* Changes the current product image to a new one uploaded by
+    admin and deletes the old one */
+    public function editImage(Request $request, Product $product)
+    {
+        $request->validate(['image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
+
+        if ($product->image && Storage::exists($product->image)) {
+            Storage::delete($product->image);
+        }
+
+        $updatedImage = $request->file('image')->store('images', 'public');
+
+        $product->image = $updatedImage;
+        $product->save();
+        return redirect()->back()->with('success', 'Image updated successfully.');
+        }
 }
