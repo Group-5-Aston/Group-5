@@ -2,6 +2,7 @@
 
 <form>
     <p>Product ID: {{ $product->product_id }}</p>
+    <img src="{{ asset('storage/' . $product->image) }}" alt="">
     <input type="text" value="{{ $product->name }}">
     <input type="text" value="{{ $product->price }}">
     <textarea rows="5" cols="50"> {{$product->label}}</textarea>
@@ -32,12 +33,27 @@
         <td>{{$option->size}}</td>
         <td>{{$option->flavor}}</td>
         <td>
-            <form method="POST" action="{{ route('adminstock.edit', ['option' => $option->option_id]) }}">
+            <form method="POsT" action="{{ route('adminoption.edit', ['option' => $option->option_id]) }}">
                 @csrf
                 @method('PATCH')
                 <input type="text" name="stock" value="{{$option->stock}}">
                 <input type="submit" value="edit">
             </form>
+            <form method="POST" action="{{ route('adminoption.delete', ['option' => $option->option_id]) }}">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Delete">
+            </form>
         </td>
     </tr>
 @endforeach
+</table>
+
+<h1>Add Option</h1>
+<form method="POST" action="{{ route('adminoption.add', ['product' => $product->product_id]) }}" >
+    @csrf
+    <input type="text" name="size" placeholder="Size">
+    <input type="text" name="flavor" placeholder="Flavour">
+    <input type="text" name="stock" placeholder="Stock level">
+    <input type="submit" value="Add">
+</form>

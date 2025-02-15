@@ -13,7 +13,7 @@ class ProductOption extends Model
         return $this->belongsTo(Product::class, 'product_id');
     }
 
-    protected $fillable = ['stock'];
+    protected $fillable = ['product_id', 'size', 'flavor','stock'];
 
     protected $primaryKey = 'option_id';
 

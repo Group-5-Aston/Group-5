@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::QpX5OjGMOzAeIYIR',
+            '_route' => 'generated::ZjFnVQMyyDm52ldL',
           ),
           1 => NULL,
           2 => 
@@ -449,7 +449,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::2jwMwsr9h0ZD5LkP',
+            '_route' => 'generated::b2WsWvs1goOXLH13',
           ),
           1 => NULL,
           2 => 
@@ -485,7 +485,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::EspmLsLvt5ELlLCS',
+            '_route' => 'generated::4u18pel63EfA6B3m',
           ),
           1 => NULL,
           2 => 
@@ -615,7 +615,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::fwogd5JICd2bJUaj',
+            '_route' => 'generated::RxpDbwjiZUNoJKKj',
           ),
           1 => NULL,
           2 => 
@@ -672,7 +672,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::XflDGSw3p7GxhdgP',
+            '_route' => 'generated::hZEclnIxG3LW0OOo',
           ),
           1 => NULL,
           2 => 
@@ -729,7 +729,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/product/([^/]++)(*:24)|/basket/(?|remove/([^/]++)(*:57)|add/([^/]++)(*:76))|/reset\\-password/([^/]++)(*:109)|/verify\\-email/([^/]++)/([^/]++)(*:149)|/user/([^/]++)(?|(*:174))|/admin/inventory/([^/]++)(?|(*:211)|(*:219))|/storage/(.*)(*:241))/?$}sDu',
+      0 => '{^(?|/product/([^/]++)(*:24)|/basket/(?|remove/([^/]++)(*:57)|add/([^/]++)(*:76))|/reset\\-password/([^/]++)(*:109)|/verify\\-email/([^/]++)/([^/]++)(*:149)|/user/([^/]++)(?|(*:174))|/admin/inventory/([^/]++)(?|(*:211)|(*:219)|(*:227)|(*:235))|/storage/(.*)(*:257))/?$}sDu',
     ),
     3 => 
     array (
@@ -937,7 +937,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'adminstock.edit',
+            '_route' => 'adminoption.edit',
           ),
           1 => 
           array (
@@ -953,7 +953,51 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      241 => 
+      227 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminoption.add',
+          ),
+          1 => 
+          array (
+            0 => 'product',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      235 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminoption.delete',
+          ),
+          1 => 
+          array (
+            0 => 'option',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      257 => 
       array (
         0 => 
         array (
@@ -991,7 +1035,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::QpX5OjGMOzAeIYIR' => 
+    'generated::ZjFnVQMyyDm52ldL' => 
     array (
       'methods' => 
       array (
@@ -1019,8 +1063,8 @@ app('router')->setCompiledRoutes(
                     return response(\\Illuminate\\Support\\Facades\\View::file(\'C:\\\\xampp\\\\htdocs\\\\GitHub\\\\Group-5\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
-                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000003260000000000000000";}}',
-        'as' => 'generated::QpX5OjGMOzAeIYIR',
+                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d10000000000000000";}}',
+        'as' => 'generated::ZjFnVQMyyDm52ldL',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1676,7 +1720,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
     return \\view(\'newpages.newwhy\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000033e0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004e90000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -1789,7 +1833,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
     return \\view(\'dashboard\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000003420000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004ed0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -1961,7 +2005,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::2jwMwsr9h0ZD5LkP' => 
+    'generated::b2WsWvs1goOXLH13' => 
     array (
       'methods' => 
       array (
@@ -1982,7 +2026,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::2jwMwsr9h0ZD5LkP',
+        'as' => 'generated::b2WsWvs1goOXLH13',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2036,7 +2080,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::EspmLsLvt5ELlLCS' => 
+    'generated::4u18pel63EfA6B3m' => 
     array (
       'methods' => 
       array (
@@ -2057,7 +2101,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::EspmLsLvt5ELlLCS',
+        'as' => 'generated::4u18pel63EfA6B3m',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2377,7 +2421,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::fwogd5JICd2bJUaj' => 
+    'generated::RxpDbwjiZUNoJKKj' => 
     array (
       'methods' => 
       array (
@@ -2398,7 +2442,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::fwogd5JICd2bJUaj',
+        'as' => 'generated::RxpDbwjiZUNoJKKj',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2488,7 +2532,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::XflDGSw3p7GxhdgP' => 
+    'generated::hZEclnIxG3LW0OOo' => 
     array (
       'methods' => 
       array (
@@ -2511,7 +2555,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::XflDGSw3p7GxhdgP',
+        'as' => 'generated::hZEclnIxG3LW0OOo',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2759,7 +2803,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'adminstock.edit' => 
+    'adminoption.edit' => 
     array (
       'methods' => 
       array (
@@ -2774,14 +2818,90 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
           2 => 'admin',
         ),
-        'uses' => 'App\\Http\\Controllers\\Admin\\AdminProductController@updateStock',
-        'controller' => 'App\\Http\\Controllers\\Admin\\AdminProductController@updateStock',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminProductController@updateOption',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminProductController@updateOption',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'adminstock.edit',
+        'as' => 'adminoption.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminoption.add' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/inventory/{product}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminProductController@addOption',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminProductController@addOption',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminoption.add',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminoption.delete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/inventory/{option}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminProductController@destroyOption',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminProductController@destroyOption',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminoption.delete',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2813,7 +2933,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000003440000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000004ef0000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,
