@@ -39,6 +39,7 @@
 </table>
 
 <script>
+    //Script for live search
     document.getElementById('search').addEventListener('keyup', function () {
         let searchValue = this.value;
 
@@ -66,10 +67,8 @@
                 `;
                 });
 
-                // Update table content
                 document.getElementById('userTable').innerHTML = tableRows;
 
-                // Reattach event listeners for new rows
                 document.querySelectorAll('.clickable').forEach(row => {
                     row.addEventListener('click', function () {
                         window.location.href = this.dataset.href;
@@ -79,6 +78,7 @@
             .catch(error => console.error('Error:', error));
     });
 
+    //Script to make each row of the table clickable
     document.querySelectorAll('.clickable').forEach(row => {
         row.addEventListener('click', function () {
             window.location.href = this.dataset.href;

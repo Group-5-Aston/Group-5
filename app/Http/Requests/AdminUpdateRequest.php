@@ -19,6 +19,7 @@ class AdminUpdateRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    //Function that validates the request to upate user information
     public function rules(): array
     {
 

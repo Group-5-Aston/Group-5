@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminInventoryController;
+use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminProductCreationController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\LoginController;
@@ -32,7 +35,7 @@ Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.i
 //});
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index']); // Only accessible by admin users
+    //Route::get('/admin/dashboard', [AdminController::class, 'index']); // Only accessible by admin users
     // Add other admin routes here
 });
 
@@ -63,6 +66,7 @@ Route::get('/why', function () {
 Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
+
 //Search page routes
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 // Route to handle the search functionality
@@ -70,6 +74,14 @@ Route::get('/search', [ProductController::class, 'search'])->name('product.searc
 // Route to filter products by category or brand
 Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
 Route::get('/product/product{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
+
+
+
+//Route::get('/search', 'SearchController@index');
+
+
+
+//Route::get('/products/filter', 'ProductController@filter');
 
 
 Route::get('/dashboard', function () {
@@ -91,11 +103,28 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
     //Admin view and edit user page route. Takes the user as a parameter and appends the ID it to the url. Also passes the user as a parameter to the controller.
     Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->name('profile.show');
-    /*
-    Patch route that allows admin to edit other users.
-    Passes the user as a parameter to the 'update' function.
-     */
+    //Patch route that allows admin to edit other users.
     Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->name('adminprofile.edit');
     //Deletes the selected user.
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
+    //Inventory route
+    Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
+    //Product creation page
+    Route::get('admin/inventory/newproduct', [AdminInventoryController::class, 'addProduct'])->name('adminaddproduct.show');
+    //Individual product route
+    Route::get('admin/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
+    //Change product image
+    Route::patch('admin/inventory/{product}/image', [AdminProductController::class, 'editImage'])->name('adminimage.edit');
+    //Update existing product
+    Route::patch('admin/inventory/{product}', [AdminProductController::class, 'updateProduct'])->name('adminproduct.edit');
+    //Delete product
+    Route::delete('admin/inventory/{product}', [AdminProductController::class, 'destroyProduct'])->name('adminproduct.destroy');
+    //Create a new product
+    Route::post('admin/inventory/newproduct', [AdminProductCreationController::class, 'create'])->name('adminproduct.add');
+    //Edit stock option
+    Route::patch('admin/inventory/{option}/option', [AdminProductController::class, 'updateOption'])->name('adminoption.edit');
+    //Add stock option
+    Route::post('admin/inventory/{product}/option', [AdminProductController::class, 'addOption'])->name('adminoption.add');
+    //Delete stock option
+    Route::delete('admin/inventory/{option}/option', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
 });
