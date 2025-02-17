@@ -24,3 +24,4 @@ class Product extends Model
     {
         return $this->hasMany(ProductOption::class, 'product_id');
     }
+}
