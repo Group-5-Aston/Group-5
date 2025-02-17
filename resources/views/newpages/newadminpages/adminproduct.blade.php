@@ -4,17 +4,21 @@
 <form method="POST" action="{{ route('adminimage.edit', ['product' => $product->product_id]) }}" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
-    <img src="{{ Storage::url($product['image']) }}" alt="product image">
-    <input type="file" name="image" id="image" required>
+    <img src="{{ Storage::url($product['image']) }}" alt="product image"> <br>
+    <input type="file" name="image" id="image" required> <br>
     <input type="submit" value="Change image">
 </form>
 <form method="POST" action="{{route('adminproduct.edit', ['product' => $product->product_id])}}">
     @csrf
     @method('PATCH')
-    <input type="text" name="name" value="{{ $product->name }}">
-    <input type="text" name="price" value="{{ $product->price }}">
-    <textarea rows="5" name="label" cols="50"> {{$product->label}}</textarea>
-    <textarea rows="5" name="description" cols="50"> {{$product->description}}</textarea>
+    <p>Name:</p> <br>
+    <input type="text" name="name" value="{{ $product->name }}"> <br>
+    <p>Price:</p> <br>
+    £<input type="text" name="price" value="{{ $product->price }}"> <br>
+    <p>Label:</p> <br>
+    <textarea rows="5" name="label" cols="50"> {{$product->label}}</textarea> <br>
+    <p>Description:</p> <br>
+    <textarea rows="5" name="description" cols="50"> {{$product->description}}</textarea> <br>
     <p> Product type:
             @if($product->is_food == '1')
                 Food

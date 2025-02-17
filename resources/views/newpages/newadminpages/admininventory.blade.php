@@ -33,6 +33,8 @@
     </tbody>
 </table>
 
+<a href="{{ route('adminaddproduct.show') }}">Add a new product</a>
+
 <script>
     //Script for live search
     document.getElementById('search').addEventListener('keyup', function () {

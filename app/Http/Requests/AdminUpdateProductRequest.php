@@ -20,7 +20,7 @@ class AdminUpdateProductRequest extends FormRequest
     {
         return [
             'name' => ['string', 'max:255'],
-            'price' => ['numeric', 'min:0',],
+            'price' => ['numeric', 'min:0', 'regex:/^\d+(\.\d{1,2})?$/'],
             'label' => ['string', 'max:255'],
             'description' => ['string', 'max:255'],
         ];

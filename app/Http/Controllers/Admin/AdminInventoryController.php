@@ -37,4 +37,10 @@ class AdminInventoryController extends Controller
 
         return view('newpages.newadminpages.admininventory', compact('products'));
     }
+
+    public function addProduct()
+    {
+        return view('newpages.newadminpages.adminaddproduct');
+
+    }
 }

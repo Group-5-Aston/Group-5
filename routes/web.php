@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminInventoryController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminProductCreationController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\LoginController;
@@ -96,16 +97,20 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //Individual product route
     Route::get('admin/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
     //Change product image
-    Route::patch('admin/inventory/{product}', [AdminProductController::class, 'editImage'])->name('adminimage.edit');
+    Route::patch('admin/inventory/{product}/image', [AdminProductController::class, 'editImage'])->name('adminimage.edit');
     //Update existing product
-    Route::patch('adimin/intentory/{product}', [AdminProductController::class, 'updateProduct'])->name('adminproduct.edit');
+    Route::patch('admin/inventory/{product}', [AdminProductController::class, 'updateProduct'])->name('adminproduct.edit');
     //Delete product
-    Route::delete('adimin/intentory/{product}', [AdminProductController::class, 'destroyProduct'])->name('adminproduct.destroy');
+    Route::delete('admin/inventory/{product}', [AdminProductController::class, 'destroyProduct'])->name('adminproduct.destroy');
+    //Product creation page
+    Route::get('admin/inventory/newproduct', [AdminInventoryController::class, 'addProduct'])->name('adminaddproduct.show');
+    //Create a new product
+    Route::post('admin/inventory/newproduct', [AdminProductCreationController::class, 'create'])->name('adminproduct.add');
     //Edit stock option
-    Route::patch('admin/inventory/{option}', [AdminProductController::class, 'updateOption'])->name('adminoption.edit');
+    Route::patch('admin/inventory/{option}/option', [AdminProductController::class, 'updateOption'])->name('adminoption.edit');
     //Add stock option
-    Route::post('admin/inventory/{product}', [AdminProductController::class, 'addOption'])->name('adminoption.add');
+    Route::post('admin/inventory/{product}/option', [AdminProductController::class, 'addOption'])->name('adminoption.add');
     //Delete stock option
-    Route::delete('admin/inventory/{option}', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
+    Route::delete('admin/inventory/{option}/option', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
 
 });
