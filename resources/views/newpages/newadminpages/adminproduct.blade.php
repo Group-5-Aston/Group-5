@@ -24,6 +24,12 @@
     <input type="submit" value="Edit product">
 </form>
 
+<form method="POST" action="{{ route('adminproduct.destroy', ['product' => $product->product_id] ) }}">
+    @csrf
+    @method('DELETE')
+    <input type="submit" value="Delete product">
+</form>
+
 <h1>Stock levels</h1>
 <table>
     <thead>

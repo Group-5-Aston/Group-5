@@ -85,4 +85,11 @@ Class  AdminProductController extends Controller
         $product->update($request->validated());
         return redirect()->back()->with('success', 'Product updated successfully.');
     }
+
+    public function destroyProduct(Product $product)
+    {
+        $product->options()->delete();
+        $product->delete();
+        return redirect()->route('admin.inventory')->with('success', 'Product deleted successfully.');
+    }
 }

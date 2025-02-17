@@ -99,6 +99,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('admin/inventory/{product}', [AdminProductController::class, 'editImage'])->name('adminimage.edit');
     //Update existing product
     Route::patch('adimin/intentory/{product}', [AdminProductController::class, 'updateProduct'])->name('adminproduct.edit');
+    //Delete product
+    Route::delete('adimin/intentory/{product}', [AdminProductController::class, 'destroyProduct'])->name('adminproduct.destroy');
     //Edit stock option
     Route::patch('admin/inventory/{option}', [AdminProductController::class, 'updateOption'])->name('adminoption.edit');
     //Add stock option
