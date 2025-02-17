@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminAddOptionRequest;
+use App\Http\Requests\AdminUpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductOption;
 use Illuminate\Http\Request;
@@ -68,8 +69,8 @@ Class  AdminProductController extends Controller
     {
         $request->validate(['image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
 
-        if ($product->image && Storage::exists($product->image)) {
-            Storage::delete($product->image);
+        if ($product->image && Storage::disk('public')->exists($product->image)) {
+            Storage::disk('public')->delete($product->image);
         }
 
         $updatedImage = $request->file('image')->store('images', 'public');
@@ -77,5 +78,11 @@ Class  AdminProductController extends Controller
         $product->image = $updatedImage;
         $product->save();
         return redirect()->back()->with('success', 'Image updated successfully.');
-        }
+    }
+
+    public function updateProduct(AdminUpdateProductRequest $request, Product $product)
+    {
+        $product->update($request->validated());
+        return redirect()->back()->with('success', 'Product updated successfully.');
+    }
 }

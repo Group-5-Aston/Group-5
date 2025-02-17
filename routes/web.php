@@ -87,10 +87,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
     //Admin view and edit user page route. Takes the user as a parameter and appends the ID it to the url. Also passes the user as a parameter to the controller.
     Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->name('profile.show');
-    /*
-    Patch route that allows admin to edit other users.
-    Passes the user as a parameter to the 'update' function.
-     */
+    //Patch route that allows admin to edit other users.
     Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->name('adminprofile.edit');
     //Deletes the selected user.
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
@@ -100,6 +97,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
     //Change product image
     Route::patch('admin/inventory/{product}', [AdminProductController::class, 'editImage'])->name('adminimage.edit');
+    //Update existing product
+    Route::patch('adimin/intentory/{product}', [AdminProductController::class, 'updateProduct'])->name('adminproduct.edit');
     //Edit stock option
     Route::patch('admin/inventory/{option}', [AdminProductController::class, 'updateOption'])->name('adminoption.edit');
     //Add stock option

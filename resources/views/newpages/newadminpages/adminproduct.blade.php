@@ -8,12 +8,13 @@
     <input type="file" name="image" id="image" required>
     <input type="submit" value="Change image">
 </form>
-<form>
-    <input type="text" value="{{ $product->name }}">
-    <input type="text" value="{{ $product->price }}">
-    <textarea rows="5" cols="50"> {{$product->label}}</textarea>
-    <textarea rows="5" cols="50"> {{$product->description}}</textarea>
-
+<form method="POST" action="{{route('adminproduct.edit', ['product' => $product->product_id])}}">
+    @csrf
+    @method('PATCH')
+    <input type="text" name="name" value="{{ $product->name }}">
+    <input type="text" name="price" value="{{ $product->price }}">
+    <textarea rows="5" name="label" cols="50"> {{$product->label}}</textarea>
+    <textarea rows="5" name="description" cols="50"> {{$product->description}}</textarea>
     <p> Product type:
             @if($product->is_food == '1')
                 Food
