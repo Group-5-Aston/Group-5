@@ -27,8 +27,8 @@ class AdminAddProductRequest extends FormRequest
             //'toy/bed' => ['required', 'toy/bed:food'],
 
             //Product option request
-            'size' => ['string', 'max:255',],
-            'flavor' => ['string', 'max:255',],
+            'size' => ['nullable', 'string', 'max:255',],
+            'flavor' => ['nullable', 'string', 'max:255',],
             'stock' => ['required', 'integer', 'min:0', 'required'],
         ];
     }
