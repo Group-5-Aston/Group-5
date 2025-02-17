@@ -94,6 +94,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
     //Inventory route
     Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
+    //Product creation page
+    Route::get('admin/inventory/newproduct', [AdminInventoryController::class, 'addProduct'])->name('adminaddproduct.show');
     //Individual product route
     Route::get('admin/inventory/{product}', [AdminProductController::class, 'showProduct'])->name('adminproduct.show');
     //Change product image
@@ -102,8 +104,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('admin/inventory/{product}', [AdminProductController::class, 'updateProduct'])->name('adminproduct.edit');
     //Delete product
     Route::delete('admin/inventory/{product}', [AdminProductController::class, 'destroyProduct'])->name('adminproduct.destroy');
-    //Product creation page
-    Route::get('admin/inventory/newproduct', [AdminInventoryController::class, 'addProduct'])->name('adminaddproduct.show');
     //Create a new product
     Route::post('admin/inventory/newproduct', [AdminProductCreationController::class, 'create'])->name('adminproduct.add');
     //Edit stock option
