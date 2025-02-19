@@ -15,6 +15,7 @@
         <option value="toy">Toy</option>
         <option value="hygiene">Hygiene</option>
         <option value="clothes">Clothes</option>
+        <option value="clothes">Bed</option>
     </select> <br>
     £<input type="text" name="price" placeholder="Price" required> <br>
     <textarea rows="5" name="label" cols="50" placeholder="Label" required></textarea> <br>

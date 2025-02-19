@@ -24,7 +24,7 @@ class AdminUpdateProductRequest extends FormRequest
             'label' => ['string', 'max:255'],
             'description' => ['string', 'max:255'],
             'cat_or_dog' => ['string', 'in:cat,dog,both', 'max:255'],
-            'type' => ['string', 'in:clothes,food,toy,hygiene', 'max:255'],
+            'type' => ['string', 'in:clothes,food,toy,hygiene,bed', 'max:255'],
         ];
     }
 }

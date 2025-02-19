@@ -25,6 +25,7 @@
         <option value="toy" {{ $product->type == 'toy' ? 'selected' : '' }}>Toy</option>
         <option value="hygiene" {{ $product->type == 'hygiene' ? 'selected' : '' }}>Hygiene</option>
         <option value="clothes" {{ $product->type == 'clothes' ? 'selected' : '' }}>Clothes</option>
+        <option value="bed" {{ $product->type == 'bed' ? 'selected' : '' }}>Bed</option>
     </select>
     <p>Price:</p> <br>
     £<input type="text" name="price" value="{{ $product->price }}"> <br>

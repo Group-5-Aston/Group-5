@@ -25,7 +25,7 @@ class AdminAddProductRequest extends FormRequest
             'label' => ['string', 'max:255', 'required'],
             'description' => ['string', 'max:255', 'required'],
             'cat_or_dog' => ['string', 'in:cat,dog,both', 'max:255'],
-            'type' => ['string', 'in:clothes,food,toy,hygiene', 'max:255'],
+            'type' => ['string', 'in:clothes,food,toy,hygiene','bed', 'max:255'],
 
             //Product option request
             'size' => ['nullable', 'string', 'max:255',],
