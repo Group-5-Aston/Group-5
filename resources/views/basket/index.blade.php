@@ -7,8 +7,8 @@
             @if(!empty($basket) && count($basket) > 0)
                 @foreach($basket as $index => $item)
                     <div class="item">
-                        <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
-                        <p class="item-name">{{ $item['name'] }}</p>
+                    <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
+                    <p class="item-name">{{ $item['name'] }}</p>
                         @if($item['flavor'])
                             <p class="item-flavor">Flavor: {{ $item['flavor'] }}</p>
                         @endif
@@ -34,13 +34,11 @@
                             <input type="hidden" name="flavor" value="{{ $item['flavor'] }}">
                             <input type="hidden" name="psize" value="{{ $item['psize'] }}">
                             <!-- Hidden fields for subtotal, shipping, vat, and total -->
+                            <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
                             <input type="hidden" name="subtotal" value="{{ $subtotal }}">
                             <input type="hidden" name="shipping" value="{{ $shipping }}">
                             <input type="hidden" name="vat" value="{{ $vat }}">
                             <input type="hidden" name="total" value="{{ $total }}">
-
-    
-
                             <button type="submit" class="add-button">Add</button>
                         </form>
                     </div>

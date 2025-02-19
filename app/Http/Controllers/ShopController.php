@@ -25,4 +25,12 @@ class ShopController extends Controller
     public function productPage() {
         return view('newpages.newproduct');
     }
+
+    public function dogClothes() {
+        return view('newpages.dogclothes');
+    }
+
+    public function catClothes() {
+        return view('newpages.catclothes');
+    }
 }

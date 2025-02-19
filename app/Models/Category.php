@@ -13,6 +13,9 @@ namespace App\Models {
             'description',
         ];
 
+        protected $table = 'Products'; // Ensure it's the correct name in SQLite
+
+
         public function products()
         {
             return $this->hasMany(Product::class);

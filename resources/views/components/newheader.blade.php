@@ -31,6 +31,8 @@
     <style>
         body {
             font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding-top: 150px; /* Adjust this so content doesn’t get hidden behind the fixed header */
         }
 
         /* the top header styles and designs  */
@@ -38,12 +40,17 @@
             background: #fefbe6;
             padding: 10px 20px;
             border-bottom: 2px solid #7b8e4e;
+            position: fixed; /* Fixes the header in place */
+            top: 0; /* Aligns it at the top */
+            left: 0;
+            width: 100%; /* Makes sure it spans the whole width */
+            z-index: 1000; /* Ensures it stays above other elements */
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center;           
         }
 
         .navbar-brand {
@@ -94,6 +101,41 @@
             color: #426b1f;
             font-size: 18px;
         }
+
+        .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  /* Search bar and filter button alignment */
+  .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .search-bar {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      width: 250px;
+  }
+
+  .search-button {
+      background-color: #4B7C47; /* Green button */
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+  }
+
+  .search-button:hover {
+      background-color: #3a6240;
+  }
 
         /*The  Basket Page */
         .basket-container {
@@ -271,22 +313,48 @@
             <div class="navbar-links">
                 <a href="{{ route('home') }}">Home</a>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropbtn" href="{{ route('shop') }}">Cats</a>
+                    <a class="nav-link dropbtn" href="{{ route('catshop') }}">Cats</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('catshop') }}" class="dropdown-item">All Products</a></li>
-                        <li><a href="{{route('catshop') }}" class="dropdown-item">Clothes & Accessories</a></li>
+                        <li><a href="{{route('catclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropbtn" href="{{ route('shop') }}">Dogs</a>
+                    <a class="nav-link dropbtn" href="{{ route('dogshop') }}">Dogs</a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('dogshop') }}" class="dropdown-item">All Products</a></li>
-                        <li><a href="{{ route('dogshop') }}" class="dropdown-item">Clothes & Accessories</a></li>
+                        <li><a href="{{ route('dogclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
                     </ul>
                 </li>
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
+            <!-- Search and Filter Section --
+<div class="search-container" style="display: flex; align-items: center; gap: 10px;">
+    <form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 5px;">
+        <input 
+            type="text" 
+            class="search-bar" 
+            name="q" 
+            placeholder="Search products..." 
+            value="{{ request('q') }}">
+        <button 
+            type="submit" 
+            class="search-button">
+            Search
+        </button>
+    </form>
+    <!--
+    <button class="filter-btn" title="Filter">
+        <i class="fas fa-filter"></i>
+    </button>
+</div>
+
+            
+
+
+
+
         <!-- Profile dropdown -->
         <div class="navbar-icons">
             <div class="nav-item dropdown">

@@ -1,63 +1,23 @@
 <x-newheader>
-<style>
-/* Applies background color to all containers and boxes */
-.box {
-    background-color: #fefbe6 !important;
-}
-
-/* Ensures text inside remains readable */
-.box {
-    color: #333; /* Adjust if needed for contrast */
-}
-
-/* Default box styling */
-.box {
-    padding: 15px;
-    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for the hover effect */
-}
-
-.col-lg-3 {
-    flex: 0 0 25%; /* Shows 4 products per row */
-    max-width: 40%;
-}
-
-/* Adds a shadow effect only when hovered */
-.box:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow appears on hover */
-    transform: translateY(-3px); /* Slight lift effect */
-}
-
-/* Style for the "New" circle */
-.new {
-    background-color: #9e3636 !important; /* Change background color to red */
-    color: white !important; /* Ensure the text inside remains visible */
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 50px; /* Makes it a rounded shape */
-    display: inline-block;
-    text-align: center;
-}
-
-</style>
 <section class="shop_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Dog's Clothes & Accessories
+          Cat's Clothes & Accessories
         </h2>
       </div>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product17">
+          <a href="product/product1">
               <div class="img-box">
 
-              <img src = "images/clothes1.png" alt="ring" style="width: 100%; height: auto;"></src>
+              <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
             </div>
               <div class="detail-box">
                 <h6>
-                  Soft Fleece Jacket
+                Bundle - Dogfood
                 </h6>
                 <h6>
                   Price
@@ -78,13 +38,13 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product18">
+          <a href="product/product3">
               <div class="img-box">
-                <img src="images/dclothes2.webp" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/p3.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Heart Sleeves Jumper
+                  Dog Biscuits
                 </h6>
                 <h6>
                   Price
@@ -104,13 +64,13 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product19">
+          <a href="product/product5">
               <div class="img-box">
-                <img src="images/dclothes3.webp" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/p5.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Dog Seat Belt 
+                  Protein Dog Food
                 </h6>
                 <h6>
                   Price
@@ -130,13 +90,13 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product20">
+          <a href="product/product6">
               <div class="img-box">
-                <img src="images/dclothes4.webp" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/p6.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Cozy Knit Sweater
+                  Dog Biscuits
                 </h6>
                 <h6>
                   Price
@@ -156,13 +116,13 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product21">
+          <a href="product/product9">
               <div class="img-box">
-                <img src="images/dogclothes5.webp" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/p9.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                  Bear Jumper
+                  Dog Toys
                 </h6>
                 <h6>
                   Price
@@ -171,19 +131,24 @@
                   </span>
                 </h6>
               </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
             </a>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product22">
+          <a href="product/product11">
               <div class="img-box">
-                <img src="images/dogclothes6.webp" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/p11.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                 Puffer Jacket with Sherpa Fur
+                 Dog Shampoo
                 </h6>
                 <h6>
                   Price
@@ -192,19 +157,24 @@
                   </span>
                 </h6>
               </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
             </a>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product23">
+          <a href="product/product13">
               <div class="img-box">
-                <img src="images/dogclothes7.webp" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/p13.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                 Chest Harness
+                 Dog Bed
                 </h6>
                 <h6>
                   Price
@@ -213,19 +183,24 @@
                   </span>
                 </h6>
               </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
             </a>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
           <a href="{{ route('product') }}">
-          <a href="product/product24">
+          <a href="product/product16">
               <div class="img-box">
-                <img src="images/dogclothes8.webp" alt="p2" style="width: 100%; height: auto;"></src>
+                <img src="images/p16.jpg" alt="p2" style="width: 100%; height: auto;"></src>
               </div>
               <div class="detail-box">
                 <h6>
-                 Polka Dot Scarf
+                 Dog Dental Products
                 </h6>
                 <h6>
                   Price
@@ -233,6 +208,11 @@
                     £50
                   </span>
                 </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
               </div>
             </a>
           </div>

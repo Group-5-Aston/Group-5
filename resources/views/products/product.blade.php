@@ -16,19 +16,19 @@
             <p>{{ $product['label'] }}</p>
 
             <!-- Product Options -->
-            <form action="{{ route('basket.add', $product->product_id) }}" method="POST">
+            <form action="{{ route('basket.add', ['product_id' => $product['product_id']]) }}" method="POST">
             @csrf
+            <p>Form action: {{ route('basket.add', ['product_id' => $product->product_id]) }}</p>
                 <div class="product-options">
                     <!-- Quantity -->
                     <div class="form-group">
                         <label for="quantity">Quantity:</label>
                         <input type="number" id="quantity" name="quantity" min="1" value="1"  class="form-control" style="width: 120px;">
                     </div>
-
                     <!-- Check if it's food -->
-        @if($product['is_food'])
-            <!-- Package Size Selection -->
-            <div class="form-group">
+                @if($product['is_food'])
+                <!-- Package Size Selection -->
+                    <div class="form-group">
                 <label for="psize">Package Size:</label>
                 <select id="psize" name="psize" class="form-control">
                     @foreach($product['package_size_options'] as $psize)
@@ -59,15 +59,13 @@
                 </select>
             </div>
         @endif
-
                     <!-- Hidden Inputs for the product details -->
                     <input type="hidden" name="name" value="{{ $product['name'] }}">
                     <input type="hidden" name="price" value="{{ $product['price'] }}">
                     <input type="hidden" name="image" value="{{ asset($product['image']) }}">
-
                     <!-- Add to Basket Button -->
                     <button type="submit" class="btn btn-dark btn-block mt-4">Add to Basket</button>
-                    </div>
+                </div>
             </form>
         </div>
     </div>

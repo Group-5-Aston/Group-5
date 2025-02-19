@@ -18,14 +18,14 @@ class AdminProfileController extends Controller
   {
       return view('newpages.newadminpages.admineditcustomers', compact('user'));
   }
-
+    //Updates user details from admin.
     public function update(AdminUpdateRequest $request, User $user)
     {
         $user->update($request->validated());
 
         return redirect()->route('profile.show', $user)->with('status', 'User updated successfully');
     }
-
+    //Deletes the user from the database.
     public function destroy(User $user)
     {
         $user->delete();
