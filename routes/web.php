@@ -47,7 +47,7 @@ Route::get('/shop',[ShopController::class,'shop'])->name('shop');
 Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
 Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
 Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
-Route::get('/productx',[ShopController::class,'productPage'])->name('product');
+Route::get('/product/{product}',[ShopController::class,'productPage'])->name('product');
 
 // additional shop pages
 Route::get('/dogclothes',[ShopController::class,'dogClothes'])->name('dogclothes');

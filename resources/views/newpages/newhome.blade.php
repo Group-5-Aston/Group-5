@@ -57,17 +57,17 @@
             <div class="row" style="padding-top: 20px;">
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                    <a href="{{ route('product') }}">
+                    <a href=>
                     <a href="dogshop">
                             <div class="img-box">
 
                                 <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
                             </div> </div>
-                           
-                </div> 
+
+                </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                    <a href="{{ route('product') }}">
+                    <a href=>
                     <a href="catshop">
                             <div class="img-box">
                                 <img src="images/p2.jpg" alt="p2" style="width: 100%; height: auto;"></src>
@@ -87,8 +87,8 @@
 </div>
                         </a>
                     </div>
-                </div> 
-                               
+                </div>
+
             </div>
 
             <!-- end off banner section -->
@@ -96,7 +96,7 @@
             <!-- info section -->
 
 
-        
+
 
             <section> </section>
             <section class="client_section layout_padding" style="padding-top: 10px;">
