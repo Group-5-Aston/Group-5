@@ -13,18 +13,25 @@
     @method('PATCH')
     <p>Name:</p> <br>
     <input type="text" name="name" value="{{ $product->name }}"> <br>
+    <p>Animal:</p>
+    <select name="cat_or_dog" required>
+        <option value="cat" {{ $product->cat_or_dog == 'cat' ? 'selected' : '' }}>Cat</option>
+        <option value="dog" {{ $product->cat_or_dog == 'dog' ? 'selected' : '' }}>Dog</option>
+        <option value="both" {{ $product->cat_or_dog == 'both' ? 'selected' : '' }}>Both</option>
+    </select> <br>
+    <p>Product type</p>
+    <select name="type" required>
+        <option value="food" {{ $product->type == 'food' ? 'selected' : '' }}>Food</option>
+        <option value="toy" {{ $product->type == 'toy' ? 'selected' : '' }}>Toy</option>
+        <option value="hygiene" {{ $product->type == 'hygiene' ? 'selected' : '' }}>Hygiene</option>
+        <option value="clothes" {{ $product->type == 'clothes' ? 'selected' : '' }}>Clothes</option>
+    </select>
     <p>Price:</p> <br>
     £<input type="text" name="price" value="{{ $product->price }}"> <br>
     <p>Label:</p> <br>
     <textarea rows="5" name="label" cols="50"> {{$product->label}}</textarea> <br>
     <p>Description:</p> <br>
     <textarea rows="5" name="description" cols="50"> {{$product->description}}</textarea> <br>
-    <p> Product type:
-            @if($product->is_food == '1')
-                Food
-            @else
-                Toy/Bed
-            @endif</p>
     <input type="submit" value="Edit product">
 </form>
 

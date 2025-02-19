@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $fillable = ['product_id',
         'name', 'price', 'label', 'image', 'description',
-        'is_food', 'is_toy_or_bed', 'package_size-options', 'low_stock_threshold', 'cat_or_dog',
+        'is_food', 'is_toy_or_bed', 'package_size-options', 'low_stock_threshold', 'cat_or_dog', 'type',
     ];
 
     protected $primaryKey = 'product_id';

@@ -27,6 +27,8 @@ class AdminProductCreationController
             'price' => $data['price'],
             'image' => $imgPath,
             'label' => $data['label'],
+            'cat_or_dog' => $data['cat_or_dog'],
+            'type'=> $data['type'],
         ];
 
         $product = Product::create($productData);
