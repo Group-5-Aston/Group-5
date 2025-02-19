@@ -18,23 +18,19 @@
                             <div class="detail-box">
                                 <h6>
                                     Bundle - Dogfood
-                                </h6>
+                                    </h6>
                                 <h6>
-                                    Price
-                                    <span>
-                    £45
-                  </span>
-                                </h6>
-                            </div>
-                            <div class="new">
-                <span>
-                  New
-                </span>
-                            </div>
-                        </a>
+                                    Price:
+                                    <span class = "sale-price">
+                                        £9.99</span>
+                                        <span class = "original-price">
+                                        £14.99</span>
+                            </h6>
+                       <div class = "sale"> save 50%</div>
+</div>
                         </a>
                     </div>
-                </div>
+                </div> 
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
                     <a href="{{ route('product') }}">
@@ -46,21 +42,19 @@
                                 <h6>
                                     Bundle - Catfood
                                 </h6>
-                                <h6>
-                                    Price
-                                    <span>
-                    £55
-                  </span>
                                 </h6>
-                            </div>
-                            <div class="new">
-                <span>
-                  New
-                </span>
-                            </div>
+                                <h6>
+                                    Price:
+                                    <span class = "sale-price">
+                                        £9.99</span>
+                                        <span class = "original-price">
+                                        £14.99</span>
+                            </h6>
+                       <div class = "sale"> save 50%</div>
+</div>
                         </a>
                     </div>
-                </div>
+                </div> 
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
                     <a href="{{ route('product') }}">
