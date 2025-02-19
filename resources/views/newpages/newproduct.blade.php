@@ -1,27 +1,23 @@
 <x-newheader>
     <div class="container my-5">
         <div class="row">
-            <!-- Product Image -->
+           
             <div class="col-md-6">
                 <img src="" class="product-image w-100" alt="Bundle Dog Food">
             </div>
 
-            <!-- Product Details -->
+          
             <div class="col-md-6">
                 <div class="product-details">
                     <h1>Title</h1>
                     <h3 class="text-success">Price</h3>
                     <p>Description</p>
-
-                    <!-- Product Options -->
                     <div class="product-options">
-                        <!-- Quantity -->
-                        <div class="form-group">
+                                            <div class="form-group">
                             <label for="quantity">Quantity:</label>
                             <input type="number" id="quantity" name="quantity" min="1" value="1" class="form-control" style="width: 120px;">
                         </div>
 
-                        <!-- Package Size -->
                         <div class="form-group">
                             <label for="size">Package Size:</label>
                             <select id="size" name="size" class="form-control">
@@ -31,7 +27,6 @@
                             </select>
                         </div>
 
-                        <!-- Food Flavor -->
                         <div class="form-group">
                             <label for="flavor">Flavor:</label>
                             <select id="flavor" name="flavor" class="form-control">
@@ -43,13 +38,11 @@
                         </div>
                     </div>
 
-                    <!-- Add to Cart Button -->
                     <button class="btn btn-dark btn-block mt-4">Add to Cart</button>
                 </div>
             </div>
         </div>
 
-        <!-- Tabs Section -->
         <div class="tabs-section">
             <ul class="nav nav-tabs" id="productTab" role="tablist">
                 <li class="nav-item">
@@ -69,8 +62,7 @@
             </div>
         </div>
     </div>
-    <!-- info section -->
-
+ 
     <section class="info_section  layout_padding2-top">
         <div class="social_container">
             <div class="social_box">
