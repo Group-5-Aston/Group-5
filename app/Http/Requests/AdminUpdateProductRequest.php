@@ -23,6 +23,8 @@ class AdminUpdateProductRequest extends FormRequest
             'price' => ['numeric', 'min:0', 'regex:/^\d+(\.\d{1,2})?$/'],
             'label' => ['string', 'max:255'],
             'description' => ['string', 'max:255'],
+            'cat_or_dog' => ['string', 'in:cat,dog,both', 'max:255'],
+            'type' => ['string', 'in:clothes,food,toy,hygiene,bed', 'max:255'],
         ];
     }
 }

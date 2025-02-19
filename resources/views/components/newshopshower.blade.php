@@ -1,9 +1,10 @@
-<x-newheader>
-    <section class="shop_section layout_padding">
+@props(['products'])
+
+<section class="shop_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Latest products
+            {{ $slot }}
         </h2>
       </div>
       <div class="row">
@@ -34,9 +35,11 @@
           </div>
         </div>
           @endforeach
+      <div class="btn-box">
+        <a href="{{ route('fullshop') }}">
+          Return to Main Products Page
+        </a>
+      </div>
     </div>
     </div>
   </section>
-
-    @include('components.newfooter')
-</x-newheader>

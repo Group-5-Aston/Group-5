@@ -24,7 +24,8 @@ class AdminAddProductRequest extends FormRequest
             'price' => ['numeric', 'min:0', 'required', 'regex:/^\d+(\.\d{1,2})?$/'],
             'label' => ['string', 'max:255', 'required'],
             'description' => ['string', 'max:255', 'required'],
-            //'toy/bed' => ['required', 'toy/bed:food'],
+            'cat_or_dog' => ['string', 'in:cat,dog,both', 'max:255'],
+            'type' => ['string', 'in:clothes,food,toy,hygiene','bed', 'max:255'],
 
             //Product option request
             'size' => ['nullable', 'string', 'max:255',],
