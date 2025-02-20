@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Basket;
 use App\Models\Product;
-
+use Illuminate\Support\Facades\Storage;
 class BasketController extends Controller
 {
     // Show the basket page
@@ -13,47 +13,46 @@ class BasketController extends Controller
     {
         // Retrieve the basket from the session, or use a default basket if not set
         $basket = session()->get('basket', []);
-        
+
         // Debugging basket data
-    
+
         // Calculate the subtotal
         $subtotal = 0;
         foreach ($basket as $item) {
             $subtotal += $item['price'] * $item['quantity'];
         }
-    
+
         // Example shipping cost and VAT
         $shipping = 4.99;
         $vat = 2.00;
-    
+
         // Calculate the total
         $total = $subtotal + $shipping + $vat;
-    
+
         session()->put('basket', $basket);
 
         // Get all products
         $products = Product::all();
-        
+
         // Debugging products data
-    
+
         // Pass data to the view
         return view('basket.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total', 'products'));
     }
-    
 
-    public function addToBasket(Request $request, $product_id)
+
+    public function addToBasket(Request $request, Product $product)
     {
-    $product = Product::find($product_id);
     if ($product === null) {
         dd("Product not found with ID: " . $product_id);
     }
 
-    $quantity = (int) $request->input('quantity', 1); 
+    $quantity = (int) $request->input('quantity', 1);
     $flavor = $request->input('flavor'); // Retrieve flavor
     $size = $request->input('size', null); // Retrieve size
     $name = $request->input('name', null);
-    $psize = $request->input('psize', null); // Retrieve product size
-   
+    //$psize = $request->input('psize', null); // Retrieve product size
+
     // Get additional values from the request
     $subtotal = $request->input('subtotal');
     $shipping = $request->input('shipping');
@@ -66,7 +65,7 @@ class BasketController extends Controller
     $exists = false;
 
     foreach ($basket as &$item) {
-        if ($item['product_id'] == $product_id && $item['flavor'] == $flavor && $item['size'] == $size && $item['psize'] == $psize) {
+        if ($item['product_id'] == $product->product_id && $item['flavor'] == $flavor && $item['size'] == $size) {
             $item['quantity'] += $quantity; // Update quantity if product is already in the basket
             $exists = true;
             break;
@@ -76,16 +75,14 @@ class BasketController extends Controller
 
     if (!$exists) {
         $basket[] = [
-            'product_id' => $product_id,
+            'product_id' => $product->product_id,
             'quantity' => $quantity,
             'name' => $product->name,
             'price' => $product->price, // This will stay in the session, not the database
-            'image' => asset($product->image), // Assuming the image column in the product table
+            'image' => Storage::url($product->image), // Assuming the image column in the product table
             'flavor' => $flavor, // Add flavor to the session
-            'psize' => $psize, // Store psize if necessary
+            //'psize' => $psize, // Store psize if necessary
             'size' => $size, // Store size if necessary
-            'name' => $name,
-
         ];
     }
 
@@ -109,13 +106,13 @@ class BasketController extends Controller
         'quantity' => $quantity,
         'flavor' => $flavor,  // Store flavor in DB
         'size' => $size,      // Store size in DB
-        'psize' => $psize,    // Store psize in DB
+        //'psize' => $psize,    // Store psize in DB
         'total' => $total,
         'subtotal' => $subtotal,
         'shipping' => $shipping,
         'vat' => $total,
     ]);
-    
+
 
     return redirect()->route('basket.index')->with('success', 'Item added to basket');
 

@@ -11,7 +11,7 @@
           @foreach($products as $product)
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-          <a href="{{ route('product', ['product' => $product->product_id]) }}">
+          <a href="{{ route('product.show', ['product' => $product->product_id])}}">
               <div class="img-box">
               <img src = "{{ Storage::url($product['image']) }}" alt="ring" style="width: 100%; height: auto;">
             </div>
