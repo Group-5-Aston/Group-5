@@ -54,4 +54,7 @@ class User extends Authenticatable
         return $this->usertype === 'admin';
     }
 
+    public function basket() {
+        return $this->hasOne(Basket::class , 'user_id' , 'id');
+    }
 }
