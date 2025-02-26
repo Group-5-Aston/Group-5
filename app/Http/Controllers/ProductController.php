@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductOption;
 use Illuminate\Http\Request; // Corrected import
 
 class ProductController extends Controller
@@ -61,9 +62,11 @@ class ProductController extends Controller
         'showProductDetails' => true,]);
 }
 
-    public function show($productId)
+    public function show(Product $product)
     {
-        // Remove the 'product' prefix from the productId
+        $productOptions = ProductOption::where('product_id', $product->product_id)->get();
+        return view('products.product', compact('product', 'productOptions'));
+        /*// Remove the 'product' prefix from the productId
         $productId = str_replace('product', '', $productId);
 
         // Now query the database with the correct product_id
@@ -79,7 +82,7 @@ class ProductController extends Controller
         }
 
         // If product is not found, return a 404 error page
-        return abort(404, 'Product not found');
+        return abort(404, 'Product not found'); */
     }
 }
 

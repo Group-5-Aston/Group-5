@@ -12,9 +12,6 @@
                         @if($item['flavor'])
                             <p class="item-flavor">Flavor: {{ $item['flavor'] }}</p>
                         @endif
-                        @if($item['psize'])
-                            <p class="item-psize">Package Size: {{ $item['psize'] }}</p>
-                        @endif
                         @if($item['size'])
                             <p class="item-size">Size: {{ $item['size'] }}</p>
                         @endif
@@ -32,7 +29,6 @@
                             <input type="hidden" name="image" value="{{ $item['image'] }}">
                             <input type="hidden" name="size" value="{{ $item['size'] }}">
                             <input type="hidden" name="flavor" value="{{ $item['flavor'] }}">
-                            <input type="hidden" name="psize" value="{{ $item['psize'] }}">
                             <!-- Hidden fields for subtotal, shipping, vat, and total -->
                             <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
                             <input type="hidden" name="subtotal" value="{{ $subtotal }}">
@@ -44,7 +40,7 @@
                     </div>
                 @endforeach
             @else
-            <p></p>    
+            <p></p>
             <p>Your basket is empty!</p>
             @endif
         </section>

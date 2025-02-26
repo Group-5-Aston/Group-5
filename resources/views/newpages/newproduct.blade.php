@@ -1,12 +1,11 @@
 <x-newheader>
     <div class="container my-5">
         <div class="row">
-           
+
             <div class="col-md-6">
                 <img src="" class="product-image w-100" alt="Bundle Dog Food">
             </div>
 
-          
             <div class="col-md-6">
                 <div class="product-details">
                     <h1>Title</h1>
@@ -62,7 +61,7 @@
             </div>
         </div>
     </div>
- 
+
     <section class="info_section  layout_padding2-top">
         <div class="social_container">
             <div class="social_box">
