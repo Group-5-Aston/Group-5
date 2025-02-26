@@ -10,15 +10,18 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'description',
-        'price',
-        'category_id',
+    protected $fillable = ['product_id',
+        'name', 'price', 'label', 'image', 'description',
+        'is_food', 'is_toy_or_bed', 'package_size-options', 'low_stock_threshold', 'cat_or_dog', 'type',
     ];
 
-    public function category()
+    protected $primaryKey = 'product_id';
+
+    protected $table = 'Products';
+
+
+    public function options()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(ProductOption::class, 'product_id');
     }
 }

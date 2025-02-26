@@ -1,5 +1,5 @@
 <x-newheader>
-    <section style="padding-top: 48px; font-family: 'Poppins', Arial, sans-serif; background-color: #fff9e6; padding-bottom: 48px;">
+    <section style="padding-top: 48px; font-family: 'Poppins', Arial, sans-serif; background-color: #ffefbe6; padding-bottom: 48px;">
         <div style="max-width: 400px; margin: 0 auto; text-align: center;">
             <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; color: #000;">LOG IN</h2>
             <p style="font-size: 16px; margin-bottom: 24px; color: #333;">Access your account to explore exclusive offers and manage your orders.</p>

@@ -17,7 +17,7 @@
                             </div>
                             <div class="detail-box">
                                 <h6>
-                                    Bundle- Dogfood
+                                    Bundle - Dogfood
                                 </h6>
                                 <h6>
                                     Price
@@ -44,7 +44,7 @@
               </div>
               <div class="detail-box">
                 <h6>
-                  Bundle- Catfood
+                  Bundle - Catfood
                 </h6>
                 <h6>
                   Price

@@ -23,6 +23,7 @@ class User extends Authenticatable
         'phone',
         'address',
         'password',
+        'usertype',
     ];
 
     /**
@@ -47,4 +48,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->usertype === 'admin';
+    }
+
 }
