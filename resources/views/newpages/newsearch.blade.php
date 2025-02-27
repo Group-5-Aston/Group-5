@@ -1,75 +1,62 @@
 <x-newheader>
-    
-            <!-- No products found -->
-            <p class="text-center">No products found.</p>
-        @else
-            <div class="row">
-                @foreach($products as $product)
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="box">
-                            <!-- Link to the search-specific product page -->
-                            <a href="{{ route('product.searchshow', ['product_id' => $product->product_id]) }}">
-                                <!-- Product Image -->
-                                <div class="img-box">
-                                    <!-- Use Storage::url if your 'image' field is stored as a path in storage -->
-                                    <img 
-                                        src="{{ Storage::url($product->image) }}" 
-                                        alt="{{ $product->name }}" 
-                                        style="width: 100%; height: auto;"
-                                    >
-                                </div>
-                                <!-- Product Details -->
-                                <div class="detail-box">
-                                    <h6>{{ $product->name }}</h6>
-                                    <h6>
-                                        Price
-                                        <span>£{{ $product->price }}</span>
-                                    </h6>
-                                </div>
-                                <!-- "New" Label (optional) -->
-                                <div class="new">
-                                    <span>New</span>
-                                </div>
-                            </a>
+
+    <!-- Display Search Results -->
+    <h1 class="text-center">Search Results</h1>
+
+    @if ($products->isEmpty())
+        <p class="text-center">No products found.</p>
+    @else
+        <div class="row">
+            @foreach($products as $product)
+                <div class="col-md-3 mb-4">
+                    <!-- Link to a product-specific page -->
+                    <a href="{{ route('product.show', ['product' => $product->product_id]) }}">
+    View Product
+</a>
+
+                        <div class="box shadow-sm p-3 rounded">
+                            <!-- Product Image -->
+                            <div class="img-box">
+                                <img 
+                                    src="{{ asset($product->image) }}" 
+                                    alt="{{ $product->name }}" 
+                                    class="img-fluid" 
+                                    style="width: 100%; height: 200px; object-fit: cover;"
+                                >
+                            </div>
+                            <!-- Product Name and Price -->
+                            <div class="detail-box mt-3">
+                                <h6 class="text-center">{{ $product->name }}</h6>
+                                <h6 class="text-center text-success">£{{ $product->price }}</h6>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
-            <!-- Button to return to the main shop page -->
-            <div class="btn-box">
-                <a href="{{ route('fullshop') }}">
-                    Return to Main Products Page
-                </a>
-            </div>
-        @endif
-    </div>
-</section>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    @endif
 
-@include('components.newfooter')
+    @include('components.newfooter')
 
-
-<!-- Custom Styles -->
-<style>
-    .product-card {
-        text-decoration: none;
-        color: black;
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .product-card:hover {
-        transform: scale(1.05);
-    }
-
-    .box {
-        background: white;
-        border: 1px solid #ddd;
-        padding: 15px;
-        border-radius: 8px;
-    }
-
-    .img-box img {
-        border-radius: 5px;
-    }
-</style>
+    <!-- Custom Styles -->
+    <style>
+        .product-card {
+            text-decoration: none;
+            color: black;
+            transition: transform 0.2s ease-in-out;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .box {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .img-box img {
+            border-radius: 5px;
+        }
+    </style>
 
 </x-newheader>

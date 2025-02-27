@@ -1,78 +1,107 @@
 <x-newheader>
-    <!-- Basket Section -->
-    <main class="basket-container">
-        <section class="basket-items">
-            <h1 class="basket-title">Basket</h1>
-            <a href="shop" class="basket-button">Continue Shopping</a>
-            @if(!empty($basket) && count($basket) > 0)
-                @foreach($basket as $index => $item)
-                    <div class="item">
-                    <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
-                    <p class="item-name">{{ $item['name'] }}</p>
-                        @if($item['flavor'])
-                            <p class="item-flavor">Flavor: {{ $item['flavor'] }}</p>
-                        @endif
-                        @if($item['size'])
-                            <p class="item-size">Size: {{ $item['size'] }}</p>
-                        @endif
-                        <p class="item-quantity">Quantity: {{ $item['quantity'] }}</p>
-                        <p class="item-price">£{{ number_format($item['price'], 2) }}</p>
-                        <form action="{{ route('basket.remove', ['index' => $index]) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="remove-button">Remove</button>
-                        </form>
-                        <form action="{{ route('basket.add', $item['product_id']) }}" method="POST">
-                        @csrf
-                            <input type="hidden" name="name" value="{{ $item['name'] }}">
-                            <input type="hidden" name="price" value="{{ $item['price'] }}">
-                            <input type="hidden" name="quantity" value="1">
-                            <input type="hidden" name="image" value="{{ $item['image'] }}">
-                            <input type="hidden" name="size" value="{{ $item['size'] }}">
-                            <input type="hidden" name="flavor" value="{{ $item['flavor'] }}">
-                            <!-- Hidden fields for subtotal, shipping, vat, and total -->
-                            <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
-                            <input type="hidden" name="subtotal" value="{{ $subtotal }}">
-                            <input type="hidden" name="shipping" value="{{ $shipping }}">
-                            <input type="hidden" name="vat" value="{{ $vat }}">
-                            <input type="hidden" name="total" value="{{ $total }}">
-                            <button type="submit" class="add-button">Add</button>
-                        </form>
+
+<main class="container py-5">
+    <div class="row">
+        <!-- Basket Items Section -->
+        <div class="col-md-8">
+            <h1 class="mb-4">Basket</h1>
+            <a href="{{ route('shop') }}" class="btn btn-link">Continue Shopping</a>
+
+            @if($basket->items->count() > 0)
+                @php
+                    // Compute totals on the fly
+                    $subtotal = 0;
+                    foreach ($basket->items as $item) {
+                        $subtotal += $item->quantity * $item->price;
+                    }
+                    $shipping = 4.99;
+                    $vat = 2.00; 
+                    $total = $subtotal + $shipping + $vat;
+                @endphp
+
+                <!-- List each item -->
+                @foreach($basket->items as $item)
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <!-- Product Image -->
+                            <div class="col-md-3">
+                                <img 
+                                    src="{{ $item->image }}" 
+                                    alt="{{ $item->name }}" 
+                                    class="img-fluid rounded-start"
+                                >
+                            </div>
+                            <!-- Item Details -->
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $item->name }}</h5>
+                                    @if($item->flavor)
+                                        <p class="card-text">Flavor: {{ $item->flavor }}</p>
+                                    @endif
+                                    @if($item->size)
+                                        <p class="card-text">Size: {{ $item->size }}</p>
+                                    @endif
+                                    <p class="card-text">Quantity: {{ $item->quantity }}</p>
+                                    <p class="card-text">
+                                        <strong>£{{ number_format($item->price, 2) }}</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Remove Button -->
+                            <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                <form 
+                                    action="{{ route('basket.removeItem', $item->bitem_id) }}" 
+                                    method="POST"
+                                >
+                                    @csrf
+                                    <!-- Using POST route, not DELETE -->
+                                    <button type="submit" class="btn btn-danger">
+                                        Remove
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
+
             @else
-            <p></p>
-            <p>Your basket is empty!</p>
+                <p class="mt-4">Your basket is empty!</p>
             @endif
-        </section>
+        </div>
 
         <!-- Order Summary -->
-<aside class="order-summary">
-    <h2 class="summary-title">Order Summary</h2>
-    @if(!empty($basket) && count($basket) > 0)
-    <div class="summary-details">
-        <p>Subtotal</p>
-        <p>£{{ number_format($subtotal, 2) }}</p>
+        <div class="col-md-4">
+            <h2>Order Summary</h2>
+            @if($basket->items->count() > 0)
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Subtotal</span>
+                        <strong>£{{ number_format($subtotal, 2) }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Shipping</span>
+                        <strong>£{{ number_format($shipping, 2) }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>V.A.T</span>
+                        <strong>£{{ number_format($vat, 2) }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total</span>
+                        <strong>£{{ number_format($total, 2) }}</strong>
+                    </li>
+                </ul>
+                <a href="{{ route('checkout.index') }}" class="btn btn-primary w-100">
+                    Continue to Checkout →
+                </a>
+            @else
+                <p class="mt-4">You can’t checkout with an empty basket!</p>
+                <button class="btn btn-secondary w-100" disabled>Checkout</button>
+            @endif
+        </div>
     </div>
-    <div class="summary-details">
-        <p>Shipping</p>
-        <p>£{{ number_format($shipping, 2) }}</p>
-    </div>
-    <div class="summary-details">
-        <p>V.A.T</p>
-        <p>£{{ number_format($vat, 2) }}</p>
-    </div>
-    <div class="summary-details summary-total">
-        <p>Total</p>
-        <p>£{{ number_format($total, 2) }}</p>
-    </div>
-
-    <a href="{{ route('checkout.index') }}" class="basket-button">Continue to Checkout →</a>
-    @else
-    <button class="checkout-button" disabled>Continue to Checkout →</button>
-    <p></p><p class="empty-basket-message">You can't checkout with an empty basket!</p>
-@endif
-</aside>
-    </main>
+</main>
 
 @include('components.newfooter')
 </x-newheader>
+
