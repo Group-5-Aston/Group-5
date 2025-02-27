@@ -12,6 +12,7 @@ class OrderItem extends Model
     public $timestamps = true;
 
     protected $fillable = ['order_id', 'option_id', 'quantity', 'total'];
+
     public function order()
     {
         return $this->belongsTo(Order::class, 'order_id');
