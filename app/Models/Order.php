@@ -12,7 +12,7 @@ class Order extends Model
     public $timestamps = true;
 
     protected $fillable = ['user_id', 'total', 'address', 'status', 'message'];
-    public function orderitems()
+    public function orderItems()
     {
         return $this->hasMany(OrderItem::class, 'order_id');
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProductCreationController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminViewOrderController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
@@ -129,5 +130,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //Delete stock option
     Route::delete('admin/inventory/{option}/option', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
     Route::get('/admin/orders',[AdminOrdersController::class,'orders'])->name('admin.orders');
+    Route::get('/admin/order/{order}',[AdminViewOrderController::class,'showOrder'])->name('adminorder.show');
 
 });

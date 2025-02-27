@@ -19,7 +19,7 @@
     <tbody id="orderTable">
     @if(isset($orders) && $orders->count() > 0)
         @foreach($orders as $order)
-            <tr class="clickable" data-href="">
+            <tr class="clickable" data-href="{{route('adminorder.show', ['order' => $order->order_id])}}">
                 <td>{{ $order->order_id }}</td>
                 <td>{{ $order->user_id }}</td>
                 <td>{{ $order->user->name }}</td>

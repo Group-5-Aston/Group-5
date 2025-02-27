@@ -36,6 +36,7 @@ class AdminOrdersController extends Controller
                         'status' => $order->status,
                         'created_at' => $order->created_at->format('Y-m-d H:i:s'),
                         'updated_at' => $order->updated_at->format('Y-m-d H:i:s'),
+                        'order_url' => route('adminorder.show', ['order' => $order->order_id]),
                     ];
                 })
             ]);
