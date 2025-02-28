@@ -95,12 +95,6 @@
 
             <!-- info section -->
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 02467cda56fafd8671b9ec681e2621a04c21d434
-
             <section> </section>
             <section class="client_section layout_padding" style="padding-top: 10px;">
 
