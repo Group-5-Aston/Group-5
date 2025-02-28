@@ -141,4 +141,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //Cancel order
     Route::patch('/admin/order/{order}/cancel',[AdminViewOrderController::class,'cancel'])->name('adminorder.cancel');
 
+    //Confirm refund
+    Route::patch('/admin/order/{returnItem}/confirm',[AdminViewOrderController::class,'confirmRefund'])->name('adminrefund.confirm');
+    //Reject refund
+    Route::patch('/admin/order/{returnItem}/reject',[AdminViewOrderController::class,'rejectRefund'])->name('adminrefund.reject');
 });

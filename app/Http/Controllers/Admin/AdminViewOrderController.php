@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\ReturnItem;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Type\Integer;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +17,7 @@ Class  AdminViewOrderController extends Controller
     public function showOrder(Order $order)
     {
         $orderItems = $order->orderItems;
+        $returnItems = $order->returnItems;
 
         if ($order->shipping == '1') {
             $shipping = 4.99;
@@ -26,7 +28,14 @@ Class  AdminViewOrderController extends Controller
             $subtotal = ($order->total) / 1.20;
             $vat = (($order->total) * 0.20) / 1.20;
         }
-        return view('newpages.newadminpages.adminvieworder', compact('order', 'orderItems', 'shipping', 'subtotal', 'vat'));
+
+        return view('newpages.newadminpages.adminvieworder', compact('order',
+            'orderItems',
+            'shipping',
+            'subtotal',
+            'vat',
+            'returnItems'
+        ));
     }
 
     public function updateMessage(Order $order, Request $request) {
@@ -46,5 +55,17 @@ Class  AdminViewOrderController extends Controller
     public function cancel(Order $order) {
         $order->update(['status' => 'cancelled']);
         return redirect()->back()->with('success', 'Order cancelled.');
+    }
+
+    public function confirmRefund(ReturnItem $returnItem) {
+        $returnItem->update(['status' => 'refunded']);
+        return redirect()->back()->with('success', 'Item refunded.');
+
+        //Need to make it so it increases stock later
+    }
+
+    public function rejectRefund(ReturnItem $returnItem) {
+        $returnItem->update(['status' => 'rejected']);
+        return redirect()->back()->with('success', 'Order rejected.');
     }
 }
