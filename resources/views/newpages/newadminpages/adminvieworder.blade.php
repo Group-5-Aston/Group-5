@@ -22,7 +22,7 @@
 <table>
     <thead>
     <tr>
-        <th>Order ID</th>
+        <th>Order Item ID</th>
         <th>Name</th>
         <th>Option ID</th>
         <th>Quantity</th>
@@ -33,7 +33,7 @@
     @if(isset($orderItems) && $orderItems->count() > 0)
         @foreach($orderItems as $item)
             <tr class="clickable" data-href="{{ route('adminproduct.show', $item->productOption->product) }}">
-                <td>{{ $item->order_id }}</td>
+                <td>{{ $item->order_item_id }}</td>
                 <td>{{ $item->productOption->product->name }}</td>
                 <td>{{ $item->option_id }}</td>
                 <td>{{ $item->quantity }}</td>
@@ -64,7 +64,56 @@
 
 @if($order->status == 'returned')
     <h2>Returned items</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Return ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Refund Amount</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Requested At</th>
+            <th>Updated At</th>
+        </tr>
+        </thead>
+        <tbody id="productTable">
+        @if(isset($returnItems) && $returnItems->count() > 0)
+            @foreach($returnItems as $item)
+                <tr>
+                    <td>{{ $item->return_id }}</td>
+                    <td>{{ $item->orderItem->productOption->product->name }}</td>
+                    <td>{{ $item->quantity }}</td>
+                    <td>{{ $item->total }}</td>
+                    <td>{{ $item->reason }}</td>
+                    <td>{{ $item->status }}</td>
+                    <td>{{ $item->created_at }}</td>
+                    <td>{{ $item->updated_at }}</td>
+                    <td>
+                        <form method="POST" action="{{route('adminrefund.confirm', ['returnItem' => $item->return_id]) }}">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="confirm" value="confirm">
+                            <button type="submit" {{$item->status != 'returned' ? 'disabled' : '' }}>Confirm Refund</button>
+                        </form>
+                        <form method="POST" action="{{route('adminrefund.reject', ['returnItem' => $item->return_id]) }}">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="reject" value="reject">
+                            <button type="submit" {{$item->status != 'returned' ? 'disabled' : '' }}>Reject Refund</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="8">No products found.</td>
+            </tr>
+        @endif
+        </tbody>
+    </table>
 @endif
+
 <script>
 //Script to make each row of the table clickable
     document.querySelectorAll('.clickable').forEach(row => {
