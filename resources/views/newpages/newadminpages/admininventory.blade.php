@@ -2,18 +2,6 @@
 
 <style>
 
-.container {
-    width: 70%; /* Adjusted to center the table */
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers everything inside */
-}
-
 table {
     width: 100%; 
     border-collapse: collapse;
@@ -47,13 +35,20 @@ tr:hover {
     margin-top: 20px;
 }
 
+.search-box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    font-size: 15px;
+    width: 250px; 
+    margin-left: 400px; 
+}
 </style>
-<div class="heading_container heading_center" style="padding-top:48px">
-      <h2>Inventory</h2>    
-</div>
-<p></p>
 
-<input type="text" id="search" placeholder="Search by name" autocomplete="off">
+<div class="heading_container heading_center" style="padding-top:48px; margin-left:650px">
+      <h2>Inventory    
+<input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box"> </h2>
+</div>
 
 <p></p>
 <table>
@@ -137,4 +132,5 @@ tr:hover {
     });
 </script>
 
+@include('components.newcompactfooter')
 </x-newheader>
