@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminInventoryController;
+use App\Http\Controllers\Admin\AdminOrdersController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProductCreationController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminViewOrderController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
@@ -17,14 +19,14 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 
 
-Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
 
 
 Route::post('/basket/remove/{index}', [BasketController::class, 'remove'])->name('basket.remove');
-Route::post('/basket/add/{product_id}', [BasketController::class, 'addToBasket'])->name('basket.add');
+Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
 Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.index');
@@ -47,7 +49,7 @@ Route::get('/shop',[ShopController::class,'shop'])->name('shop');
 Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
 Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
 Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
-Route::get('/product/{product}',[ShopController::class,'productPage'])->name('product');
+//Route::get('/product/{product}',[ShopController::class,'productPage'])->name('product');
 
 // additional shop pages
 Route::get('/dogclothes',[ShopController::class,'dogClothes'])->name('dogclothes');
@@ -127,4 +129,16 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('admin/inventory/{product}/option', [AdminProductController::class, 'addOption'])->name('adminoption.add');
     //Delete stock option
     Route::delete('admin/inventory/{option}/option', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
+
+    //Show orders page
+    Route::get('/admin/orders',[AdminOrdersController::class,'orders'])->name('admin.orders');
+    //Show specific order
+    Route::get('/admin/order/{order}',[AdminViewOrderController::class,'showOrder'])->name('adminorder.show');
+    //Update order message
+    Route::patch('/admin/order/{order}/message',[AdminViewOrderController::class,'updateMessage'])->name('adminordermessage.update');
+    //Process order
+    Route::patch('/admin/order/{order}/process',[AdminViewOrderController::class,'process'])->name('adminorder.process');
+    //Cancel order
+    Route::patch('/admin/order/{order}/cancel',[AdminViewOrderController::class,'cancel'])->name('adminorder.cancel');
+
 });

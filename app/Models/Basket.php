@@ -11,6 +11,10 @@ class Basket extends Model
     protected $primaryKey = 'basket_id'; // Ensure correct primary key
     public $timestamps = true; // Laravel expects timestamps
 
-    protected $fillable = ['product_id', 'total', 'vat', 'total', 'subtotal', 'shipping', 'name', 'quantity', 'price', 'flavor', 'size', 'psize'];
+    protected $fillable = ['basket_id', 'user_id', 'total'];
+    public function items()
+    {
+        return $this->hasMany(BasketItem::class, 'basket_id');
+    }
 }
 
