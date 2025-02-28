@@ -346,11 +346,6 @@
     </form>
   
 
-            
-
-
-
-
         <!-- Profile dropdown -->
         <div class="navbar-icons">
             <div class="nav-item dropdown">
@@ -363,7 +358,7 @@
                         <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
                         <li><a href="" class="dropdown-item">Orders</a></li>
                         @if(Auth::User()->usertype == 'admin')
-                            <li><a href="" class="dropdown-item">Admin Dashboard</a></li>
+                            <li><a href="{{ route('admin.inventory') }}" class="dropdown-item">Admin Dashboard</a></li>
                         @endif
                         <li>
                             <form action="{{ route('logout') }}" method="POST" style="display: inline;">
