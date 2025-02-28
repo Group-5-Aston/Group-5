@@ -1,7 +1,61 @@
-<h1>Inventory</h1>
+<x-newheader>
+
+<style>
+
+.container {
+    width: 70%; /* Adjusted to center the table */
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything inside */
+}
+
+table {
+    width: 100%; 
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #426b1f;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+</style>
+<div class="heading_container heading_center" style="padding-top:48px">
+      <h2>Inventory</h2>    
+</div>
+<p></p>
 
 <input type="text" id="search" placeholder="Search by name" autocomplete="off">
 
+<p></p>
 <table>
     <thead>
     <tr>
@@ -33,7 +87,9 @@
     </tbody>
 </table>
 
-<a href="{{ route('adminaddproduct.show') }}">Add a new product</a>
+<div class="button-container">
+    <a href="{{ route('adminaddproduct.show') }}">Add a new product</a>
+</div>
 
 <script>
     //Script for live search
@@ -80,3 +136,5 @@
         });
     });
 </script>
+
+</x-newheader>
