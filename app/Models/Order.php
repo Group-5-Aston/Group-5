@@ -21,4 +21,24 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function getOrderStatus()
+    {
+        switch($this->status) {
+            case('pending'):
+                return 'Pending';
+            case('dispatched'):
+                return 'Dispatched';
+            case('out'):
+                return 'Out for delivery';
+            case('delivered'):
+                return 'Delivered';
+            case('cancelled'):
+                return 'Cancelled';
+            case('returned'):
+                return 'Items(s) returned';
+            default:
+                return 'Unknown';
+        }
+    }
 }

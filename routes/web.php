@@ -129,7 +129,16 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('admin/inventory/{product}/option', [AdminProductController::class, 'addOption'])->name('adminoption.add');
     //Delete stock option
     Route::delete('admin/inventory/{option}/option', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
+
+    //Show orders page
     Route::get('/admin/orders',[AdminOrdersController::class,'orders'])->name('admin.orders');
+    //Show specific order
     Route::get('/admin/order/{order}',[AdminViewOrderController::class,'showOrder'])->name('adminorder.show');
+    //Update order message
+    Route::patch('/admin/order/{order}/message',[AdminViewOrderController::class,'updateMessage'])->name('adminordermessage.update');
+    //Process order
+    Route::patch('/admin/order/{order}/process',[AdminViewOrderController::class,'process'])->name('adminorder.process');
+    //Cancel order
+    Route::patch('/admin/order/{order}/cancel',[AdminViewOrderController::class,'cancel'])->name('adminorder.cancel');
 
 });

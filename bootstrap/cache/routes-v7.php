@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::K0pyzuh1G18yFZLm',
+            '_route' => 'generated::W2PHNmNYb5u3cOkN',
           ),
           1 => NULL,
           2 => 
@@ -529,7 +529,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::jfkZUC5smtonI4M7',
+            '_route' => 'generated::stXSf3ANgMjvtL39',
           ),
           1 => NULL,
           2 => 
@@ -565,7 +565,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::8NBd6w2XsEBoRMdA',
+            '_route' => 'generated::3UEuKe5OKI7W1pmc',
           ),
           1 => NULL,
           2 => 
@@ -695,7 +695,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::7xUnv4CkEQd7erkg',
+            '_route' => 'generated::VpyR6vj2CBLp5gU1',
           ),
           1 => NULL,
           2 => 
@@ -752,7 +752,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::GU72LNN977dQyb3H',
+            '_route' => 'generated::ETfTSOvVL5qZD794',
           ),
           1 => NULL,
           2 => 
@@ -849,7 +849,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/product/(?|([^/]++)(*:27)|product([^/]++)(*:49))|/basket/(?|remove/([^/]++)(*:83)|add/([^/]++)(*:102))|/reset\\-password/([^/]++)(*:136)|/verify\\-email/([^/]++)/([^/]++)(*:176)|/user/([^/]++)(?|(*:201))|/admin/(?|inventory/(?|([^/]++)(?|(*:244)|/image(*:258)|(*:266))|newproduct(*:285)|([^/]++)/option(?|(*:311)|(*:319)|(*:327)))|order/([^/]++)(*:351))|/storage/(.*)(*:373))/?$}sDu',
+      0 => '{^(?|/product/(?|([^/]++)(*:27)|product([^/]++)(*:49))|/basket/(?|remove/([^/]++)(*:83)|add/([^/]++)(*:102))|/reset\\-password/([^/]++)(*:136)|/verify\\-email/([^/]++)/([^/]++)(*:176)|/user/([^/]++)(?|(*:201))|/admin/(?|inventory/(?|([^/]++)(?|(*:244)|/image(*:258)|(*:266))|newproduct(*:285)|([^/]++)/option(?|(*:311)|(*:319)|(*:327)))|order/([^/]++)(?|(*:354)|/(?|message(*:373)|process(*:388)|cancel(*:402))))|/storage/(.*)(*:426))/?$}sDu',
     ),
     3 => 
     array (
@@ -1224,7 +1224,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      351 => 
+      354 => 
       array (
         0 => 
         array (
@@ -1248,6 +1248,72 @@ app('router')->setCompiledRoutes(
         ),
       ),
       373 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminordermessage.update',
+          ),
+          1 => 
+          array (
+            0 => 'order',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      388 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminorder.process',
+          ),
+          1 => 
+          array (
+            0 => 'order',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      402 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminorder.cancel',
+          ),
+          1 => 
+          array (
+            0 => 'order',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      426 => 
       array (
         0 => 
         array (
@@ -1285,7 +1351,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::K0pyzuh1G18yFZLm' => 
+    'generated::W2PHNmNYb5u3cOkN' => 
     array (
       'methods' => 
       array (
@@ -1314,7 +1380,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d00000000000000000";}}',
-        'as' => 'generated::K0pyzuh1G18yFZLm',
+        'as' => 'generated::W2PHNmNYb5u3cOkN',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2440,7 +2506,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::jfkZUC5smtonI4M7' => 
+    'generated::stXSf3ANgMjvtL39' => 
     array (
       'methods' => 
       array (
@@ -2461,7 +2527,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::jfkZUC5smtonI4M7',
+        'as' => 'generated::stXSf3ANgMjvtL39',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2515,7 +2581,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::8NBd6w2XsEBoRMdA' => 
+    'generated::3UEuKe5OKI7W1pmc' => 
     array (
       'methods' => 
       array (
@@ -2536,7 +2602,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8NBd6w2XsEBoRMdA',
+        'as' => 'generated::3UEuKe5OKI7W1pmc',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2856,7 +2922,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::7xUnv4CkEQd7erkg' => 
+    'generated::VpyR6vj2CBLp5gU1' => 
     array (
       'methods' => 
       array (
@@ -2877,7 +2943,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::7xUnv4CkEQd7erkg',
+        'as' => 'generated::VpyR6vj2CBLp5gU1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2967,7 +3033,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::GU72LNN977dQyb3H' => 
+    'generated::ETfTSOvVL5qZD794' => 
     array (
       'methods' => 
       array (
@@ -2990,7 +3056,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::GU72LNN977dQyb3H',
+        'as' => 'generated::ETfTSOvVL5qZD794',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3606,6 +3672,120 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'adminorder.show',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminordermessage.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/order/{order}/message',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@updateMessage',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@updateMessage',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminordermessage.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminorder.process' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/order/{order}/process',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@process',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@process',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminorder.process',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminorder.cancel' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/order/{order}/cancel',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@cancel',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@cancel',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminorder.cancel',
       ),
       'fallback' => false,
       'defaults' => 
