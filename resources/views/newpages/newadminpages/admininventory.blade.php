@@ -50,7 +50,6 @@ tr:hover {
 <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box"> </h2>
 </div>
 
-<p></p>
 <table>
     <thead>
     <tr>

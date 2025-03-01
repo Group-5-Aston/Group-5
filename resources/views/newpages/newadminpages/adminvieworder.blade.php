@@ -1,6 +1,7 @@
 <h1>Order #{{ $order->order_id }}</h1>
 
 <p>User id: {{ $order->user_id }}</p>
+<p>User name: {{ $order->user->name }}</p>
 <p>Shipping address: {{ $order->address }}</p>
 <br>
 <p>Subtotal: £{{$subtotal}}</p>

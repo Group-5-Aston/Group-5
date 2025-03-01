@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminInventoryController;
 use App\Http\Controllers\Admin\AdminOrdersController;
 use App\Http\Controllers\Admin\AdminProductController;
@@ -7,16 +8,16 @@ use App\Http\Controllers\Admin\AdminProductCreationController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminViewOrderController;
+use App\Http\Controllers\BasketController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\BasketController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ContactController;
 
 
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
@@ -100,6 +101,8 @@ require __DIR__.'/auth.php';
 
 //Admin only routes
 Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/home', [AdminHomeController::class, 'home'])->name('admin.home');
+
     Route::get('admin/dashboard',[HomeController::class,'index']);
     //Admin customers page route
     Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
