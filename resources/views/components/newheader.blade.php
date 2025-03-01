@@ -28,6 +28,9 @@
     <!-- responsive style -->
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
     <style>
         body {
             font-family: "Poppins", sans-serif;
@@ -50,7 +53,7 @@
         .navbar {
             display: flex;
             justify-content: space-between;
-            align-items: center;           
+            align-items: center;
         }
 
         .navbar-brand {
@@ -332,19 +335,19 @@
             <!-- Search and Filter Section -->
 <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
     <form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 5px;">
-        <input 
-            type="text" 
-            class="search-bar" 
-            name="q" 
-            placeholder="Search products..." 
+        <input
+            type="text"
+            class="search-bar"
+            name="q"
+            placeholder="Search products..."
             value="{{ request('q') }}">
-        <button 
-            type="submit" 
+        <button
+            type="submit"
             class="search-button">
             Search
         </button>
     </form>
-  
+
 
         <!-- Profile dropdown -->
         <div class="navbar-icons">

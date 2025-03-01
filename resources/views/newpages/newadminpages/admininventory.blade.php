@@ -3,7 +3,7 @@
 <style>
 
 table {
-    width: 100%; 
+    width: 100%;
     border-collapse: collapse;
     text-align: center;
     font-size: 14px;
@@ -38,15 +38,15 @@ tr:hover {
 .search-box {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 8px; 
+    border-radius: 8px;
     font-size: 15px;
-    width: 250px; 
-    margin-left: 400px; 
+    width: 250px;
+    margin-left: 400px;
 }
 </style>
 
 <div class="heading_container heading_center" style="padding-top:48px; margin-left:650px">
-      <h2>Inventory    
+      <h2>Inventory
 <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box"> </h2>
 </div>
 
@@ -66,8 +66,12 @@ tr:hover {
     @if(isset($products) && $products->count() > 0)
         @foreach($products as $product)
             <tr class="clickable" data-href="{{ route('adminproduct.show', $product) }}">
-                <td>{{ $product->product_id }}</td>
-                <td>{{ $product->name }}</td>
+                <td>{{ $product->product_id }} </td>
+                <td>{{ $product->name }}
+                    {!! $product->productOptions->contains(fn($option) => $option->stock < 10)
+                        ? '<i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>'
+                        : '' !!}
+                </td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->label }}</td>
                 <td>{{ $product->is_food }}</td>
