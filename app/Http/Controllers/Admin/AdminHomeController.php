@@ -11,8 +11,14 @@ class AdminHomeController extends Controller
 {
     public function home() {
         $lowStockOptions = ProductOption::where('stock', '<', 10)->get();
-        $pendingOrders = Order::where('status', 'pending')->get();
-        $pendingReturns = ReturnItem::where('status', 'returned')->get();
-        return view('newpages.newadminpages.adminhome', compact('lowStockOptions', 'pendingOrders', 'pendingReturns'));
+        $pendingOrders = Order::where('status', 'pending')->orderBy('created_at', 'desc')->get();
+        $pendingReturns = ReturnItem::where('status', 'returned')->orderBy('updated_at', 'desc')->get();
+        $notifications = auth()->user()->notifications()->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        return view('newpages.newadminpages.adminhome'
+            , compact('lowStockOptions'
+                , 'pendingOrders'
+                , 'pendingReturns'
+                , 'notifications'
+            ));
     }
 }

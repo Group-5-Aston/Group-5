@@ -86,6 +86,19 @@
     @endif
     </tbody>
 </table>
+
+<h2>Notifications</h2>
+@if(isset($notifications) && $notifications->count() > 0)
+    @foreach($notifications as $notification)
+            <a href="{{$notification->data['url']}}">
+                <h4>{{$notification->data['subject']}}</h4>
+                <p>{{$notification->data['message']}}</p>
+                <small>{{ $notification->created_at->shortAbsoluteDiffForHumans() }}</small>
+            </a>
+    @endforeach
+    @else
+        <p>No notifications</p>
+@endif
 <script>
 //Script to make each row of the table clickable
     document.querySelectorAll('.clickable').forEach(row => {
