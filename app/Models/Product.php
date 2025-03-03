@@ -20,7 +20,7 @@ class Product extends Model
     protected $table = 'Products';
 
 
-    public function options()
+    public function productOptions()
     {
         return $this->hasMany(ProductOption::class, 'product_id');
     }

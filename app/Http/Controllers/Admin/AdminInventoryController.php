@@ -17,7 +17,7 @@ class AdminInventoryController extends Controller
             $products->where('name', 'like', "%$search%");
         }
 
-        $products = $products->get();
+        $products = $products->with('productOptions')->get();
 
         if ($request->ajax()) {
             return response()->json([
