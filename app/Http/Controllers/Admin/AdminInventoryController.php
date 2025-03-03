@@ -27,9 +27,12 @@ class AdminInventoryController extends Controller
                         'name' => $product->name,
                         'price' => $product->price,
                         'label' => $product->label,
-                        'is_food' => $product->is_food,
-                        'is_toy_or_bed' => $product->is_toy_or_bed,
-                        'product_url' => route('adminproduct.show', ['product' => $product->product_id])
+                        'cat_or_dog' => $product->cat_or_dog,
+                        'type' => $product->type,
+                        'product_url' => route('adminproduct.show', ['product' => $product->product_id]),
+                        'productOptions' => $product->productOptions->map(function ($option) {
+                            return ['stock' => $option->stock];
+                        }),
                     ];
                 })
             ]);

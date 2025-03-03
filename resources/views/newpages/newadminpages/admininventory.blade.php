@@ -57,8 +57,8 @@ tr:hover {
         <th>Name</th>
         <th>Price</th>
         <th>Label</th>
-        <th>Is food</th>
-        <th>Is toy or bed</th>
+        <th>Animal</th>
+        <th>Type</th>
     </tr>
     </thead>
     <tbody id="productTable">
@@ -73,8 +73,8 @@ tr:hover {
                 </td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->label }}</td>
-                <td>{{ $product->is_food }}</td>
-                <td>{{ $product->is_toy_or_bed }}</td>
+                <td>{{ $product->cat_or_dog }}</td>
+                <td>{{ $product->type }}</td>
             </tr>
         @endforeach
     @else
@@ -104,14 +104,18 @@ tr:hover {
                 let tableRows = '';
 
                 data.products.forEach(product => {
+                    let warningIcon = product.productOptions.some(option => option.stock < 10)
+                        ? '<i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>'
+                        : '';
+
                     tableRows += `
                     <tr class="clickable" data-href="${product.product_url}">
                         <td>${product.product_id}</td>
-                        <td>${product.name}</td>
+                        <td>${product.name} ${warningIcon}</td>
                         <td>${product.price}</td>
                         <td>${product.label}</td>
-                        <td>${product.is_food}</td>
-                        <td>${product.is_toy_or_bed}</td>
+                        <td>${product.cat_or_dog}</td>
+                        <td>${product.type}</td>
                     </tr>
                 `;
                 });
