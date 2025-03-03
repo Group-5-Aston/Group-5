@@ -222,6 +222,8 @@
                     </div>
                     <div class="buttons">
                         <button type="button" class="save-btn">Save</button>
+                        <!-- Delete Account Button -->
+                        <button type="button" class="delete-btn" id="delete-account">Delete Account</button>
                     </div>
                 </form>
             </div>
@@ -250,6 +252,14 @@
                 reader.readAsDataURL(file);
             }
         });
+
+        document.getElementbyId('delete-account').addEventListener('click', fucntion () {
+           const confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+            if (confirmation) {
+                alert('Account deleted!');
+            }
+        });
+                                                                
     </script>
 </body>
 @include('components.newcompactfooter')
