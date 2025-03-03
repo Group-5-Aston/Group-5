@@ -38,34 +38,41 @@ Class  AdminViewOrderController extends Controller
         ));
     }
 
+    //Updates the order message
     public function updateMessage(Order $order, Request $request) {
         $validate = $request->validate([
             'message' => ['required', 'string'],
         ]);
 
         $order->update($validate);
-        return redirect()->back()->with('success', 'Message updated.');
+        return redirect()->route('adminorder.show', $order)->with('success', 'Message updated.');
     }
 
     public function process(Order $order) {
         $order->update(['status' => 'dispatched']);
-        return redirect()->back()->with('success', 'Order dispatched.');
+        return redirect()->route('adminorder.show', $order)->with('success', 'Order dispatched.');
     }
 
     public function cancel(Order $order) {
         $order->update(['status' => 'cancelled']);
-        return redirect()->back()->with('success', 'Order cancelled.');
+        return redirect()->route('adminorder.show', $order)->with('success', 'Order cancelled.');
     }
 
     public function confirmRefund(ReturnItem $returnItem) {
         $returnItem->update(['status' => 'refunded']);
-        return redirect()->back()->with('success', 'Item refunded.');
+
+        $order = $returnItem->order;
+
+        return redirect()->route('adminorder.show', $order)->with('success', 'Item refunded.');
 
         //Need to make it so it increases stock later
     }
 
     public function rejectRefund(ReturnItem $returnItem) {
         $returnItem->update(['status' => 'rejected']);
-        return redirect()->back()->with('success', 'Order rejected.');
+
+        $order = $returnItem->order;
+
+        return redirect()->route('adminorder.show', $order)->with('success', 'Order rejected.');
     }
 }

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class AdminOrdersController extends Controller
 {
+    //Passes all the orders or creates a separate query if searching
     public function orders(Request $request)
     {
         $search = $request->input('search');
