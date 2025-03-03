@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class AdminInventoryController extends Controller
 {
+    //Gets all the products from the database and builds a query if live search is used
     public function inventory(Request $request) {
         $search = $request->input('search');
         $products = Product::query();

@@ -8,6 +8,7 @@ use App\Models\ProductOption;
 
 class AdminProductCreationController
 {
+    //Validates the creation of a new product and adds it to the database
     public function create(AdminAddProductRequest $request)
     {
         $data = $request->validated();
