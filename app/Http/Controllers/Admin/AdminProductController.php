@@ -91,7 +91,7 @@ Class  AdminProductController extends Controller
 
     public function destroyProduct(Product $product)
     {
-        $product->options()->delete();
+        $product->productOptions()->delete();
         $product->delete();
         return redirect()->route('admin.inventory')->with('success', 'Product deleted successfully.');
     }

@@ -259,7 +259,7 @@
                 alert('Account deleted!');
             }
         });
-                                                                
+
     </script>
 </body>
 @include('components.newcompactfooter')

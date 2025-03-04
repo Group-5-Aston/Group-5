@@ -99,6 +99,8 @@
     @else
         <p>No notifications</p>
 @endif
+
+
 <script>
 //Script to make each row of the table clickable
     document.querySelectorAll('.clickable').forEach(row => {
