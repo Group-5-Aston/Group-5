@@ -13,7 +13,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::EU9AQIuumLTljgH5',
+=======
+            '_route' => 'generated::ueje0hTQx6NUyZgE',
+>>>>>>> main
           ),
           1 => NULL,
           2 => 
@@ -529,7 +533,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::oblkIjJk90lALHVV',
+=======
+            '_route' => 'generated::5e6566nUd0DiM8v9',
+>>>>>>> main
           ),
           1 => NULL,
           2 => 
@@ -565,7 +573,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::9whU8dka6SdpWzaz',
+=======
+            '_route' => 'generated::bCZE9wui3FhPcQXk',
+>>>>>>> main
           ),
           1 => NULL,
           2 => 
@@ -695,7 +707,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::IrmDEGz1O15745S5',
+=======
+            '_route' => 'generated::AGldPVWmnF3hXPZp',
+>>>>>>> main
           ),
           1 => NULL,
           2 => 
@@ -746,13 +762,37 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/home' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.home',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/admin/dashboard' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::90ayrfJ9I26jc827',
+=======
+            '_route' => 'generated::RkmlCBP7pWyiiFKS',
+>>>>>>> main
           ),
           1 => NULL,
           2 => 
@@ -826,10 +866,43 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
     ),
     2 => 
     array (
       0 => '{^(?|/product/(?|([^/]++)(*:27)|product([^/]++)(*:49))|/basket/(?|remove/([^/]++)(*:83)|add/([^/]++)(*:102))|/reset\\-password/([^/]++)(*:136)|/verify\\-email/([^/]++)/([^/]++)(*:176)|/user/([^/]++)(?|(*:201))|/admin/inventory/(?|([^/]++)(?|(*:241)|/image(*:255)|(*:263))|newproduct(*:282)|([^/]++)/option(?|(*:308)|(*:316)|(*:324)))|/storage/(.*)(*:347))/?$}sDu',
+    ),
+    3 => 
+    array (
+      27 => 
+=======
+      '/admin/orders' => 
+>>>>>>> main
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+<<<<<<< HEAD
+=======
+            '_route' => 'admin.orders',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+    ),
+    2 => 
+    array (
+      0 => '{^(?|/product/(?|([^/]++)(*:27)|product([^/]++)(*:49))|/basket/(?|remove/([^/]++)(*:83)|add/([^/]++)(*:102))|/reset\\-password/([^/]++)(*:136)|/verify\\-email/([^/]++)/([^/]++)(*:176)|/user/([^/]++)(?|(*:201))|/admin/(?|inventory/(?|([^/]++)(?|(*:244)|/image(*:258)|(*:266))|newproduct(*:285)|([^/]++)/option(?|(*:311)|(*:319)|(*:327)))|order/([^/]++)(?|(*:354)|/(?|message(*:373)|process(*:388)|c(?|ancel(*:405)|onfirm(*:419))|reject(*:434))))|/storage/(.*)(*:458))/?$}sDu',
     ),
     3 => 
     array (
@@ -839,6 +912,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+>>>>>>> main
             '_route' => 'product.show',
           ),
           1 => 
@@ -1031,7 +1105,11 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
       241 => 
+=======
+      244 => 
+>>>>>>> main
       array (
         0 => 
         array (
@@ -1054,7 +1132,11 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
       255 => 
+=======
+      258 => 
+>>>>>>> main
       array (
         0 => 
         array (
@@ -1076,7 +1158,11 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
       263 => 
+=======
+      266 => 
+>>>>>>> main
       array (
         0 => 
         array (
@@ -1117,7 +1203,11 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
       282 => 
+=======
+      285 => 
+>>>>>>> main
       array (
         0 => 
         array (
@@ -1138,7 +1228,11 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
       308 => 
+=======
+      311 => 
+>>>>>>> main
       array (
         0 => 
         array (
@@ -1160,7 +1254,11 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
       316 => 
+=======
+      319 => 
+>>>>>>> main
       array (
         0 => 
         array (
@@ -1182,7 +1280,11 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
       324 => 
+=======
+      327 => 
+>>>>>>> main
       array (
         0 => 
         array (
@@ -1204,7 +1306,144 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+<<<<<<< HEAD
       347 => 
+=======
+      354 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminorder.show',
+          ),
+          1 => 
+          array (
+            0 => 'order',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      373 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminordermessage.update',
+          ),
+          1 => 
+          array (
+            0 => 'order',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      388 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminorder.process',
+          ),
+          1 => 
+          array (
+            0 => 'order',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      405 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminorder.cancel',
+          ),
+          1 => 
+          array (
+            0 => 'order',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      419 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminrefund.confirm',
+          ),
+          1 => 
+          array (
+            0 => 'returnItem',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      434 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminrefund.reject',
+          ),
+          1 => 
+          array (
+            0 => 'returnItem',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      458 => 
+>>>>>>> main
       array (
         0 => 
         array (
@@ -1242,7 +1481,11 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
+<<<<<<< HEAD
     'generated::EU9AQIuumLTljgH5' => 
+=======
+    'generated::ueje0hTQx6NUyZgE' => 
+>>>>>>> main
     array (
       'methods' => 
       array (
@@ -1270,8 +1513,13 @@ app('router')->setCompiledRoutes(
                     return response(\\Illuminate\\Support\\Facades\\View::file(\'C:\\\\xampp\\\\htdocs\\\\GitHub\\\\Group-5\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
+<<<<<<< HEAD
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d10000000000000000";}}',
         'as' => 'generated::EU9AQIuumLTljgH5',
+=======
+                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d00000000000000000";}}',
+        'as' => 'generated::ueje0hTQx6NUyZgE',
+>>>>>>> main
       ),
       'fallback' => false,
       'defaults' => 
@@ -1964,7 +2212,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
     return \\view(\'newpages.newwhy\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004ea0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004e90000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -2225,7 +2473,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
     return \\view(\'dashboard\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004f20000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004f10000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -2397,7 +2645,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::oblkIjJk90lALHVV' => 
+=======
+    'generated::5e6566nUd0DiM8v9' => 
+>>>>>>> main
     array (
       'methods' => 
       array (
@@ -2418,7 +2670,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::oblkIjJk90lALHVV',
+=======
+        'as' => 'generated::5e6566nUd0DiM8v9',
+>>>>>>> main
       ),
       'fallback' => false,
       'defaults' => 
@@ -2472,7 +2728,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::9whU8dka6SdpWzaz' => 
+=======
+    'generated::bCZE9wui3FhPcQXk' => 
+>>>>>>> main
     array (
       'methods' => 
       array (
@@ -2493,7 +2753,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::9whU8dka6SdpWzaz',
+=======
+        'as' => 'generated::bCZE9wui3FhPcQXk',
+>>>>>>> main
       ),
       'fallback' => false,
       'defaults' => 
@@ -2813,7 +3077,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::IrmDEGz1O15745S5' => 
+=======
+    'generated::AGldPVWmnF3hXPZp' => 
+>>>>>>> main
     array (
       'methods' => 
       array (
@@ -2834,7 +3102,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::IrmDEGz1O15745S5',
+=======
+        'as' => 'generated::AGldPVWmnF3hXPZp',
+>>>>>>> main
       ),
       'fallback' => false,
       'defaults' => 
@@ -2924,7 +3196,50 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::90ayrfJ9I26jc827' => 
+=======
+    'admin.home' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/home',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminHomeController@home',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminHomeController@home',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.home',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::RkmlCBP7pWyiiFKS' => 
+>>>>>>> main
     array (
       'methods' => 
       array (
@@ -2947,7 +3262,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::90ayrfJ9I26jc827',
+=======
+        'as' => 'generated::RkmlCBP7pWyiiFKS',
+>>>>>>> main
       ),
       'fallback' => false,
       'defaults' => 
@@ -3500,6 +3819,274 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'admin.orders' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/orders',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminOrdersController@orders',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminOrdersController@orders',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.orders',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminorder.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/order/{order}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@showOrder',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@showOrder',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminorder.show',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminordermessage.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/order/{order}/message',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@updateMessage',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@updateMessage',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminordermessage.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminorder.process' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/order/{order}/process',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@process',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@process',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminorder.process',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminorder.cancel' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/order/{order}/cancel',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@cancel',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@cancel',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminorder.cancel',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminrefund.confirm' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/order/{returnItem}/confirm',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@confirmRefund',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@confirmRefund',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminrefund.confirm',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminrefund.reject' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/order/{returnItem}/reject',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@rejectRefund',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminViewOrderController@rejectRefund',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminrefund.reject',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'storage.local' => 
     array (
       'methods' => 
@@ -3516,7 +4103,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000004f40000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000004f30000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,

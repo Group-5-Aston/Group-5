@@ -5,9 +5,17 @@ function getYear() {
     document.querySelector("#displayYear").innerHTML = currentYear;
 }
 
+function clickableTable() {
+    document.querySelectorAll('.clickable').forEach(row => {
+        row.addEventListener('click', function () {
+            window.location.href = this.dataset.href;
+        });
+    });
+}
+
 getYear();
 
-// owl carousel 
+// owl carousel
 
 $('.owl-carousel').owlCarousel({
     loop: true,

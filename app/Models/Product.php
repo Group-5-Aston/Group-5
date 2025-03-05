@@ -28,7 +28,7 @@ class Product extends Model
     return 'product_id';
 }
 
-    public function options()
+    public function productOptions()
     {
         return $this->hasMany(ProductOption::class, 'product_id');
     }

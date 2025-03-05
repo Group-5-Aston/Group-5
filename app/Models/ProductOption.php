@@ -13,12 +13,7 @@ class ProductOption extends Model
         return $this->belongsTo(Product::class, 'product_id');
     }
 
-    public function basketItems()
-    {
-        return $this->hasMany(BasketItem::class, 'option_id');
-    }
-
-    protected $fillable = ['product_id', 'size', 'flavor','stock'];
+    protected $fillable = ['product_id', 'size', 'flavor','stock', 'low_stock_notification_sent'];
 
     protected $primaryKey = 'option_id';
 
