@@ -74,7 +74,7 @@
         @foreach($pendingReturns as $item)
             <tr class="clickable" data-href="{{route('adminorder.show', ['order' => $item->order->order_id])}}">
                 <td>{{ $item->order->order_id }}</td>
-                <td>{{ $item->orderItem->productOption->product->name }}</td>
+                <td>{{ $item->orderItem->name }}</td>
                 <td>{{ $item->total }}</td>
                 <td>{{ $item->updated_at }}</td>
             </tr>
