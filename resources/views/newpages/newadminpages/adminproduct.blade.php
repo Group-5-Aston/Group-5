@@ -67,7 +67,9 @@
             <form method="POST" action="{{ route('adminoption.delete', ['option' => $option->option_id]) }}">
                 @csrf
                 @method('DELETE')
-                <input type="submit" value="Delete">
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this product?')">
+                    Delete Product
+                </button>
             </form>
         </td>
     </tr>

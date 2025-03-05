@@ -16,7 +16,9 @@
     @csrf
     @method('DELETE')
     <fieldset @if($user->usertype === 'admin') disabled @endif>
-        <input type="submit" value="delete">
+        <button type="submit" onclick="return confirm('Are you sure you want to delete this user?')">
+            Delete User
+        </button>
     </fieldset>
 </form>
 <h1>Orders</h1>
