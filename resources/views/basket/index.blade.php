@@ -15,7 +15,7 @@
                         $subtotal += $item->quantity * $item->price;
                     }
                     $shipping = 4.99;
-                    $vat = 2.00; 
+                    $vat = 2.00;
                     $total = $subtotal + $shipping + $vat;
                 @endphp
 
@@ -25,16 +25,16 @@
                         <div class="row g-0">
                             <!-- Product Image -->
                             <div class="col-md-3">
-                                <img 
-                                    src="{{ $item->image }}" 
-                                    alt="{{ $item->name }}" 
+                                <img
+                                    src="{{ $item->image }}"
+                                    alt="{{ $item->name }}"
                                     class="img-fluid rounded-start"
                                 >
                             </div>
                             <!-- Item Details -->
                             <div class="col-md-6">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $item->name }}</h5>
+                                    <h5 class="card-title">{{ $item->productOption->product->name }}</h5>
                                     @if($item->flavor)
                                         <p class="card-text">Flavor: {{ $item->flavor }}</p>
                                     @endif
@@ -49,8 +49,8 @@
                             </div>
                             <!-- Remove Button -->
                             <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                <form 
-                                    action="{{ route('basket.removeItem', $item->bitem_id) }}" 
+                                <form
+                                    action="{{ route('basket.removeItem', $item->bitem_id) }}"
                                     method="POST"
                                 >
                                     @csrf

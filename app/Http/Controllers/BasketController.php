@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Storage;
 class BasketController extends Controller
 {
     // Show the basket page
-    
+
 
         public function index()
 {
     // Get this user’s Basket model, eager-load basket items
     $basket = auth()->user()
         ->basket()
-        ->with('items')
+        ->with('items.productOption.product')
         ->first();
 
     // If the user doesn't have a basket yet, you might want to create it or just pass null
@@ -215,14 +215,14 @@ class BasketController extends Controller
                 $query->where('user_id', auth()->id());
             })
             ->first();
-    
+
         if (!$basketItem) {
             return redirect()->route('basket.index')->with('error', 'Item not found.');
         }
-    
+
         // Decrement the quantity by 1
         $basketItem->quantity -= 1;
-    
+
         // If quantity hits 0, remove the row entirely
         if ($basketItem->quantity <= 0) {
             $basketItem->delete();
@@ -231,18 +231,18 @@ class BasketController extends Controller
             $basketItem->total = $basketItem->quantity * $basketItem->price;
             $basketItem->save();
         }
-    
+
         // Optionally recalc the Basket total if needed
         $basket = auth()->user()->basket;
         $basket->total = $basket->items->sum('total');
         $basket->save();
-    
+
         return redirect()->route('basket.index')->with('success', 'Item quantity updated.');
     }
-    
-    
-    
-    
+
+
+
+
 
 
 
