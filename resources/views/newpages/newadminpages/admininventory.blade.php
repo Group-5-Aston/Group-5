@@ -56,6 +56,12 @@ h3 {
 <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box"> </h3>
 </div>
 
+@if(request('message'))
+    <div class="alert alert-warning">
+        {{ request('message') }}
+    </div>
+@endif
+
 <table>
     <thead>
     <tr>

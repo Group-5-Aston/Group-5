@@ -35,8 +35,9 @@
         @foreach($orderItems as $item)
             {{--Gives every row a link to the product, if there is no product then redirect to the inventory --}}
             <tr class="clickable" data-href="{{ optional(optional($item->productOption)->product)->id
-    ? route('adminproduct.show', optional($item->productOption)->product)
-    : route('admin.inventory') }}">
+                ? route('adminproduct.show', optional($item->productOption)->product)
+                : route('admin.inventory',['message' => 'That product no longer exists'])
+            }}">
                 <td>{{ $item->order_item_id }}</td>
                 <td>{{ $item->name}}</td>
                 <td>{{ $item->option_id }}</td>
