@@ -2,10 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\ProductOption;
-use App\Models\ReturnItem;
-use App\Observers\ProductOptionObserver;
-use App\Observers\ReturnItemObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,9 +17,8 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot()
+    public function boot(): void
     {
-        ProductOption::observe(ProductOptionObserver::class);
-        ReturnItem::observe(ReturnItemObserver::class);
+        //
     }
 }

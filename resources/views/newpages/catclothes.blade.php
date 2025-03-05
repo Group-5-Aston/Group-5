@@ -1,8 +1,8 @@
-<x-newheader>     
+<x-newheader>
     <x-newshopshower :products="$products">
-        <h2>
+        <h1>
             Cat's Clothes & Accessories
-        </h2>
+        </h1>
     </x-newshopshower>
     @include('components.newfooter')
 </x-newheader>

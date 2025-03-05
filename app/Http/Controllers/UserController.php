@@ -15,10 +15,4 @@ class UserController extends Controller
     public function userNameOrGuest() {
 
     }
-
-    public function basket()
-{
-    return $this->hasOne(Basket::class);
-}
-
 }
