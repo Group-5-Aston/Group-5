@@ -1,5 +1,11 @@
 <p>User ID: {{$user->id}}</p>
 
+@if($user->usertype === 'admin')
+    <p>You cannot edit an admin.</p>
+@elseif($user->order()->whereNot('status', 'complete')->exists())
+    <p>You cannot delete a user with an active order/return.
+@endif
+
 <form method="POST" action="{{ route('adminprofile.edit', ['user' => $user->id] )}}">
     @csrf
     @method('PATCH')
@@ -15,7 +21,7 @@
 <form method="POST" action="{{ route('adminprofile.destroy', ['user'=>$user->id]) }}">
     @csrf
     @method('DELETE')
-    <fieldset @if($user->usertype === 'admin') disabled @endif>
+    <fieldset @if($user->usertype === 'admin' || $user->order()->whereNot('status', 'complete')->exists()) disabled @endif>
         <button type="submit" onclick="return confirm('Are you sure you want to delete this user?')">
             Delete User
         </button>
