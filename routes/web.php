@@ -76,7 +76,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('product.inde
 Route::get('/search', [ProductController::class, 'search'])->name('product.search');
 // Route to filter products by category or brand
 Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
-Route::get('/product/product{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
+Route::get('/product/{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
 
 
