@@ -13,42 +13,46 @@ class CheckoutController extends Controller
     public function index()
 {
     // Get the basket data from the session
-    $basket = session()->get('basket', []);
+    $basket = auth()->user()->basket;
 
-    
-
-
-    $subtotal = collect($basket)->sum(fn($item) => $item['price'] * $item['quantity']);
-    $shipping = 4.99; // Example shipping cost
-    $vat = 2.00; // Example VAT
-    $total = $subtotal + $shipping + $vat;
+    if ($basket->total < '30.01') {
+        $shipping = 4.99;
+        $subtotal = ($basket->total) / 1.20;
+        $vat = (($basket->total) * 0.20) / 1.20;
+        $total = $basket->total + $shipping;
+    } else {
+        $shipping = 0;
+        $subtotal = ($basket->total) / 1.20;
+        $vat = (($basket->total) * 0.20) / 1.20;
+        $total = $basket->total;
+    }
 
     return view('checkout.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total'));
 }
 
-   
+
         // Process the order and checkout
         public function process(Request $request)
         {
             $basket = session()->get('basket', []);
-        
+
             if (empty($basket)) {
                 return redirect()->route('checkout.index')->with('error', 'Your basket is empty.');
             }
-        
+
             // Validate the total
             $request->validate([
                 'total' => 'required|numeric|min:0',
             ]);
-        
+
             DB::beginTransaction();
-        
+
             try {
                 $order = Order::create([
                     'user_id' => auth()->id(),
                     'total_amount' => $request->input('total'),
                 ]);
-        
+
                 // Loop through the basket and create order items
                 foreach ($basket as $item) {
                     // You need to adjust this part depending on your actual basket data
@@ -59,18 +63,18 @@ class CheckoutController extends Controller
                         'price' => $item['price'],
                     ]);
                 }
-        
+
                 session()->forget('basket'); // Clear the basket after the order is placed
                 DB::commit();
-        
+
                 return redirect()->route('home')->with('success', 'Order placed successfully!');
             } catch (\Exception $e) {
                 DB::rollBack();
                 \Log::error('Order processing error: ' . $e->getMessage());
-        
+
                 return redirect()->route('checkout.index')->with('error', 'Something went wrong. Please try again.');
             }
         }
-        
+
 
 }
