@@ -43,11 +43,17 @@ tr:hover {
     width: 250px;
     margin-left: 400px;
 }
+
+h3 {
+    color: #426b1f;
+    font-size: 20px;
+}
+
 </style>
 
 <div class="heading_container heading_center" style="padding-top:48px; margin-left:650px">
-      <h2>Inventory
-<input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box"> </h2>
+      <h3>Inventory
+<input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box"> </h3>
 </div>
 
 <table>
