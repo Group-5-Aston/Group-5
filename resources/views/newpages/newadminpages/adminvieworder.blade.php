@@ -33,9 +33,12 @@
     <tbody id="productTable">
     @if(isset($orderItems) && $orderItems->count() > 0)
         @foreach($orderItems as $item)
-            <tr class="clickable" data-href="{{ route('adminproduct.show', $item->productOption->product) }}">
+            {{--Gives every row a link to the product, if there is no product then redirect to the inventory --}}
+            <tr class="clickable" data-href="{{ optional(optional($item->productOption)->product)->id
+    ? route('adminproduct.show', optional($item->productOption)->product)
+    : route('admin.inventory') }}">
                 <td>{{ $item->order_item_id }}</td>
-                <td>{{ $item->productOption->product->name }}</td>
+                <td>{{ $item->name}}</td>
                 <td>{{ $item->option_id }}</td>
                 <td>{{ $item->quantity }}</td>
                 <td>{{ $item->total }}</td>
@@ -83,7 +86,7 @@
             @foreach($returnItems as $item)
                 <tr>
                     <td>{{ $item->return_id }}</td>
-                    <td>{{ $item->orderItem->productOption->product->name }}</td>
+                    <td>{{ $item->orderItem->name }}</td>
                     <td>{{ $item->quantity }}</td>
                     <td>{{ $item->total }}</td>
                     <td>{{ $item->reason }}</td>

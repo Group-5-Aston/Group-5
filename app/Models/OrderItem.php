@@ -20,6 +20,6 @@ class OrderItem extends Model
 
     public function productOption()
     {
-        return $this->belongsTo(ProductOption::class, 'option_id');
+        return $this->belongsTo(ProductOption::class);
     }
 }
