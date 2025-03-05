@@ -11,20 +11,37 @@ use Illuminate\Support\Facades\Storage;
 class BasketController extends Controller
 {
     // Show the basket page
-    public function index()
-    {
-        // Fetch the user's basket
-        $basket = auth()->user()->basket;
 
-        if ($basket) {
-            // Fetch basket items associated with this basket
-            $basketItems = $basket->items;
-        } else {
-            $basketItems = collect(); // Empty collection if no basket exists
-        }
-        return view('basket.index', compact('basket', 'basketItems'));
+
+        public function index()
+{
+    // Get this user’s Basket model, eager-load basket items
+    $basket = auth()->user()
+        ->basket()
+        ->with('items.productOption.product')
+        ->first();
+
+    // If the user doesn't have a basket yet, you might want to create it or just pass null
+    // Example: create one if not exists:
+    if (!$basket) {
+        $basket = auth()->user()->basket()->create([
+            'user_id' => auth()->id(),
+            'total'   => 0.00,
+        ]);
     }
 
+    // Optionally calculate totals here OR you can do it in the Blade
+    // For example:
+    $subtotal = 0;
+    foreach ($basket->items as $item) {
+        $subtotal += $item->quantity * $item->price;
+    }
+    $shipping = 4.99;
+    $vat = 2.00;
+    $total = $subtotal + $shipping + $vat;
+
+    return view('basket.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total'));
+}
 
 
 
@@ -118,40 +135,41 @@ class BasketController extends Controller
     }
 
 
-public function remove($index)
-{
-    // Retrieve the basket from the session
-    $basket = session()->get('basket', []);
+    public function removeItem($bitem_id)
+    {
+        $basketItem = BasketItem::where('bitem_id', $bitem_id)
+            ->whereHas('basket', function($query) {
+                $query->where('user_id', auth()->id());
+            })
+            ->first();
 
-    // Check if the basket is empty or the index doesn't exist
-    if (empty($basket)) {
-        return redirect()->route('basket.index')->with('error', 'Your basket is empty.');
+        if (!$basketItem) {
+            return redirect()->route('basket.index')->with('error', 'Item not found.');
+        }
+
+        // Decrement the quantity by 1
+        $basketItem->quantity -= 1;
+
+        // If quantity hits 0, remove the row entirely
+        if ($basketItem->quantity <= 0) {
+            $basketItem->delete();
+        } else {
+            // Update the row's total if you store per-item total
+            $basketItem->total = $basketItem->quantity * $basketItem->price;
+            $basketItem->save();
+        }
+
+        // Optionally recalc the Basket total if needed
+        $basket = auth()->user()->basket;
+        $basket->total = $basket->items->sum('total');
+        $basket->save();
+
+        return redirect()->route('basket.index')->with('success', 'Item quantity updated.');
     }
 
-    // Ensure the index exists before proceeding
-    if (!isset($basket[$index])) {
-        return redirect()->route('basket.index')->with('error', 'Item not found.');
-    }
 
-    // Retrieve the product_id from the session item to remove it from the database
-    $product_id = $basket[$index]['product_id'];
-    $quantity = $basket[$index]['quantity'];
 
-    // Remove the item from the session
-    unset($basket[$index]);
-    $basket = array_values($basket); // Reindex the array
 
-    // Update the session
-    session()->put('basket', $basket);
-
-    // Remove the item from the database
-    Basket::where('product_id', $product_id)
-        ->where('quantity', $quantity)
-        ->delete();
-
-    // Redirect with a success message
-    return redirect()->route('basket.index')->with('success', 'Item removed from the basket.');
-}
 
 
 

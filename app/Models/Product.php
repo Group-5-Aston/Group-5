@@ -17,8 +17,16 @@ class Product extends Model
 
     protected $primaryKey = 'product_id';
 
-    protected $table = 'Products';
+    protected $table = 'products';
+ // If it’s an auto-increment integer
+ public $incrementing = true;
+ protected $keyType = 'int';
 
+ // ADD THIS: let route model binding use 'product_id'
+ public function getRouteKeyName()
+ {
+    return 'product_id';
+}
 
     public function productOptions()
     {

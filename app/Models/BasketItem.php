@@ -12,7 +12,21 @@ class BasketItem extends Model
 
     protected $fillable = ['bitem_id', 'basket_id', 'option_id', 'quantity', 'price', 'total'];
 
+
+        public function product()
+        {
+            // If your products table uses 'product_id' as PK:
+            return $this->belongsTo(Product::class, 'product_id', 'product_id');
+        }
+
+
     public function basket() {
         return $this->belongsTo(Basket::class, 'basket_id');
     }
+
+    public function productOption()
+    {
+        return $this->belongsTo(ProductOption::class, 'option_id');
+    }
+
 }
