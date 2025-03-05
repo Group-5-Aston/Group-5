@@ -26,7 +26,9 @@ Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
 
 
-Route::post('/basket/remove/{index}', [BasketController::class, 'remove'])->name('basket.remove');
+Route::post('/basket/remove/{bitem_id}', [BasketController::class, 'removeItem'])
+    ->name('basket.removeItem');
+
 Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
 Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
