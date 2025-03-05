@@ -17,8 +17,6 @@
         Pup&Purr
     </title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
@@ -29,8 +27,6 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- responsive style -->
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-
-
 
     <style>
         body {
@@ -54,7 +50,7 @@
         .navbar {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center;           
         }
 
         .navbar-brand {
@@ -336,18 +332,23 @@
             <!-- Search and Filter Section -->
 <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
     <form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 5px;">
-        <input
-            type="text"
-            class="search-bar"
-            name="q"
-            placeholder="Search products..."
+        <input 
+            type="text" 
+            class="search-bar" 
+            name="q" 
+            placeholder="Search products..." 
             value="{{ request('q') }}">
-        <button
-            type="submit"
+        <button 
+            type="submit" 
             class="search-button">
             Search
         </button>
     </form>
+  
+
+            
+
+
 
 
         <!-- Profile dropdown -->
@@ -362,7 +363,7 @@
                         <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
                         <li><a href="" class="dropdown-item">Orders</a></li>
                         @if(Auth::User()->usertype == 'admin')
-                            <li><a href="{{ route('admin.inventory') }}" class="dropdown-item">Admin Dashboard</a></li>
+                            <li><a href="" class="dropdown-item">Admin Dashboard</a></li>
                         @endif
                         <li>
                             <form action="{{ route('logout') }}" method="POST" style="display: inline;">

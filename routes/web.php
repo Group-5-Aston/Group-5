@@ -1,23 +1,20 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminInventoryController;
-use App\Http\Controllers\Admin\AdminOrdersController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProductCreationController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
-use App\Http\Controllers\Admin\AdminViewOrderController;
-use App\Http\Controllers\BasketController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\BasketController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
 
 
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
@@ -81,7 +78,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('product.inde
 Route::get('/search', [ProductController::class, 'search'])->name('product.search');
 // Route to filter products by category or brand
 Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
-Route::get('/product/{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
+Route::get('/product/product{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
 
 
@@ -101,8 +98,6 @@ require __DIR__.'/auth.php';
 
 //Admin only routes
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/home', [AdminHomeController::class, 'home'])->name('admin.home');
-
     Route::get('admin/dashboard',[HomeController::class,'index']);
     //Admin customers page route
     Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
@@ -132,20 +127,4 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('admin/inventory/{product}/option', [AdminProductController::class, 'addOption'])->name('adminoption.add');
     //Delete stock option
     Route::delete('admin/inventory/{option}/option', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
-
-    //Show orders page
-    Route::get('/admin/orders',[AdminOrdersController::class,'orders'])->name('admin.orders');
-    //Show specific order
-    Route::get('/admin/order/{order}',[AdminViewOrderController::class,'showOrder'])->name('adminorder.show');
-    //Update order message
-    Route::patch('/admin/order/{order}/message',[AdminViewOrderController::class,'updateMessage'])->name('adminordermessage.update');
-    //Process order
-    Route::patch('/admin/order/{order}/process',[AdminViewOrderController::class,'process'])->name('adminorder.process');
-    //Cancel order
-    Route::patch('/admin/order/{order}/cancel',[AdminViewOrderController::class,'cancel'])->name('adminorder.cancel');
-
-    //Confirm refund
-    Route::patch('/admin/order/{returnItem}/confirm',[AdminViewOrderController::class,'confirmRefund'])->name('adminrefund.confirm');
-    //Reject refund
-    Route::patch('/admin/order/{returnItem}/reject',[AdminViewOrderController::class,'rejectRefund'])->name('adminrefund.reject');
 });

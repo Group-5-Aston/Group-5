@@ -14,11 +14,9 @@ class ShopController extends Controller
             case 'dog':
                 return Product::where('cat_or_dog', 'dog')->get();
             case 'dogClothes':
-                return Product::whereIn('cat_or_dog', ['dog', 'both'])
-                    ->where('type', 'clothes')->get();
+                return Product::whereIn('cat_or_dog', ['dog', 'both'])->where('type', 'clothes')->get();
             case 'catClothes':
-                return Product::whereIn('cat_or_dog', ['cat', 'both'])
-                    ->where('type', 'clothes')->get();
+                return Product::whereIn('cat_or_dog', ['cat', 'both'])->where('type', 'clothes')->get();
             case 'both':
                 return Product::all();
             default:

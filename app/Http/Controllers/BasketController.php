@@ -47,7 +47,6 @@ class BasketController extends Controller
 
     public function addToBasket(Request $request, Product $product)
     {
-
         //Validates the form request (Adding product to basket)
         $data = $request->validate([
             'quantity' => 'required|integer',
@@ -97,8 +96,7 @@ class BasketController extends Controller
         /* Sets $basketItem to the Basket item with that matches the Product
         item and the users current basket, if it exists */
         $basketItem = BasketItem::where('option_id', $optionId)
-            ->where('basket_id', $basket->basket_id)
-            ->first();
+            ->where('basket_id', $basket->basket_id);
 
         /* If the $basketItem exists, instead of adding the same item to basket,
         increase its quantity as long as it doesn't exceed stock levels.
@@ -107,7 +105,7 @@ class BasketController extends Controller
 
         $optionStock = ProductOption::where('option_id', $optionId)->first()->stock;
 
-        if ($basketItem) {
+        if ($basketItem->exists()) {
             $existingItem = $basketItem->first();
 
             if(($data['quantity'] + $basketItem->first()->quantity) <= $optionStock ) {
@@ -132,7 +130,82 @@ class BasketController extends Controller
 
         return redirect()->route('basket.index')->with('success', 'Item added to basket');
 
-    }
+
+        /* Old code--
+         if ($product === null) {
+            dd("Product not found with ID: " . $product_id);
+        }
+
+        $quantity = (int) $request->input('quantity', 1);
+        $flavor = $request->input('flavor'); // Retrieve flavor
+        $size = $request->input('size', null); // Retrieve size
+        $name = $request->input('name', null);
+        //$psize = $request->input('psize', null); // Retrieve product size
+
+        // Get additional values from the request
+        $subtotal = $request->input('subtotal');
+        $shipping = $request->input('shipping');
+        $vat = $request->input('vat');
+        $total = $request->input('total');
+
+
+        // Store product details in the session (price, image, etc.)
+        $basket = session()->get('basket', []);
+        $exists = false;
+
+        foreach ($basket as &$item) {
+            if ($item['product_id'] == $product->product_id && $item['flavor'] == $flavor && $item['size'] == $size) {
+                $item['quantity'] += $quantity; // Update quantity if product is already in the basket
+                $exists = true;
+                break;
+            }
+        }
+
+
+        if (!$exists) {
+            $basket[] = [
+                'product_id' => $product->product_id,
+                'quantity' => $quantity,
+                'name' => $product->name,
+                'price' => $product->price, // This will stay in the session, not the database
+                'image' => Storage::url($product->image), // Assuming the image column in the product table
+                'flavor' => $flavor, // Add flavor to the session
+                //'psize' => $psize, // Store psize if necessary
+                'size' => $size, // Store size if necessary
+            ];
+        }
+
+        $subtotal = 0;
+        foreach ($basket as $item) {
+            $subtotal += $item['price'] * $item['quantity'];
+        }
+
+        $shipping = 4.99; // Example shipping cost
+        $vat = 2.00; // Example VAT
+        $total = $subtotal + $shipping + $vat;
+
+        // Update the session with the new basket
+        session()->put('basket', $basket);
+
+
+        // Only insert product_id and quantity into the database
+        Basket::create([
+            'product_id' => $product->product_id,
+            'name' => $name,
+            'quantity' => $quantity,
+            'flavor' => $flavor,  // Store flavor in DB
+            'size' => $size,      // Store size in DB
+            //'psize' => $psize,    // Store psize in DB
+            'total' => $total,
+            'subtotal' => $subtotal,
+            'shipping' => $shipping,
+            'vat' => $total,
+        ]);
+
+
+        return redirect()->route('basket.index')->with('success', 'Item added to basket');
+
+    */}
 
 
     public function removeItem($bitem_id)

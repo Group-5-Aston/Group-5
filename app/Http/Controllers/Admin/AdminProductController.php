@@ -36,9 +36,7 @@ Class  AdminProductController extends Controller
         ]);
 
         $option->update($validate);
-
-        $product = $option->product;
-        return redirect()->route('adminproduct.show', $product)->with('success', 'Stock updated successfully.');
+        return redirect()->back()->with('success', 'Stock updated successfully.');
     }
 
     public function addOption(AdminAddOptionRequest $request, Product $product)
@@ -51,19 +49,18 @@ Class  AdminProductController extends Controller
             ->exists();
 
         if ($exists) {
-            return redirect()->route('adminproduct.show', $product)->withErrors(['error' => 'This flavour and size combination already exists for this product.']);
+            return redirect()->back()->withErrors(['error' => 'This flavour and size combination already exists for this product.']);
         }
 
         $merged = array_merge($request->validated(), ['product_id' => $product->product_id]);
         ProductOption::create($merged);
-        return redirect()->route('adminproduct.show', $product)->with('success', 'Option added successfully.');
+        return redirect()->back()->with('success', 'Option added successfully.');
     }
 
     public function destroyOption(ProductOption $option)
     {
-        $product = $option->product;
         $option->delete();
-        return redirect()->route('adminproduct.show', $product)->with('success', 'Option deleted successfully.');
+        return redirect()->back()->with('success', 'Option deleted successfully.');
     }
 
     /* Changes the current product image to a new one uploaded by
@@ -80,18 +77,18 @@ Class  AdminProductController extends Controller
 
         $product->image = $updatedImage;
         $product->save();
-        return redirect()->route('adminproduct.show', $product)->with('success', 'Image updated successfully.');
+        return redirect()->back()->with('success', 'Image updated successfully.');
     }
 
     public function updateProduct(AdminUpdateProductRequest $request, Product $product)
     {
         $product->update($request->validated());
-        return redirect()->route('adminproduct.show', $product)->with('success', 'Product updated successfully.');
+        return redirect()->back()->with('success', 'Product updated successfully.');
     }
 
     public function destroyProduct(Product $product)
     {
-        $product->productOptions()->delete();
+        $product->options()->delete();
         $product->delete();
         return redirect()->route('admin.inventory')->with('success', 'Product deleted successfully.');
     }
