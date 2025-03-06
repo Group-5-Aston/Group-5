@@ -46,7 +46,13 @@ class PaymentController extends Controller
             'cvv' => ['required', 'digits_between:3,4', 'numeric']
         ]);
 
-        $data = session('pending order', []);
+        foreach (auth()->user()->basket->items as $item) {
+            if(!$item->stockCheck()) {
+                return redirect()->route('basket.index')->with('error', 'Not enough stock for ' . $item->productOption->product->name . '. Only ' . $item->productOption->stock. 'left!');
+            }
+        }
+
+            $data = session('pending order', []);
 
         if (empty($data)) {
             return back()->withErrors(['error' => 'No pending order found.']);

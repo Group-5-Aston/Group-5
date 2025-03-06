@@ -29,5 +29,11 @@ class BasketItem extends Model
         return $this->belongsTo(ProductOption::class, 'option_id');
     }
 
+    /*
+     * Final stock check before order. Returns false if there isn't enough stock
+     */
+    public function stockCheck() {
+        return $this->quantity <= $this->productOption->stock;
+    }
 }
 
