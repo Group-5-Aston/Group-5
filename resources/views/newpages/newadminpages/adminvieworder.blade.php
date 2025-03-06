@@ -34,7 +34,7 @@
     @if(isset($orderItems) && $orderItems->count() > 0)
         @foreach($orderItems as $item)
             {{--Gives every row a link to the product, if there is no product then redirect to the inventory --}}
-            <tr class="clickable" data-href="{{ optional(optional($item->productOption)->product)->id
+            <tr class="clickable" data-href="{{ optional(optional($item->productOption)->product)
                 ? route('adminproduct.show', optional($item->productOption)->product)
                 : route('admin.inventory',['message' => 'That product no longer exists'])
             }}">
