@@ -15,11 +15,7 @@ class PaymentController extends Controller
         $basket = auth()->user()->basket;
         $basketItems = auth()->user()->basket->items;
         $address = $request->input('address');
-        if ($basket->total < 30.01) {
-            $shipping = '1';
-        } else {
-            $shipping = '0';
-        }
+        $shipping = $basket->total < 30.01 ? true : false;
 
         //Store the data for order
         session(['pending order' => [
@@ -40,24 +36,28 @@ class PaymentController extends Controller
 
     public function process(Request $request)
     {
+        //validates the card details
         $request->validate([
             'card_number' => ['required', 'digits:16', 'numeric'],
             'expiry_date' => ['required', 'regex:/^(0[1-9]|1[0-2])\/\d{2}$/'],
             'cvv' => ['required', 'digits_between:3,4', 'numeric']
         ]);
 
+        //Checks if all items in the basket have enough stock
         foreach (auth()->user()->basket->items as $item) {
             if(!$item->stockCheck()) {
                 return redirect()->route('basket.index')->with('error', 'Not enough stock for ' . $item->productOption->product->name . '. Only ' . $item->productOption->stock. 'left!');
             }
         }
 
-            $data = session('pending order', []);
+        //Fetch the Order info, returns if there is no order data
+        $data = session('pending order', []);
 
         if (empty($data)) {
             return back()->withErrors(['error' => 'No pending order found.']);
         }
 
+        //Creates the order
         $order = Order::create([
             'user_id' => auth()->id(),
             'total' => $data['total'],
@@ -65,7 +65,7 @@ class PaymentController extends Controller
             'address' => $data['address'],
         ]);
 
-
+        //Creates the Order Items
         foreach (auth()->user()->basket->items as $item) {
             OrderItem::create([
                 'order_id' => $order->order_id,
@@ -79,6 +79,14 @@ class PaymentController extends Controller
                 'total' => $item->quantity * $item->price,
             ]);
         }
+
+        //Reduces stock
+        foreach (auth()->user()->basket->items as $item) {
+            $item->productOption->decrement('stock', $item->quantity);
+        }
+
+        //Delete the basket so the user can shop again
+        auth()->user()->basket()->delete();
 
         return redirect()->route('payment.index')->with('success', 'Payment processed successfully!');
     }

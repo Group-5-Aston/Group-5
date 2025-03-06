@@ -11,7 +11,7 @@ class Order extends Model
     protected $primaryKey = 'order_id';
     public $timestamps = true;
 
-    protected $fillable = ['user_id', 'total', 'address', 'status', 'message'];
+    protected $fillable = ['user_id', 'total', 'shipping', 'address', 'status', 'message'];
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class, 'order_id');
