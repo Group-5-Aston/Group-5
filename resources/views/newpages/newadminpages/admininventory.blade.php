@@ -2,6 +2,12 @@
 
 <input type="text" id="search" placeholder="Search by name" autocomplete="off">
 
+@if(request('message'))
+    <div class="alert alert-warning">
+        {{ request('message') }}
+    </div>
+@endif
+
 <table>
     <thead>
     <tr>
