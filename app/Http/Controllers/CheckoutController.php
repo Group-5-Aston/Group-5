@@ -27,54 +27,56 @@ class CheckoutController extends Controller
         $total = $basket->total;
     }
 
-    return view('checkout.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total'));
+    $basketItems = $basket->items;
+
+    return view('checkout.index', compact('basket', 'subtotal', 'shipping', 'vat', 'total', 'basketItems'));
 }
 
 
-        // Process the order and checkout
-        public function process(Request $request)
-        {
-            $basket = session()->get('basket', []);
+    // Process the order and checkout
+    public function process(Request $request)
+    {
+        $basket = session()->get('basket', []);
 
-            if (empty($basket)) {
-                return redirect()->route('checkout.index')->with('error', 'Your basket is empty.');
-            }
+        if (empty($basket)) {
+            return redirect()->route('checkout.index')->with('error', 'Your basket is empty.');
+        }
 
-            // Validate the total
-            $request->validate([
-                'total' => 'required|numeric|min:0',
+        // Validate the total
+        $request->validate([
+            'total' => 'required|numeric|min:0',
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $order = Order::create([
+                'user_id' => auth()->id(),
+                'total_amount' => $request->input('total'),
             ]);
 
-            DB::beginTransaction();
-
-            try {
-                $order = Order::create([
-                    'user_id' => auth()->id(),
-                    'total_amount' => $request->input('total'),
+            // Loop through the basket and create order items
+            foreach ($basket as $item) {
+                // You need to adjust this part depending on your actual basket data
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'product_name' => $item['name'], // assuming you store the product name in basket
+                    'quantity' => $item['quantity'],
+                    'price' => $item['price'],
                 ]);
-
-                // Loop through the basket and create order items
-                foreach ($basket as $item) {
-                    // You need to adjust this part depending on your actual basket data
-                    OrderItem::create([
-                        'order_id' => $order->id,
-                        'product_name' => $item['name'], // assuming you store the product name in basket
-                        'quantity' => $item['quantity'],
-                        'price' => $item['price'],
-                    ]);
-                }
-
-                session()->forget('basket'); // Clear the basket after the order is placed
-                DB::commit();
-
-                return redirect()->route('home')->with('success', 'Order placed successfully!');
-            } catch (\Exception $e) {
-                DB::rollBack();
-                \Log::error('Order processing error: ' . $e->getMessage());
-
-                return redirect()->route('checkout.index')->with('error', 'Something went wrong. Please try again.');
             }
+
+            session()->forget('basket'); // Clear the basket after the order is placed
+            DB::commit();
+
+            return redirect()->route('home')->with('success', 'Order placed successfully!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::error('Order processing error: ' . $e->getMessage());
+
+            return redirect()->route('checkout.index')->with('error', 'Something went wrong. Please try again.');
         }
+    }
 
 
 }

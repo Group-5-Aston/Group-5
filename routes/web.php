@@ -22,8 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
+Route::post('/payment/prepare', [PaymentController::class, 'prepareOrder'])->name('payment.prepare');
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
-Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
+
+Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
 
 
 Route::post('/basket/remove/{bitem_id}', [BasketController::class, 'removeItem'])

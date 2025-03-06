@@ -124,7 +124,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      width: 250px;
+      width: 170px;
   }
 
   .search-button {
