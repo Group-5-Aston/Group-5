@@ -87,6 +87,9 @@ Route::get('/product/{product_id}', [ProductController::class, 'searchShow'])->n
 //Order page routes
 Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
 Route::patch('/orders/{order}', [OrderController::class, 'cancel'])->name('order.cancel');
+Route::get('/orders/return/{orderItem}', [OrderController::class, 'returnForm'])->name('order.return');
+Route::post('/orders/return/{orderItem}/create', [OrderController::class, 'createReturn'])->name('order.createreturn');
+Route::get('/orders/return/create/address', [OrderController::class, 'returnAddress'])->name('order.return.address');
 
 //Route::get('/search', 'SearchController@index');
 

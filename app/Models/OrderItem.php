@@ -29,4 +29,11 @@ class OrderItem extends Model
     {
         return $this->belongsTo(ProductOption::class, 'option_id', 'option_id');
     }
+
+    //Returns the name of the item as well as the size and flavour if it has any.
+    public function nameSizeFlavour() {
+        return $this->name
+            . ($this->size ? ', '. $this->size : '')
+            . ($this->flavor ? ', ' . $this->flavor : '');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -17,4 +18,18 @@ class OrderController extends Controller
         return redirect()->route('order.index')->with('success', 'Order rejected.');
 
     }
+
+    public function returnForm(OrderItem $orderItem) {
+        return view('newpages.returnitem', compact('orderItem'));
+    }
+
+    public function createReturn(Request $request, OrderItem $orderItem) {
+
+        return redirect()->route('order.return.address');
+    }
+
+    public function returnAddress() {
+        return view('newpages.returnaddress');
+    }
+
 }

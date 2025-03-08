@@ -12,11 +12,11 @@
                 <!-- Order items -->
                 @if(isset($order->orderItems) && $order->orderItems->count() > 0)
                     @foreach($order->orderItems as $item)
-                        <p>Image goes here</p>
-                        <h5> {{$item->name}} {{$item->size ? ', '. $item->size : '' }} {{$item->flavor ? ', ' . $item->flavor : ''}} </h5>
+                        <img src="{{Storage::url($item->image)}}" height="120" width="120" alt="Product no longer exists">
+                        <h5> {{$item->nameSizeFlavour()}} </h5>
                         <small>Quantity: {{$item->quantity}}</small>
                         <p>£{{$item->total}}</p>
-                        <a href="">Make a return</a>
+                        <a href="{{route('order.return', $item)}}" >Make a return</a>
                         <a href="">Leave a review</a>
                         ----------------------------
                     @endforeach
