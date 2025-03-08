@@ -13,7 +13,7 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('Orders', function (Blueprint $table) {
             $table->id('order_id'); // Primary key, auto-increments
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key referencing 'users' table
             $table->decimal('total', 10, 2); // DECIMAL(10, 2) for total amount

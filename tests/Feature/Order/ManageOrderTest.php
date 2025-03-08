@@ -17,7 +17,7 @@ test('user can cancel an order', function () {
     $this->actingAs($user);
 
     // Send a POST request to cancel the order
-    $response = $this->post(route('orders.cancel', $order));
+    $response = $this->patch(route('order.cancel', $order));
 
     // Refresh the order instance from the database
     $order->refresh();
@@ -26,5 +26,5 @@ test('user can cancel an order', function () {
     $this->assertEquals('cancelled', $order->status);
 
     // Assert the user is redirected (if the controller does a redirect after cancellation)
-    $response->assertRedirect(route('orders.index'));
+    $response->assertRedirect(route('order.index'));
 });

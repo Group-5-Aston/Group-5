@@ -58,7 +58,6 @@ class Order extends Model
             return ($this->total);
         }
     }
-
     /*
     * Returns Cancelled if the order has been cancelled, else if the order has not
     * been delivered yet, returns the delivery date. Else the order has been delivered
