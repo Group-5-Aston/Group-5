@@ -13,6 +13,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -40,6 +41,7 @@ Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.i
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 //});
+
 
 Route::middleware(['admin'])->group(function () {
     //Route::get('/admin/dashboard', [AdminController::class, 'index']); // Only accessible by admin users
@@ -82,7 +84,9 @@ Route::get('/search', [ProductController::class, 'search'])->name('product.searc
 Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
 Route::get('/product/{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
-
+//Order page routes
+Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
+Route::patch('/orders/{order}', [OrderController::class, 'cancel'])->name('order.cancel');
 
 //Route::get('/search', 'SearchController@index');
 
