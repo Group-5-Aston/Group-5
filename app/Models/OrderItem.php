@@ -33,10 +33,24 @@ class OrderItem extends Model
         return $this->belongsTo(ProductOption::class, 'option_id', 'option_id');
     }
 
+    public function returnItems() {
+        return $this->hasMany(ReturnItem::class, 'order_item_id', 'order_item_id');
+    }
+
     //Returns the name of the item as well as the size and flavour if it has any.
     public function nameSizeFlavour() {
         return $this->name
             . ($this->size ? ', '. $this->size : '')
             . ($this->flavor ? ', ' . $this->flavor : '');
+    }
+
+    public function amountReturned() {
+        return $this->hasMany(ReturnItem::class, 'order_item_id', 'order_item_id')->sum('quantity');
+    }
+
+    //If this order item has already been returned
+    public function isAlreadyReturned()
+    {
+        return $this->returnItems()->exists();
     }
 }

@@ -30,10 +30,17 @@ class OrderController extends Controller
             'reason' => 'required|string|max:1000',
         ]);
 
-        $order = $orderItem->order;
+        //Make sure the User can't return more than they've ordered.
+        $totalOrdered = $orderItem->quantity;
+        $alreadyReturned = ReturnItem::where('order_item_id', $orderItem->order_item_id)->sum('quantity');
+        $remainingQuantity = $totalOrdered - $alreadyReturned;
+
+        if ($data['quantity'] > $remainingQuantity) {
+            return back()->withErrors(['quantity' => 'You can only return up to ' . $remainingQuantity . ' item(s).']);
+        }
 
         ReturnItem::create([
-            'order_id' => $order->order_id,
+            'order_id' => $orderItem->order->order_id,
             'order_item_id' => $orderItem->order_item_id,
             'reason' => $data['reason'],
             'quantity' => $data['quantity'],
