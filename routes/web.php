@@ -17,6 +17,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -91,6 +92,8 @@ Route::get('/orders/return/{orderItem}', [OrderController::class, 'returnForm'])
 Route::post('/orders/return/{orderItem}/create', [OrderController::class, 'createReturn'])->name('order.createreturn');
 Route::get('/orders/return/create/address', [OrderController::class, 'returnAddress'])->name('order.return.address');
 
+//Return page
+Route::get('/returns', [ReturnController::class, 'index'])->name('return.index');
 //Route::get('/search', 'SearchController@index');
 
 

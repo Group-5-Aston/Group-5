@@ -23,7 +23,7 @@ class ReturnFactory extends Factory
             'reason' => fake()->sentence(),
             'status' => fake()->randomElement(['pending', 'refunded', 'rejected']),
             'quantity' => $quantity,
-            'total' => $quantity * $orderItem->price, // Correct total calculation
+            'total' => $quantity * $orderItem->price,
         ];
     }
 }
