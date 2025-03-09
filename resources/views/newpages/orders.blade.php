@@ -16,7 +16,7 @@
                         <h5> {{$item->nameSizeFlavour()}} </h5>
                         <small>Quantity: {{$item->quantity}}</small>
                         <p>£{{$item->total}}</p>
-                        <a href="{{route('order.return', $item)}}" >Make a return</a>
+                        <a href="{{route('order.return', $item, $order)}}" >Make a return</a>
                         <a href="">Leave a review</a>
                         ----------------------------
                     @endforeach

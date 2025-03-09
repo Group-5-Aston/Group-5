@@ -14,7 +14,7 @@ class ReturnItem extends Model
     public $timestamps = true;
 
     protected $fillable = ['order_id',
-        'option_item_id',
+        'order_item_id',
         'quantity',
         'total',
         'reason',

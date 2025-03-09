@@ -9,8 +9,8 @@ return new class extends Migration {
     {
         Schema::create('returns', function (Blueprint $table) {
             $table->id('return_id');
-            $table->foreignId('order_id')->constrained('Orders')->onDelete('cascade');
-            $table->foreignId('order_item_id')->constrained('OrderItems')->onDelete('cascade');
+            $table->foreignId('order_id')->constrained('Orders', 'order_id')->onDelete('cascade');
+            $table->foreignId('order_item_id')->constrained('OrderItems', 'order_item_id')->onDelete('cascade');
             $table->text('reason');
             $table->string('status')->default('pending');
             $table->integer('quantity');

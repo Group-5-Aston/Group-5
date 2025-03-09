@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('Orders', function (Blueprint $table) {
             $table->id('order_id'); // Primary key, auto-increments
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key referencing 'users' table
+            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade'); // Foreign key referencing 'users' table
             $table->decimal('total', 10, 2); // DECIMAL(10, 2) for total amount
             $table->boolean('shipping')->default(0); // BOOLEAN, default to 0 (false)
             $table->text('address'); // TEXT for address

@@ -33,29 +33,30 @@ test('user can cancel an order', function () {
 test('user can create a return', function () {
     $user = User::factory()->create();
     $order = Order::factory()->create(['user_id' => $user->id]);
-    $orderItem = OrderItem::factory()->create(['order_id' => $order->id]);
+    $orderItem = OrderItem::factory()->create(['order_id' => $order->order_id]);
+    $quantity = 1;
 
     $this->actingAs($user);
-    
+
     $returnData = [
-        'order_id' => $order->id,
-        'order_item_id' => $orderItem->id,
+        'order_id' => $order->order_id,
+        'order_item_id' => $orderItem->order_item_id,
         'reason' => 'Product was damaged',
         'status' => 'pending',
-        'quantity' => 1,
-        'total' => 20.00,
+        'quantity' => $quantity,
+        'total' => $quantity * $orderItem->price,
     ];
 
-    $response = $this->post(route('order.return', [$order, $orderItem]), $returnData);
+    $response = $this->post(route('order.createreturn', [$order, $orderItem]), $returnData);
 
-    $response->assertStatus(201);
+    $response->assertStatus(302);
 
     $this->assertDatabaseHas('returns', [
-        'order_id' => $order->id,
-        'order_item_id' => $orderItem->id,
+        'order_id' => $order->order_id,
+        'order_item_id' => $orderItem->order_item_id,
         'reason' => 'Product was damaged',
         'status' => 'pending',
-        'quantity' => 1,
-        'total' => 20.00,
+        'quantity' => $quantity,
+        'total' => $quantity * $orderItem->price,
     ]);
 });
