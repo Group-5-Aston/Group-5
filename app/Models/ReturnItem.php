@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReturnItem extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'returns';
     protected $primaryKey = 'return_id';
     public $timestamps = true;
