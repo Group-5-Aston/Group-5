@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderItem extends Model
 {
+    use HasFactory;
+
     protected $table = 'OrderItems';
     protected $primaryKey = 'order_item_id';
     public $timestamps = true;
