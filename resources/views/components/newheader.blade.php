@@ -360,7 +360,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
-                        <li><a href="" class="dropdown-item">Orders</a></li>
+                        <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
                         @if(Auth::User()->usertype == 'admin')
                             <li><a href="{{ route('admin.inventory') }}" class="dropdown-item">Admin Dashboard</a></li>
                         @endif
