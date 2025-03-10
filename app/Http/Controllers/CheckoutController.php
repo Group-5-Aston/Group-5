@@ -66,7 +66,7 @@ class CheckoutController extends Controller
                 ]);
             }
 
-            session()->forget('basket'); // Clear the basket after the order is placed
+            session()->forget('basket');
             DB::commit();
 
             return redirect()->route('home')->with('success', 'Order placed successfully!');

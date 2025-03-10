@@ -15,6 +15,10 @@ class OrderController extends Controller
     }
 
     public function cancel(Order $order) {
+        if ($order->status != 'pending') {
+            return back()->withErrors('You cannot cancel an order that is already on the way');
+        }
+
         $order->update(['status' => 'cancelled']);
         return redirect()->route('order.index')->with('success', 'Order rejected.');
 
