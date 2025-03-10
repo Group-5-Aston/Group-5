@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BasketItem extends Model
 {
+    use hasFactory;
     protected $table = 'BasketItems';
     protected $primaryKey = 'bitem_id';
 
