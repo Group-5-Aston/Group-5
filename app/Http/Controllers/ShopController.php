@@ -21,6 +21,12 @@ class ShopController extends Controller
                     ->where('type', 'clothes')->get();
             case 'both':
                 return Product::all();
+            case 'catGH':
+                return Product::where('cat_or_dog', 'cat')
+                    ->where('type', 'GH')->get();
+            case 'dogGH':
+                return Product::where('cat_or_dog', 'dog')
+                    ->where('type', 'GH')->get();
             default:
                 return collect();
         }
@@ -57,5 +63,15 @@ class ShopController extends Controller
     public function catClothes() {
         $products = $this->getProducts('catClothes');
         return view('newpages.catclothes', compact('products'));
+    }
+
+    public function newcatGH() {
+        $products = $this->getProducts('catGH');
+        return view('newpages.newcatGH', compact('products'));
+    }
+
+    public function newdogGH() {
+        $products = $this->getProducts('dogGH');
+        return view('newpages.newdogGH', compact('products'));
     }
 }

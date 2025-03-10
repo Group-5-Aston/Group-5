@@ -6,36 +6,46 @@
     <style>
         * {
             margin: 0;
-            padding: 0;
+            padding: 30;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            overflow-x: hidden;
             background-color: #faf8f2;
+        }
+
+        :root{
+            --primary-color: #7b8e4e;
+            --primary-dark: #426b1f;
+            --secondary-color: #e0e0e0;
+            --border-color: #ddd;
+            --footer-bg-color: #fff;
         }
 
         .container {
             display: flex;
+            max-width: 100%;
             width: 900px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            margin: 0 auto;
+            padding-top: 40px;
         }
 
         .sidebar {
-            width: 220px;
+            width: 250px;
+            min-height: 100vh;
             background-color: #f5f5f5;
             padding: 20px;
         }
 
         .sidebar ul {
             list-style: none;
+            padding: 0;
         }
 
         .sidebar ul li {
@@ -46,11 +56,12 @@
         }
 
         .sidebar ul li:hover, .sidebar ul li.active {
-            background-color: #e0e0e0;
+            background-color: var(--secondary-color);
         }
 
         .content {
             flex: 1;
+            min-width: 500px;
             padding: 20px;
         }
 
@@ -71,8 +82,9 @@
         .form-group input, select {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
             border-radius: 5px;
+            display: block;
         }
 
         .profile-picture {
@@ -86,7 +98,7 @@
             border-radius: 50%;
             object-fit: cover;
             cursor: pointer;
-            border: 3px solid #7b8e4e;
+            border: 3px solid var(--primary-color);
         }
 
         .buttons {
@@ -104,12 +116,12 @@
         }
 
         .save-btn {
-            background-color: #7b8e4e;
+            background-color: var(--primary-color);
             color: white;
         }
 
         .save-btn:hover {
-            background-color: #426b1f;
+            background-color: var(--primary-dark);
         }
 
         .delete-btn {
@@ -121,8 +133,30 @@
             background-color: darkred;
         }
 
-        .hidden-input {
-            display: none;
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: var(--footer-bg-color);
+            position: relative;
+            bottom: 0;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+                padding: 10px;
+            }
+
+            .content {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -130,9 +164,9 @@
     <div class="container">
         <div class="sidebar">
             <ul>
-                <li onclick="showSection('profile')" class="active">Profile</li>
-                <li onclick="showSection('account-payment')">Account & Payment</li>
-                <li onclick="showSection('security')">Security</li>
+                <li onclick="showSection(event, 'profile')" class="active">Profile</li>
+                <li onclick="showSection(event, 'account-payment')">Account & Payment</li>
+                <li onclick="showSection(event, 'security')">Security</li>
             </ul>
         </div>
         <div class="content">
