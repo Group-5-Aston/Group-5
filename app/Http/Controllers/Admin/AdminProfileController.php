@@ -21,6 +21,9 @@ class AdminProfileController extends Controller
     //Updates user details from admin.
     public function update(AdminUpdateRequest $request, User $user)
     {
+        if ($user->usertype == 'admin') {
+            return redirect()->route('profile.show', $user)->withErrors('You cannot edit another admin');
+        }
         $user->update($request->validated());
 
         return redirect()->route('profile.show', $user)->with('status', 'User updated successfully');
@@ -29,7 +32,15 @@ class AdminProfileController extends Controller
     //Deletes the user from the database.
     public function destroy(User $user)
     {
-        $user->delete();
+        //Cannot delete if the user in an admin or has an active return or order
+        if($user->usertype === 'admin') {
+            return redirect()->route('profile.show', $user)->withErrors('You cannot delete another admin.');
+        } else if ($user->returnItems()->whereNot('returns.status', 'refunded')->exists()) {
+            return redirect()->route('profile.show', $user)->withErrors('You cannot delete a user with an active return.');
+        } else if ($user->order()->whereNot('Orders.status', 'complete')->exists()) {
+            return redirect()->route('profile.show', $user)->withErrors('You cannot delete a user with an active order.');
+        }
+            $user->delete();
         return redirect()->route('admin.customers')->with('status', 'User deleted successfully');
     }
 }
