@@ -72,12 +72,22 @@
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
         <p class="mt-3">{{ $product['description'] }}</p>
         </div>
-        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-        <p class="mt-3">No reviews yet. Be the first to review this product!</p>
-        </div>
+
+        <div class="tab-pane fade " id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+        <p class="mt-3"> {{ $product['reviews'] }}<p> Ratings: @for ($i=1; $i<=5; $i++) @if($i<= round($product->averageRating()))⭐ @else ☆ @endif 
+        @endfor({{$product->reviews->count()}}reviews)</p>
+        
+        @if(auth()->check())<form action="{{route('reviews.store', $product->product_id)}}" method="POST">
+@csrf <label for = "ratings"> rating</label> <select name = "rating" id= "rating" required>
+<option value ="1"> ⭐ </option>  <option value ="2"> ⭐⭐ </option> <option value ="3"> ⭐⭐⭐ </option> <option value ="4"> ⭐⭐⭐⭐ </option> <option value ="5"> ⭐⭐⭐⭐ </option>  
+</select> <textarea name ="reviews" placeholder="review"></textarea>
+<button type = "submit">Submit</button>
+</form> @else <p><a href="{{ route('login')}}" > Login to leave a review</a></p> @endif
+ </div>
       </div>
     </div>
     </div>
+    
 
     @include('components.newfooter')
 </x-newheader>

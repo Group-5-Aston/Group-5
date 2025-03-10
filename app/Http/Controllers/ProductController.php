@@ -66,12 +66,12 @@ class ProductController extends Controller
     {
         $productOptions = ProductOption::where('product_id', $product->product_id)->get();
         return view('products.product', compact('product', 'productOptions'));
-        /*// Remove the 'product' prefix from the productId
+        // Remove the 'product' prefix from the productId
         $productId = str_replace('product', '', $productId);
 
         // Now query the database with the correct product_id
         $product = Product::where('product_id', $productId)->first();
-
+        {$product-> load('review'); return view('products.product', compact('product'));}
         if ($product) {
             // Convert the comma-separated strings into arrays if they exist
             $product->package_size_options = explode(',', $product->package_size_options ?? '');
@@ -82,7 +82,8 @@ class ProductController extends Controller
         }
 
         // If product is not found, return a 404 error page
-        return abort(404, 'Product not found'); */
+        return abort(404, 'Product not found'); 
     }
+   
 }
 

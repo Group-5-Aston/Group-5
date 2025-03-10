@@ -15,8 +15,8 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
-
-
+use App\Http\Controllers\ControllerReview;
+route:: post('/products/{product_id}/reviews', [ControllerReview::class,'store'])->name('reviews.store');
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
