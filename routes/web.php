@@ -16,18 +16,17 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ControllerReview;
-route:: post('/products/{product_id}/reviews', [ControllerReview::class,'store'])->name('reviews.store');
+
+route:: post('/products/{product_id}/reviews', [ControllerReview::class, 'store'])->name('reviews.store');
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
 
 
-
-
 // If you want a POST-based "remove item" route:
 Route::post('/basket/remove/{bitem_id}', [BasketController::class, 'removeItem'])
-     ->name('basket.removeItem');
+    ->name('basket.removeItem');
 
 Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
@@ -35,8 +34,8 @@ Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('ba
 Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.index');
 
 //Route::middleware(['auth', 'check.cart'])->group(function () {
-    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-    Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 //});
 
 Route::middleware(['admin'])->group(function () {
@@ -45,22 +44,22 @@ Route::middleware(['admin'])->group(function () {
 });
 
 // Home routes
-Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
- // Shop routes
-Route::get('/shop',[ShopController::class,'shop'])->name('shop');
-Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
-Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
-Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
+// Shop routes
+Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
+Route::get('/fullshop', [ShopController::class, 'fullShop'])->name('fullshop');
+Route::get('/catshop', [ShopController::class, 'catShop'])->name('catshop');
+Route::get('/dogshop', [ShopController::class, 'dogShop'])->name('dogshop');
 //Route::get('/product/{product}',[ShopController::class,'productPage'])->name('product');
 
 // additional shop pages
-Route::get('/dogclothes',[ShopController::class,'dogClothes'])->name('dogclothes');
-Route::get('/catclothes',[ShopController::class,'catClothes'])->name('catclothes');
+Route::get('/dogclothes', [ShopController::class, 'dogClothes'])->name('dogclothes');
+Route::get('/catclothes', [ShopController::class, 'catClothes'])->name('catclothes');
 
 //Login routes
-Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
-Route::get('/signup',[LoginController::class,'signUp'])->name('signup');
+Route::get('/loginpage', [LoginController::class, 'login'])->name('loginpage');
+Route::get('/signup', [LoginController::class, 'signUp'])->name('signup');
 
 //About us page route
 Route::get('/why', function () {
@@ -81,9 +80,6 @@ Route::get('/filter', [ProductController::class, 'filter'])->name('product.filte
 Route::get('/product/product{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
 
-
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -94,13 +90,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 //Admin only routes
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('admin/dashboard',[HomeController::class,'index']);
+    Route::get('admin/dashboard', [HomeController::class, 'index']);
     //Admin customers page route
-    Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
+    Route::get('/admin/customers', [AdminUserController::class, 'adminCustomers'])->name('admin.customers');
     //Admin view and edit user page route. Takes the user as a parameter and appends the ID it to the url. Also passes the user as a parameter to the controller.
     Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->name('profile.show');
     //Patch route that allows admin to edit other users.
@@ -108,7 +104,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //Deletes the selected user.
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
     //Inventory route
-    Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
+    Route::get('/admin/inventory', [AdminInventoryController::class, 'inventory'])->name('admin.inventory');
     //Product creation page
     Route::get('admin/inventory/newproduct', [AdminInventoryController::class, 'addProduct'])->name('adminaddproduct.show');
     //Individual product route

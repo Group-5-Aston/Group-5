@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\ProductOption;
-use Illuminate\Http\Request; // Corrected import
+use Illuminate\Http\Request;
+
+// Corrected import
 
 class ProductController extends Controller
 {
@@ -22,9 +24,9 @@ class ProductController extends Controller
             ->orWhere('description', 'like', '%' . $query . '%')
             ->get();
 
-            return view('newpages.newsearch', ['products' => $products, 'products' => $products,
+        return view('newpages.newsearch', ['products' => $products, 'products' => $products,
             'showProductDetails' => false]);
-        }
+    }
 
     public function filter(Request $request)
     {
@@ -47,43 +49,27 @@ class ProductController extends Controller
     }
 
     public function searchShow($product_id)
-{
+    {
 
-    // Find the product by its ID
-    $product = Product::find($product_id);
+        // Find the product by its ID
+        $product = Product::find($product_id);
 
-    // If the product doesn't exist, return a 404 error
-    if (!$product) {
-        abort(404, 'Product not found');
+        // If the product doesn't exist, return a 404 error
+        if (!$product) {
+            abort(404, 'Product not found');
+        }
+
+        // Return the search-specific product details view
+        return view('newpages.newsearch', ['product' => $product, 'products' => collect(), // Empty collection
+            'showProductDetails' => true,]);
     }
-
-    // Return the search-specific product details view
-    return view('newpages.newsearch', ['product' => $product, 'products' => collect(), // Empty collection
-        'showProductDetails' => true,]);
-}
 
     public function show(Product $product)
     {
-        $productOptions = ProductOption::where('product_id', $product->product_id)->get();
+        $productOptions = $product->productOptions;
+        $product->load('reviews');
         return view('products.product', compact('product', 'productOptions'));
-        // Remove the 'product' prefix from the productId
-        $productId = str_replace('product', '', $productId);
-
-        // Now query the database with the correct product_id
-        $product = Product::where('product_id', $productId)->first();
-        {$product-> load('review'); return view('products.product', compact('product'));}
-        if ($product) {
-            // Convert the comma-separated strings into arrays if they exist
-            $product->package_size_options = explode(',', $product->package_size_options ?? '');
-            $product->flavor_options = explode(',', $product->flavor_options ?? '');
-            $product->size_options = explode(',', $product->size_options ?? '');
-
-            return view('products.product', ['product' => $product]);
-        }
-
-        // If product is not found, return a 404 error page
-        return abort(404, 'Product not found'); 
     }
-   
+
 }
 
