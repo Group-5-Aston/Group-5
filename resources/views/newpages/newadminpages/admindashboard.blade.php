@@ -1,67 +1,5 @@
-<style>
-
-.container2 {
-    width: 60%;
-    margin: auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-input, select, textarea {
-    width: 80%;
-    padding: 12px;
-    margin: 12px 0; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    display: block; 
-}
-
-select {
-    margin-bottom: 16px;
-}
-
-input[type="file"] {
-    border: none;
-    margin-bottom: 12px; 
-}
-
-input[type="submit"] {
-    background-color: #4a6425;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 50%;
-    margin-top: 20px; 
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-input[type="submit"]:hover {
-    background-color: #3b511f;
-}
-
-p {
-    font-size: 14px;
-    font-weight: bold;
-    color: #4a6425;
-    margin-top: 20px; 
-}
-
-h3 {
-    color: #426b1f;
-    font-size: 40px;
-    font-family: 'Poppins';
-}
-
-</style>
-
 <x-newheader>
-    <div class="heading_container heading_center">
+<div class="heading_container heading_center">
         <h3 style="padding-top:48px;">Create a new product</h3> <p></p> 
     </div>
     
@@ -95,5 +33,4 @@ h3 {
         </form>
     </div>
     <p  style="padding-top:48px;"></p>
-    @include('components.newfooter')
 </x-newheader>
