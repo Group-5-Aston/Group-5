@@ -115,6 +115,8 @@ require __DIR__.'/auth.php';
 
 //Admin only routes
 Route::middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('admin/dashboard', [AdminDashboardController::class, 'home'])->name('admin.dashboard');
     Route::get('/admin/home', [AdminHomeController::class, 'home'])->name('admin.home');
 
     Route::get('admin/dashboard',[HomeController::class,'index']);
