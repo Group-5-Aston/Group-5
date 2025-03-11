@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderItem extends Model
 {
+    use HasFactory;
+
     protected $table = 'OrderItems';
     protected $primaryKey = 'order_item_id';
     public $timestamps = true;
@@ -18,6 +20,7 @@ class OrderItem extends Model
         'size',
         'flavor',
         'quantity',
+        'price',
         'total',];
 
     public function order()
@@ -28,5 +31,26 @@ class OrderItem extends Model
     public function productOption()
     {
         return $this->belongsTo(ProductOption::class, 'option_id', 'option_id');
+    }
+
+    public function returnItems() {
+        return $this->hasMany(ReturnItem::class, 'order_item_id', 'order_item_id');
+    }
+
+    //Returns the name of the item as well as the size and flavour if it has any.
+    public function nameSizeFlavour() {
+        return $this->name
+            . ($this->size ? ', '. $this->size : '')
+            . ($this->flavor ? ', ' . $this->flavor : '');
+    }
+
+    public function amountReturned() {
+        return $this->hasMany(ReturnItem::class, 'order_item_id', 'order_item_id')->sum('quantity');
+    }
+
+    //If this order item has already been returned
+    public function isAlreadyReturned()
+    {
+        return $this->returnItems()->exists();
     }
 }

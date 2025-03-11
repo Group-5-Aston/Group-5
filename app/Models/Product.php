@@ -1,5 +1,4 @@
 <?php
-// app/Models/Product.php
 
 namespace App\Models;
 
@@ -11,8 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = ['product_id',
-        'name', 'price', 'label', 'image', 'description',
-        'is_food', 'is_toy_or_bed', 'package_size_options', 'low_stock_threshold', 'cat_or_dog', 'type',
+        'name', 'price', 'label', 'image', 'description', 'cat_or_dog', 'type',
     ];
 
     protected $primaryKey = 'product_id';
