@@ -58,6 +58,8 @@
         </div>
     </div>
 
+        
+
     <!-- Tabs Section -->
     <div class="tabs-section">
       <ul class="nav nav-tabs" id="productTab" role="tablist">

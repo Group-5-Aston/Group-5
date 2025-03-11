@@ -21,15 +21,33 @@ test('Admin can edit another user details', function () {
         'address' => '1 test road',
     ]);
 
+        $response->assertStatus(302);
+
+        $admin->refresh();
+
+        $this->assertDatabaseHas('users', [
+            'name' => 'test',
+            'email' => 'test@test.com',
+            'phone' => '12345678901',
+            'address' => '1 test road',
+        ]);
+});
+
+test('Admin can delete a user', function () {
+    $admin = User::factory()->create([
+        'usertype' => 'admin'
+    ]);
+    $user = User::factory()->create();
+    $this->actingAs($admin);
+    $response = $this->delete(route('adminprofile.destroy', $user));
+
     $response->assertStatus(302);
 
-    $admin->refresh();
-
-    $this->assertDatabaseHas('users', [
-        'name' => 'test',
-        'email' => 'test@test.com',
-        'phone' => '12345678901',
-        'address' => '1 test road',
+    $this->assertDatabaseMissing('users', [
+        'name' => $user->name,
+        'email' => $user->email,
+        'phone' => $user->phone,
+        'address' => $user->address,
     ]);
 });
 
