@@ -1,5 +1,6 @@
 <x-newheader>
     
+        @if($products->isEmpty())
             <!-- No products found -->
             <p class="text-center">No products found.</p>
         @else

@@ -124,7 +124,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      width: 250px;
+      width: 170px;
   }
 
   .search-button {
@@ -360,8 +360,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
-                        <li><a href="" class="dropdown-item">Orders</a></li>
-                        @if(Auth::User()->usertype == 'admin')
+                        <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
+                        <li><a href="{{ route('return.index') }}" class="dropdown-item">Returns</a></li>
+                    @if(Auth::User()->usertype == 'admin')
                             <li><a href="{{ route('admin.inventory') }}" class="dropdown-item">Admin Dashboard</a></li>
                         @endif
                         <li>

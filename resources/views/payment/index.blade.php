@@ -1,8 +1,4 @@
 <x-newheader>
-
-hello
-
-
     <!-- payment section -->
     <section class="payment_section layout_padding" style="padding-top: 48px">
         <div class="container">
@@ -12,7 +8,7 @@ hello
 
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{ route('payment.process') }}" method="POST">
+                    <form method="POST" action="{{ route('payment.process') }}">
                         @csrf
                         <div class="form-group">
                             <label for="card-number">Card Number</label>
@@ -32,7 +28,7 @@ hello
             </div>
 
             <!-- Payment status message -->
-            @if (isset($paymentStatus))
+           {{-- @if (isset($paymentStatus))
                 @if ($paymentStatus === 'success')
                     <div class="alert alert-success mt-4">
                         <strong>Payment Successful!</strong> Your order has been processed. Thank you for shopping with us.
@@ -47,8 +43,19 @@ hello
                     </div>
                 @endif
             @endif
+            --}}
         </div>
     </section>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @include('components.newcompactfooter')
 
 </x-newheader>

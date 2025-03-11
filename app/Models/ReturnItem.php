@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReturnItem extends Model
 {
+    use HasFactory;
+
     protected $table = 'returns';
     protected $primaryKey = 'return_id';
     public $timestamps = true;
 
     protected $fillable = ['order_id',
-        'option_item_id',
+        'order_item_id',
         'quantity',
         'total',
         'reason',

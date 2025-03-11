@@ -13,20 +13,26 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
+Route::post('/payment/prepare', [PaymentController::class, 'prepareOrder'])->name('payment.prepare');
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
-Route::post('/payment', [PaymentController::class, 'process'])->name('payment.process');
+
+Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
 
 
-Route::post('/basket/remove/{index}', [BasketController::class, 'remove'])->name('basket.remove');
+Route::post('/basket/remove/{bitem_id}', [BasketController::class, 'removeItem'])
+    ->name('basket.removeItem');
+
 Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
 Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
@@ -36,6 +42,7 @@ Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.i
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 //});
+
 
 Route::middleware(['admin'])->group(function () {
     //Route::get('/admin/dashboard', [AdminController::class, 'index']); // Only accessible by admin users
@@ -76,10 +83,17 @@ Route::get('/products', [ProductController::class, 'index'])->name('product.inde
 Route::get('/search', [ProductController::class, 'search'])->name('product.search');
 // Route to filter products by category or brand
 Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
-Route::get('/product/product{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
+Route::get('/product/{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
+//Order page routes
+Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
+Route::patch('/orders/{order}', [OrderController::class, 'cancel'])->name('order.cancel');
+Route::get('/orders/return/{orderItem}', [OrderController::class, 'returnForm'])->name('order.return');
+Route::post('/orders/return/{orderItem}/create', [OrderController::class, 'createReturn'])->name('order.createreturn');
+Route::get('/orders/return/create/address', [OrderController::class, 'returnAddress'])->name('order.return.address');
 
-
+//Return page
+Route::get('/returns', [ReturnController::class, 'index'])->name('return.index');
 //Route::get('/search', 'SearchController@index');
 
 

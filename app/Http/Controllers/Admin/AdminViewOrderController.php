@@ -63,9 +63,7 @@ Class  AdminViewOrderController extends Controller
 
         $order = $returnItem->order;
 
-        return redirect()->route('adminorder.show', $order)->with('success', 'Item refunded.');
-
-        //Need to make it so it increases stock later
+        return redirect()->route('adminorder.show', $order)->with('success', 'Item refunded. Please update stock levels if item in condition for resale.');
     }
 
     public function rejectRefund(ReturnItem $returnItem) {
