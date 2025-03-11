@@ -2,14 +2,14 @@
 <html>
 <head>
     <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
     <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -20,16 +20,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- slider stylesheet -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
 
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}"/>
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- responsive style -->
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-
 
 
     <style>
@@ -85,13 +85,14 @@
             display: inline-block;
         }
 
-        .nav-item.dropdown{
+        .nav-item.dropdown {
             position: relative;
         }
 
-        .navbar-links li{
+        .navbar-links li {
             list-style: none;
         }
+
         .navbar-links a:hover {
             font-weight: bold;
         }
@@ -107,39 +108,39 @@
         }
 
         .search-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-  }
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-  /* Search bar and filter button alignment */
-  .search-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-  }
+        /* Search bar and filter button alignment */
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-  .search-bar {
-      padding: 8px 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-      width: 170px;
-  }
+        .search-bar {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 170px;
+        }
 
-  .search-button {
-      background-color: #4B7C47; /* Green button */
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-  }
+        .search-button {
+            background-color: #4B7C47; /* Green button */
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
 
-  .search-button:hover {
-      background-color: #3a6240;
-  }
+        .search-button:hover {
+            background-color: #3a6240;
+        }
 
         /*The  Basket Page */
         .basket-container {
@@ -334,53 +335,55 @@
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
             <!-- Search and Filter Section -->
-<div class="search-container" style="display: flex; align-items: center; gap: 10px;">
-    <form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 5px;">
-        <input
-            type="text"
-            class="search-bar"
-            name="q"
-            placeholder="Search products..."
-            value="{{ request('q') }}">
-        <button
-            type="submit"
-            class="search-button">
-            Search
-        </button>
-    </form>
+            <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
+                <form action="{{ route('product.search') }}" method="GET"
+                      style="display: flex; align-items: center; gap: 5px;">
+                    <input
+                        type="text"
+                        class="search-bar"
+                        name="q"
+                        placeholder="Search products..."
+                        value="{{ request('q') }}">
+                    <button
+                        type="submit"
+                        class="search-button">
+                        Search
+                    </button>
+                </form>
 
 
-        <!-- Profile dropdown -->
-        <div class="navbar-icons">
-            <div class="nav-item dropdown">
-                @if(Auth::check())
-                    <a class="nav-link dropdown-toggle" href="javascript:void(0);">
-                        <i class="fa fa-user"></i>
-                        {{Auth::User()->name}}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
-                        <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
-                        <li><a href="{{ route('return.index') }}" class="dropdown-item">Returns</a></li>
-                    @if(Auth::User()->usertype == 'admin')
-                            <li><a href="{{ route('admin.inventory') }}" class="dropdown-item">Admin Dashboard</a></li>
+                <!-- Profile dropdown -->
+                <div class="navbar-icons">
+                    <div class="nav-item dropdown">
+                        @if(Auth::check())
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0);">
+                                <i class="fa fa-user"></i>
+                                {{Auth::User()->name}}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
+                                <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
+                                <li><a href="{{ route('return.index') }}" class="dropdown-item">Returns</a></li>
+                                @if(Auth::User()->usertype == 'admin')
+                                    <li><a href="{{ route('admin.inventory') }}" class="dropdown-item">Admin
+                                            Dashboard</a></li>
+                                @endif
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        @else
+                            <a href="{{ route('loginpage') }}">
+                                <i class="fa fa-user"></i>
+                                Login
+                            </a>
                         @endif
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                @csrf
-                                <button type="submit" class="dropdown-item">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                @else
-                    <a href="{{ route('loginpage') }}">
-                        <i class="fa fa-user"></i>
-                        Login
-                    </a>
-                @endif
+                    </div>
+                    <a href="{{ route('basket.index') }}"><i class="fa fa-shopping-basket"></i></a>
                 </div>
-                <a href="{{ route('basket.index') }}"><i class="fa fa-shopping-basket"></i></a>
-        </div>
         </nav>
     </header>
     <!-- end header section -->

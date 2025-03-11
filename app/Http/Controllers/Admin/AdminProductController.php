@@ -12,7 +12,7 @@ use Ramsey\Uuid\Type\Integer;
 use Illuminate\Support\Facades\Storage;
 
 
-Class  AdminProductController extends Controller
+class  AdminProductController extends Controller
 {
     //route to admin product page. passes along the product and the options to the view
     public function showProduct(Product $product)
@@ -62,6 +62,11 @@ Class  AdminProductController extends Controller
     public function destroyOption(ProductOption $option)
     {
         $product = $option->product;
+
+        //Prevent deletion if it's the last product option (Every product should have at least 1 option)
+        if($product->productOptions()->count() == 1){
+            return redirect()->route('adminproduct.show', $product)->withErrors('error', 'Cannot delete the last option');
+        }
         $option->delete();
         return redirect()->route('adminproduct.show', $product)->with('success', 'Option deleted successfully.');
     }
