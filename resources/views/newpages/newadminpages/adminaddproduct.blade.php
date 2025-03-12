@@ -7,16 +7,35 @@
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+form1 {
+    width: 90%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 input, select, textarea {
-    width: 80%;
+    width: 100%; 
+    max-width: 700px; 
     padding: 12px;
     margin: 12px 0; 
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-    display: block; 
+    text-align: left;
+    display: block;
+}
+
+textarea {
+    resize: vertical; 
+    min-height: 100px; 
+    max-height: 250px; 
+    overflow-y: auto; 
 }
 
 select {
@@ -66,7 +85,7 @@ h3 {
     </div>
     
     <div class="container2">
-        <form method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
+        <form1 method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
             @csrf
             <input type="file" name="image" required> <br>
             <input type="text" name="name" placeholder="Name" required> <br>
@@ -85,15 +104,16 @@ h3 {
                 <option value="clothes">Bed</option>
             </select> <br>
             <input type="text" name="price" placeholder="£ Price" required> <br>
-            <textarea rows="5" name="label" cols="50" placeholder="Label" required></textarea> <br>
-            <textarea rows="5" name="description" cols="50" placeholder="Description"></textarea> <br>
+            <textarea name="label" placeholder="Label" required></textarea> <br>
+            <textarea name="description" placeholder="Description"></textarea> <br>
             <p>Add at least one stock option</p>
             <input type="text" name="size" placeholder="Size">
             <input type="text" name="flavor" placeholder="Flavour">
             <input type="text" name="stock" placeholder="Stock level" required> <br>
             <input type="submit"> <p></p>
-        </form>
+        </form1>
     </div>
-    <p  style="padding-top:48px;"></p>
+    <p style="padding-top:48px;"></p>
     @include('components.newfooter')
 </x-newheader>
+
