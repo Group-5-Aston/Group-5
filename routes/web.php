@@ -20,6 +20,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReviewController;
+
 
 
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
@@ -99,6 +101,8 @@ Route::get('/returns', [ReturnController::class, 'index'])->name('return.index')
 
 
 //Route::get('/products/filter', 'ProductController@filter');
+
+Route::post('/reviews/{product}', [ReviewController::class, 'store'])->name('reviews.store');
 
 
 Route::get('/dashboard', function () {
