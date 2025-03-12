@@ -1,7 +1,5 @@
 <x-newheader>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Settings</title>
     <style>
         * {
@@ -265,34 +263,42 @@
     </div>
 
     <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
-            document.getElementById(sectionId).classList.remove('hidden');
-            document.querySelectorAll('.sidebar ul li').forEach(item => item.classList.remove('active'));
-            event.target.classList.add('active');
-        }
+        function showSection(event, sectionId) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
+    
+    // Show the selected section
+    document.getElementById(sectionId).classList.remove('hidden');
 
-        document.getElementById('profile-img').addEventListener('click', function () {
-            document.getElementById('profile-upload').click();
-        });
+    // Remove 'active' class from all sidebar items
+    document.querySelectorAll('.sidebar ul li').forEach(item => item.classList.remove('active'));
 
-        document.getElementById('profile-upload').addEventListener('change', function (event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    document.getElementById('profile-img').src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+    // Add 'active' class to the clicked item
+    event.target.classList.add('active');
+}
 
-        document.getElementbyId('delete-account').addEventListener('click', fucntion () {
-           const confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
-            if (confirmation) {
-                alert('Account deleted!');
-            }
-        });
+document.getElementById('profile-img').addEventListener('click', function () {
+    document.getElementById('profile-upload').click();
+});
+
+document.getElementById('profile-upload').addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('profile-img').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Fix for delete account button
+document.getElementById('delete-account').addEventListener('click', function () {
+    const confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+    if (confirmation) {
+        alert('Account deleted!');
+    }
+});
 
     </script>
 </body>
