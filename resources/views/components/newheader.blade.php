@@ -363,7 +363,7 @@
                         <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
                         <li><a href="{{ route('return.index') }}" class="dropdown-item">Returns</a></li>
                     @if(Auth::User()->usertype == 'admin')
-                            <li><a href="{{ route('admin.inventory') }}" class="dropdown-item">Admin Dashboard</a></li>
+                            <li><a href="{{ route('admin.dashboard') }}" class="dropdown-item">Admin Dashboard</a></li>
                         @endif
                         <li>
                             <form action="{{ route('logout') }}" method="POST" style="display: inline;">
