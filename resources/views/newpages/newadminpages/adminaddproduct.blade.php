@@ -12,7 +12,7 @@
     align-items: center; 
 }
 
-form {
+form1 {
     width: 90%; 
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@ h3 {
     </div>
     
     <div class="container2">
-        <form method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
+        <form1 method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
             @csrf
             <input type="file" name="image" required> <br>
             <input type="text" name="name" placeholder="Name" required> <br>
@@ -111,7 +111,7 @@ h3 {
             <input type="text" name="flavor" placeholder="Flavour">
             <input type="text" name="stock" placeholder="Stock level" required> <br>
             <input type="submit"> <p></p>
-        </form>
+        </form1>
     </div>
     <p style="padding-top:48px;"></p>
     @include('components.newfooter')
