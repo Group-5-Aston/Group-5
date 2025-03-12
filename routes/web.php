@@ -11,7 +11,6 @@ use App\Http\Controllers\Admin\AdminViewOrderController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ControllerReview;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
@@ -22,7 +21,7 @@ use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
-route:: post('/products/{product_id}/reviews', [ControllerReview::class, 'store'])->name('reviews.store');
+
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
 Route::post('/payment/prepare', [PaymentController::class, 'prepareOrder'])->name('payment.prepare');
