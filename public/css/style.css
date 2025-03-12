@@ -254,6 +254,8 @@ a:focus {
   margin-left: 5px;
 }
 
+.rating{font-size:20px; color: gold;}
+
 /*end header section*/
 .slider_section .slider_container {
   color: #fefefe;

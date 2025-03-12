@@ -39,14 +39,17 @@
                                         <h5 class="card-title">{{ $item->productOption->product->name }}</h5>
 
                                         @if($item->productOption->flavor)
-                                            <p class="card-text mb-1"><strong>Flavor:</strong> {{ $item->productOption->flavor }}</p>
+                                            <p class="card-text mb-1">
+                                                <strong>Flavor:</strong> {{ $item->productOption->flavor }}</p>
                                         @endif
                                         @if($item->productOption->size)
-                                            <p class="card-text mb-1"><strong>Size:</strong> {{ $item->productOption->size }}</p>
+                                            <p class="card-text mb-1">
+                                                <strong>Size:</strong> {{ $item->productOption->size }}</p>
                                         @endif
 
                                         <p class="card-text mb-1"><strong>Quantity:</strong> {{ $item->quantity }}</p>
-                                        <p class="card-text"><strong>Price:</strong> £{{ number_format($item->price, 2) }}</p>
+                                        <p class="card-text"><strong>Price:</strong>
+                                            £{{ number_format($item->price, 2) }}</p>
                                     </div>
                                 </div>
 
