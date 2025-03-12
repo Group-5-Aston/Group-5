@@ -5,7 +5,7 @@
             <!-- Product Image -->
             <div class="col-md-6">
                 <img src="{{ Storage::url($product['image']) }}" alt="{{ $product['name'] }}"
-                     class="product-image w-100">
+                    class="product-image w-100">
             </div>
 
             <!-- Product Details -->
@@ -16,14 +16,14 @@
                     <p>{{ $product->label }}</p>
 
                     <!-- Product Options -->
-                    <form action="{{route('basket.add', ['product'=>$product->product_id])}}" method="POST">
+                    <form action="{{route('basket.add', ['product' => $product->product_id])}}" method="POST">
                         @csrf
                         <div class="product-options">
                             <!-- Quantity -->
                             <div class="form-group">
                                 <label for="quantity">Quantity:</label>
                                 <input type="number" id="quantity" name="quantity" min="1" value="1"
-                                       class="form-control" style="width: 120px;">
+                                    class="form-control" style="width: 120px;">
                             </div>
 
                             <!-- Size Selection (for beds or toys that have a size) -->
@@ -43,8 +43,7 @@
                                     <label for="flavor">Flavor:</label>
                                     <select id="flavor" name="flavor" class="form-control">
                                         @foreach($productOptions->unique('flavor') as $flavor)
-                                            <option
-                                                value="{{ $flavor->flavor }}">{{ ucfirst($flavor->flavor) }}</option>
+                                            <option value="{{ $flavor->flavor }}">{{ ucfirst($flavor->flavor) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -66,46 +65,52 @@
                 <ul class="nav nav-tabs" id="productTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#description"
-                           role="tab" aria-controls="description" aria-selected="true">Description</a>
+                            role="tab" aria-controls="description" aria-selected="true">Description</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab"
-                           aria-controls="reviews" aria-selected="false">Reviews</a>
+                            aria-controls="reviews" aria-selected="false">Reviews</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="productTabContent">
                     <div class="tab-pane fade show active" id="description" role="tabpanel"
-                         aria-labelledby="description-tab">
+                        aria-labelledby="description-tab">
                         <p class="mt-3">{{ $product['description'] }}</p>
                     </div>
 
-                    <div class="tab-pane fade " id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                        <p class="mt-3">{{ $product['reviews'] }}<p>
-                            Ratings: @for ($i=1; $i<=5; $i++)
-                                @if($i<= round($product->averageRating()))
+                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+
+                        <p>Ratings:
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if($i <= round($product->averageRating()))
                                     ⭐
                                 @else
                                     ☆
                                 @endif
-                            @endfor({{$product->reviews->count()}}reviews)</p>
+                            @endfor
+                            ({{ $product->reviews->count() }} reviews)
+                        </p>
 
                         @if(auth()->user())
-                            <form action="{{route('reviews.store', $product->product_id)}}" method="POST">
+                            <form action="{{ route('reviews.store', $product->product_id) }}" method="POST">
                                 @csrf
-                                <label for="ratings"> rating</label>
+                                <label for="ratings">Rating</label>
                                 <select name="rating" id="rating" required>
-                                    <option value="1"> ⭐</option>
-                                    <option value="2"> ⭐⭐</option>
-                                    <option value="3"> ⭐⭐⭐</option>
-                                    <option value="4"> ⭐⭐⭐⭐</option>
-                                    <option value="5"> ⭐⭐⭐⭐</option>
-                                </select> <textarea name="reviews" placeholder="review"></textarea>
+                                    <option value="1">⭐</option>
+                                    <option value="2">⭐⭐</option>
+                                    <option value="3">⭐⭐⭐</option>
+                                    <option value="4">⭐⭐⭐⭐</option>
+                                    <option value="5">⭐⭐⭐⭐⭐</option>
+                                </select>
+                                <textarea name="reviews" placeholder="Leave your review here" required></textarea>
                                 <button type="submit">Submit</button>
                             </form>
                         @else
-                            <p><a href="{{ route('login')}}"> Login to leave a review</a></p>
+                            <p><a href="{{ route('login') }}">Login to leave a review</a></p>
                         @endif
                     </div>
+
+
                 </div>
             </div>
         </div>
