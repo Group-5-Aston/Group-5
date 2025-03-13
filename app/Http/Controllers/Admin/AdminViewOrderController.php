@@ -62,8 +62,8 @@ Class  AdminViewOrderController extends Controller
     }
 
     public function confirmRefund(ReturnItem $returnItem) {
-        if($returnItem->status != 'pending') {
-            return redirect()->route('adminorder.show', $returnItem)->with('error', 'Order must pe pending to confirm refund.');
+        if($returnItem->status != 'returned') {
+            return redirect()->route('adminorder.show', $returnItem)->with('error', 'Order must be returned to confirm refund.');
         }
         $returnItem->update(['status' => 'refunded']);
 
@@ -73,8 +73,8 @@ Class  AdminViewOrderController extends Controller
     }
 
     public function rejectRefund(ReturnItem $returnItem) {
-        if($returnItem->status != 'pending') {
-            return redirect()->route('adminorder.show', $returnItem)->with('error', 'Order must pe pending to reject refund.');
+        if($returnItem->status != 'returned') {
+            return redirect()->route('adminorder.show', $returnItem)->with('error', 'Order must pe returned to reject refund.');
         }
         $returnItem->update(['status' => 'rejected']);
 

@@ -1,5 +1,9 @@
 <h1>Product Details</h1>
 
+<x-alert type="success" :message="session('success')" />
+<x-alert type="error" :message="session('error')" />
+
+
 <p>Product ID: {{ $product->product_id }}</p>
 <form method="POST" action="{{ route('adminimage.edit', ['product' => $product->product_id]) }}" enctype="multipart/form-data">
     @csrf

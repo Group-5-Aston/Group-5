@@ -22,11 +22,11 @@ class AdminProfileController extends Controller
     public function update(AdminUpdateRequest $request, User $user)
     {
         if ($user->usertype == 'admin') {
-            return redirect()->route('profile.show', $user)->withErrors('You cannot edit another admin');
+            return redirect()->route('profile.show', $user)->with('error', 'You cannot edit another admin');
         }
         $user->update($request->validated());
 
-        return redirect()->route('profile.show', $user)->with('status', 'User updated successfully');
+        return redirect()->route('profile.show', $user)->with('success', 'User updated successfully');
     }
 
     //Deletes the user from the database.
@@ -34,11 +34,11 @@ class AdminProfileController extends Controller
     {
         //Cannot delete if the user in an admin or has an active return or order
         if($user->usertype === 'admin') {
-            return redirect()->route('profile.show', $user)->withErrors('You cannot delete another admin.');
+            return redirect()->route('profile.show', $user)->with('error,', 'You cannot delete another admin.');
         } else if ($user->returnItems()->whereNot('returns.status', 'refunded')->exists()) {
-            return redirect()->route('profile.show', $user)->withErrors('You cannot delete a user with an active return.');
+            return redirect()->route('profile.show', $user)->with('error', 'You cannot delete a user with an active return.');
         } else if ($user->order()->whereNot('Orders.status', 'complete')->exists()) {
-            return redirect()->route('profile.show', $user)->withErrors('You cannot delete a user with an active order.');
+            return redirect()->route('profile.show', $user)->with('error', 'You cannot delete a user with an active order.');
         }
             $user->delete();
         return redirect()->route('admin.customers')->with('success', 'User deleted successfully');

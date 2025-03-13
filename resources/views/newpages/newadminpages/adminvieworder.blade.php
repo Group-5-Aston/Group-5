@@ -1,5 +1,8 @@
 <h1>Order #{{ $order->order_id }}</h1>
 
+<x-alert type="success" :message="session('success')" />
+<x-alert type="error" :message="session('error')" />
+
 <p>User id: {{ $order->user_id }}</p>
 <p>User name: {{ $order->user->name }}</p>
 <p>Shipping address: {{ $order->address }}</p>

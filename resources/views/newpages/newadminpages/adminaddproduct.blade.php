@@ -9,21 +9,21 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
 
-form1 {
-    width: 90%; 
+form {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 input, select, textarea {
-    width: 100%; 
-    max-width: 700px; 
+    width: 100%;
+    max-width: 700px;
     padding: 12px;
-    margin: 12px 0; 
+    margin: 12px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
@@ -32,10 +32,10 @@ input, select, textarea {
 }
 
 textarea {
-    resize: vertical; 
-    min-height: 100px; 
-    max-height: 250px; 
-    overflow-y: auto; 
+    resize: vertical;
+    min-height: 100px;
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 select {
@@ -44,7 +44,7 @@ select {
 
 input[type="file"] {
     border: none;
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
 }
 
 input[type="submit"] {
@@ -55,7 +55,7 @@ input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
     width: 50%;
-    margin-top: 20px; 
+    margin-top: 20px;
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
 }
@@ -68,7 +68,7 @@ p {
     font-size: 14px;
     font-weight: bold;
     color: #4a6425;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 h3 {
@@ -81,11 +81,14 @@ h3 {
 
 <x-newheader>
     <div class="heading_container heading_center">
-        <h3 style="padding-top:48px;">Create a new product</h3> <p></p> 
+        <h3 style="padding-top:48px;">Create a new product</h3> <p></p>
     </div>
-    
+
+    <x-alert type="success" :message="session('success')" />
+    <x-alert type="error" :message="session('error')" />
+
     <div class="container2">
-        <form1 method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
             @csrf
             <input type="file" name="image" required> <br>
             <input type="text" name="name" placeholder="Name" required> <br>
@@ -111,7 +114,7 @@ h3 {
             <input type="text" name="flavor" placeholder="Flavour">
             <input type="text" name="stock" placeholder="Stock level" required> <br>
             <input type="submit"> <p></p>
-        </form1>
+        </form>
     </div>
     <p style="padding-top:48px;"></p>
     @include('components.newfooter')

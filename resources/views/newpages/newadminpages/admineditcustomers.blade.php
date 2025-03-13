@@ -1,4 +1,9 @@
+
 <p>User ID: {{$user->id}}</p>
+
+<x-alert type="success" :message="session('success')" />
+<x-alert type="error" :message="session('error')" />
+
 
 @if($user->usertype === 'admin')
     <p>You cannot edit an admin.</p>
@@ -77,5 +82,3 @@
     });
 });
 </script>
-
-

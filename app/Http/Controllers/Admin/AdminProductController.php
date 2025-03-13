@@ -51,7 +51,7 @@ class  AdminProductController extends Controller
             ->exists();
 
         if ($exists) {
-            return redirect()->route('adminproduct.show', $product)->withErrors(['error' => 'This flavour and size combination already exists for this product.']);
+            return redirect()->route('adminproduct.show', $product)->with('error', 'This flavour and size combination already exists for this product.');
         }
 
         $merged = array_merge($request->validated(), ['product_id' => $product->product_id]);
@@ -65,7 +65,7 @@ class  AdminProductController extends Controller
 
         //Prevent deletion if it's the last product option (Every product should have at least 1 option)
         if($product->productOptions()->count() == 1){
-            return redirect()->route('adminproduct.show', $product)->withErrors('error', 'Cannot delete the last option');
+            return redirect()->route('adminproduct.show', $product)->with('error', 'Cannot delete the last option');
         }
         $option->delete();
         return redirect()->route('adminproduct.show', $product)->with('success', 'Option deleted successfully.');
