@@ -1,6 +1,8 @@
 <x-newheader>
 
- <h2>List of Users</h2>
+    <x-alert type="success" :message="session('success')" />
+
+    <h2>List of Users</h2>
     <!-- search bar -->
     <input type="text" id="search" placeholder="Search by name, email, or usertype" autocomplete="off">
 

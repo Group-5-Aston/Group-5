@@ -123,13 +123,6 @@
         </div>
     </main>
 
-    @if(session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-
-
     @include('components.newfooter')
 </x-newheader>
 

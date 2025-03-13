@@ -41,7 +41,7 @@ class AdminProfileController extends Controller
             return redirect()->route('profile.show', $user)->withErrors('You cannot delete a user with an active order.');
         }
             $user->delete();
-        return redirect()->route('admin.customers')->with('status', 'User deleted successfully');
+        return redirect()->route('admin.customers')->with('success', 'User deleted successfully');
     }
 }
 
