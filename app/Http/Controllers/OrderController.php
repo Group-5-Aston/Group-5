@@ -49,6 +49,7 @@ class OrderController extends Controller
             'reason' => $data['reason'],
             'quantity' => $data['quantity'],
             'total' => ($data['quantity']*$orderItem->price),
+            'status' => 'returned'
         ]);
         return redirect()->route('order.return.address');
     }

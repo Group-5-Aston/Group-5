@@ -44,7 +44,7 @@ test('user can create a return', function () {
         'order_id' => $order->order_id,
         'order_item_id' => $orderItem->order_item_id,
         'reason' => 'Product was damaged',
-        'status' => 'pending',
+        'status' => 'returned',
         'quantity' => $quantity,
         'total' => $quantity * $orderItem->price,
     ];
@@ -57,7 +57,7 @@ test('user can create a return', function () {
         'order_id' => $order->order_id,
         'order_item_id' => $orderItem->order_item_id,
         'reason' => 'Product was damaged',
-        'status' => 'pending',
+        'status' => 'returned',
         'quantity' => $quantity,
         'total' => $quantity * $orderItem->price,
     ]);
