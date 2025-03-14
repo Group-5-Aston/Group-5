@@ -71,5 +71,7 @@ class ProductController extends Controller
         return view('products.product', compact('product', 'productOptions'));
     }
 
+  
+
 }
 
