@@ -13,18 +13,19 @@
           <div class="box">
           <a href="{{ route('product.show', ['product' => $product->product_id])}}">
               <div class="img-box">
-              <img src = "{{ Storage::url($product['image']) }}" alt="ring" style="width: 100%; height: auto;">
+              <img src = "{{ Storage::url($product['image']) }}" alt="ring">
             </div>
               <div class="detail-box">
-                <h6>
+                <h5>
                     {{ $product ->name }}
-                </h6>
-                <h6>
-                  Price
+                </h5>
+                <small>{{$product->averageRating()}}</small>
+                  {!! $product->review_stars !!}
+                <h4>
                   <span>
                     £{{ $product->price }}
                   </span>
-                </h6>
+                </h4>
               </div>
               @if ($product->isNew())
                   <div class="new">

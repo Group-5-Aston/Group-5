@@ -13,7 +13,13 @@ class ShopController extends Controller
                 return Product::where('cat_or_dog', 'cat')->get();
             case 'dog':
                 return Product::where('cat_or_dog', 'dog')->get();
-            case 'dogClothes':
+                case 'cattoys':
+                    return Product::where('cat_or_dog', 'cat')->get()
+                 ->where('type', 'toys')->get();
+                case 'dogtoys':
+                    return Product::where('cat_or_dog', 'dog')->get()
+                    ->where('type', 'toys')->get();
+            case 'dogClothes': 
                 return Product::whereIn('cat_or_dog', ['dog', 'both'])
                     ->where('type', 'clothes')->get();
             case 'catClothes':
@@ -74,4 +80,19 @@ class ShopController extends Controller
         $products = $this->getProducts('dogGH');
         return view('newpages.newdogGH', compact('products'));
     }
+
+    public function catToys() {
+        $products = Product::where('category', 'Cat Toys')->get(); 
+        return view('newpages.cattoys', compact('products')); 
+    }
+    
+    public function dogToys() {
+            $products = Product::where('category', 'Dog Toys')->get(); 
+            return view('newpages.dogtoys', compact('products')); 
+        }
+       
+    
+
 }
+
+
