@@ -32,7 +32,6 @@
                                         style="max-height: 120px; object-fit: cover;"
                                     >
                                 </div>
-
                                 <!-- Item Details -->
                                 <div class="col-md-6">
                                     <div class="card-body">
