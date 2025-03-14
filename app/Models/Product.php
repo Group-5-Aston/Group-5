@@ -47,4 +47,18 @@ class Product extends Model
         else
             return false;
     }
+
+    public function getReviewStarsAttribute()
+    {
+        $rating = $this->averageRating();
+        $fullStars = floor($rating);
+        $halfStar = ceil($rating - $fullStars);
+        $emptyStars = 5 - $fullStars - $halfStar;
+
+        $stars = str_repeat('<i class="fa-solid fa-star" style="color: #FFD43B;"></i>', $fullStars);
+        $stars .= str_repeat('<i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>', $halfStar);
+        $stars .= str_repeat('<i class="fa-regular fa-star" style="color: #FFD43B;"></i>', $emptyStars);
+
+        return $stars;
+    }
 }
