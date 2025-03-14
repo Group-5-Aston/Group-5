@@ -2,7 +2,6 @@
     
     <title>Admin Dashboard</title>
     <style>
-        
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -17,26 +16,30 @@
             font-weight: bold;
         }
 
-        .dashboard-item a {
+        .dashboard-item button {
             display: block;
-            text-decoration: none;
-            color: #4a6425; /* Dark green */
+            background-color: #4a6425;
+            color: white;
+            border: none;
             padding: 10px;
+            margin: 5px 0;
             font-size: 16px;
-            transition: color 0.3s ease-in-out;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            width: 100%;
+            border-radius: 5px;
         }
 
-        .dashboard-item a:hover {
-            color: #3b511f; /* Slightly darker green on hover */
+        .dashboard-item button:hover {
+            background-color: #3b511f;
         }
 
-        /* Search Bar Styling */
         .search-box {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
-            width: 200px; /* Adjust width as needed */
+            width: 200px;
         }
 
         h2 {
@@ -47,13 +50,10 @@
     </style>
 
 <body>
-
-<div class="heading_container heading_center" style="padding-top:48px; margin-left: 200px; display: flex; justify-content: space-between; align-items: center; width: 80%;">
-    <h3>Admin Dashboard</h3>
-    <input type="text" id="search" placeholder="Search Task" autocomplete="off" class="search-box">
-</div>
-
-
+    <div class="heading_container heading_center" style="padding-top:48px; margin-left: 200px; display: flex; justify-content: space-between; align-items: center; width: 80%;">
+        <h3>Admin Dashboard</h3>
+        <input type="text" id="search" placeholder="Search Task" autocomplete="off" class="search-box">
+    </div>
 
     @if(request('message'))
         <div class="alert alert-warning">
@@ -62,51 +62,55 @@
     @endif
 
     <div class="grid-container">
-        <!-- Dashboard Links -->
         <div class="dashboard-item">
-            <a href="/admin/customers">Manage Customers</a>
+            <h4>Customers</h4>
+            <button onclick="location.href='/admin/customers'">Manage Customers</button>
         </div>
 
         <div class="dashboard-item">
-            <a href="/admin/inventory">View Inventory</a>
-            <a href="/admin/inventory/newproduct">Add New Product</a>
+            <h4>Inventory</h4>
+            <button onclick="location.href='/admin/inventory'">View Inventory</button>
+            <button onclick="location.href='/admin/inventory/newproduct'">Add New Product</button>
         </div>
 
         <div class="dashboard-item">
-            <a href="/admin/orders">View Orders</a>
+            <h4>Orders</h4>
+            <button onclick="location.href='/admin/orders'">View Orders</button>
         </div>
 
         <div class="dashboard-item">
-            <a href="/admin/order/{returnItem}/confirm">Confirm Refund</a>
-            <a href="/admin/order/{returnItem}/reject">Reject Refund</a>
+            <h4>Refunds</h4>
+            <button onclick="location.href='/admin/order/{returnItem}/confirm'">Confirm Refund</button>
+            <button onclick="location.href='/admin/order/{returnItem}/reject'">Reject Refund</button>
         </div>
 
         <div class="dashboard-item">
-            <a href="/admin/inventory/{product}">View Product</a>
-            <a href="/admin/inventory/{product}/image">Change Image</a>
-            <a href="/admin/inventory/{product}/edit">Edit Product</a>
-            <a href="/admin/inventory/{product}/delete">Delete Product</a>
+            <h4>Product Management</h4>
+            <button onclick="location.href='/admin/inventory/{product}'">View Product</button>
+            <button onclick="location.href='/admin/inventory/{product}/image'">Change Image</button>
+            <button onclick="location.href='/admin/inventory/{product}/edit'">Edit Product</button>
+            <button onclick="location.href='/admin/inventory/{product}/delete'">Delete Product</button>
         </div>
 
         <div class="dashboard-item">
-            <a href="/admin/inventory/{option}/option">Edit Stock</a>
-            <a href="/admin/inventory/{product}/option/add">Add Stock Option</a>
-            <a href="/admin/inventory/{option}/option/delete">Delete Stock Option</a>
+            <h4>Stock Options</h4>
+            <button onclick="location.href='/admin/inventory/{option}/option'">Edit Stock</button>
+            <button onclick="location.href='/admin/inventory/{product}/option/add'">Add Stock Option</button>
+            <button onclick="location.href='/admin/inventory/{option}/option/delete'">Delete Stock Option</button>
         </div>
 
         <div class="dashboard-item">
-            <a href="/admin/order/{order}">View Order</a>
-            <a href="/admin/order/{order}/message">Update Message</a>
-            <a href="/admin/order/{order}/process">Process Order</a>
-            <a href="/admin/order/{order}/cancel">Cancel Order</a>
+            <h4>Order Management</h4>
+            <button onclick="location.href='/admin/order/{order}'">View Order</button>
+            <button onclick="location.href='/admin/order/{order}/message'">Update Message</button>
+            <button onclick="location.href='/admin/order/{order}/process'">Process Order</button>
+            <button onclick="location.href='/admin/order/{order}/cancel'">Cancel Order</button>
         </div>
     </div>
 
     <script>
-        // Script for live search
         document.getElementById('search').addEventListener('keyup', function () {
             let searchValue = this.value.toLowerCase();
-
             let items = document.querySelectorAll('.dashboard-item');
             items.forEach(item => {
                 let text = item.innerText.toLowerCase();
