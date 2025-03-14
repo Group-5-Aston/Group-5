@@ -4,16 +4,19 @@
     <style>
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 20px;
             text-align: center;
         }
 
         .dashboard-item {
-            padding: 15px;
+            padding: 20px;
             font-size: 18px;
             font-weight: bold;
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .dashboard-item button {
@@ -21,8 +24,8 @@
             background-color: #4a6425;
             color: white;
             border: none;
-            padding: 10px;
-            margin: 5px 0;
+            padding: 12px;
+            margin: 8px 0;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
@@ -42,7 +45,7 @@
             width: 200px;
         }
 
-        h2 {
+        h3 {
             text-align: center;
             color: #4a6425;
             margin-bottom: 20px;
@@ -50,13 +53,13 @@
     </style>
 
 <body>
-    <div class="heading_container heading_center" style="padding-top:48px; margin-left: 200px; display: flex; justify-content: space-between; align-items: center; width: 80%;">
+    <div class="heading_container heading_center" style="padding-top:48px; margin-left: auto; margin-right: auto; display: flex; justify-content: space-between; align-items: center; width: 80%; max-width: 1200px;">
         <h3>Admin Dashboard</h3>
         <input type="text" id="search" placeholder="Search Task" autocomplete="off" class="search-box">
     </div>
 
     @if(request('message'))
-        <div class="alert alert-warning">
+        <div class="alert alert-warning" style="text-align: center;">
             {{ request('message') }}
         </div>
     @endif
