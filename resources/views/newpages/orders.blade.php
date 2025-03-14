@@ -1,5 +1,9 @@
 <x-newheader>
     <h1>Your orders</h1>
+
+    <x-alert type="success" :message="session('success')" />
+    <x-alert type="error" :message="session('error')" />
+
     @if(isset($orders) && $orders->count() > 0)
         @foreach($orders as $order)
             <div class="card mb-3 shadow-sm">

@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->foreignId('order_id')->constrained('Orders', 'order_id')->onDelete('cascade');
             $table->foreignId('order_item_id')->constrained('OrderItems', 'order_item_id')->onDelete('cascade');
             $table->text('reason');
-            $table->string('status')->default('pending');
+            $table->string('status')->default('returned');
             $table->integer('quantity');
             $table->decimal('total', 10, 2);
             $table->timestamps();

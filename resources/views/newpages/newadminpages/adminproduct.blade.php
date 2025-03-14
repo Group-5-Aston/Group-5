@@ -1,7 +1,12 @@
 <h1>Product Details</h1>
 
+<x-alert type="success" :message="session('success')"/>
+<x-alert type="error" :message="session('error')"/>
+
+
 <p>Product ID: {{ $product->product_id }}</p>
-<form method="POST" action="{{ route('adminimage.edit', ['product' => $product->product_id]) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('adminimage.edit', ['product' => $product->product_id]) }}"
+      enctype="multipart/form-data">
     @csrf
     @method('PATCH')
     <img src="{{ Storage::url($product['image']) }}" alt="product image"> <br>
@@ -39,7 +44,7 @@
 <form method="POST" action="{{ route('adminproduct.destroy', ['product' => $product->product_id] ) }}">
     @csrf
     @method('DELETE')
-    <input type="submit" value="Delete product">
+    <input type="submit"  value="Delete product" onclick="return confirm('Are you sure you want to delete this review?')">
 </form>
 
 <h1>Stock levels</h1>
@@ -52,35 +57,63 @@
         <th>Stock</th>
     </tr>
     </thead>
-@foreach($productOptions as $option)
-    <tr>
-        <td>{{$option->option_id}}</td>
-        <td>{{$option->size}}</td>
-        <td>{{$option->flavor}}</td>
-        <td>
-            <form method="POsT" action="{{ route('adminoption.edit', ['option' => $option->option_id]) }}">
-                @csrf
-                @method('PATCH')
-                <input type="text" name="stock" value="{{$option->stock}}">
-                <input type="submit" value="edit">
-            </form>
-            <form method="POST" action="{{ route('adminoption.delete', ['option' => $option->option_id]) }}">
-                @csrf
-                @method('DELETE')
-                <button type="submit" onclick="return confirm('Are you sure you want to delete this product?')">
-                    Delete Product
-                </button>
-            </form>
-        </td>
-    </tr>
-@endforeach
+    @foreach($productOptions as $option)
+        <tr>
+            <td>{{$option->option_id}}</td>
+            <td>{{$option->size}}</td>
+            <td>{{$option->flavor}}</td>
+            <td>
+                <form method="POsT" action="{{ route('adminoption.edit', ['option' => $option->option_id]) }}">
+                    @csrf
+                    @method('PATCH')
+                    <input type="text" name="stock" value="{{$option->stock}}">
+                    <input type="submit" value="edit">
+                </form>
+                <form method="POST" action="{{ route('adminoption.delete', ['option' => $option->option_id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete this product?')">
+                        Delete Product
+                    </button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
 </table>
 
 <h1>Add Option</h1>
-<form method="POST" action="{{ route('adminoption.add', ['product' => $product->product_id]) }}" >
+<form method="POST" action="{{ route('adminoption.add', ['product' => $product->product_id]) }}">
     @csrf
     <input type="text" name="size" placeholder="Size">
     <input type="text" name="flavor" placeholder="Flavour">
     <input type="text" name="stock" placeholder="Stock level">
     <input type="submit" value="Add">
 </form>
+
+<h1>Reviews</h1>
+<table>
+    <thead>
+    <tr>
+        <th>User name</th>
+        <th>Rating</th>
+        <th>Review</th>
+    </tr>
+    </thead>
+    @foreach($product->reviews as $review)
+        <tr>
+            <td>{{$review->user->name}}</td>
+            <td>{{$review->rating}}</td>
+            <td>{{$review->review}}</td>
+            <td>
+                <form method="POST" action="{{ route('adminreview.destroy', $review) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete this review?')">
+                        Delete review
+                    </button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
+</table>
+

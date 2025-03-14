@@ -1,5 +1,8 @@
 <x-newheader>
 
+    <x-alert type="success" :message="session('success')" />
+    <x-alert type="error" :message="session('error')" />
+
     <main class="container py-5">
         <div class="row">
             <!-- Basket Items Section -->
@@ -10,16 +13,6 @@
                 </div>
 
                 @if($basket->items->count() > 0)
-                    @php
-                        $subtotal = 0;
-                        foreach ($basket->items as $item) {
-                            $subtotal += $item->quantity * $item->price;
-                        }
-                        $shipping = 4.99;
-                        $vat = 2.00;
-                        $total = $subtotal + $shipping + $vat;
-                    @endphp
-
                     @foreach($basket->items as $item)
                         <div class="card mb-3 shadow-sm">
                             <div class="row g-0">
@@ -54,7 +47,18 @@
 
                                 <!-- Remove Button -->
                                 <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                    <form action="{{ route('basket.removeItem', $item->bitem_id) }}" method="POST">
+                                    <div>
+                                        Quantity
+                                    </div>
+                                    <form action="{{route('basket.quantity.update', $item)}}" method="POST">
+                                        @csrf
+                                        @method("PATCH")
+                                        <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" max={{$item->productOption->stock}}>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                                            edit
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('basket.removeItem', $item) }}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-outline-danger btn-sm">
                                             Remove
@@ -121,13 +125,6 @@
             </div>
         </div>
     </main>
-
-    @if(session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-
 
     @include('components.newfooter')
 </x-newheader>

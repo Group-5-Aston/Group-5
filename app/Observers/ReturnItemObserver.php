@@ -10,12 +10,17 @@ use Illuminate\Support\Facades\Notification;
 
 class ReturnItemObserver
 {
-    /*
-     *
-     */
+    public function created(ReturnItem $returnItem)
+    {
+        if ($returnItem->status === 'returned') {
+            $admins = User::where('usertype', 'admin')->get();
+            Notification::send($admins, new PendingReturnNotification($returnItem));
+        }
+    }
+
     public function updated(ReturnItem $returnItem)
     {
-        if($returnItem->status == 'returned') {
+        if ($returnItem->status == 'returned') {
             $admins = User::where('usertype', 'admin')->get();
             Notification::send($admins, new PendingReturnNotification($returnItem));
         }

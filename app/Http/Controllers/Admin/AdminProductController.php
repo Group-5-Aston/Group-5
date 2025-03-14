@@ -7,6 +7,7 @@ use App\Http\Requests\AdminAddOptionRequest;
 use App\Http\Requests\AdminUpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductOption;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Type\Integer;
 use Illuminate\Support\Facades\Storage;
@@ -51,7 +52,7 @@ class  AdminProductController extends Controller
             ->exists();
 
         if ($exists) {
-            return redirect()->route('adminproduct.show', $product)->withErrors(['error' => 'This flavour and size combination already exists for this product.']);
+            return redirect()->route('adminproduct.show', $product)->with('error', 'This flavour and size combination already exists for this product.');
         }
 
         $merged = array_merge($request->validated(), ['product_id' => $product->product_id]);
@@ -65,7 +66,7 @@ class  AdminProductController extends Controller
 
         //Prevent deletion if it's the last product option (Every product should have at least 1 option)
         if($product->productOptions()->count() == 1){
-            return redirect()->route('adminproduct.show', $product)->withErrors('error', 'Cannot delete the last option');
+            return redirect()->route('adminproduct.show', $product)->with('error', 'Cannot delete the last option');
         }
         $option->delete();
         return redirect()->route('adminproduct.show', $product)->with('success', 'Option deleted successfully.');
@@ -99,5 +100,10 @@ class  AdminProductController extends Controller
         $product->productOptions()->delete();
         $product->delete();
         return redirect()->route('admin.inventory')->with('success', 'Product deleted successfully.');
+    }
+
+    public function destroyReview(Review $review) {
+        $review->delete();
+        return redirect()->back()->with('success', 'Review deleted successfully.');
     }
 }

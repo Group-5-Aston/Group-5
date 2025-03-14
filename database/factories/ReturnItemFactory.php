@@ -19,9 +19,9 @@ class ReturnItemFactory extends Factory
         $quantity = fake()->numberBetween(1, 5);
         return [
             'order_id' => \App\Models\Order::factory(),
-            'order_item_id' => \App\Models\OrderItem::factory(),
+            'order_item_id' => $orderItem->order_item_id,
             'reason' => fake()->sentence(),
-            'status' => fake()->randomElement(['pending', 'refunded', 'rejected']),
+            'status' => fake()->randomElement(['returned', 'refunded', 'rejected']),
             'quantity' => $quantity,
             'total' => $quantity * $orderItem->price,
         ];

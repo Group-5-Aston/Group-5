@@ -16,7 +16,7 @@ class AdminProductCreationController
         $exists = Product::where('name', $data['name'])->exists();
 
         if ($exists) {
-            return redirect()->back()->withErrors(['error' => 'A product with the same name already exists.']);
+            return redirect()->back()->with('error', 'A product with the same name already exists.');
         }
 
         $imgPath = $request->file('image')->store('images', 'public');
@@ -43,6 +43,6 @@ class AdminProductCreationController
 
         ProductOption::create($productOptionData);
 
-        return redirect()->route('admin.inventory')->with('success', ' added successfully.');
+        return redirect()->route('admin.inventory')->with('success', 'Product added successfully.');
     }
 }

@@ -1,9 +1,20 @@
+
 <p>User ID: {{$user->id}}</p>
+
+<x-alert type="success" :message="session('success')" />
+<x-alert type="error" :message="session('error')" />
+
 
 @if($user->usertype === 'admin')
     <p>You cannot edit an admin.</p>
-@elseif($user->order()->whereNot('status', 'complete')->exists())
+@elseif($user->order()->whereNot('Orders.status', 'complete')->exists())
     <p>You cannot delete a user with an active order/return.
+@endif
+
+@if(session('status'))
+    <div class="alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3" role="alert" style="z-index: 1050; min-width: 300px; max-width: 600px;">
+        {{ session('status') }}
+    </div>
 @endif
 
 <form method="POST" action="{{ route('adminprofile.edit', ['user' => $user->id] )}}">
@@ -18,12 +29,14 @@
     </fieldset>
 </form>
 
+
+
 <form method="POST" action="{{ route('adminprofile.destroy', ['user'=>$user->id]) }}">
     @csrf
     @method('DELETE')
     <fieldset @if($user->usertype === 'admin'
-    || $user->returnItems()->whereNot('status', 'refunded')->exists()
-    || $user->order()->whereNot('status', 'complete')->exists()) disabled @endif>
+    || $user->returnItems()->whereNot('returns.status', 'refunded')->exists()
+    || $user->order()->whereNot('Orders.status', 'complete')->exists()) disabled @endif>
         <button type="submit" onclick="return confirm('Are you sure you want to delete this user?')">
             Delete User
         </button>
@@ -60,6 +73,7 @@
     @endif
     </tbody>
 </table>
+
 <script>
 //Script to make each row of the table clickable
     document.querySelectorAll('.clickable').forEach(row => {
@@ -68,5 +82,3 @@
     });
 });
 </script>
-
-

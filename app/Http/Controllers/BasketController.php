@@ -205,31 +205,26 @@ class BasketController extends Controller
     */}
 
 
-    public function removeItem($bitem_id)
+    public function removeItem(BasketItem $bitem)
     {
-        $basketItem = BasketItem::where('bitem_id', $bitem_id)
-            ->whereHas('basket', function($query) {
-                $query->where('user_id', auth()->id());
-            })
-            ->first();
+        $bitem->delete();
 
-        if (!$basketItem) {
-            return redirect()->route('basket.index')->with('error', 'Item not found.');
-        }
+        return redirect()->route('basket.index')->with('success', 'Item removed from basket.');
+    }
 
-        // Decrement the quantity by 1
-        $basketItem->quantity -= 1;
+    public function quantity(Request $request, BasketItem $bitem) {
+        $validated = $request->validate([
+            'quantity' => 'required|integer',
+        ]);
 
-        // If quantity hits 0, remove the row entirely
-        if ($basketItem->quantity <= 0) {
-            $basketItem->delete();
-        } else {
-            // Update the row's total if you store per-item total
-            $basketItem->total = $basketItem->quantity * $basketItem->price;
-            $basketItem->save();
-        }
+        $quantity = $validated['quantity'];
 
-        // Optionally recalc the Basket total if needed
+        $bitem->update([
+            'quantity' => $quantity,
+            'total' => $bitem->price * $quantity,
+        ]);
+
+
         $basket = auth()->user()->basket;
         $basket->total = $basket->items->sum('total');
         $basket->save();
