@@ -7,6 +7,7 @@ use App\Http\Requests\AdminAddOptionRequest;
 use App\Http\Requests\AdminUpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductOption;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Type\Integer;
 use Illuminate\Support\Facades\Storage;
@@ -99,5 +100,10 @@ class  AdminProductController extends Controller
         $product->productOptions()->delete();
         $product->delete();
         return redirect()->route('admin.inventory')->with('success', 'Product deleted successfully.');
+    }
+
+    public function destroyReview(Review $review) {
+        $review->delete();
+        return redirect()->back()->with('success', 'Review deleted successfully.');
     }
 }

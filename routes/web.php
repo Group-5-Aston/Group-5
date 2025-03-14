@@ -131,6 +131,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->name('adminprofile.edit');
     //Deletes the selected user.
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
+
     //Inventory route
     Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
     //Product creation page
@@ -143,8 +144,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('admin/inventory/{product}', [AdminProductController::class, 'updateProduct'])->name('adminproduct.edit');
     //Delete product
     Route::delete('admin/inventory/{product}', [AdminProductController::class, 'destroyProduct'])->name('adminproduct.destroy');
+    //Delete review
+    Route::delete('admin/inventory/{review}/review', [AdminProductController::class, 'destroyReview'])->name('adminreview.destroy');
     //Create a new product
     Route::post('admin/inventory/newproduct', [AdminProductCreationController::class, 'create'])->name('adminproduct.add');
+
+
     //Edit stock option
     Route::patch('admin/inventory/{option}/option', [AdminProductController::class, 'updateOption'])->name('adminoption.edit');
     //Add stock option
