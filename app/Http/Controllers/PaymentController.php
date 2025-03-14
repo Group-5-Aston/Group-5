@@ -26,7 +26,7 @@ class PaymentController extends Controller
             'address' => $address,
             ]]
         );
-        return redirect()->route('payment.index'); // Display the payment form
+        return redirect()->route('payment.index');
     }
 
     public function index()
@@ -54,7 +54,7 @@ class PaymentController extends Controller
         $data = session('pending order', []);
 
         if (empty($data)) {
-            return back()->withErrors(['error' => 'No pending order found.']);
+            return back()->with('error', 'No pending order found.');
         }
 
         //Creates the order

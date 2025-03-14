@@ -1,5 +1,8 @@
 <x-newheader>
 
+    <x-alert type="success" :message="session('success')" />
+    <x-alert type="error" :message="session('error')" />
+
     <main class="container py-5">
         <div class="row">
             <!-- Basket Items Section -->

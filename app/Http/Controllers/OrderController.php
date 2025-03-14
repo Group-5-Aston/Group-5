@@ -16,7 +16,7 @@ class OrderController extends Controller
 
     public function cancel(Order $order) {
         if ($order->status != 'pending') {
-            return back()->withErrors('You cannot cancel an order that is already on the way');
+            return back()->with('error', 'You cannot cancel an order that is already on the way');
         }
 
         $order->update(['status' => 'cancelled']);
@@ -40,7 +40,7 @@ class OrderController extends Controller
         $remainingQuantity = $totalOrdered - $alreadyReturned;
 
         if ($data['quantity'] > $remainingQuantity) {
-            return back()->withErrors(['quantity' => 'You can only return up to ' . $remainingQuantity . ' item(s).']);
+            return back()->with(['error', 'You can only return up to ' . $remainingQuantity . ' item(s).']);
         }
 
         ReturnItem::create([

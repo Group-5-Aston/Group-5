@@ -1,5 +1,8 @@
 <x-newheader>
 
+    <x-alert type="success" :message="session('success')" />
+    <x-alert type="error" :message="session('error')" />
+
     <img src="{{Storage::url($orderItem->image)}}" alt="null">
     <p> {{$orderItem->nameSizeFlavour()}}</p>
     <p> {{$orderItem->isAlreadyReturned() ? 'You have already submitted a return for ' . $orderItem->amountReturned() . ' of these. You can only return ' . ($orderItem->quantity -$orderItem->amountReturned()) . ' more.' : ''}}
