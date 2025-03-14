@@ -26,11 +26,13 @@
                   </span>
                 </h6>
               </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
+              @if ($product->isNew())
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+              @endif
             </a>
           </div>
         </div>

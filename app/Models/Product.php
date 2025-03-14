@@ -3,6 +3,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -37,5 +38,13 @@ class Product extends Model
     public function averageRating()
     {
         return $this->reviews()->avg('rating') ?? 0;
+    }
+
+    public function isNew()
+    {
+        if ($this->created_at >= Carbon::now()->subDays(7))
+            return true;
+        else
+            return false;
     }
 }

@@ -44,7 +44,7 @@
 <form method="POST" action="{{ route('adminproduct.destroy', ['product' => $product->product_id] ) }}">
     @csrf
     @method('DELETE')
-    <input type="submit" value="Delete product">
+    <input type="submit"  value="Delete product" onclick="return confirm('Are you sure you want to delete this review?')">
 </form>
 
 <h1>Stock levels</h1>

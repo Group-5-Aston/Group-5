@@ -31,7 +31,7 @@ Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index
 
 Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
 
-
+//Basket routes
 Route::post('/basket/remove/{bitem}', [BasketController::class, 'removeItem'])->name('basket.removeItem');
 Route::patch('basket/quantity/{bitem}', [BasketController::class, 'quantity'])->name('basket.quantity.update');
 Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
