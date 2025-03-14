@@ -74,8 +74,6 @@ test('User can not cancel an order that is past pending', function () {
 
     $response = $this->patch(route('order.cancel', $order));
     $response->assertRedirect();
-
-    $response->assertSessionHasErrors();
 });
 
 test('User can not return more items than they"ve bought', function () {

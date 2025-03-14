@@ -32,9 +32,8 @@ Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index
 Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
 
 
-Route::post('/basket/remove/{bitem_id}', [BasketController::class, 'removeItem'])
-    ->name('basket.removeItem');
-
+Route::post('/basket/remove/{bitem}', [BasketController::class, 'removeItem'])->name('basket.removeItem');
+Route::patch('basket/quantity/{bitem}', [BasketController::class, 'quantity'])->name('basket.quantity.update');
 Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
 Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
 Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
