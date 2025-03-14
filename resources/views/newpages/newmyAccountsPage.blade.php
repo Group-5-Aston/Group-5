@@ -156,6 +156,30 @@
                     padding: 20px;
                 }
             }
+
+            #overlay {
+                display: {{ $errors->userDeletion->has('password') ? 'block' : 'none' }};
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+            }
+
+            #customPrompt {
+                display: {{ $errors->userDeletion->has('password') ? 'block' : 'none' }};
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            }
         </style>
     </head>
 
@@ -286,23 +310,31 @@
         </div>
     </div>
 
-    <div id="customPrompt"  style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-     background: white; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-        <h5>Are you sure you want to delete your account? This action cannot be undone.</h5>
-        <p>Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your
-            account, please download any data or information that you wish to retain.</p>
-        <form method="POST" action="{{route('profile.destroy')}}">
-            @csrf
-            @method('DELETE')
-            <div class="form-group">
-                <input type="password" id="promptInput" name="password" placeholder="Password">
-            </div>
+    <div id="overlay">
+        <div id="customPrompt"
+             style="">
+            <h5>Are you sure you want to delete your account? This action cannot be undone.</h5>
+            <p>Once your account is deleted, all of its resources and data will be permanently deleted.
+                Before deleting your account, please download any data or information that you wish to retain.</p>
+            <form method="POST" action="{{ route('profile.destroy') }}">
+                @csrf
+                @method('DELETE')
+                <div class="form-group">
+                    <input type="password" id="promptInput" name="password" placeholder="Password">
+                    @if($errors->userDeletion->has('password'))
+                        <span class="error" style="color: red;">
+                    {{ $errors->userDeletion->first('password') }}
+                </span>
+                    @endif
+                </div>
                 <div class="buttons">
                     <button type="submit" class="save-btn">OK</button>
-                    <button onclick="closePrompt()" class="delete-btn">Cancel</button>
+                    <button type="button" onclick="closePrompt()" class="delete-btn">Cancel</button>
                 </div>
-        </form>
+            </form>
+        </div>
     </div>
+
 
     <script>
         function showSection(event, sectionId) {
@@ -334,22 +366,16 @@
             }
         });
 
-        // Fix for delete account button
-        document.getElementById('delete-account').addEventListener('click', function () {
-            const confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
-            if (confirmation) {
-                alert('Account deleted!');
-            }
-        });
-
-
         function openPrompt() {
             document.getElementById("customPrompt").style.display = "block";
+            document.getElementById('overlay').style.display = 'block';
         }
 
         function closePrompt() {
             document.getElementById("customPrompt").style.display = "none";
+            document.getElementById('overlay').style.display = 'none';
         }
+
 
     </script>
     </body>
