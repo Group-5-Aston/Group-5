@@ -64,6 +64,10 @@ Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
 Route::get('/dogclothes',[ShopController::class,'dogClothes'])->name('dogclothes');
 Route::get('/catclothes',[ShopController::class,'catClothes'])->name('catclothes');
 
+// routes for cat and dog toys
+Route::get('/cattoys', [ShopController::class, 'catToys'])->name('cattoys');
+Route::get('/dogtoys', [ShopController::class, 'dogToys'])->name('dogtoys');
+
 //Login routes
 Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
 Route::get('/signup',[LoginController::class,'signUp'])->name('signup');
@@ -172,4 +176,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/admin/order/{returnItem}/confirm',[AdminViewOrderController::class,'confirmRefund'])->name('adminrefund.confirm');
     //Reject refund
     Route::patch('/admin/order/{returnItem}/reject',[AdminViewOrderController::class,'rejectRefund'])->name('adminrefund.reject');
+
+
 });
+
