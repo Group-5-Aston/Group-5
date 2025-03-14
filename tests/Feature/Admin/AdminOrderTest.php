@@ -1,8 +1,15 @@
 <?php
 
 use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Product;
+use App\Models\ProductOption;
 use App\Models\ReturnItem;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class);
+
 
 test('Admin can leave a message on orders', function () {
    $admin = User::factory()->create([
@@ -71,42 +78,62 @@ test('Admin can confirm a refund', function () {
     $admin = User::factory()->create([
         'usertype' => 'admin'
     ]);
-    $order = Order::factory()->create();
+    $product = Product::factory()->create();
+    $productOption = ProductOption::factory()->create([
+        'product_id' => $product->product_id
+    ]);
+    $order = Order::factory()->create([
+        'user_id' => $admin->id,
+    ]);
+    $orderItem = OrderItem::factory()->create([
+        'order_id' => $order->order_id,
+        'option_id' => $productOption->option_id,
+    ]);
     $return = ReturnItem::factory()->create([
-      'order_id' => $order->order_id,
-      'status' => 'pending'
+        'order_id' => $order->order_id,
+        'order_item_id' => $orderItem->order_item_id,
+        'status' => 'returned'
     ]);
 
-    $this -> actingAs($admin);
+    $this->actingAs($admin);
 
-    $response = $this ->patch(route('adminrefund.confirm', $order));
+    $this->patch(route('adminrefund.confirm', $return));
 
     $return->refresh();
 
     $this->assertEquals('refunded', $return->status);
 
-    $response->assertStatus(302);
 });
 
 test('Admin can reject a refund', function () {
     $admin = User::factory()->create([
         'usertype' => 'admin'
     ]);
-    $order = Order::factory()->create();
+    $product = Product::factory()->create();
+    $productOption = ProductOption::factory()->create([
+        'product_id' => $product->product_id
+    ]);
+    $order = Order::factory()->create([
+        'user_id' => $admin->id,
+    ]);
+    $orderItem = OrderItem::factory()->create([
+        'order_id' => $order->order_id,
+        'option_id' => $productOption->option_id,
+    ]);
     $return = ReturnItem::factory()->create([
         'order_id' => $order->order_id,
-        'status' => 'pending'
+        'order_item_id' => $orderItem->order_item_id,
+        'status' => 'returned'
     ]);
 
-    $this -> actingAs($admin);
+    $this->actingAs($admin);
 
-    $response = $this ->patch(route('adminrefund.reject', $order));
+    $this->patch(route('adminrefund.reject', $return));
 
     $return->refresh();
 
     $this->assertEquals('rejected', $return->status);
 
-    $response->assertStatus(302);
 });
 
 

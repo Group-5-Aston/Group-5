@@ -49,7 +49,7 @@ Class  AdminViewOrderController extends Controller
     }
 
     public function process(Order $order) {
-        $order->update(['status' => 'dispatched']);
+        $order->update(['status' => 'complete']);
         return redirect()->route('adminorder.show', $order)->with('success', 'Order dispatched.');
     }
 
@@ -69,12 +69,14 @@ Class  AdminViewOrderController extends Controller
 
         $order = $returnItem->order;
 
+
+
         return redirect()->route('adminorder.show', $order)->with('success', 'Item refunded. Please update stock levels if item in condition for resale.');
     }
 
     public function rejectRefund(ReturnItem $returnItem) {
         if($returnItem->status != 'returned') {
-            return redirect()->route('adminorder.show', $returnItem)->with('error', 'Order must pe returned to reject refund.');
+            return redirect()->route('adminorder.show', $returnItem)->with('error', 'Order must be returned to reject refund.');
         }
         $returnItem->update(['status' => 'rejected']);
 

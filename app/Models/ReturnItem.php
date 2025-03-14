@@ -18,7 +18,9 @@ class ReturnItem extends Model
         'quantity',
         'total',
         'reason',
-        'status'
+        'status',
+        'quantity',
+        'total'
     ];
 
     public function order()
