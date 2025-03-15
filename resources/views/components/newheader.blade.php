@@ -114,33 +114,55 @@
         }
 
         /* Search bar and filter button alignment */
-        .search-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+       /* Search Container */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        .search-bar {
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-            width: 170px;
-        }
+/* Search Bar Input */
+.search-bar {
+    padding: 10px 16px;
+    border: 1px solid #3b5e3b;
+    border-radius: 30px;
+    font-size: 15px;
+    width: 220px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 
-        .search-button {
-            background-color: #4B7C47; /* Green button */
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
+/* Focus State for Input */
+.search-bar:focus {
+    border-color: #4B7C47;
+    box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
+}
 
-        .search-button:hover {
-            background-color: #3a6240;
-        }
+/* Search Button */
+.search-button {
+    background-color: #4B7C47;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect for Button */
+.search-button:hover {
+    background-color: #3a6240;
+    box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
+}
+
+/* Focus Effect for Button */
+.search-button:focus {
+    outline: none;
+   
+
 
         /*The  Basket Page */
         .basket-container {
@@ -339,21 +361,22 @@
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
             <!-- Search and Filter Section -->
-            <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
-                <form action="{{ route('product.search') }}" method="GET"
-                      style="display: flex; align-items: center; gap: 5px;">
-                    <input
-                        type="text"
-                        class="search-bar"
-                        name="q"
-                        placeholder="Search products..."
-                        value="{{ request('q') }}">
-                    <button
-                        type="submit"
-                        class="search-button">
-                        Search
-                    </button>
-                </form>
+        <!-- Search and Filter Section -->
+<div class="search-container" style="display: flex; align-items: center; gap: 15px;">
+    <form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 10px;">
+        <input
+            type="text"
+            class="search-bar"
+            name="q"
+            placeholder="Search products..."
+            value="{{ request('q') }}">
+        <button
+            type="submit"
+            class="search-button">
+            Search
+        </button>
+    </form>
+</div>
 
 
                 <!-- Profile dropdown -->
