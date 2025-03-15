@@ -17,11 +17,11 @@ class ShopController extends Controller
                 return Product::where('cat_or_dog', 'dog')->get();
 
             case 'catToys':
-                return Product::whereIn('cat_or_dog', ['dog', 'both'])
+                return Product::whereIn('cat_or_dog', ['cat', 'both'])
                     ->where('type', 'toy')->get();
 
             case 'dogToys':
-                return Product::whereIn('cat_or_dog', ['cat', 'both'])
+                return Product::whereIn('cat_or_dog', ['dog', 'both'])
                     ->where('type', 'toy')->get();
 
             case 'dogClothes':
