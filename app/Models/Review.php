@@ -9,6 +9,9 @@ class Review extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'review_id';
+
+
     protected $fillable = ['user_id', 'product_id', 'rating', 'review'];
 
     public $timestamps = true; // Ensure timestamps are enabled

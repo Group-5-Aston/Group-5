@@ -121,6 +121,27 @@ test('User can checkout their basket', function () {
     $response->assertRedirect(route('payment.index'))->assertSessionHas('success', 'Payment processed successfully!');
 });
 
+test('User can change quantity of items in basket', function () {
+    $user = User::factory()->create();
+    $basket = Basket::factory()->create(['user_id' => $user->id]);
+    $basketItem = BasketItem::factory()->create([
+        'basket_id' => $basket->basket_id,
+        'quantity' => 5,
+        ]);
+
+    $this->actingAs($user);
+
+    $response = $this->patch(route('basket.quantity.update', $basketItem), [
+        'quantity' => 6
+    ]);
+
+    $basketItem->refresh();
+
+    $this->assertEquals($basketItem->quantity, 6);
+
+    $response->assertStatus(302);
+});
+
 
 
 

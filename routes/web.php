@@ -31,7 +31,7 @@ Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index
 
 Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
 
-
+//Basket routes
 Route::post('/basket/remove/{bitem}', [BasketController::class, 'removeItem'])->name('basket.removeItem');
 Route::patch('basket/quantity/{bitem}', [BasketController::class, 'quantity'])->name('basket.quantity.update');
 Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
@@ -63,6 +63,10 @@ Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
 // additional shop pages
 Route::get('/dogclothes',[ShopController::class,'dogClothes'])->name('dogclothes');
 Route::get('/catclothes',[ShopController::class,'catClothes'])->name('catclothes');
+
+// routes for cat and dog toys
+Route::get('/cattoys', [ShopController::class, 'catToys'])->name('cattoys');
+Route::get('/dogtoys', [ShopController::class, 'dogToys'])->name('dogtoys');
 
 //Login routes
 Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
@@ -131,6 +135,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/user/{user}', [AdminProfileController::class, 'update'])->name('adminprofile.edit');
     //Deletes the selected user.
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
+
     //Inventory route
     Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
     //Product creation page
@@ -143,8 +148,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('admin/inventory/{product}', [AdminProductController::class, 'updateProduct'])->name('adminproduct.edit');
     //Delete product
     Route::delete('admin/inventory/{product}', [AdminProductController::class, 'destroyProduct'])->name('adminproduct.destroy');
+    //Delete review
+    Route::delete('admin/inventory/{review}/review', [AdminProductController::class, 'destroyReview'])->name('adminreview.destroy');
     //Create a new product
     Route::post('admin/inventory/newproduct', [AdminProductCreationController::class, 'create'])->name('adminproduct.add');
+
+
     //Edit stock option
     Route::patch('admin/inventory/{option}/option', [AdminProductController::class, 'updateOption'])->name('adminoption.edit');
     //Add stock option
@@ -167,4 +176,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/admin/order/{returnItem}/confirm',[AdminViewOrderController::class,'confirmRefund'])->name('adminrefund.confirm');
     //Reject refund
     Route::patch('/admin/order/{returnItem}/reject',[AdminViewOrderController::class,'rejectRefund'])->name('adminrefund.reject');
+
+
 });
+

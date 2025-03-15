@@ -318,19 +318,23 @@
             <div class="navbar-links">
                 <a href="{{ route('home') }}">Home</a>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropbtn" href="{{ route('catshop') }}">Cats</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('catshop') }}" class="dropdown-item">All Products</a></li>
-                        <li><a href="{{route('catclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropbtn" href="{{ route('dogshop') }}">Dogs</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('dogshop') }}" class="dropdown-item">All Products</a></li>
-                        <li><a href="{{ route('dogclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
-                    </ul>
-                </li>
+    <a class="nav-link dropbtn" href="{{ route('catshop') }}">Cats</a>
+    <ul class="dropdown-menu">
+        <li><a href="{{ route('catshop') }}" class="dropdown-item">All Products</a></li>
+        <li><a href="{{ route('catclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
+        <li><a href="{{ route('cattoys') }}" class="dropdown-item">Toys</a></li> 
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropbtn" href="{{ route('dogshop') }}">Dogs</a>
+    <ul class="dropdown-menu">
+        <li><a href="{{ route('dogshop') }}" class="dropdown-item">All Products</a></li>
+        <li><a href="{{ route('dogclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
+        <li><a href="{{ route('dogtoys') }}" class="dropdown-item">Toys</a></li> 
+    </ul>
+</li>
+
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
