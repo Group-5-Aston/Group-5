@@ -71,17 +71,19 @@ p {
     margin-top: 20px;
 }
 
-h3 {
-    color: #426b1f;
-    font-size: 40px;
-    font-family: 'Poppins';
+h2 {
+    color: #426b1f;s
 }
 
 </style>
 
 <x-newheader>
     <div class="heading_container heading_center">
+<<<<<<< Updated upstream
         <h3 style="padding-top:48px;">Create a new product</h3> <p></p>
+=======
+        <h2 style="padding-top:48px;">Create a new product</h2> <p></p> 
+>>>>>>> Stashed changes
     </div>
 
     <x-alert type="success" :message="session('success')" />

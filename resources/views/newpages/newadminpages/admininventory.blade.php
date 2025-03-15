@@ -44,19 +44,36 @@
             margin-left: 400px;
         }
 
+<<<<<<< Updated upstream
         h3 {
             color: #426b1f;
             font-size: 40px;
             font-family: 'Poppins';
         }
+=======
+h2 {
+    color: #426b1f;
+}
+>>>>>>> Stashed changes
 
     </style>
 
+<<<<<<< Updated upstream
     <div class="heading_container heading_center" style="padding-top:48px; margin-left:650px">
         <h3>Inventory
             <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box">
         </h3>
         <p></p>
+=======
+<div class="heading_container heading_center" style="padding-top:48px; margin-left:650px">
+      <h2>Inventory
+<input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box"> </h2> <p></p>
+</div>
+
+@if(request('message'))
+    <div class="alert alert-warning">
+        {{ request('message') }}
+>>>>>>> Stashed changes
     </div>
 
     <x-alert type="success" :message="session('success')"/>

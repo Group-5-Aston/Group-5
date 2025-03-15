@@ -13,7 +13,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< Updated upstream
             '_route' => 'generated::Y81wlBsYvcaGXQwH',
+=======
+            '_route' => 'generated::CgfXxcdiwfTZlhSR',
+>>>>>>> Stashed changes
           ),
           1 => NULL,
           2 => 
@@ -651,7 +655,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< Updated upstream
             '_route' => 'generated::Mur1q6hiPOYIhGjO',
+=======
+            '_route' => 'generated::hEK9IEHzuI7WCBAe',
+>>>>>>> Stashed changes
           ),
           1 => NULL,
           2 => 
@@ -687,7 +695,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< Updated upstream
             '_route' => 'generated::NQa4R2I5YXcgst4y',
+=======
+            '_route' => 'generated::vYGhuxm1Nlu9AIJr',
+>>>>>>> Stashed changes
           ),
           1 => NULL,
           2 => 
@@ -817,7 +829,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< Updated upstream
             '_route' => 'generated::mQitPwGfEdjpAdHU',
+=======
+            '_route' => 'generated::msS6cBA8W0B5SMPq',
+>>>>>>> Stashed changes
           ),
           1 => NULL,
           2 => 
@@ -1670,7 +1686,11 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
+<<<<<<< Updated upstream
     'generated::Y81wlBsYvcaGXQwH' => 
+=======
+    'generated::CgfXxcdiwfTZlhSR' => 
+>>>>>>> Stashed changes
     array (
       'methods' => 
       array (
@@ -1684,8 +1704,13 @@ app('router')->setCompiledRoutes(
                     \\Illuminate\\Support\\Facades\\Event::dispatch(new \\Illuminate\\Foundation\\Events\\DiagnosingHealth);
 
                     return \\Illuminate\\Support\\Facades\\View::file(\'C:\\\\Users\\\\daraa\\\\OneDrive\\\\CS1IADD\\\\xampp\\\\htdocs\\\\dashboard\\\\Group-5\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\');
+<<<<<<< Updated upstream
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d60000000000000000";}}',
         'as' => 'generated::Y81wlBsYvcaGXQwH',
+=======
+                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d50000000000000000";}}',
+        'as' => 'generated::CgfXxcdiwfTZlhSR',
+>>>>>>> Stashed changes
       ),
       'fallback' => false,
       'defaults' => 
@@ -2524,7 +2549,11 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
     return \\view(\'newpages.newwhy\');
+<<<<<<< Updated upstream
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004f30000000000000000";}}',
+=======
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004ef0000000000000000";}}',
+>>>>>>> Stashed changes
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3041,7 +3070,11 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
     return \\view(\'dashboard\');
+<<<<<<< Updated upstream
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005020000000000000000";}}',
+=======
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004fe0000000000000000";}}',
+>>>>>>> Stashed changes
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3213,7 +3246,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< Updated upstream
     'generated::Mur1q6hiPOYIhGjO' => 
+=======
+    'generated::hEK9IEHzuI7WCBAe' => 
+>>>>>>> Stashed changes
     array (
       'methods' => 
       array (
@@ -3234,7 +3271,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< Updated upstream
         'as' => 'generated::Mur1q6hiPOYIhGjO',
+=======
+        'as' => 'generated::hEK9IEHzuI7WCBAe',
+>>>>>>> Stashed changes
       ),
       'fallback' => false,
       'defaults' => 
@@ -3288,7 +3329,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< Updated upstream
     'generated::NQa4R2I5YXcgst4y' => 
+=======
+    'generated::vYGhuxm1Nlu9AIJr' => 
+>>>>>>> Stashed changes
     array (
       'methods' => 
       array (
@@ -3309,7 +3354,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< Updated upstream
         'as' => 'generated::NQa4R2I5YXcgst4y',
+=======
+        'as' => 'generated::vYGhuxm1Nlu9AIJr',
+>>>>>>> Stashed changes
       ),
       'fallback' => false,
       'defaults' => 
@@ -3629,7 +3678,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< Updated upstream
     'generated::mQitPwGfEdjpAdHU' => 
+=======
+    'generated::msS6cBA8W0B5SMPq' => 
+>>>>>>> Stashed changes
     array (
       'methods' => 
       array (
@@ -3650,7 +3703,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< Updated upstream
         'as' => 'generated::mQitPwGfEdjpAdHU',
+=======
+        'as' => 'generated::msS6cBA8W0B5SMPq',
+>>>>>>> Stashed changes
       ),
       'fallback' => false,
       'defaults' => 
@@ -4677,7 +4734,11 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
+<<<<<<< Updated upstream
                 }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000005040000000000000000";}}',
+=======
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000005000000000000000000";}}',
+>>>>>>> Stashed changes
         'as' => 'storage.local',
       ),
       'fallback' => false,
