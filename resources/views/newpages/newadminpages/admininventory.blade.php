@@ -45,12 +45,15 @@
         }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         h3 {
             color: #426b1f;
             font-size: 40px;
             font-family: 'Poppins';
         }
 =======
+=======
+>>>>>>> Stashed changes
 h2 {
     color: #426b1f;
 }

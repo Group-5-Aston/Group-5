@@ -80,7 +80,11 @@ h2 {
 <x-newheader>
     <div class="heading_container heading_center">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <h3 style="padding-top:48px;">Create a new product</h3> <p></p>
+=======
+        <h2 style="padding-top:48px;">Create a new product</h2> <p></p> 
+>>>>>>> Stashed changes
 =======
         <h2 style="padding-top:48px;">Create a new product</h2> <p></p> 
 >>>>>>> Stashed changes
