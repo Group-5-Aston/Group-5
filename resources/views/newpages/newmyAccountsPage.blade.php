@@ -15,7 +15,7 @@
             }
 
             :root {
-                --primary-color: #7b8e4e;
+                --primary-color: #426b1f;
                 --primary-dark: #426b1f;
                 --secondary-color: #fefbe6;
                 --border-color: #ddd;
@@ -36,13 +36,14 @@
             .sidebar {
                 width: 250px;
                 min-height: 100vh;
-                background-color: #f5f5f5;
+                background-color: rgb(255, 255, 255);
                 padding: 20px;
             }
 
             .sidebar ul {
                 list-style: none;
                 padding: 0;
+                color: #426b1f;
             }
 
             .sidebar ul li {
