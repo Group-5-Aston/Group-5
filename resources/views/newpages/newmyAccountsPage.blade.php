@@ -6,7 +6,7 @@
                 margin: 0;
                 padding: 30;
                 box-sizing: border-box;
-                font-family: Arial, sans-serif;
+                font-family: 'Poppins', sans-serif;
             }
 
             body {
@@ -17,9 +17,8 @@
             :root {
                 --primary-color: #7b8e4e;
                 --primary-dark: #426b1f;
-                --secondary-color: #e0e0e0;
+                --secondary-color: #fefbe6;
                 --border-color: #ddd;
-                --footer-bg-color: #fff;
             }
 
             .container {
@@ -131,13 +130,10 @@
                 background-color: darkred;
             }
 
-            .footer {
-                text-align: center;
-                padding: 10px 0;
-                background-color: var(--footer-bg-color);
-                position: relative;
-                bottom: 0;
-            }
+            .container.footer-container {
+                background-color: transparent !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
 
             @media (max-width: 900px) {
                 .container {
