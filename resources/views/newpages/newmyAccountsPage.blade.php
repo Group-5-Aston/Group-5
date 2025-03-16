@@ -135,6 +135,7 @@
                 background-color: transparent !important;
                 box-shadow: none !important;
                 border-radius: 0 !important;
+            }
 
             @media (max-width: 900px) {
                 .container {
