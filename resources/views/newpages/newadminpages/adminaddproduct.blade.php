@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-form {
+form2 {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -79,22 +79,14 @@ h2 {
 
 <x-newheader>
     <div class="heading_container heading_center">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        <h3 style="padding-top:48px;">Create a new product</h3> <p></p>
-=======
-        <h2 style="padding-top:48px;">Create a new product</h2> <p></p> 
->>>>>>> Stashed changes
-=======
-        <h2 style="padding-top:48px;">Create a new product</h2> <p></p> 
->>>>>>> Stashed changes
+        <h2 style="padding-top:48px;">Create a new product</h2> <p></p>
     </div>
 
     <x-alert type="success" :message="session('success')" />
     <x-alert type="error" :message="session('error')" />
 
     <div class="container2">
-        <form method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
+        <form2 method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
             @csrf
             <input type="file" name="image" required> <br>
             <input type="text" name="name" placeholder="Name" required> <br>
@@ -120,7 +112,7 @@ h2 {
             <input type="text" name="flavor" placeholder="Flavour">
             <input type="text" name="stock" placeholder="Stock level" required> <br>
             <input type="submit"> <p></p>
-        </form>
+        </form2>
     </div>
     <p style="padding-top:48px;"></p>
     @include('components.newfooter')
