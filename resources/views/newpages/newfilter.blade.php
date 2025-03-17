@@ -3,7 +3,36 @@
         <div class="heading_container heading_center">
             <h2>Filter Products</h2>
         </div>
-        
+        <style>
+            .btn-filter {
+    background-color: #4B7C47; /* Same green as your filter button */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;  /* Matches your aesthetic */
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Remove underline on <a> */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; /* Slight spacing between the two buttons */
+}
+
+.btn-filter:hover {
+    background-color: #3a6240; /* Darker green on hover */
+    box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
+}
+
+.btn-filter:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
+}
+
+            </style>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card p-4 mb-4">
@@ -81,8 +110,8 @@
                             
                             <!-- Submit & Reset -->
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Apply Filters</button>
-                                <a href="{{ route('filter.page') }}" class="btn btn-secondary">Reset</a>
+                                <button type="submit" class="btn-filter">Apply Filters</button>
+                                <a href="{{ route('filter.page') }}" class="btn-filter">Reset</a>
                             </div>
                         </div>
                     </form>

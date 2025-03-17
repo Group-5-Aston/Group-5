@@ -108,18 +108,16 @@
         }
 
 
-        /* Search bar and filter button alignment */
-       /* Search Container */
-/* Container for search + filter */
+ /* Container for search + filter */
 .search-filter-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Same spacing between bar & button, and button & filter */
+    gap: 10px; 
 }
 
 /* Search Bar Input */
 .search-bar {
-    padding: 10px 16px;
+    padding: 9px 16px;
     border: 1px solid #3b5e3b;
     border-radius: 30px;
     font-size: 15px;
@@ -134,13 +132,12 @@
     box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
 }
 
-/* Shared Button Styles (Search + Filter) */
-.search-button,
-.filter-btn {
+/* Search Button */
+.search-button {
     background-color: #4B7C47;
     color: white;
     border: none;
-    padding: 10px 20px;    /* Ensures same height and shape */
+    padding: 10px 20px;    
     border-radius: 30px;  
     cursor: pointer;
     font-size: 15px;
@@ -152,26 +149,43 @@
     justify-content: center;
 }
 
-/* Hover & Focus Effects */
-.search-button:hover,
+.search-button:hover {
+    background-color: #3a6240;
+    box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
+}
+
+.search-button:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
+}
+
+/* Filter Button */
+.filter-btn {
+    background-color: #4B7C47;
+    color: white;
+    border: none;
+    padding: 9px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    fo
+}
+
 .filter-btn:hover {
     background-color: #3a6240;
     box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
 }
 
-.search-button:focus,
 .filter-btn:focus {
     outline: none;
     box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
 }
 
-/* Icon Size for Filter */
+/* Icon size for filter button */
 .filter-btn i.fa-filter {
     font-size: 16px;
 }
 
 
-        /*The  Basket Page */
         .basket-container {
             margin: 0 auto;
             max-width: 1200px;
