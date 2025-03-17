@@ -86,8 +86,9 @@ Route::post('/contact', [ContactController::class, 'submitContact'])->name('subm
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 // Route to handle the search functionality
 Route::get('/search', [ProductController::class, 'search'])->name('product.search');
-// Route to filter products by category or brand
-Route::get('/filter', [ProductController::class, 'filter'])->name('product.filter');
+Route::get('/filter', [ProductController::class, 'filterPage'])->name('filter.page');
+Route::get('/filter/results', [ProductController::class, 'filterResults'])->name('filter.results');
+
 Route::get('/product/{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
 //Order page routes
@@ -99,11 +100,8 @@ Route::get('/orders/return/create/address', [OrderController::class, 'returnAddr
 
 //Return page
 Route::get('/returns', [ReturnController::class, 'index'])->name('return.index');
-//Route::get('/search', 'SearchController@index');
 
 
-
-//Route::get('/products/filter', 'ProductController@filter');
 
 Route::post('/reviews/{product}', [ReviewController::class, 'store'])->name('reviews.store');
 

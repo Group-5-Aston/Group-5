@@ -107,18 +107,14 @@
             font-size: 18px;
         }
 
-        .search-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
 
         /* Search bar and filter button alignment */
        /* Search Container */
-.search-container {
+/* Container for search + filter */
+.search-filter-container {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px; /* Same spacing between bar & button, and button & filter */
 }
 
 /* Search Bar Input */
@@ -133,35 +129,46 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Focus State for Input */
 .search-bar:focus {
     border-color: #4B7C47;
     box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
 }
 
-/* Search Button */
-.search-button {
+/* Shared Button Styles (Search + Filter) */
+.search-button,
+.filter-btn {
     background-color: #4B7C47;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: 10px 20px;    /* Ensures same height and shape */
+    border-radius: 30px;  
     cursor: pointer;
     font-size: 15px;
     transition: background-color 0.3s, box-shadow 0.3s;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Hover Effect for Button */
-.search-button:hover {
+/* Hover & Focus Effects */
+.search-button:hover,
+.filter-btn:hover {
     background-color: #3a6240;
     box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
 }
 
-/* Focus Effect for Button */
-.search-button:focus {
+.search-button:focus,
+.filter-btn:focus {
     outline: none;
-   
+    box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
+}
+
+/* Icon Size for Filter */
+.filter-btn i.fa-filter {
+    font-size: 16px;
+}
 
 
         /*The  Basket Page */
@@ -360,23 +367,29 @@
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
-            <!-- Search and Filter Section -->
-        <!-- Search and Filter Section -->
-<div class="search-container" style="display: flex; align-items: center; gap: 15px;">
-    <form action="{{ route('product.search') }}" method="GET" style="display: flex; align-items: center; gap: 10px;">
+            <div class="search-filter-container">
+    <!-- Search Form -->
+    <form action="{{ route('product.search') }}" method="GET">
         <input
             type="text"
             class="search-bar"
             name="q"
             placeholder="Search products..."
-            value="{{ request('q') }}">
-        <button
-            type="submit"
-            class="search-button">
+            value="{{ request('q') }}"
+        >
+        <button type="submit" class="search-button">
             Search
         </button>
     </form>
+
+    <!-- Filter Button (Icon Only) -->
+    <a href="{{ route('filter.page') }}" class="filter-btn" title="Filter">
+        <i class="fa fa-filter"></i>
+    </a>
 </div>
+
+<!-- FontAwesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 
                 <!-- Profile dropdown -->
