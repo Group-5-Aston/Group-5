@@ -1,5 +1,5 @@
 <x-newheader>
- <section class="contact_section layout_padding" style="padding-top: 48px">
+ <section class="contact_section layout_padding">
     <div class="container px-0">
       <div class="heading_container ">
         <h2 class="">

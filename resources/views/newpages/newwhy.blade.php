@@ -1,6 +1,6 @@
 <x-newheader>
  <!-- about us section -->
- <section class="about_us_section layout_padding" style="padding-top: 50px;">
+ <section class="about_us_section layout_padding">
   <div class="container">
     <div class="heading_container heading_center">
       <h2>About Us</h2>
@@ -273,13 +273,13 @@
   <!-- end why section -->
   <!-- client review section -->
   <section class="client_section layout_padding" style="padding-top: 10px;">
-    
+
       <div class="heading_container heading_center">
         <h2>
           Reviews
         </h2>
       </div>
-    
+
     <div class="container px-0" style="padding-top: 20px;">
       <div id="customCarousel2" class="carousel  carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
