@@ -60,7 +60,20 @@
 <p>🐾 Paws and Thanks,</p>
 <p>The Pup & Purr Team</p>
 
-<i>This email is for showcase purposes only, you will not be sent another one, nor are you subscribed to anything</i>
+<button style="
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #426b1f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            ">
+    Unsubscribe
+</button>
 
+<br>
+<i>This email is for showcase purposes only, you will not be sent another one, nor are you subscribed to anything.</i>
 
 </html>

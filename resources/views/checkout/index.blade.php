@@ -1,6 +1,6 @@
 <x-newheader>
     <!-- Checkout Section -->
-    <section class="checkout-container">
+    <section class="checkout-container" style="padding-top: 0px">
         <x-alert type="success" :message="session('success')" />
         <x-alert type="error" :message="session('error')" />
         <!-- Checkout Items -->

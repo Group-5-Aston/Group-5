@@ -1,6 +1,6 @@
 <x-newheader>
     <!-- payment section -->
-    <section class="payment_section layout_padding" style="padding-top: 48px">
+    <section class="payment_section layout_padding">
         <div class="container">
             <div class="heading_container">
                 <h2>Payment Information</h2>
