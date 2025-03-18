@@ -42,7 +42,6 @@
         /* the top header styles and designs  */
         header {
             background: #fefbe6;
-            padding: 10px 20px;
             border-bottom: 2px solid #7b8e4e;
             position: fixed; /* Fixes the header in place */
             top: 0; /* Aligns it at the top */
@@ -60,7 +59,7 @@
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            height: 30px;
         }
 
         .navbar-brand img {
@@ -72,8 +71,6 @@
             gap: 20px;
             align-items: center;
             position: relative;
-            margin: 0%;
-            padding: 0%;
         }
 
         .navbar-links a {
@@ -81,7 +78,7 @@
             color: #426b1f;
             font-size: 16px;
             text-transform: uppercase;
-            padding: 10px;
+            padding: 5px;
             display: inline-block;
         }
 
@@ -108,82 +105,75 @@
         }
 
 
- /* Container for search + filter */
-.search-filter-container {
-    display: flex;
-    align-items: center;
-    gap: 10px; 
-}
+        /* Container for search + filter */
+        .search-filter-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-/* Search Bar Input */
-.search-bar {
-    padding: 9px 16px;
-    border: 1px solid #3b5e3b;
-    border-radius: 30px;
-    font-size: 15px;
-    width: 220px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
+        /* Search Bar Input */
+        .search-bar {
+            padding: 9px 16px;
+            border: 1px solid #3b5e3b;
+            border-radius: 30px;
+            font-size: 15px;
+            width: 220px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.search-bar:focus {
-    border-color: #4B7C47;
-    box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
-}
+        .search-bar:focus {
+            border-color: #4B7C47;
+            box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
+        }
 
-/* Search Button */
-.search-button {
-    background-color: #4B7C47;
-    color: white;
-    border: none;
-    padding: 10px 20px;    
-    border-radius: 30px;  
-    cursor: pointer;
-    font-size: 15px;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
+        /* Search Button */
+        .search-button {
+            background-color: #4B7C47;
+            color: white;
+            border: none;
+            padding: 9px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
 
-.search-button:hover {
-    background-color: #3a6240;
-    box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
-}
+        .search-button:hover {
+            background-color: #3a6240;
+            box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
+        }
 
-.search-button:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
-}
+        .search-button:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
+        }
 
-/* Filter Button */
-.filter-btn {
-    background-color: #4B7C47;
-    color: white;
-    border: none;
-    padding: 9px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    fo
-}
+        /* Filter Button */
+        .filter-btn {
+            background-color: #4B7C47;
+            color: white;
+            border: none;
+            padding: 9px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
 
-.filter-btn:hover {
-    background-color: #3a6240;
-    box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
-}
+        .filter-btn:hover {
+            background-color: #3a6240;
+            box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
+            color: white;
+        }
 
-.filter-btn:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
-}
+        .filter-btn:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
+        }
 
-/* Icon size for filter button */
-.filter-btn i.fa-filter {
-    font-size: 16px;
-}
+        /* Icon size for filter button */
+        .filter-btn i.fa-filter {
+            font-size: 16px;
+        }
 
 
         .basket-container {
@@ -350,7 +340,7 @@
 
 <body>
 <div class="hero_area">
-    <!-- header section strats -->
+    <!-- header section starts -->
     <header>
         <nav class="navbar">
             <a class="navbar-brand" href="{{ route('home') }}">
@@ -359,84 +349,80 @@
             </a>
 
             <div class="navbar-links">
-                <a href="{{ route('home') }}">Home</a>
                 <li class="nav-item dropdown">
-    <a class="nav-link dropbtn" href="{{ route('catshop') }}">Cats</a>
-    <ul class="dropdown-menu">
-        <li><a href="{{ route('catshop') }}" class="dropdown-item">All Products</a></li>
-        <li><a href="{{ route('catclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
-        <li><a href="{{ route('cattoys') }}" class="dropdown-item">Toys</a></li> 
-    </ul>
-</li>
+                    <a class="nav-link dropbtn" href="{{ route('catshop') }}">Cats</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('catshop') }}" class="dropdown-item">All Products</a></li>
+                        <li><a href="{{ route('catclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
+                        <li><a href="{{ route('cattoys') }}" class="dropdown-item">Toys</a></li>
+                    </ul>
+                </li>
 
-<li class="nav-item dropdown">
-    <a class="nav-link dropbtn" href="{{ route('dogshop') }}">Dogs</a>
-    <ul class="dropdown-menu">
-        <li><a href="{{ route('dogshop') }}" class="dropdown-item">All Products</a></li>
-        <li><a href="{{ route('dogclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
-        <li><a href="{{ route('dogtoys') }}" class="dropdown-item">Toys</a></li> 
-    </ul>
-</li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropbtn" href="{{ route('dogshop') }}">Dogs</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('dogshop') }}" class="dropdown-item">All Products</a></li>
+                        <li><a href="{{ route('dogclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
+                        <li><a href="{{ route('dogtoys') }}" class="dropdown-item">Toys</a></li>
+                    </ul>
+                </li>
 
                 <a href="{{route('why')}}">About Us</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
             </div>
             <div class="search-filter-container">
-    <!-- Search Form -->
-    <form action="{{ route('product.search') }}" method="GET">
-        <input
-            type="text"
-            class="search-bar"
-            name="q"
-            placeholder="Search products..."
-            value="{{ request('q') }}"
-        >
-        <button type="submit" class="search-button">
-            Search
-        </button>
-    </form>
+                <!-- Search Form -->
+                <form action="{{ route('product.search') }}" method="GET">
+                    <input
+                        type="text"
+                        class="search-bar"
+                        name="q"
+                        placeholder="Search products..."
+                        value="{{ request('q') }}"
+                    >
+                    <button type="submit" class="search-button">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                    </button>
+                </form>
 
-    <!-- Filter Button (Icon Only) -->
-    <a href="{{ route('filter.page') }}" class="filter-btn" title="Filter">
-        <i class="fa fa-filter"></i>
-    </a>
-</div>
+                <!-- Filter Button (Icon Only) -->
+                <a href="{{ route('filter.page') }}" class="filter-btn" title="Filter">
+                    <i class="fa fa-filter"></i>
+                </a>
+            </div>
 
-<!-- FontAwesome for icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-
-                <!-- Profile dropdown -->
-                <div class="navbar-icons">
-                    <div class="nav-item dropdown">
-                        @if(Auth::check())
-                            <a class="nav-link dropdown-toggle" href="javascript:void(0);">
-                                <i class="fa fa-user"></i>
-                                {{Auth::User()->name}}
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
-                                <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
-                                <li><a href="{{ route('return.index') }}" class="dropdown-item">Returns</a></li>
-                                @if(Auth::User()->usertype == 'admin')
-                                    <li><a href="{{ route('admin.dashboard') }}" class="dropdown-item">Admin Dashboard</a></li>
-                                @endif
-                                <li>
-                                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">Logout</button>
-                                    </form>
+            <!-- Profile dropdown -->
+            <div class="navbar-icons">
+                <div class="nav-item dropdown">
+                    @if(Auth::check())
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);">
+                            <i class="fa fa-user"></i>
+                            {{Auth::User()->name}}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
+                            <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
+                            <li><a href="{{ route('return.index') }}" class="dropdown-item">Returns</a></li>
+                            @if(Auth::User()->usertype == 'admin')
+                                <li><a href="{{ route('admin.dashboard') }}" class="dropdown-item">Admin Dashboard</a>
                                 </li>
-                            </ul>
-                        @else
-                            <a href="{{ route('loginpage') }}">
-                                <i class="fa fa-user"></i>
-                                Login
-                            </a>
-                        @endif
-                    </div>
-                    <a href="{{ route('basket.index') }}"><i class="fa fa-shopping-basket"></i></a>
+                            @endif
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    @else
+                        <a href="{{ route('loginpage') }}">
+                            <i class="fa fa-user"></i>
+                            Login
+                        </a>
+                    @endif
                 </div>
+                <a href="{{ route('basket.index') }}"><i class="fa fa-shopping-basket"></i></a>
+            </div>
         </nav>
     </header>
     <!-- end header section -->

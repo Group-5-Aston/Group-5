@@ -8,8 +8,8 @@ body {
 }
 
 .layout_padding {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .layout_padding2 {
@@ -287,11 +287,13 @@ a:focus {
 }
 
 /*end header section*/
+.slider_section {
+    padding-top: 0px;
+}
+
 .slider_section .slider_container {
     color: #fefefe;
-    background-color: #000000;
-    background-color: black;
-    padding: 25px;
+    padding: 0 25px 25px 25px;
     border-radius: 0 0 15px 15px;
 }
 
@@ -317,7 +319,6 @@ a:focus {
 
 .slider_section .detail-box {
     padding-left: 45px;
-    margin: 45px 0;
 }
 
 .slider_section .detail-box h1 {
