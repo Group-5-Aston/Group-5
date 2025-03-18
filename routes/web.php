@@ -13,6 +13,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 
 
+route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('subscribe');
 
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 

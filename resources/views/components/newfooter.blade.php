@@ -78,9 +78,10 @@
                         <h5>
                             Newsletter
                         </h5>
-                        <form action="#">
-                            <input type="email" placeholder="Enter your email">
-                            <button>
+                        <form method="POST" action="{{route('subscribe')}}" >
+                            @csrf
+                            <input type="email" name="email" placeholder="Enter your email">
+                            <button type="submit">
                                 Subscribe
                             </button>
                         </form>
