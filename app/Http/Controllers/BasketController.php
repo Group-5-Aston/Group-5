@@ -13,19 +13,26 @@ class BasketController extends Controller
     // Show the basket page
 
 
-    public function index(){
+    public function index()
+    {
         // Get this user’s Basket model, eager-load basket items
-        $basket = auth()->user()
-            ->basket()
+        if (!auth()->check()) {
+            return redirect()->route('loginpage')->with('error', 'You need to be logged in to view your basket.');
+        }
+
+        // Get the authenticated user
+        $user = auth()->user();
+
+        // Get this user’s Basket model, eager-load basket items
+        $basket = $user->basket()
             ->with('items.productOption.product')
             ->first();
 
-        // If the user doesn't have a basket yet, you might want to create it or just pass null
-        // Example: create one if not exists:
+        // If the user doesn't have a basket yet, create one
         if (!$basket) {
-            $basket = auth()->user()->basket()->create([
-                'user_id' => auth()->id(),
-                'total'   => 0.00,
+            $basket = $user->basket()->create([
+                'user_id' => $user->id,
+                'total' => 0.00,
             ]);
         }
 
@@ -86,7 +93,7 @@ class BasketController extends Controller
             'basket_id' => $basket->basket_id,
             'option_id' => $optionId,
             'quantity' => $data['quantity'],
-            'price' =>  $product->price,
+            'price' => $product->price,
             'total' => $product->price * $data['quantity'],
         ];
 
@@ -105,7 +112,7 @@ class BasketController extends Controller
         if ($basketItem->exists()) {
             $existingItem = $basketItem->first();
 
-            if(($data['quantity'] + $basketItem->first()->quantity) <= $optionStock ) {
+            if (($data['quantity'] + $basketItem->first()->quantity) <= $optionStock) {
                 $basketItem->increment('quantity', $data['quantity']);
                 $newQuantity = $existingItem->quantity + $data['quantity'];
                 $basketItem->update(['total' => $newQuantity * $existingItem->price]);
@@ -202,7 +209,8 @@ class BasketController extends Controller
 
         return redirect()->route('basket.index')->with('success', 'Item added to basket');
 
-    */}
+    */
+    }
 
 
     public function removeItem(BasketItem $bitem)
@@ -212,7 +220,8 @@ class BasketController extends Controller
         return redirect()->route('basket.index')->with('success', 'Item removed from basket.');
     }
 
-    public function quantity(Request $request, BasketItem $bitem) {
+    public function quantity(Request $request, BasketItem $bitem)
+    {
         $validated = $request->validate([
             'quantity' => 'required|integer',
         ]);
