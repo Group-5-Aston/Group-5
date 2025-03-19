@@ -107,17 +107,7 @@
     position: relative;
 }
 
-/* Removed the ::before element that was creating the green line */
-/* .product-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 15%;
-    right: 15%;
-    height: 2px;
-    background-color: #4d7a2e;
-    opacity: 0.3;
-} */
+
 
 .product-info h5 {
     color: #3a5a23;

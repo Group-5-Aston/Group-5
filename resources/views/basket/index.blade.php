@@ -1,93 +1,104 @@
 <x-newheader>
 
-<x-alert type="success" :message="session('success')" />
-<x-alert type="error" :message="session('error')" />
+<main class="container pb-5" style="padding-top: 0;">
+    <!-- Alerts with no top gap -->
+    <x-alert type="success" :message="session('success')" />
+    <x-alert type="error" :message="session('error')" />
 
-<main class="container py-5">
     <div class="row">
         <!-- Basket Items Section -->
         <div class="col-md-8">
             <div class="d-flex justify-content-between align-items-center mb-5">
                 <h1 class="display-5 fw-semibold" style="color: #3b5e3b;">Your Basket</h1>
-                <a href="{{ route('shop') }}" class="btn btn-outline-success rounded-pill px-4 py-2" style="border-color: #3b5e3b; color: #3b5e3b;">
+                <a href="{{ route('filter.page') }}" class="btn btn-outline-success rounded-pill px-4 py-2"
+                   style="border-color: #3b5e3b; color: #3b5e3b;">
                     Continue Shopping
                 </a>
             </div>
 
             @if($basket->items->count() > 0)
                 @foreach($basket->items as $item)
-                    <div class="card mb-4 shadow-sm border" style="background-color: #fdfde7; border-radius: 30px; border-color: #3b5e3b;">
+                    <!-- Basket Product Card -->
+                    <div class="basket-product-card mb-4">
                         <div class="row g-0 align-items-center p-4">
                             <!-- Product Image -->
                             <div class="col-md-3">
                                 <img
                                     src="{{ Storage::url($item->productOption->product->image ?? 'placeholder.png') }}"
                                     alt="{{ $item->productOption->product->name ?? 'Product' }}"
-                                    class="img-fluid rounded-5 shadow-sm"
-                                    style="max-height: 140px; object-fit: cover;"
+                                    class="basket-product-image"
                                 >
                             </div>
 
                             <!-- Item Details -->
                             <div class="col-md-5">
                                 <div class="card-body p-0">
-                                    <h5 class="card-title text-success fw-bold fs-4 mb-3" style="color: #3b5e3b;">
+                                    <h5 class="basket-product-title">
                                         {{ $item->productOption->product->name }}
                                     </h5>
 
                                     @if($item->productOption->flavor)
-                                        <p class="card-text text-muted mb-2">
+                                        <p class="basket-product-text text-muted mb-2">
                                             <strong>Flavor:</strong> {{ $item->productOption->flavor }}
                                         </p>
                                     @endif
 
                                     @if($item->productOption->size)
-                                        <p class="card-text text-muted mb-2">
+                                        <p class="basket-product-text text-muted mb-2">
                                             <strong>Size:</strong> {{ $item->productOption->size }}
                                         </p>
                                     @endif
 
-                                    <p class="card-text text-muted mb-2">
+                                    <p class="basket-product-text text-muted mb-2">
                                         <strong>Quantity:</strong> {{ $item->quantity }}
                                     </p>
 
-                                    <p class="card-text fs-5">
-                                        <strong>£{{ number_format($item->price, 2) }}</strong>
+                                    <p class="basket-product-price">
+                                        £{{ number_format($item->price, 2) }}
                                     </p>
                                 </div>
                             </div>
 
                             <!-- Quantity, Update & Remove Buttons -->
                             <div class="col-md-4 d-flex flex-column align-items-end gap-3">
-                                <!-- First Row (Remove & Quantity Input) -->
-                                <div class="d-flex w-100">
+                                <div class="d-flex w-100 gap-3">
                                     <!-- Remove Button -->
-                                    <form action="{{ route('basket.removeItem', $item) }}" method="POST" class="me-3">
-                                        @csrf
-                                        <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill shadow-sm">
-                                            Remove
-                                        </button>
-                                    </form>
-
-                                    <!-- Quantity Input -->
-                                    <form action="{{ route('basket.quantity.update', $item) }}" method="POST" class="flex-grow-1">
-                                        @csrf
-                                        @method("PATCH")
-                                        <input 
-                                            type="number"
-                                            name="quantity"
-                                            value="{{ $item->quantity }}"
-                                            min="1"
-                                            max="{{ $item->productOption->stock }}"
-                                            class="form-control form-control-sm rounded-pill border-success shadow-sm"
-                                            style="padding: 8px;">
-                                    </form>
+                                    <div class="w-50">
+                                        <form action="{{ route('basket.removeItem', $item) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill shadow-sm w-100">
+                                                Remove
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <!-- Quantity Input Form -->
+                                    <div class="w-50">
+                                        <form action="{{ route('basket.quantity.update', $item) }}"
+                                              method="POST"
+                                              id="update-form-{{ $item->id }}">
+                                            @csrf
+                                            @method("PATCH")
+                                            <input 
+                                                type="number"
+                                                name="quantity"
+                                                value="{{ $item->quantity }}"
+                                                min="1"
+                                                max="{{ $item->productOption->stock }}"
+                                                class="form-control form-control-sm rounded-pill border-success shadow-sm w-100"
+                                                style="padding: 8px;"
+                                            >
+                                        </form>
+                                    </div>
                                 </div>
 
-                                <!-- Second Row (Update Quantity Button) -->
+                                <!-- Separate row for Update Quantity button, referencing above form -->
                                 <div class="mt-3 w-100">
-                                    <button type="submit" class="btn btn-success btn-sm w-100 rounded-pill shadow-sm"
-                                        style="background-color: #3b5e3b; border-color: #3b5e3b;">
+                                    <button 
+                                        type="submit" 
+                                        form="update-form-{{ $item->id }}" 
+                                        class="btn btn-success btn-sm w-100 rounded-pill shadow-sm"
+                                        style="background-color: #3b5e3b; border-color: #3b5e3b;"
+                                    >
                                         Update Quantity
                                     </button>
                                 </div>
@@ -104,9 +115,9 @@
 
         <!-- Order Summary -->
         <div class="col-md-4">
-            <div class="card shadow-sm border" style="background-color: #fdfde7; border-radius: 30px; border-color: #3b5e3b;">
+            <div class="card shadow-sm border basket-summary-card">
                 <div class="card-body p-4">
-                    <h4 class="fw-bold mb-4" style="color: #3b5e3b;">Order Summary</h4>
+                    <h4 class="fw-bold mb-4 basket-summary-title">Order Summary</h4>
 
                     @if($basket->items->count() > 0)
                         <ul class="list-group mb-4 border-0">
@@ -156,4 +167,68 @@
 
 @include('components.newfooter')
 
+<style>
+/* Basket Product Card: matches shop design, adapted for the basket layout */
+.basket-product-card {
+  background-color: #fdfde7;
+  border: 1px solid #3b5e3b;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(77, 122, 46, 0.08);
+  transition: all 0.4s ease;
+}
+
+.basket-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(77, 122, 46, 0.15);
+  border-color: #4d7a2e;
+}
+
+/* Basket Product Image */
+.basket-product-image {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  background-color: #fff; /* White background */
+  padding: 5px;
+}
+
+/* Basket Product Info */
+.basket-product-title {
+  color: #3b5e3b;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.basket-product-card:hover .basket-product-title {
+  color: #4d7a2e;
+}
+
+.basket-product-text {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.basket-product-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3b5e3b;
+}
+
+/* Basket Summary Card */
+.basket-summary-card {
+  background-color: #fdfde7;
+  border-radius: 30px;
+  border-color: #3b5e3b;
+}
+
+.basket-summary-title {
+  color: #3b5e3b;
+}
+</style>
+
 </x-newheader>
+
