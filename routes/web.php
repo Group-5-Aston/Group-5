@@ -70,6 +70,10 @@ Route::get('/catclothes',[ShopController::class,'catClothes'])->name('catclothes
 Route::get('/cattoys', [ShopController::class, 'catToys'])->name('cattoys');
 Route::get('/dogtoys', [ShopController::class, 'dogToys'])->name('dogtoys');
 
+//routes for cat and dog hygiene
+Route::get('/catHygiene', [ShopController::class, 'newcatGH'])->name('newcatGH');
+Route::get('/dogHygiene', [ShopController::class, 'newdogGH'])->name('newdogGH');
+
 //Login routes
 Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
 Route::get('/signup',[LoginController::class,'signUp'])->name('signup');
