@@ -37,11 +37,11 @@ class ShopController extends Controller
 
             case 'catGH':
                 return Product::where('cat_or_dog', 'cat')
-                    ->where('type', 'GH')->get();
+                    ->where('type', 'hygiene')->get();
 
             case 'dogGH':
                 return Product::where('cat_or_dog', 'dog')
-                    ->where('type', 'GH')->get();
+                    ->where('type', 'hygiene')->get();
 
             default:
                 return collect();
