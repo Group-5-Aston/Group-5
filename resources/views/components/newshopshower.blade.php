@@ -72,7 +72,7 @@
     justify-content: center;
     position: relative;
     background-color: #fff;
-    /* Removed border-bottom here */
+    
     overflow: hidden;
 }
 
@@ -157,7 +157,6 @@
     font-weight: 600;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     z-index: 10;
-    transform: rotate(5deg);
 }
 
 .quick-view {
