@@ -46,50 +46,13 @@
     <!-- end hero area -->
 
     <!-- shop section -->
+ 
 
-    <section class="shop_section layout_padding" style="padding-top: 0px;">
-        <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                   Check Out Our Pets And Any Clothing
-                </h2>
-            </div>
-            <div class="row" style="padding-top: 20px;">
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                    <a href=>
-                    <a href="dogshop">
-                            <div class="img-box">
+            <!-- Newest Products Section -->
+    <x-newshopshower :products="\App\Models\Product::inRandomOrder()->limit(4)->get()">
+        <h2>Check Out Our Newest Products</h2>
+    </x-newshopshower>
 
-                                <img src = "images/p1.jpg" alt="ring" style="width: 100%; height: auto;"></src>
-                            </div> </div>
-
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                    <a href=>
-                    <a href="catshop">
-                            <div class="img-box">
-                                <img src="images/p2.jpg" alt="p2" style="width: 100%; height: auto;"></src>
-                            </div>
-                            <div class="detail-box">
-                                <h6>
-                                    Bundle - Catfood
-                                </h6>
-                                <h6>
-                                    Price:
-                                    <span class = "sale-price">
-                                        £9.99</span>
-                                        <span class = "original-price">
-                                        £14.99</span>
-                            </h6>
-                       <div class = "sale"> save 50%</div>
-</div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
 
             <!-- end off banner section -->
 
