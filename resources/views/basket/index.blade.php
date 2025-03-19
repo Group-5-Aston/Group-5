@@ -1,15 +1,17 @@
 <x-newheader>
 
-<x-alert type="success" :message="session('success')" />
-<x-alert type="error" :message="session('error')" />
+<main class="container pb-5" style="padding-top: 0;">
+    <!-- Alerts with no top gap -->
+    <x-alert type="success" :message="session('success')" />
+    <x-alert type="error" :message="session('error')" />
 
-<main class="container py-5">
     <div class="row">
         <!-- Basket Items Section -->
         <div class="col-md-8">
             <div class="d-flex justify-content-between align-items-center mb-5">
                 <h1 class="display-5 fw-semibold" style="color: #3b5e3b;">Your Basket</h1>
-                <a href="{{ route('filter.page') }}" class="btn btn-outline-success rounded-pill px-4 py-2" style="border-color: #3b5e3b; color: #3b5e3b;">
+                <a href="{{ route('filter.page') }}" class="btn btn-outline-success rounded-pill px-4 py-2"
+                   style="border-color: #3b5e3b; color: #3b5e3b;">
                     Continue Shopping
                 </a>
             </div>
@@ -59,8 +61,8 @@
 
                             <!-- Quantity, Update & Remove Buttons -->
                             <div class="col-md-4 d-flex flex-column align-items-end gap-3">
-                                <!-- First Row (Remove & Quantity Input) -->
                                 <div class="d-flex w-100 gap-3">
+                                    <!-- Remove Button -->
                                     <div class="w-50">
                                         <form action="{{ route('basket.removeItem', $item) }}" method="POST">
                                             @csrf
@@ -69,8 +71,11 @@
                                             </button>
                                         </form>
                                     </div>
+                                    <!-- Quantity Input Form -->
                                     <div class="w-50">
-                                        <form action="{{ route('basket.quantity.update', $item) }}" method="POST">
+                                        <form action="{{ route('basket.quantity.update', $item) }}"
+                                              method="POST"
+                                              id="update-form-{{ $item->id }}">
                                             @csrf
                                             @method("PATCH")
                                             <input 
@@ -86,10 +91,14 @@
                                     </div>
                                 </div>
 
-                                <!-- Second Row (Update Quantity Button) -->
+                                <!-- Separate row for Update Quantity button, referencing above form -->
                                 <div class="mt-3 w-100">
-                                    <button type="submit" class="btn btn-success btn-sm w-100 rounded-pill shadow-sm"
-                                        style="background-color: #3b5e3b; border-color: #3b5e3b;">
+                                    <button 
+                                        type="submit" 
+                                        form="update-form-{{ $item->id }}" 
+                                        class="btn btn-success btn-sm w-100 rounded-pill shadow-sm"
+                                        style="background-color: #3b5e3b; border-color: #3b5e3b;"
+                                    >
                                         Update Quantity
                                     </button>
                                 </div>
@@ -222,3 +231,4 @@
 </style>
 
 </x-newheader>
+
