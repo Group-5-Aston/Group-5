@@ -20,6 +20,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\ShopController;
+use App\Htpp\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 
@@ -77,6 +78,10 @@ Route::get('/dogHygiene', [ShopController::class, 'newdogGH'])->name('newdogGH')
 //Login routes
 Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
 Route::get('/signup',[LoginController::class,'signUp'])->name('signup');
+
+//Password Routes
+Route::get('/passwordreset', [PasswordController::class, 'showResetForm'])->name('passwordreset.request');
+Route::post('/passwordemail', [PasswordController::class, 'sendResetLinkEmail'])->name('passwordreset.email');
 
 //About us page route
 Route::get('/why', function () {
