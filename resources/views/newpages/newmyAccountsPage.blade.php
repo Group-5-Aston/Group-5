@@ -21,7 +21,7 @@
                 --border-color: #ddd;
             }
 
-            .container {
+            .container1 {
                 display: flex;
                 max-width: 100%;
                 width: 900px;
@@ -138,7 +138,7 @@
             }
 
             @media (max-width: 900px) {
-                .container {
+                .container1 {
                     flex-direction: column;
                     width: 100%;
                     max-width: 100%;
@@ -182,7 +182,7 @@
     </head>
 
     <body>
-    <div class="container">
+    <div class="container1">
         <div class="sidebar">
             <ul>
                 <li onclick="showSection(event, 'profile')" class="active">Profile</li>
