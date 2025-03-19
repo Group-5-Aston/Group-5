@@ -80,16 +80,33 @@
 
                     <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
 
-                        <p>Ratings:
-                            @for ($i = 1; $i <= 5; $i++)
-                                @if($i <= round($product->averageRating()))
-                                    ⭐
-                                @else
-                                    ☆
-                                @endif
-                            @endfor
-                            ({{ $product->reviews->count() }} reviews)
-                        </p>
+                    <p>Average Rating:
+    @for ($i = 1; $i <= 5; $i++)
+        @if($i <= round($product->averageRating()))
+            ⭐
+        @else
+            ☆
+        @endif
+    @endfor
+    ({{ $product->reviews->count() }} reviews)
+</p>
+
+<!-- Display all reviews directly -->
+@foreach($product->reviews as $review)
+    <div class="review">
+        <p><strong>Rating:</strong>
+            @for ($i = 1; $i <= 5; $i++)
+                @if($i <= $review->rating)
+                    ⭐
+                @else
+                    ☆
+                @endif
+            @endfor
+        </p>
+        <p><strong>By:</strong> {{ $review->user->name }}</p>  <!-- Show the user's name -->
+        <p><strong>Review:</strong> {{ $review->review }}</p>
+    </div>
+@endforeach
 
                         @if(auth()->user())
                             <form action="{{ route('reviews.store', $product->product_id) }}" method="POST">
