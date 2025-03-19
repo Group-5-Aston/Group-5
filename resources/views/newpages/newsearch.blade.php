@@ -1,44 +1,33 @@
 <x-newheader>
-
 <div class="container py-5">
     @if($products->isEmpty())
-        <!-- No products found -->
         <p class="text-center text-muted fs-4">No products found.</p>
     @else
         <div class="row g-4">
             @foreach($products as $product)
                 <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                    <div class="product-card shadow-sm border rounded-4 p-3 position-relative">
-                        <a href="{{ route('product.searchshow', ['product_id' => $product->product_id]) }}" class="product-link">
-                            
-                            <!-- Product Image -->
-                            <div class="product-image text-center mb-3">
-                                <img src="{{ Storage::url($product->image) }}" 
-                                     alt="{{ $product->name }}" 
-                                     class="img-fluid rounded-3 shadow-sm" 
-                                     style="height: 180px; object-fit: contain;">
+                    <div class="product-card">
+                        <a href="{{ route('product.searchshow', ['product_id' => $product->product_id]) }}">
+                            <div class="product-image">
+                                <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
+                                @if($product->isNew())
+                                    <div class="new-badge">
+                                        <span>New</span>
+                                    </div>
+                                @endif
+                                <div class="quick-view">View Details</div>
                             </div>
-
-                            <!-- Product Details -->
                             <div class="product-info">
-                                <h5 class="fw-bold text-dark">{{ $product->name }}</h5>
-                                
-                                <div class="rating text-muted d-flex align-items-center gap-1 mb-1">
-                                    <span>{{ $product->averageRating() }}</span>
+                                <h5>{{ $product->name }}</h5>
+                                <div class="rating">
+                                    <small>{{ $product->averageRating() }}</small>
                                     {!! $product->review_stars !!}
                                 </div>
-
-                                <div class="price fw-semibold fs-5 text-dark">
-                                    £{{ $product->price }}
+                                <div class="price">
+                                    <span>£{{ $product->price }}</span>
                                 </div>
                             </div>
                         </a>
-
-                        @if($product->isNew())
-                            <div class="position-absolute top-0 end-0 m-2">
-                                <span class="badge bg-success rounded-pill px-2 py-1">New</span>
-                            </div>
-                        @endif
                     </div>
                 </div>
             @endforeach
@@ -55,62 +44,140 @@
 
 @include('components.newfooter')
 
-<!-- Custom Sleek Styling -->
+<!-- Integrated Product Card Styling -->
 <style>
     .product-card {
-        background-color: #f7f6f2;
-        border-radius: 16px;
-        padding: 15px;
-        margin-bottom: 20px;
-        box-shadow: 0 0 0 2px #3b5e3b; /* Visible dark outline */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #e0e0c7;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(77, 122, 46, 0.08);
+        position: relative;
     }
 
     .product-card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 0 0 2.5px #2f4d2f, 0 8px 16px rgba(0, 0, 0, 0.15); /* Darker outline and hover shadow */
+        transform: translateY(-7px);
+        box-shadow: 0 8px 20px rgba(77, 122, 46, 0.15);
+        border-color: #4d7a2e;
     }
 
-    .product-image img {
-        transition: transform 0.3s ease;
+    .product-card:hover .quick-view {
+        opacity: 1;
     }
 
-    .product-image img:hover {
+    .product-card:hover .product-image img {
         transform: scale(1.05);
     }
 
+    .product-image {
+        height: 200px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    .product-image::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background: linear-gradient(to top, rgba(249, 249, 232, 0.3), transparent);
+        z-index: 1;
+    }
+
+    .product-image img {
+        max-height: 170px;
+        max-width: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+        z-index: 2;
+    }
+
+    .product-info {
+        padding: 18px;
+        background: linear-gradient(to bottom, #f9f9e8, #f5f5dc);
+        position: relative;
+    }
+
     .product-info h5 {
+        color: #3a5a23;
+        font-weight: 600;
         margin-bottom: 8px;
-        font-size: 1.1rem;
-        color: #333;
+        font-size: 1.05rem;
+        transition: color 0.3s ease;
     }
 
-    .rating span {
-        font-size: 0.9rem;
+    .product-card:hover .product-info h5 {
+        color: #4d7a2e;
     }
 
-    .rating .fa-star {
-        color: #ffcc00;
+    .rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 10px;
     }
 
     .price {
-        color: #333;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #4d7a2e;
+        display: inline-block;
+        position: relative;
     }
 
-    .btn {
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    .price::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #4d7a2e;
+        transition: width 0.3s ease;
     }
 
-    .btn:hover {
-        background-color: #3a6240;
-        box-shadow: 0 4px 8px rgba(58, 98, 64, 0.3);
+    .product-card:hover .price::after {
+        width: 100%;
     }
 
-    .badge {
-        font-size: 12px;
-        font-weight: bold;
+    .new-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: #4d7a2e;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+        
+    }
+
+    .quick-view {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(77, 122, 46, 0.85);
+        color: white;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 5;
     }
 </style>
-
 </x-newheader>
 
