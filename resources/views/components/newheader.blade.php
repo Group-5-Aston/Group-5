@@ -395,33 +395,53 @@
             <div class="navbar-icons">
                 <div class="nav-item dropdown">
                     @if(Auth::check())
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0);">
+                        <!-- Dropdown Toggle -->
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="userDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
                             <i class="fa fa-user"></i>
-                            {{Auth::User()->name}}
+                            {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu">
+
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"  style="right: -40px; left: auto">
                             <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
                             <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
                             <li><a href="{{ route('return.index') }}" class="dropdown-item">Returns</a></li>
-                            @if(Auth::User()->usertype == 'admin')
-                                <li><a href="{{ route('admin.dashboard') }}" class="dropdown-item">Admin Dashboard</a>
-                                </li>
+
+                            @if(Auth::user()->usertype == 'admin')
+                                <li><a href="{{ route('admin.dashboard') }}" class="dropdown-item">Admin Dashboard</a></li>
                             @endif
+
+                            <!-- Divider for clarity -->
+                            <li><hr class="dropdown-divider"></li>
+
+                            <!-- Logout -->
                             <li>
-                                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                <form action="{{ route('logout') }}" method="POST">
                                     @csrf
                                     <button type="submit" class="dropdown-item">Logout</button>
                                 </form>
                             </li>
                         </ul>
                     @else
-                        <a href="{{ route('loginpage') }}">
+                        <!-- If not logged in -->
+                        <a href="{{ route('loginpage') }}" class="nav-link">
                             <i class="fa fa-user"></i>
                             Login
                         </a>
                     @endif
                 </div>
-                <a href="{{ route('basket.index') }}"><i class="fa fa-shopping-basket"></i></a>
+
+                <!-- Basket Icon -->
+                <a href="{{ route('basket.index') }}">
+                    <i class="fa fa-shopping-basket"></i>
+                </a>
             </div>
         </nav>
     </header>
