@@ -3,7 +3,7 @@
         <h2>
             Check out our Dog Products
         </h2>
-        
+
     </x-newshopshower>
       <!-- Return to Home Button -->
       <div class="text-center mt-5">

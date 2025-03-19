@@ -405,7 +405,8 @@
                             aria-expanded="false"
                         >
                             <i class="fa fa-user"></i>
-                            {{ Auth::user()->name }}
+                            <!-- If the name has more than 17 characters, put ... at the end -->
+                            {{ strlen(Auth::user()->name) > 17 ? substr(Auth::user()->name, 0, 17) . '...' : Auth::user()->name }}
                         </a>
 
                         <!-- Dropdown Menu -->

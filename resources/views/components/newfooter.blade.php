@@ -22,6 +22,7 @@
         margin: 0;
         padding: 40px 0; /* Adjust spacing */
         background: #2D2D2D; /* Ensures uniform color */
+        margin-top: 40px;
     }
 
     .info_container {
@@ -109,7 +110,7 @@
                         </a>
                         <a href="">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <span> contact@pup&purr.com</span>
+                            <span> pup_purr@yahoo.com </span>
                         </a>
                     </div>
                 </div>

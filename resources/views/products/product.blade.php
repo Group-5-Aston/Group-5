@@ -5,7 +5,8 @@
             <!-- Product Image -->
             <div class="col-md-6">
                 <img src="{{ Storage::url($product['image']) }}" alt="{{ $product['name'] }}"
-                    class="product-image w-100">
+                     class="product-image w-100 h-100"
+                     style="border-radius: 12px; box-shadow: 0 8px 20px rgba(77, 122, 46, 0.15);">
             </div>
 
             <!-- Product Details -->
@@ -23,7 +24,7 @@
                             <div class="form-group">
                                 <label for="quantity">Quantity:</label>
                                 <input type="number" id="quantity" name="quantity" min="1" value="1"
-                                    class="form-control" style="width: 120px;">
+                                       class="form-control" style="width: 120px;">
                             </div>
 
                             <!-- Size Selection (for beds or toys that have a size) -->
@@ -43,7 +44,8 @@
                                     <label for="flavor">Flavor:</label>
                                     <select id="flavor" name="flavor" class="form-control">
                                         @foreach($productOptions->unique('flavor') as $flavor)
-                                            <option value="{{ $flavor->flavor }}">{{ ucfirst($flavor->flavor) }}</option>
+                                            <option
+                                                value="{{ $flavor->flavor }}">{{ ucfirst($flavor->flavor) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -61,52 +63,52 @@
             </div>
 
             <!-- Tabs Section -->
-            <div class="tabs-section">
+            <div class="tabs-section" style="margin-top: 50px">
                 <ul class="nav nav-tabs" id="productTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#description"
-                            role="tab" aria-controls="description" aria-selected="true">Description</a>
+                           role="tab" aria-controls="description" aria-selected="true">Description</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab"
-                            aria-controls="reviews" aria-selected="false">Reviews</a>
+                           aria-controls="reviews" aria-selected="false">Reviews</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="productTabContent">
                     <div class="tab-pane fade show active" id="description" role="tabpanel"
-                        aria-labelledby="description-tab">
+                         aria-labelledby="description-tab">
                         <p class="mt-3">{{ $product['description'] }}</p>
                     </div>
 
                     <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
 
-                    <p>Average Rating:
-    @for ($i = 1; $i <= 5; $i++)
-        @if($i <= round($product->averageRating()))
-            ⭐
-        @else
-            ☆
-        @endif
-    @endfor
-    ({{ $product->reviews->count() }} reviews)
-</p>
+                        <p>Average Rating:
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if($i <= round($product->averageRating()))
+                                    ⭐
+                                @else
+                                    ☆
+                                @endif
+                            @endfor
+                            ({{ $product->reviews->count() }} reviews)
+                        </p>
 
-<!-- Display all reviews directly -->
-@foreach($product->reviews as $review)
-    <div class="review">
-        <p><strong>Rating:</strong>
-            @for ($i = 1; $i <= 5; $i++)
-                @if($i <= $review->rating)
-                    ⭐
-                @else
-                    ☆
-                @endif
-            @endfor
-        </p>
-        <p><strong>By:</strong> {{ $review->user->name }}</p>  <!-- Show the user's name -->
-        <p><strong>Review:</strong> {{ $review->review }}</p>
-    </div>
-@endforeach
+                        <!-- Display all reviews directly -->
+                        @foreach($product->reviews as $review)
+                            <div class="review">
+                                <p><strong>Rating:</strong>
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        @if($i <= $review->rating)
+                                            ⭐
+                                        @else
+                                            ☆
+                                        @endif
+                                    @endfor
+                                </p>
+                                <p><strong>By:</strong> {{ $review->user->name }}</p>  <!-- Show the user's name -->
+                                <p><strong>Review:</strong> {{ $review->review }}</p>
+                            </div>
+                        @endforeach
 
                         @if(auth()->user())
                             <form action="{{ route('reviews.store', $product->product_id) }}" method="POST">
@@ -126,8 +128,6 @@
                             <p><a href="{{ route('login') }}">Login to leave a review</a></p>
                         @endif
                     </div>
-
-
                 </div>
             </div>
         </div>
