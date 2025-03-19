@@ -24,25 +24,24 @@ class ProductController extends Controller
             ->orWhere('description', 'like', '%' . $query . '%')
             ->get();
 
-        return view('newpages.newsearch', ['products' => $products, 'products' => $products,
-            'showProductDetails' => false]);
+        return view('newpages.newsearch', ['products' => $products, 'showProductDetails' => false]);
     }
     public function filterPage()
     {
         // Get all unique product types
         $productTypes = Product::distinct('type')->pluck('type')->filter();
-        
+
         // Get min and max prices for range
         $minPrice = Product::min('price');
         $maxPrice = Product::max('price');
-        
+
         return view('newpages.newfilter', compact('productTypes', 'minPrice', 'maxPrice'));
     }
-    
+
     public function filterResults(Request $request)
     {
         $query = Product::query();
-        
+
         // Filter by animal type
         if ($request->has('animal') && $request->animal != 'all') {
             if ($request->animal == 'both') {
@@ -53,24 +52,24 @@ class ProductController extends Controller
                 $query->whereIn('cat_or_dog', [$request->animal, 'both']);
             }
         }
-        
+
         // Filter by product type
         if ($request->has('type') && $request->type != '') {
             $query->where('type', $request->type);
         }
-        
+
         // Filter by price range
         if ($request->has('min_price') && $request->min_price != '') {
             $query->where('price', '>=', $request->min_price);
         }
-        
+
         if ($request->has('max_price') && $request->max_price != '') {
             $query->where('price', '<=', $request->max_price);
         }
-        
+
         // Sort products
         if ($request->has('sort')) {
-            switch($request->sort) {
+            switch ($request->sort) {
                 case 'price_asc':
                     $query->orderBy('price', 'asc');
                     break;
@@ -85,20 +84,20 @@ class ProductController extends Controller
                     break;
             }
         }
-        
+
         $products = $query->get();
         $filterApplied = true;
-        
+
         // Get the same metadata as the filter page
         $productTypes = Product::distinct('type')->pluck('type')->filter();
         $minPrice = Product::min('price');
         $maxPrice = Product::max('price');
-        
+
         return view('newpages.newfilter', compact(
-            'products', 
-            'productTypes', 
-            'minPrice', 
-            'maxPrice', 
+            'products',
+            'productTypes',
+            'minPrice',
+            'maxPrice',
             'filterApplied'
         ));
     }
@@ -115,8 +114,11 @@ class ProductController extends Controller
         }
 
         // Return the search-specific product details view
-        return view('newpages.newsearch', ['product' => $product, 'products' => collect(), // Empty collection
-            'showProductDetails' => true,]);
+        return view('newpages.newsearch', [
+            'product' => $product,
+            'products' => collect(), // Empty collection
+            'showProductDetails' => true,
+        ]);
     }
 
     public function show(Product $product)
@@ -126,7 +128,7 @@ class ProductController extends Controller
         return view('products.product', compact('product', 'productOptions'));
     }
 
-  
+
 
 }
 

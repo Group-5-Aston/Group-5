@@ -18,13 +18,16 @@ class PaymentController extends Controller
         $shipping = $basket->total < 30.01 ? true : false;
 
         //Store the data for order
-        session(['pending order' => [
-            //Order data
-            'user_id' => auth()->id(),
-            'total' => $basket->total,
-            'shipping' => $shipping,
-            'address' => $address,
-            ]]
+        session(
+            [
+                'pending order' => [
+                    //Order data
+                    'user_id' => auth()->id(),
+                    'total' => $basket->total,
+                    'shipping' => $shipping,
+                    'address' => $address,
+                ]
+            ]
         );
         return redirect()->route('payment.index');
     }
@@ -45,8 +48,8 @@ class PaymentController extends Controller
 
         //Checks if all items in the basket have enough stock
         foreach (auth()->user()->basket->items as $item) {
-            if(!$item->stockCheck()) {
-                return redirect()->route('basket.index')->with('error', 'Not enough stock for ' . $item->productOption->product->name . '. Only ' . $item->productOption->stock. 'left!');
+            if (!$item->stockCheck()) {
+                return redirect()->route('basket.index')->with('error', 'Not enough stock for ' . $item->productOption->product->name . '. Only ' . $item->productOption->stock . 'left!');
             }
         }
 
@@ -87,7 +90,6 @@ class PaymentController extends Controller
 
         //Delete the basket so the user can shop again
         auth()->user()->basket()->delete();
-
-        return redirect()->route('payment.index')->with('success', 'Payment processed successfully!');
+        return redirect()->route('basket.index')->with('success', 'Payment processed successfully! Order has been placed!');
     }
 }
