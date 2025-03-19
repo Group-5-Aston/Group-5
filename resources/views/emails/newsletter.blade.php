@@ -30,8 +30,16 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- responsive style -->
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            background: #fefbe6;
+        }
+    </style>
 </head>
+
+<body>
 <div style="display: flex; align-items: center">
     <img src="{{ asset('images/logo.jpg') }}" alt="logo" style="height: 150px; width: 150px">
     <span style="color: #426b1f; font-size: 56px; font-weight: bold;">Pup & Purr</span>
@@ -75,5 +83,5 @@
 
 <br>
 <i>This email is for showcase purposes only, you will not be sent another one, nor are you subscribed to anything.</i>
-
+</body>
 </html>
