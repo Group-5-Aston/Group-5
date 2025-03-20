@@ -14,7 +14,7 @@ class AdminDashboardController extends Controller
         $pendingOrders = Order::where('status', 'pending')->orderBy('created_at', 'desc')->get();
         $pendingReturns = ReturnItem::where('status', 'returned')->orderBy('updated_at', 'desc')->get();
         $notifications = auth()->user()->notifications()->whereNull('read_at')->orderBy('created_at', 'desc')->get();
-        return view('newpages.newadminpages.admindahsboard'
+        return view('newpages.newadminpages.admindashboard'
             , compact('lowStockOptions'
                 , 'pendingOrders'
                 , 'pendingReturns'

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminInventoryController;
 use App\Http\Controllers\Admin\AdminOrdersController;
@@ -132,10 +133,8 @@ require __DIR__.'/auth.php';
 //Admin only routes
 Route::middleware(['auth', 'admin'])->group(function () {
 
-    //Route::get('admin/dashboard', [AdminDashboardController::class, 'home'])->name('admin.dashboard');
-    Route::get('/admin/home', [AdminHomeController::class, 'home'])->name('admin.home');
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'home'])->name('admin.dashboard');
 
-    Route::get('admin/dashboard',[HomeController::class,'index'])->name('admin.dashboard');
     //Admin customers page route
     Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
     //Admin view and edit user page route. Takes the user as a parameter and appends the ID it to the url. Also passes the user as a parameter to the controller.
