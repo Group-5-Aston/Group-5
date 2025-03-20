@@ -20,7 +20,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\PasswordController
+use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 
