@@ -79,9 +79,9 @@
                         <h5>
                             Newsletter
                         </h5>
-                        <form method="POST" action="{{route('subscribe')}}" >
+                        <form method="POST" action="{{route('subscribe')}}" id="newsletterForm">
                             @csrf
-                            <input type="email" name="email" placeholder="Enter your email">
+                            <input type="email" name="email" placeholder="Enter your email" required>
                             <button type="submit">
                                 Subscribe
                             </button>
@@ -132,8 +132,17 @@
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="js/custom.js"></script>
+
+<script>
+    //Alert that shows when newsletter form is sumbitted
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('newsletterForm');
+        form.addEventListener('submit', function (event) {
+            alert('Thanks for subscribing!');
+        });
+    });
+</script>
 
 <!-- end info section -->

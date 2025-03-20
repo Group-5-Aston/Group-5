@@ -20,7 +20,9 @@
                                 <div class="quick-view">View Details</div>
                             </div>
                             <div class="product-info">
-                                <h5>{{ $product->name }}</h5>
+                                <!-- If the name has more than 75 characters, put ... at the end -->
+                                <h5>{{ strlen($product->name) > 75 ? substr($product->name, 0, 75) . '...' : $product->name }}
+                                </h5>
                                 <div class="rating">
                                     <small>{{$product->averageRating()}}</small>
                                     {!! $product->review_stars !!}

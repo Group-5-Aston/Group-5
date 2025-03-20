@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::cKYVs8aRPEsLjSGu',
+            '_route' => 'generated::BQqECZpVMdFwxwqU',
           ),
           1 => NULL,
           2 => 
@@ -359,6 +359,46 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/catHygiene' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'newcatGH',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/dogHygiene' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'newdogGH',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/loginpage' => 
       array (
         0 => 
@@ -392,6 +432,45 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/passwordreset' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'passwordreset.request',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/passwordemail' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'passwordreset.email',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -690,7 +769,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::BuICh3esUKya6uDj',
+            '_route' => 'generated::EF5AQUuMLv0rzUFO',
           ),
           1 => NULL,
           2 => 
@@ -726,7 +805,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0TquYLxOZ80xo5y9',
+            '_route' => 'generated::CXLSvuEuU5m0bh9L',
           ),
           1 => NULL,
           2 => 
@@ -856,7 +935,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ay6KiEWU3mkba4I5',
+            '_route' => 'generated::77Ioxodh3tasofEl',
           ),
           1 => NULL,
           2 => 
@@ -1709,7 +1788,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::cKYVs8aRPEsLjSGu' => 
+    'generated::BQqECZpVMdFwxwqU' => 
     array (
       'methods' => 
       array (
@@ -1738,7 +1817,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d40000000000000000";}}',
-        'as' => 'generated::cKYVs8aRPEsLjSGu',
+        'as' => 'generated::BQqECZpVMdFwxwqU',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2523,6 +2602,80 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'newcatGH' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'catHygiene',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ShopController@newcatGH',
+        'controller' => 'App\\Http\\Controllers\\ShopController@newcatGH',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'newcatGH',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'newdogGH' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dogHygiene',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ShopController@newdogGH',
+        'controller' => 'App\\Http\\Controllers\\ShopController@newdogGH',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'newdogGH',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'loginpage' => 
     array (
       'methods' => 
@@ -2597,6 +2750,79 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'passwordreset.request' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'passwordreset',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PasswordController@showResetForm',
+        'controller' => 'App\\Http\\Controllers\\PasswordController@showResetForm',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'passwordreset.request',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'passwordreset.email' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'passwordemail',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PasswordController@sendResetLinkEmail',
+        'controller' => 'App\\Http\\Controllers\\PasswordController@sendResetLinkEmail',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'passwordreset.email',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'why' => 
     array (
       'methods' => 
@@ -2613,7 +2839,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
     return \\view(\'newpages.newwhy\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004f20000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004f60000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3167,7 +3393,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
     return \\view(\'dashboard\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005020000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005060000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3339,7 +3565,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::BuICh3esUKya6uDj' => 
+    'generated::EF5AQUuMLv0rzUFO' => 
     array (
       'methods' => 
       array (
@@ -3360,7 +3586,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::BuICh3esUKya6uDj',
+        'as' => 'generated::EF5AQUuMLv0rzUFO',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3414,7 +3640,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0TquYLxOZ80xo5y9' => 
+    'generated::CXLSvuEuU5m0bh9L' => 
     array (
       'methods' => 
       array (
@@ -3435,7 +3661,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::0TquYLxOZ80xo5y9',
+        'as' => 'generated::CXLSvuEuU5m0bh9L',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3755,7 +3981,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ay6KiEWU3mkba4I5' => 
+    'generated::77Ioxodh3tasofEl' => 
     array (
       'methods' => 
       array (
@@ -3776,7 +4002,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ay6KiEWU3mkba4I5',
+        'as' => 'generated::77Ioxodh3tasofEl',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4803,7 +5029,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000005040000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000005080000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,

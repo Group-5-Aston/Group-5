@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\OrderItem;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -15,7 +16,7 @@ class PaymentController extends Controller
         $basket = auth()->user()->basket;
         $basketItems = auth()->user()->basket->items;
         $address = $request->input('address');
-        $shipping = $basket->total < 30.01 ? true : false;
+        $shipping = $basket->total < 30.01;
 
         //Store the data for order
         session(
@@ -42,12 +43,29 @@ class PaymentController extends Controller
         //validates the card details
         $request->validate([
             'card_number' => ['required', 'digits:16', 'numeric'],
-            'expiry_date' => ['required', 'regex:/^(0[1-9]|1[0-2])\/\d{2}$/'],
+            'expiry_date' => [
+                'required',
+                'regex:/^(0[1-9]|1[0-2])\/\d{2}$/',
+                //Function to make sire expiry date is valid
+                function ($attribute, $value, $fail) {
+                    [$month, $year] = explode('/', $value);
+
+                    $year = '20' . $year;
+
+                    $expiryDate = Carbon::create($year, $month)->endOfMonth();
+
+                    if ($expiryDate->isPast()) {
+                        $fail('Invalid expiry date');
+                    }
+                }
+            ],
             'cvv' => ['required', 'digits_between:3,4', 'numeric']
         ]);
 
+        $basket = auth()->user()->basket;
+
         //Checks if all items in the basket have enough stock
-        foreach (auth()->user()->basket->items as $item) {
+        foreach ($basket->items as $item) {
             if (!$item->stockCheck()) {
                 return redirect()->route('basket.index')->with('error', 'Not enough stock for ' . $item->productOption->product->name . '. Only ' . $item->productOption->stock . 'left!');
             }
@@ -69,7 +87,7 @@ class PaymentController extends Controller
         ]);
 
         //Creates the Order Items
-        foreach (auth()->user()->basket->items as $item) {
+        foreach ($basket->items as $item) {
             OrderItem::create([
                 'order_id' => $order->order_id,
                 'option_id' => $item->option_id,
@@ -84,12 +102,12 @@ class PaymentController extends Controller
         }
 
         //Reduces stock
-        foreach (auth()->user()->basket->items as $item) {
+        foreach ($basket->items as $item) {
             $item->productOption->decrement('stock', $item->quantity);
         }
 
         //Delete the basket so the user can shop again
-        auth()->user()->basket()->delete();
+        $basket->delete();
         return redirect()->route('basket.index')->with('success', 'Payment processed successfully! Order has been placed!');
     }
 }
