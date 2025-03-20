@@ -1,41 +1,41 @@
 <x-newheader :products="$products ?? []">
     <div class="container">
         <div class="heading_container heading_center">
-           
+
         </div>
         <style>
             /* Updated Filter Form Styling */
             .filter-card {
-                border: 1px solid #e0e0c7;
+                border: 1px solid #4B7C47;
                 border-radius: 15px;
                 overflow: hidden;
-                background-color: #f9f9e8;
+                background-color: #fdfde7;
                 box-shadow: 0 4px 12px rgba(77, 122, 46, 0.08);
                 transition: all 0.3s ease;
                 margin-bottom: 2rem;
                 padding: 25px;
             }
-            
+
             .filter-card:hover {
                 box-shadow: 0 6px 16px rgba(77, 122, 46, 0.15);
                 transform: translateY(-3px);
             }
-            
+
             .filter-title {
-                color: #3a5a23;
+                color: #4B7C47;
                 font-weight: 600;
                 margin-bottom: 20px;
                 font-size: 1.3rem;
                 text-align: center;
             }
-            
+
             /* Form elements styling */
             .form-label {
-                color: #4d7a2e;
+                color: #4B7C47;
                 font-weight: 500;
                 margin-bottom: 8px;
             }
-            
+
             .form-select, .form-control {
                 border: 1px solid #e0e0c7;
                 border-radius: 25px;
@@ -43,24 +43,24 @@
                 background-color: #fff;
                 transition: all 0.3s ease;
             }
-            
+
             .form-select:focus, .form-control:focus {
                 border-color: #4B7C47;
                 box-shadow: 0 0 0 0.2rem rgba(75, 124, 71, 0.25);
                 outline: none;
             }
-            
+
             .input-group-text {
                 border-radius: 25px 0 0 25px;
                 background-color: #4B7C47;
                 color: #fff;
                 border: none;
             }
-            
+
             .input-group .form-control {
                 border-radius: 0 25px 25px 0;
             }
-            
+
             /* Button styling */
             .btn-filter {
                 background-color: #4B7C47;
@@ -80,34 +80,34 @@
                 margin-right: 12px;
                 margin-top: 10px;
             }
-            
+
             .btn-filter:hover {
                 background-color: #3a6240;
                 box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
                 transform: translateY(-2px);
+                color: white;
             }
-            
+
             .btn-filter.reset {
                 background-color: #e0e0c7;
                 color: #3a5a23;
             }
-            
+
             .btn-filter.reset:hover {
                 background-color: #d0d0b7;
             }
-            
+
             .button-group {
                 text-align: center;
                 margin-top: 20px;
             }
-            
+
             /* Keep existing product card styling */
             .product-card {
                 border: 1px solid #e0e0c7;
                 border-radius: 12px;
                 overflow: hidden;
                 transition: all 0.4s ease;
-                height: 100%;
                 background-color: #fff;
                 box-shadow: 0 4px 12px rgba(77, 122, 46, 0.08);
                 position: relative;
@@ -219,7 +219,7 @@
                 z-index: 5;
             }
         </style>
-        
+
         <div class="row">
             <div class="col-md-12">
                 <div class="filter-card">
@@ -234,10 +234,10 @@
                                     <option value="all" {{ request('animal') == 'all' ? 'selected' : '' }}>All Animals</option>
                                     <option value="cat" {{ request('animal') == 'cat' ? 'selected' : '' }}>Cats</option>
                                     <option value="dog" {{ request('animal') == 'dog' ? 'selected' : '' }}>Dogs</option>
-                                    
+
                                 </select>
                             </div>
-                            
+
                             <!-- Product Type Filter -->
                             <div class="col-md-6 mb-3">
                                 <label for="type" class="form-label">Product Type</label>
@@ -250,41 +250,41 @@
                                     @endforeach
                                 </select>
                             </div>
-                            
+
                             <!-- Price Range Filter (Min) -->
                             <div class="col-md-6 mb-3">
                                 <label for="min_price" class="form-label">Min Price</label>
                                 <div class="input-group">
                                     <span class="input-group-text">£</span>
-                                    <input 
-                                        type="number" 
-                                        class="form-control" 
-                                        name="min_price" 
-                                        id="min_price" 
-                                        value="{{ request('min_price', $minPrice) }}" 
-                                        min="0" 
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        name="min_price"
+                                        id="min_price"
+                                        value="{{ request('min_price', $minPrice) }}"
+                                        min="0"
                                         step="0.01"
                                     >
                                 </div>
                             </div>
-                            
+
                             <!-- Price Range Filter (Max) -->
                             <div class="col-md-6 mb-3">
                                 <label for="max_price" class="form-label">Max Price</label>
                                 <div class="input-group">
                                     <span class="input-group-text">£</span>
-                                    <input 
-                                        type="number" 
-                                        class="form-control" 
-                                        name="max_price" 
-                                        id="max_price" 
-                                        value="{{ request('max_price', $maxPrice) }}" 
-                                        min="0" 
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        name="max_price"
+                                        id="max_price"
+                                        value="{{ request('max_price', $maxPrice) }}"
+                                        min="0"
                                         step="0.01"
                                     >
                                 </div>
                             </div>
-                            
+
                             <!-- Sort Options -->
                             <div class="col-md-6 mb-3">
                                 <label for="sort" class="form-label">Sort By</label>
@@ -295,7 +295,7 @@
                                     <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Newest First</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Submit & Reset -->
                             <div class="col-12 button-group">
                                 <button type="submit" class="btn-filter">Apply Filters</button>
@@ -306,13 +306,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Filter Results Section -->
         @if(isset($filterApplied) && $filterApplied)
             <div class="heading_container">
                 <h4>Filter Results ({{ count($products) }} products found)</h4>
             </div>
-            
+
             <div class="row">
                 @forelse($products as $product)
                     <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -348,7 +348,7 @@
                     </div>
                 @endforelse
             </div>
-            
+
             <!-- Return to Home Button -->
             <div class="text-center mt-5 mb-4">
                 <a href="{{ route('home') }}" class="btn-filter" style="padding: 14px 30px;">
@@ -357,6 +357,6 @@
             </div>
         @endif
     </div>
-        
+
     @include('components.newfooter')
 </x-newheader>

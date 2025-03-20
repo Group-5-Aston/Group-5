@@ -24,8 +24,6 @@
                                             and looking their best. </p>
                                         <a href= {{route('contact')}}>
                                             Contact Us
-
-
                                         </a>
                                     </div>
                                 </div>
@@ -156,7 +154,6 @@
     <!-- end client review section -->
 
     <!-- client review section -->
-
 
 
     @include ('components.newfooter')

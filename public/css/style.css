@@ -497,19 +497,18 @@ a:focus {
 .slider_section .detail-box a {
     display: inline-block;
     padding: 10px 40px;
-    background-color: #426b1f;
+    background-color: #4B7C47;
     color: #ffffff;
     border: 1px solid #426b1f;
-    border-radius: 5px;
+    border-radius: 30px;
     -webkit-transition: all .3s;
-    transition: all .3s;
     margin-top: 25px;
     text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
 .slider_section .detail-box a:hover {
-    background-color: transparent;
-    color: #426b1f;
+    background-color: #3a6240;
 }
 
 .slider_section .carousel_btn-box {
@@ -816,6 +815,7 @@ a:focus {
 .contact_section .container-bg {
     -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #4B7C47;
 }
 
 .contact_section .heading_container {
@@ -833,32 +833,17 @@ a:focus {
     padding: 45px 20px;
 }
 
-.contact_section input {
+.contact_section input,
+.contact_section textarea {
     width: 100%;
-    border: 1px solid #919191;
+    border: 1px solid #3b5e3b;
+    border-radius: 30px;
+    background-color: white;
     height: 50px;
     margin-bottom: 25px;
     padding-left: 25px;
-    background-color: transparent;
-    outline: none;
-    color: #1b4028;
 }
 
-.contact_section input::-webkit-input-placeholder {
-    color: #131313;
-}
-
-.contact_section input:-ms-input-placeholder {
-    color: #131313;
-}
-
-.contact_section input::-ms-input-placeholder {
-    color: #131313;
-}
-
-.contact_section input::placeholder {
-    color: #131313;
-}
 
 .contact_section input.message-box {
     height: 120px;
@@ -867,20 +852,12 @@ a:focus {
 .contact_section button {
     display: inline-block;
     padding: 12px 45px;
-    background-color: #426b1f;
-    color: #ffffff;
-    border: 1px solid #426b1f;
-    border-radius: 0;
-    -webkit-transition: all .3s;
-    transition: all .3s;
-    display: block;
-    color: #fff;
     margin: 35px auto 0 auto;
 }
 
 .contact_section button:hover {
-    background-color: transparent;
-    color: #426b1f;
+    background-color: #3b511f;
+    color: white;
 }
 
 .contact_section .map_container {
@@ -991,16 +968,26 @@ a:focus {
     outline: none;
     width: 100%;
     padding: 7px 10px;
+    border-radius: 30px;
+    border: 1px solid #3b5e3b;
+
 }
 
 .info_section .info_form form button {
     padding: 8px 35px;
     outline: none;
     border: none;
+    border-radius: 30px;
     color: #ffffff;
-    background: #808f5b;
+    background: #4B7C47;
     margin-top: 15px;
     text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.info_section .info_form form button:hover {
+    background-color: #3b511f;
+    color: white;
 }
 
 .info_section .row > div {

@@ -4,11 +4,12 @@
         .order-container {
             max-width: 1200px;
             margin: auto;
-            padding: 20px;
+            padding: 0px 20px 20px 20px;
         }
 
         .order-card {
-            background: #f4f4f4;
+            background: #fdfde7;
+            border: 1px solid #4B7C47;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -16,7 +17,7 @@
         }
 
         .order-card h3 {
-            color: #4a6425;
+            color: #4B7C47;
         }
 
         .order-card p {
@@ -53,13 +54,13 @@
         }
 
         .order-buttons button, .order-buttons a {
-            background-color: #4a6425;
+            background-color: #4B7C47;
             color: white;
             border: none;
             padding: 10px 15px;
             font-size: 14px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 30px;
             text-decoration: none;
             display: inline-block;
             transition: background-color 0.3s ease-in-out;
@@ -84,7 +85,7 @@
                     <p><strong>Total:</strong> £{{$order->calculateTotal()}} ({{$order->orderItems->count()}} item(s))</p>
                     <p><strong>Delivery Time:</strong> {{$order->deliveryTime() }}</p>
 
-                    
+
                     @if(isset($order->orderItems) && $order->orderItems->count() > 0)
                         <div class="order-items">
                             @foreach($order->orderItems as $item)
@@ -101,7 +102,7 @@
                             @endforeach
                         </div>
                     @endif
-                    
+
                     <form method="POST" action="{{route('order.cancel', $order)}}" class="order-buttons">
                         @csrf
                         @method('PATCH')

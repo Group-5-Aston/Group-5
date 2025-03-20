@@ -9,7 +9,7 @@
         <!-- Basket Items Section -->
         <div class="col-md-8">
             <div class="d-flex justify-content-between align-items-center mb-5">
-                <h1 class="display-5 fw-semibold" style="color: #3b5e3b;">Your Basket</h1>
+                <h1 class="display-5 fw-semibold" style="color: black;">Your Basket</h1>
                 <a href="{{ route('filter.page') }}" class="btn btn-outline-success rounded-pill px-4 py-2"
                    style="border-color: #3b5e3b; color: #3b5e3b;">
                     Continue Shopping
@@ -33,7 +33,7 @@
                             <!-- Item Details -->
                             <div class="col-md-5">
                                 <div class="card-body p-0">
-                                    <h5 class="basket-product-title">
+                                    <h5 class="basket-product-title" style="color: #4B7C47">
                                         {{ $item->productOption->product->name }}
                                     </h5>
 
@@ -53,7 +53,7 @@
                                         <strong>Quantity:</strong> {{ $item->quantity }}
                                     </p>
 
-                                    <p class="basket-product-price">
+                                    <p class="basket-product-price" style="color:#4B7C47">
                                         £{{ number_format($item->price, 2) }}
                                     </p>
                                 </div>
@@ -78,7 +78,7 @@
                                               id="update-form-{{ $item->id }}">
                                             @csrf
                                             @method("PATCH")
-                                            <input 
+                                            <input
                                                 type="number"
                                                 name="quantity"
                                                 value="{{ $item->quantity }}"
@@ -93,11 +93,11 @@
 
                                 <!-- Separate row for Update Quantity button, referencing above form -->
                                 <div class="mt-3 w-100">
-                                    <button 
-                                        type="submit" 
-                                        form="update-form-{{ $item->id }}" 
+                                    <button
+                                        type="submit"
+                                        form="update-form-{{ $item->id }}"
                                         class="btn btn-success btn-sm w-100 rounded-pill shadow-sm"
-                                        style="background-color: #3b5e3b; border-color: #3b5e3b;"
+                                        style="background-color: #4B7C47; border-color: #4B7C47;"
                                     >
                                         Update Quantity
                                     </button>
@@ -152,7 +152,7 @@
                         </ul>
 
                         <a href="{{ route('checkout.index') }}" class="btn btn-success w-100 rounded-pill py-3 fw-semibold shadow-sm"
-                            style="background-color: #3b5e3b; border-color: #3b5e3b;">
+                            style="background-color: #4B7C47; border-color: #4B7C47;">
                             Continue to Checkout →
                         </a>
                     @else
@@ -171,7 +171,7 @@
 /* Basket Product Card: matches shop design, adapted for the basket layout */
 .basket-product-card {
   background-color: #fdfde7;
-  border: 1px solid #3b5e3b;
+  border: 1px solid #4B7C47;
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(77, 122, 46, 0.08);
   transition: all 0.4s ease;
@@ -180,7 +180,7 @@
 .basket-product-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(77, 122, 46, 0.15);
-  border-color: #4d7a2e;
+  border-color: #4B7C47;
 }
 
 /* Basket Product Image */

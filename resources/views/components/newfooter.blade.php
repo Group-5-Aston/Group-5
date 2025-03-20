@@ -44,6 +44,7 @@
     .hero_area, .main-content {
         padding-top: 150px; /* Adds space at the top of the page */
     }
+
 </style>
 
 
@@ -82,7 +83,7 @@
                         <form method="POST" action="{{route('subscribe')}}" id="newsletterForm">
                             @csrf
                             <input type="email" name="email" placeholder="Enter your email" required>
-                            <button type="submit">
+                            <button type="submit" class="submit-btn">
                                 Subscribe
                             </button>
                         </form>

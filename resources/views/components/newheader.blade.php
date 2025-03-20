@@ -137,16 +137,16 @@
             padding: 9px 20px;
             border-radius: 30px;
             cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
         }
 
         .search-button:hover {
-            background-color: #3a6240;
-            box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
+            background-color: #3b511f;
         }
 
         .search-button:focus {
             outline: none;
-            box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
         }
 
         /* Filter Button */
@@ -157,17 +157,17 @@
             padding: 9px 20px;
             border-radius: 30px;
             cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
         }
 
         .filter-btn:hover {
-            background-color: #3a6240;
-            box-shadow: 0 4px 8px rgba(58, 98, 64, 0.4);
+            background-color: #3b511f;
             color: white;
         }
 
         .filter-btn:focus {
             outline: none;
-            box-shadow: 0 0 8px rgba(75, 124, 71, 0.5);
         }
 
         /* Icon size for filter button */
