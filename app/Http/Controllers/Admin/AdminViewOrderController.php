@@ -49,7 +49,9 @@ Class  AdminViewOrderController extends Controller
     }
 
     public function process(Order $order) {
-        $order->update(['status' => 'complete']);
+        $order->update([
+            'status' => 'complete',
+            'delivered_at' => now()]);
         return redirect()->route('adminorder.show', $order)->with('success', 'Order dispatched.');
     }
 

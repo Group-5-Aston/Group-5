@@ -51,6 +51,8 @@ class OrderController extends Controller
             'total' => ($data['quantity']*$orderItem->price),
             'status' => 'returned'
         ]);
+
+        $orderItem->order->update(['status' => 'returned']);
         return redirect()->route('order.return.address');
     }
 

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminInventoryController;
 use App\Http\Controllers\Admin\AdminOrdersController;
 use App\Http\Controllers\Admin\AdminProductController;
@@ -110,12 +109,16 @@ Route::get('/orders/return/{orderItem}', [OrderController::class, 'returnForm'])
 Route::post('/orders/return/{orderItem}/create', [OrderController::class, 'createReturn'])->name('order.createreturn');
 Route::get('/orders/return/create/address', [OrderController::class, 'returnAddress'])->name('order.return.address');
 
+//Review page routes
+Route::get('/orders/review/{orderItem}', [ReviewController::class, 'index'])->name('review.index');
+Route::post('orders/reviews/{orderItem}', [ReviewController::class, 'store'])->name('review.store');
+
+
 //Return page
 Route::get('/returns', [ReturnController::class, 'index'])->name('return.index');
 
 
 
-Route::post('/reviews/{product}', [ReviewController::class, 'store'])->name('reviews.store');
 
 
 Route::get('/dashboard', function () {

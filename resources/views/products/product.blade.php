@@ -109,24 +109,6 @@
                                 <p><strong>Review:</strong> {{ $review->review }}</p>
                             </div>
                         @endforeach
-
-                        @if(auth()->user())
-                            <form action="{{ route('reviews.store', $product->product_id) }}" method="POST">
-                                @csrf
-                                <label for="ratings">Rating</label>
-                                <select name="rating" id="rating" required>
-                                    <option value="1">⭐</option>
-                                    <option value="2">⭐⭐</option>
-                                    <option value="3">⭐⭐⭐</option>
-                                    <option value="4">⭐⭐⭐⭐</option>
-                                    <option value="5">⭐⭐⭐⭐⭐</option>
-                                </select>
-                                <textarea name="reviews" placeholder="Leave your review here" required></textarea>
-                                <button type="submit">Submit</button>
-                            </form>
-                        @else
-                            <p><a href="{{ route('login') }}">Login to leave a review</a></p>
-                        @endif
                     </div>
                 </div>
             </div>

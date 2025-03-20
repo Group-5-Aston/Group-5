@@ -215,7 +215,11 @@ class BasketController extends Controller
 
     public function removeItem(BasketItem $bitem)
     {
+
         $bitem->delete();
+        $basket = auth()->user()->basket;
+        $basket->total = $basket->items->sum('total');
+        $basket->save();
 
         return redirect()->route('basket.index')->with('success', 'Item removed from basket.');
     }

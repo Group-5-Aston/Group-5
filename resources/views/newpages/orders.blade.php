@@ -53,6 +53,12 @@
             margin-top: 15px;
         }
 
+        .order-buttons a:disabled {
+            background-color: #A3B8A1;
+            cursor: default;
+        }
+
+
         .order-buttons button, .order-buttons a {
             background-color: #4B7C47;
             color: white;
@@ -69,20 +75,26 @@
         .order-buttons button:hover, .order-buttons a:hover {
             background-color: #3b511f;
         }
+
+        .order-buttons button:disabled {
+            background-color: #A3B8A1;
+            cursor: default;
+        }
     </style>
 
     <div class="order-container">
         <h1>Your Orders</h1>
 
-        <x-alert type="success" :message="session('success')" />
-        <x-alert type="error" :message="session('error')" />
+        <x-alert type="success" :message="session('success')"/>
+        <x-alert type="error" :message="session('error')"/>
 
         @if(isset($orders) && $orders->count() > 0)
             @foreach($orders as $order)
                 <div class="order-card">
                     <h3>Order #{{ $order->order_id }}</h3>
                     <p><strong>Order Date:</strong> {{$order->created_at}}</p>
-                    <p><strong>Total:</strong> £{{$order->calculateTotal()}} ({{$order->orderItems->count()}} item(s))</p>
+                    <p><strong>Total:</strong> £{{$order->calculateTotal()}} ({{$order->orderItems->count()}} item(s))
+                    </p>
                     <p><strong>Delivery Time:</strong> {{$order->deliveryTime() }}</p>
 
 
@@ -90,13 +102,16 @@
                         <div class="order-items">
                             @foreach($order->orderItems as $item)
                                 <div class="order-item">
-                                    <img src="{{Storage::url($item->image)}}" height="120" width="120" alt="Product image">
+                                    <img src="{{Storage::url($item->image)}}" height="120" width="120"
+                                         alt="Product image">
                                     <h5>{{$item->nameSizeFlavour()}}</h5>
                                     <small>Quantity: {{$item->quantity}}</small>
                                     <p><strong>£{{$item->total}}</strong></p>
                                     <div class="order-buttons">
-                                        <a href="{{route('order.return', $item, $order)}}">Make a Return</a>
-                                        <a href="#">Leave a Review</a>
+                                        @if($order->status == 'complete' || $order->status == 'returned')
+                                            <a href="{{route('order.return', $item, $order)}}">Make a Return</a>
+                                            <a href="{{route('review.index', $item)}}">Leave a Review</a>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach
@@ -106,7 +121,8 @@
                     <form method="POST" action="{{route('order.cancel', $order)}}" class="order-buttons">
                         @csrf
                         @method('PATCH')
-                        <button type="submit" {{ $order->status != 'pending' ? 'disabled' : '' }} onclick="return confirm('Are you sure you wish to cancel this order? If so you will be refunded in at least 2 business days')">
+                        <button type="submit"
+                                {{ $order->status != 'pending' ? 'disabled' : '' }} onclick="return confirm('Are you sure you wish to cancel this order? If so you will be refunded in at least 2 business days')">
                             Cancel Order
                         </button>
                     </form>

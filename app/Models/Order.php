@@ -14,7 +14,7 @@ class Order extends Model
     protected $primaryKey = 'order_id';
     public $timestamps = true;
 
-    protected $fillable = ['user_id', 'total', 'shipping', 'address', 'status', 'message'];
+    protected $fillable = ['user_id', 'total', 'shipping', 'address', 'status', 'message', 'delivered_at'];
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class, 'order_id');
@@ -72,5 +72,9 @@ class Order extends Model
             return 'Delivered at: ' . $this->delivered_at->format('j F, Y');
         }
     }
+
+    protected $casts = [
+        'delivered_at' => 'datetime',
+    ];
 
 }
