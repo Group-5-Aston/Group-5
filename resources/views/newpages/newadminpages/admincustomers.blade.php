@@ -1,10 +1,67 @@
 <x-newheader>
 
-    <x-alert type="success" :message="session('success')" />
+    <style>
 
-    <h2>List of Users</h2>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #426b1f;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .heading_container {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0px 0px 10px 10px;
+        }
+
+        h2 {
+            color: #426b1f;
+        }
+
+    </style>
+
+    <x-alert type="success" :message="session('success')"/>
+    <div class="heading_container heading_center">
+        <h2>List of Users</h2>
+    </div>
     <!-- search bar -->
-    <input type="text" id="search" placeholder="Search by name, email, or usertype" autocomplete="off">
+    <input type="text" id="search" class="search-box" placeholder="Search by name, email, or usertype" autocomplete="off">
 
     <table>
         <thead>
@@ -88,5 +145,6 @@
             });
         });
     </script>
+    @include('components.newcompactfooter')
 
 </x-newheader>

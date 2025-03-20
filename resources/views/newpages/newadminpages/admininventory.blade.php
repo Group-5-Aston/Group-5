@@ -30,7 +30,6 @@
         }
 
         .heading_container {
-            padding-top: 48px;
             margin-bottom: 20px;
             position: relative;
         }

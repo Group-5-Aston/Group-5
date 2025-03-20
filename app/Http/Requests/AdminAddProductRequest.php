@@ -33,4 +33,14 @@ class AdminAddProductRequest extends FormRequest
             'stock' => ['required', 'integer', 'min:0', 'required'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'image.required' => 'An image is required for the product.',
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, or svg.',
+            'image.max' => 'The image size must not exceed 2 MB.',
+        ];
+    }
 }

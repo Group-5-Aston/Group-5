@@ -1,3 +1,4 @@
+<x-newheader>
 <style>
 
 .container2 {
@@ -12,18 +13,17 @@
     align-items: center;
 }
 
-form {
+.container2 form {
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-input, select, textarea {
+.container2 input, select, textarea {
     width: 100%;
     max-width: 700px;
     padding: 12px;
-    margin: 12px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
@@ -39,7 +39,6 @@ textarea {
 }
 
 select {
-    margin-bottom: 16px;
 }
 
 input[type="file"] {
@@ -47,8 +46,9 @@ input[type="file"] {
     margin-bottom: 12px;
 }
 
-input[type="submit"] {
+.container2 input[type="submit"] {
     background-color: #4a6425;
+    text-align: center;
     color: white;
     border: none;
     padding: 12px;
@@ -60,7 +60,7 @@ input[type="submit"] {
     transition: background 0.3s ease-in-out;
 }
 
-input[type="submit"]:hover {
+.container2 input[type="submit"]:hover {
     background-color: #3b511f;
 }
 
@@ -72,18 +72,24 @@ p {
 }
 
 h2 {
-    color: #426b1f;s
+    color: #426b1f;
 }
 
 </style>
 
-<x-newheader>
     <div class="heading_container heading_center">
-        <h2 style="padding-top:48px;">Create a new product</h2> <p></p>
+        <h2>Create a new product</h2> <p></p>
     </div>
 
-    <x-alert type="success" :message="session('success')" />
-    <x-alert type="error" :message="session('error')" />
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <div class="container2">
         <form method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
