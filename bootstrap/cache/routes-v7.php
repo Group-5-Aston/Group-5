@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::sPsJs1dIPxjXzVEG',
+            '_route' => 'generated::tb9Bjur1mcY1O9Ik',
           ),
           1 => NULL,
           2 => 
@@ -769,7 +769,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::mNM9NTaAo31Sata4',
+            '_route' => 'generated::IAFNLufOpy39uUBz',
           ),
           1 => NULL,
           2 => 
@@ -805,7 +805,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Nm2K3hzz496XaUWK',
+            '_route' => 'generated::cYDkR5WuJrnoIK58',
           ),
           1 => NULL,
           2 => 
@@ -935,7 +935,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::LYL6R3gdSBOP4mLq',
+            '_route' => 'generated::8n4WI7Bcg8ezTlWU',
           ),
           1 => NULL,
           2 => 
@@ -1791,7 +1791,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::sPsJs1dIPxjXzVEG' => 
+    'generated::tb9Bjur1mcY1O9Ik' => 
     array (
       'methods' => 
       array (
@@ -1801,26 +1801,12 @@ app('router')->setCompiledRoutes(
       'uri' => 'up',
       'action' => 
       array (
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:835:"function () {
-                    $exception = null;
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:398:"function () {
+                    \\Illuminate\\Support\\Facades\\Event::dispatch(new \\Illuminate\\Foundation\\Events\\DiagnosingHealth);
 
-                    try {
-                        \\Illuminate\\Support\\Facades\\Event::dispatch(new \\Illuminate\\Foundation\\Events\\DiagnosingHealth);
-                    } catch (\\Throwable $e) {
-                        if (app()->hasDebugModeEnabled()) {
-                            throw $e;
-                        }
-
-                        report($e);
-
-                        $exception = $e->getMessage();
-                    }
-
-                    return response(\\Illuminate\\Support\\Facades\\View::file(\'C:\\\\xampp\\\\htdocs\\\\GitHub\\\\Group-5\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
-                        \'exception\' => $exception,
-                    ]), status: $exception ? 500 : 200);
-                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d40000000000000000";}}',
-        'as' => 'generated::sPsJs1dIPxjXzVEG',
+                    return \\Illuminate\\Support\\Facades\\View::file(\'C:\\\\Users\\\\daraa\\\\OneDrive\\\\CS1IADD\\\\xampp\\\\htdocs\\\\dashboard\\\\Group-5\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\');
+                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d60000000000000000";}}',
+        'as' => 'generated::tb9Bjur1mcY1O9Ik',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2842,7 +2828,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
     return \\view(\'newpages.newwhy\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004f60000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004f80000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3433,7 +3419,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
     return \\view(\'dashboard\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005070000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005090000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3605,7 +3591,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::mNM9NTaAo31Sata4' => 
+    'generated::IAFNLufOpy39uUBz' => 
     array (
       'methods' => 
       array (
@@ -3626,7 +3612,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::mNM9NTaAo31Sata4',
+        'as' => 'generated::IAFNLufOpy39uUBz',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3680,7 +3666,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Nm2K3hzz496XaUWK' => 
+    'generated::cYDkR5WuJrnoIK58' => 
     array (
       'methods' => 
       array (
@@ -3701,7 +3687,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Nm2K3hzz496XaUWK',
+        'as' => 'generated::cYDkR5WuJrnoIK58',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4021,7 +4007,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::LYL6R3gdSBOP4mLq' => 
+    'generated::8n4WI7Bcg8ezTlWU' => 
     array (
       'methods' => 
       array (
@@ -4042,7 +4028,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::LYL6R3gdSBOP4mLq',
+        'as' => 'generated::8n4WI7Bcg8ezTlWU',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5024,13 +5010,13 @@ app('router')->setCompiledRoutes(
       'uri' => 'storage/{path}',
       'action' => 
       array (
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:3:{s:4:"disk";s:5:"local";s:6:"config";a:4:{s:6:"driver";s:5:"local";s:4:"root";s:50:"C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\app/private";s:5:"serve";b:1;s:5:"throw";b:0;}s:12:"isProduction";b:0;}s:8:"function";s:323:"function (\\Illuminate\\Http\\Request $request, string $path) use ($disk, $config, $isProduction) {
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:3:{s:4:"disk";s:5:"local";s:6:"config";a:4:{s:6:"driver";s:5:"local";s:4:"root";s:82:"C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\app/private";s:5:"serve";b:1;s:5:"throw";b:0;}s:12:"isProduction";b:0;}s:8:"function";s:323:"function (\\Illuminate\\Http\\Request $request, string $path) use ($disk, $config, $isProduction) {
                     return (new \\Illuminate\\Filesystem\\ServeFile(
                         $disk,
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000005090000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"000000000000050b0000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,
