@@ -20,52 +20,45 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 
-
+//newsletter route
 route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('subscribe');
 
-Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
-
-Route::post('/payment/prepare', [PaymentController::class, 'prepareOrder'])->name('payment.prepare');
-Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
-
-Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
+Route::middleware('auth')->group(function () {
+//Payment routes
+    Route::post('/payment/prepare', [PaymentController::class, 'prepareOrder'])->name('payment.prepare');
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+    Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
 
 //Basket routes
-Route::post('/basket/remove/{bitem}', [BasketController::class, 'removeItem'])->name('basket.removeItem');
-Route::patch('basket/quantity/{bitem}', [BasketController::class, 'quantity'])->name('basket.quantity.update');
-Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
-Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
-Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
-Route::get('/checkout', [BasketController::class, 'checkout'])->name('checkout.index');
+    Route::post('/basket/remove/{bitem}', [BasketController::class, 'removeItem'])->name('basket.removeItem');
+    Route::patch('basket/quantity/{bitem}', [BasketController::class, 'quantity'])->name('basket.quantity.update');
+    Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
+    Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
+    Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
 
-//Route::middleware(['auth', 'check.cart'])->group(function () {
+//Checkout route
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
-//});
-
-
-//Route::middleware(['admin'])->group(function () {
-    //Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard'); // Only accessible by admin users
-    // Add other admin routes here
-//});
+});
 
 // Home routes
-Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
- // Shop routes
-Route::get('/shop',[ShopController::class,'shop'])->name('shop');
-Route::get('/fullshop',[ShopController::class,'fullShop'])->name('fullshop');
-Route::get('/catshop',[ShopController::class,'catShop'])->name('catshop');
-Route::get('/dogshop',[ShopController::class,'dogShop'])->name('dogshop');
-//Route::get('/product/{product}',[ShopController::class,'productPage'])->name('product');
+// Shop routes
+Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
+Route::get('/fullshop', [ShopController::class, 'fullShop'])->name('fullshop');
+Route::get('/catshop', [ShopController::class, 'catShop'])->name('catshop');
+Route::get('/dogshop', [ShopController::class, 'dogShop'])->name('dogshop');
+
+//Product page
+Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
 // additional shop pages
-Route::get('/dogclothes',[ShopController::class,'dogClothes'])->name('dogclothes');
-Route::get('/catclothes',[ShopController::class,'catClothes'])->name('catclothes');
+Route::get('/dogclothes', [ShopController::class, 'dogClothes'])->name('dogclothes');
+Route::get('/catclothes', [ShopController::class, 'catClothes'])->name('catclothes');
 
 // routes for cat and dog toys
 Route::get('/cattoys', [ShopController::class, 'catToys'])->name('cattoys');
@@ -76,12 +69,8 @@ Route::get('/catHygiene', [ShopController::class, 'newcatGH'])->name('newcatGH')
 Route::get('/dogHygiene', [ShopController::class, 'newdogGH'])->name('newdogGH');
 
 //Login routes
-Route::get('/loginpage',[LoginController::class,'login'])->name('loginpage');
-Route::get('/signup',[LoginController::class,'signUp'])->name('signup');
-
-//Password Routes
-Route::get('/passwordreset', [PasswordController::class, 'showResetForm'])->name('passwordreset.request');
-Route::post('/passwordemail', [PasswordController::class, 'sendResetLinkEmail'])->name('passwordreset.email');
+Route::get('/loginpage', [LoginController::class, 'login'])->name('loginpage');
+Route::get('/signup', [LoginController::class, 'signUp'])->name('signup');
 
 //About us page route
 Route::get('/why', function () {
@@ -92,48 +81,39 @@ Route::get('/why', function () {
 Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submitContact'])->name('submitContact');
 
-
 //Search page routes
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+
 // Route to handle the search functionality
 Route::get('/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/filter', [ProductController::class, 'filterPage'])->name('filter.page');
 Route::get('/filter/results', [ProductController::class, 'filterResults'])->name('filter.results');
-
 Route::get('/product/{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
+Route::middleware('auth')->group(function () {
 //Order page routes
-Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
-Route::patch('/orders/{order}', [OrderController::class, 'cancel'])->name('order.cancel');
-Route::get('/orders/return/{orderItem}', [OrderController::class, 'returnForm'])->name('order.return');
-Route::post('/orders/return/{orderItem}/create', [OrderController::class, 'createReturn'])->name('order.createreturn');
-Route::get('/orders/return/create/address', [OrderController::class, 'returnAddress'])->name('order.return.address');
+    Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
+    Route::patch('/orders/{order}', [OrderController::class, 'cancel'])->name('order.cancel');
+    Route::get('/orders/return/{orderItem}', [OrderController::class, 'returnForm'])->name('order.return');
+    Route::post('/orders/return/{orderItem}/create', [OrderController::class, 'createReturn'])->name('order.createreturn');
+    Route::get('/orders/return/create/address', [OrderController::class, 'returnAddress'])->name('order.return.address');
 
 //Review page routes
-Route::get('/orders/review/{orderItem}', [ReviewController::class, 'index'])->name('review.index');
-Route::post('/orders/reviews/{orderItem}', [ReviewController::class, 'store'])->name('review.store');
-Route::patch('/orders/reviews/{orderItem}', [ReviewController::class, 'update'])->name('review.update');
-Route::delete('/orders/reviews/{orderItem}', [ReviewController::class, 'destroy'])->name('review.destroy');
-
+    Route::get('/orders/review/{orderItem}', [ReviewController::class, 'index'])->name('review.index');
+    Route::post('/orders/reviews/{orderItem}', [ReviewController::class, 'store'])->name('review.store');
+    Route::patch('/orders/reviews/{orderItem}', [ReviewController::class, 'update'])->name('review.update');
+    Route::delete('/orders/reviews/{orderItem}', [ReviewController::class, 'destroy'])->name('review.destroy');
 
 //Return page
-Route::get('/returns', [ReturnController::class, 'index'])->name('return.index');
+    Route::get('/returns', [ReturnController::class, 'index'])->name('return.index');
 
-
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
+//Profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 //Admin only routes
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -141,7 +121,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'home'])->name('admin.dashboard');
 
     //Admin customers page route
-    Route::get('/admin/customers',[AdminUserController::class,'adminCustomers'])->name('admin.customers');
+    Route::get('/admin/customers', [AdminUserController::class, 'adminCustomers'])->name('admin.customers');
     //Admin view and edit user page route. Takes the user as a parameter and appends the ID it to the url. Also passes the user as a parameter to the controller.
     Route::get('/user/{user}', [AdminProfileController::class, 'showUser'])->name('profile.show');
     //Patch route that allows admin to edit other users.
@@ -150,7 +130,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/user/{user}', [AdminProfileController::class, 'destroy'])->name('adminprofile.destroy');
 
     //Inventory route
-    Route::get('/admin/inventory',[AdminInventoryController::class,'inventory'])->name('admin.inventory');
+    Route::get('/admin/inventory', [AdminInventoryController::class, 'inventory'])->name('admin.inventory');
     //Product creation page
     Route::get('admin/inventory/newproduct', [AdminInventoryController::class, 'addProduct'])->name('adminaddproduct.show');
     //Individual product route
@@ -175,20 +155,20 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('admin/inventory/{option}/option', [AdminProductController::class, 'destroyOption'])->name('adminoption.delete');
 
     //Show orders page
-    Route::get('/admin/orders',[AdminOrdersController::class,'orders'])->name('admin.orders');
+    Route::get('/admin/orders', [AdminOrdersController::class, 'orders'])->name('admin.orders');
     //Show specific order
-    Route::get('/admin/order/{order}',[AdminViewOrderController::class,'showOrder'])->name('adminorder.show');
+    Route::get('/admin/order/{order}', [AdminViewOrderController::class, 'showOrder'])->name('adminorder.show');
     //Update order message
-    Route::patch('/admin/order/{order}/message',[AdminViewOrderController::class,'updateMessage'])->name('adminordermessage.update');
+    Route::patch('/admin/order/{order}/message', [AdminViewOrderController::class, 'updateMessage'])->name('adminordermessage.update');
     //Process order
-    Route::patch('/admin/order/{order}/process',[AdminViewOrderController::class,'process'])->name('adminorder.process');
+    Route::patch('/admin/order/{order}/process', [AdminViewOrderController::class, 'process'])->name('adminorder.process');
     //Cancel order
-    Route::patch('/admin/order/{order}/cancel',[AdminViewOrderController::class,'cancel'])->name('adminorder.cancel');
+    Route::patch('/admin/order/{order}/cancel', [AdminViewOrderController::class, 'cancel'])->name('adminorder.cancel');
 
     //Confirm refund
-    Route::patch('/admin/order/{returnItem}/confirm',[AdminViewOrderController::class,'confirmRefund'])->name('adminrefund.confirm');
+    Route::patch('/admin/order/{returnItem}/confirm', [AdminViewOrderController::class, 'confirmRefund'])->name('adminrefund.confirm');
     //Reject refund
-    Route::patch('/admin/order/{returnItem}/reject',[AdminViewOrderController::class,'rejectRefund'])->name('adminrefund.reject');
+    Route::patch('/admin/order/{returnItem}/reject', [AdminViewOrderController::class, 'rejectRefund'])->name('adminrefund.reject');
 
 
 });
