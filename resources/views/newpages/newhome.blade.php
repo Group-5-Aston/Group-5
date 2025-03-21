@@ -60,7 +60,7 @@
     <!-- end off banner section -->
 
     <!-- info section -->
-    <section class="client_section layout_padding" style="padding-top: 10px;">
+    <section class="client_section layout_padding" style="padding-top: 60px;">
 
         <div class="heading_container heading_center">
             <h2>
