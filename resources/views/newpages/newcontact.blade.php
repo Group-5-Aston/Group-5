@@ -23,16 +23,16 @@
                     <form method="POST" action="{{ route ('submitContact' )}}">
                         @csrf
                         <div>
-                            <input type="text" placeholder="Name" name="name" required/>
+                            <input type="text" class="form-control" placeholder="Name" name="name" required/>
                         </div>
                         <div>
-                            <input type="email" placeholder="Email" name="email" required/>
+                            <input type="email" class="form-control" placeholder="Email" name="email" required/>
                         </div>
                         <div>
-                            <input type="text" placeholder="Phone" name="phone"/>
+                            <input type="text" class="form-control" placeholder="Phone" name="phone"/>
                         </div>
                         <div>
-                            <textarea style="height: 50px; resize: none; display: flex; align-items: center; padding-top: 12px;" class="message-box" name="message" placeholder="Message" required></textarea>
+                            <textarea class="form-control" name="message" placeholder="Message" required rows="3" cols="60"></textarea>
                         </div>
                         <div class="d-flex">
                             <button class="filter-btn">

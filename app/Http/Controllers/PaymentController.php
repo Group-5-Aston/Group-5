@@ -11,11 +11,14 @@ class PaymentController extends Controller
 {
     public function prepareOrder(Request $request)
     {
+        $data = $request->validate([
+            'address' => ['required', 'string', 'max:255'],
+        ]);
 
         //Get necessary order data
         $basket = auth()->user()->basket;
         $basketItems = auth()->user()->basket->items;
-        $address = $request->input('address');
+        $address = $data['address'];
         $shipping = $basket->total < 30.01;
 
         //Store the data for order

@@ -1,11 +1,13 @@
 <x-newheader>
     <!-- Checkout Section -->
-    <section class="checkout-container" style="padding-top: 0px">
+    <section class="checkout-container">
         <x-alert type="success" :message="session('success')" />
         <x-alert type="error" :message="session('error')" />
         <!-- Checkout Items -->
         <div class="checkout-details">
-        <h2 class="checkout-title">Your Items</h2>
+            <div class="checkout-title">
+        <h2>Your Items</h2>
+        </div>
         @foreach($basketItems as $item)
              <div class="item">
                  <img src="{{ Storage::url($item->productOption->product->image) }}" alt="{{ $item['name'] }}">
@@ -47,24 +49,16 @@
                     <span>Delivering to {{auth()->user()->name}}</span>
                 </div>
                 <div class="summary-details">
-                    <span>Shipping address: <input type="text" name="address" value="{{auth()->user()->address}}"></span>
+                    <span>Shipping address:
+                        <input type="text" style="border-radius: 30px" name="address" value="{{auth()->user()->address}}">
+                    </span>
                 </div>
                 <div class="summary-details">
                     <span>Arriving {{ \Carbon\Carbon::now()->addDays(2)->format('j F, Y') }}</span>
                 </div>
-                <input type="submit" class="checkout-button" value="Proceed to checkout">
+                <input type="submit" class="filter-btn" value="Proceed to checkout">
             </div>
         </form>
     </section>
     @include('components.newcompactfooter')
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 </x-newheader>

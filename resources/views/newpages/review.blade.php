@@ -34,7 +34,7 @@
                 <h2>How was your item?</h2>
             </div>
             <label for="ratings">Rating</label>
-            <select name="rating" id="rating" required>
+            <select name="rating" id="rating" class="form-control" required>
                 <option value="1" {{ (old('rating', $review?->rating) == 1) ? 'selected' : '' }}>⭐</option>
                 <option value="2" {{ (old('rating', $review?->rating) == 2) ? 'selected' : '' }}>⭐⭐</option>
                 <option value="3" {{ (old('rating', $review?->rating) == 3) ? 'selected' : '' }}>⭐⭐⭐</option>
@@ -43,7 +43,7 @@
             </select>
             <br>
             <p>Write a review</p>
-            <textarea name="reviews" class="review-text" rows="3" cols="60"
+            <textarea name="reviews" class="form-control" rows="3" cols="60"
                       placeholder="Leave your review here (Optional)"
                       required>{{ old('reviews', $review?->review) }}</textarea>
             <br>

@@ -31,7 +31,7 @@
                             <label for="cvv">CVV</label>
                             <input type="text" id="cvv" name="cvv" class="form-control" placeholder="CVV" required>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block">Pay Now</button>
+                        <button type="submit" class="filter-btn btn-success btn-block">Pay Now</button>
                     </form>
                 </div>
             </div>

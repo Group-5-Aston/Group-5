@@ -77,13 +77,6 @@
                 margin-bottom: 5px;
             }
 
-            .form-group input, select {
-                width: 100%;
-                padding: 10px;
-                border: 1px solid var(--border-color);
-                border-radius: 5px;
-                display: block;
-            }
 
             .profile-picture {
                 text-align: center;
@@ -105,26 +98,14 @@
                 margin-top: 10px;
             }
 
-            .save-btn, .delete-btn {
-                padding: 10px 15px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background 0.3s;
-            }
-
-            .save-btn {
-                background-color: var(--primary-color);
-                color: white;
-            }
-
-            .save-btn:hover {
-                background-color: var(--primary-dark);
-            }
-
             .delete-btn {
                 background-color: red;
                 color: white;
+                border-radius: 30px;
+                border: none;
+                padding: 9px 20px;
+                transition: background-color 0.3s ease-in-out;
+
             }
 
             .delete-btn:hover {
@@ -211,7 +192,7 @@
                     -->
                     <div class="form-group">
                         <label for="first-name">First Name</label>
-                        <input type="text" id="first-name" name="name" value="{{$user->name}}">
+                        <input type="text" class="form-control" id="first-name" name="name" value="{{$user->name}}">
                     </div>
                     <!--
                     <div class="form-group">
@@ -221,18 +202,18 @@
                     -->
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" value="{{$user->email}}">
+                        <input type="email" class="form-control" id="email" name="email" value="{{$user->email}}">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="text" id="phone" name="phone" value="{{$user->phone}}">
+                        <input type="text" class="form-control" id="phone" name="phone" value="{{$user->phone}}">
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" id="address" name="address" value="{{$user->address}}">
+                        <input type="text" class="form-control" id="address" name="address" value="{{$user->address}}">
                     </div>
                     <div class="buttons">
-                        <button type="submit" class="save-btn">Save</button>
+                        <button type="submit" class="filter-btn">Save</button>
                     </div>
                 </form>
             </div>
@@ -244,7 +225,7 @@
                 <form>
                     <div class="form-group">
                         <label for="payment-method">Payment Method</label>
-                        <select id="payment-method" name="payment-method">
+                        <select class="form-control" id="payment-method" name="payment-method">
                             <option>Visa Debit</option>
                             <option>Visa Credit</option>
                             <option>Mastercard</option>
@@ -253,18 +234,18 @@
                     </div>
                     <div class="form-group">
                         <label for="card-number">Card Number</label>
-                        <input type="text" id="card-number" name="card-number" placeholder="**** **** **** 1234">
+                        <input type="text" class="form-control" id="card-number" name="card-number" placeholder="**** **** **** 1234">
                     </div>
                     <div class="form-group">
                         <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="123">
+                        <input type="text" class="form-control" id="cvv" name="cvv" placeholder="123">
                     </div>
                     <div class="form-group">
                         <label for="billing-address">Billing Address</label>
-                        <input type="text" id="billing-address" name="billing-address" placeholder="123 Main Street">
+                        <input type="text" class="form-control" id="billing-address" name="billing-address" placeholder="123 Main Street">
                     </div>
                     <div class="buttons">
-                        <button type="button" class="save-btn">Save</button>
+                        <button type="button" class="filter-btn">Save</button>
                     </div>
                 </form>
             </div>
@@ -286,18 +267,18 @@
                     -->
                     <div class="form-group">
                         <label for="current-password">Current Password</label>
-                        <input type="password" id="current-password" name="current_password">
+                        <input type="password" class="form-control" id="current-password" name="current_password">
                     </div>
                     <div class="form-group">
                         <label for="new-password">New Password</label>
-                        <input type="password" id="new-password" name="password">
+                        <input type="password" class="form-control" id="new-password" name="password">
                     </div>
                     <div class="form-group">
                         <label for="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" name="password_confirmation">
+                        <input type="password" class="form-control" id="confirm-password" name="password_confirmation">
                     </div>
                     <div class="buttons">
-                        <button type="submit" class="save-btn">Save</button>
+                        <button type="submit" class="filter-btn">Save</button>
                         <!-- Delete Account Button -->
                         <button type="button" class="delete-btn" id="delete-account" onclick="openPrompt()">Delete
                             Account
@@ -318,7 +299,7 @@
                 @csrf
                 @method('DELETE')
                 <div class="form-group">
-                    <input type="password" id="promptInput" name="password" placeholder="Password">
+                    <input type="password" class="form-control" id="promptInput" name="password" placeholder="Password">
                     @if($errors->userDeletion->has('password'))
                         <span class="error" style="color: red;">
                     {{ $errors->userDeletion->first('password') }}
@@ -326,7 +307,7 @@
                     @endif
                 </div>
                 <div class="buttons">
-                    <button type="submit" class="save-btn">OK</button>
+                    <button type="submit" class="filter-btn">OK</button>
                     <button type="button" onclick="closePrompt()" class="delete-btn">Cancel</button>
                 </div>
             </form>
