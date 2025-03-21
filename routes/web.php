@@ -111,7 +111,9 @@ Route::get('/orders/return/create/address', [OrderController::class, 'returnAddr
 
 //Review page routes
 Route::get('/orders/review/{orderItem}', [ReviewController::class, 'index'])->name('review.index');
-Route::post('orders/reviews/{orderItem}', [ReviewController::class, 'store'])->name('review.store');
+Route::post('/orders/reviews/{orderItem}', [ReviewController::class, 'store'])->name('review.store');
+Route::patch('/orders/reviews/{orderItem}', [ReviewController::class, 'update'])->name('review.update');
+Route::delete('/orders/reviews/{orderItem}', [ReviewController::class, 'destroy'])->name('review.destroy');
 
 
 //Return page

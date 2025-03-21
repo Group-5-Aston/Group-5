@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://pupandpurr.co.uk'),
+    'url' => env('APP_URL', 'http://cs2team5.cs2410-web01pvm.aston.ac.uk'),
 
     /*
     |--------------------------------------------------------------------------

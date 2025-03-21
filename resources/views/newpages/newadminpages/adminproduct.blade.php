@@ -6,6 +6,7 @@
     <x-alert type="success" :message="session('success')"/>
     <x-alert type="error" :message="session('error')"/>
 
+
     <div class="container2" style="padding-top:30px">
         <p><strong>Product ID:</strong> {{ $product->product_id }}</p>
 
@@ -21,14 +22,14 @@
             @csrf
             @method('PATCH')
             <label for="name">Name:</label>
-            <input type="text" name="name" value="{{ $product->name }}" required> 
+            <input type="text" name="name" value="{{ $product->name }}" required>
 
             <label for="cat_or_dog">Animal:</label>
             <select name="cat_or_dog" required>
                 <option value="cat" {{ $product->cat_or_dog == 'cat' ? 'selected' : '' }}>Cat</option>
                 <option value="dog" {{ $product->cat_or_dog == 'dog' ? 'selected' : '' }}>Dog</option>
                 <option value="both" {{ $product->cat_or_dog == 'both' ? 'selected' : '' }}>Both</option>
-            </select> 
+            </select>
 
             <label for="type">Product Type:</label>
             <select name="type" required>
@@ -40,13 +41,13 @@
             </select>
 
             <label for="price">Price:</label>
-            <input type="text" name="price" value="£ {{ $product->price }}" required> 
+            <input type="text" name="price" value="£ {{ $product->price }}" required>
 
             <label for="label">Label:</label>
-            <textarea name="label" required>{{ $product->label }}</textarea> 
+            <textarea name="label" required>{{ $product->label }}</textarea>
 
             <label for="description">Description:</label>
-            <textarea name="description">{{ $product->description }}</textarea> 
+            <textarea name="description">{{ $product->description }}</textarea>
 
             <input type="submit" value="Edit Product" class="green-btn">
         </form>
