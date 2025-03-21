@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="d-flex justify-content-between align-items-center mb-5">
                 <h1 class="display-5 fw-semibold" style="color: black;">Your Basket</h1>
-                <a href="{{ route('filter.page') }}" class="btn btn-outline-success rounded-pill px-4 py-2"
+                <a href="{{ route('filter.page') }}" class="btn-filter reset"
                    style="border-color: #3b5e3b; color: #3b5e3b;">
                     Continue Shopping
                 </a>
@@ -170,7 +170,7 @@
 <style>
 /* Basket Product Card: matches shop design, adapted for the basket layout */
 .basket-product-card {
-  background-color: #fdfde7;
+    background-color: #fdfde7;
   border: 1px solid #4B7C47;
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(77, 122, 46, 0.08);
@@ -227,6 +227,34 @@
 
 .basket-summary-title {
   color: #3b5e3b;
+}
+
+.btn-filter {
+    background-color: #4B7C47;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    margin-top: 10px;
+}
+
+.btn-filter.reset {
+    background-color: #e0e0c7;
+    color: #3a5a23;
+}
+
+.btn-filter.reset:hover {
+    background-color: #d0d0b7;
 }
 </style>
 

@@ -20,7 +20,7 @@
                     <form method="POST" action="{{ route('payment.process') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="card-number">Card Number</label>
+                            <label for="card-number" style="">Card Number</label>
                             <input type="text" id="card-number" name="card_number" class="form-control" placeholder="Enter Card Number" required>
                         </div>
                         <div class="form-group">
