@@ -97,6 +97,7 @@
         .navbar-icons {
             display: flex;
             gap: 15px;
+            align-items: center;
         }
 
         .navbar-icons a {

@@ -96,7 +96,9 @@
                         <!-- Display all reviews directly -->
                         @foreach($product->reviews as $review)
                             <div class="review">
-                                <p><strong>Rating:</strong>
+                                <p><strong>By:</strong> {{ $review->user->name }}</p>
+                                <p style="color: #959595">Reviewed on: {{$review->created_at->format('j F, Y')}}</p>
+                                <p>
                                     @for ($i = 1; $i <= 5; $i++)
                                         @if($i <= $review->rating)
                                             ⭐
@@ -105,8 +107,8 @@
                                         @endif
                                     @endfor
                                 </p>
-                                <p><strong>By:</strong> {{ $review->user->name }}</p>  <!-- Show the user's name -->
-                                <p><strong>Review:</strong> {{ $review->review }}</p>
+                                <p>{{ $review->review }}</p>
+                                <hr>
                             </div>
                         @endforeach
                     </div>
