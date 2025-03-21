@@ -32,7 +32,7 @@
                             <input type="text" placeholder="Phone" name="phone"/>
                         </div>
                         <div>
-                            <textarea class="message-box" name="message" placeholder="Message" required></textarea>
+                            <textarea style="height: 50px; resize: none; display: flex; align-items: center; padding-top: 12px;" class="message-box" name="message" placeholder="Message" required></textarea>
                         </div>
                         <div class="d-flex">
                             <button class="filter-btn">

@@ -24,7 +24,8 @@
 </section>
 <!-- end about us section -->
   <!-- why section -->
-  <section class="why_section layout_padding" style="padding-top: 0px">
+
+  <section class="why_section layout_padding" style="padding-top: 60px">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -272,7 +273,7 @@
   </section>
   <!-- end why section -->
   <!-- client review section -->
-  <section class="client_section layout_padding" style="padding-top: 10px;">
+  <section class="client_section layout_padding" style="padding-top: 60px;">
 
       <div class="heading_container heading_center">
         <h2>
