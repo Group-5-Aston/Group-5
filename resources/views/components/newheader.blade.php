@@ -97,6 +97,7 @@
         .navbar-icons {
             display: flex;
             gap: 15px;
+            align-items: center;
         }
 
         .navbar-icons a {
@@ -188,7 +189,8 @@
         .basket-items,
         .order-summary {
             padding: 20px;
-            background: #fefefe;
+            width: 90%;
+            margin: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(123, 142, 78, 0.2);
         }
@@ -210,9 +212,10 @@
         .item {
             display: flex;
             align-items: center;
+            width: 90%;
+            margin: auto;
             justify-content: space-between;
             border-bottom: 1px solid #ddd;
-            padding: 15px 0;
         }
 
         .item img {
@@ -306,6 +309,16 @@
 
         .product-options .form-group {
             margin-bottom: 1rem;
+        }
+
+        .checkout-container {
+            padding-top: 0px;
+        }
+
+        .checkout-title {
+            width: 90%;
+            margin: 0 auto;
+            padding-bottom: 10px;
         }
 
         .checkout-button {

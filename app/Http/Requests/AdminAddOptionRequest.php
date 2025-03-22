@@ -19,8 +19,8 @@ class AdminAddOptionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'size' => ['string', 'max:255'],
-            'flavor' => ['string', 'max:255',],
+            'size' => ['nullable', 'string', 'max:255'],
+            'flavor' => ['nullable', 'string', 'max:255',],
             'stock' => ['required', 'integer', 'min:0'],
         ];
     }

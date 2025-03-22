@@ -37,6 +37,8 @@ class OrderItem extends Model
         return $this->hasMany(ReturnItem::class, 'order_item_id', 'order_item_id');
     }
 
+
+
     //Returns the name of the item as well as the size and flavour if it has any.
     public function nameSizeFlavour() {
         return $this->name

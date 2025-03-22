@@ -9,13 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
+    //Gets the users review for a product using the orderitem
+    private function thisReview(OrderItem $orderItem)
+    {
+        return auth()->user()->reviews()->where('product_id', $orderItem->productOption->product->product_id)->first();
+    }
     public function index(OrderItem $orderItem) {
-        return view('newpages.review', compact('orderItem'));
+        //If user has reviewed this product before, pass the review along.
+        $review = $this->thisReview($orderItem) ?? null;
+        return view('newpages.review', compact('orderItem', 'review'));
     }
 
     public function store(Request $request, OrderItem $orderItem)
     {
-
         $request->validate([
             'rating' => 'required|integer|min:1|max:5',
             'reviews' => 'required|string'
@@ -44,6 +50,29 @@ class ReviewController extends Controller
             'review' => $request->reviews,
         ]);
 
-        return back()->with('success', 'Review submitted successfully!');
+        return redirect()->route('order.index')->with('success', 'Review submitted successfully!');
+    }
+
+    public function destroy(OrderItem $orderItem)
+    {
+        $review = $this->thisReview($orderItem);
+        $review->delete();
+        return redirect()->route('order.index')->with('success', 'Review deleted successfully!');
+    }
+
+    public function update(Request $request, OrderItem $orderItem)
+    {
+        $data = $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+            'reviews' => 'required|string'
+        ]);
+
+        $review = $this->thisReview($orderItem);
+        $review->update([
+            'rating' => $data['rating'],
+            'review' => $data['reviews'],
+        ]);
+
+        return redirect()->route('order.index')->with('success', 'Review updated successfully!');
     }
 }

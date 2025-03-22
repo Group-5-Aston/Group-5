@@ -22,33 +22,58 @@
             width: 100%;
         }
     </style>
-    <x-alert type="error" :message="session('error')" />
+    <x-alert type="error" :message="session('error')"/>
 
     <div class="card">
-        <form method="POST" action="{{route('review.store', $orderItem)}}">
+        <form method="POST" id="reviewForm" action="{{route('review.store', $orderItem)}}">
             @csrf
+            <input type="hidden" name="_method" id="method" value="POST">
+
             <div class="review-flex">
                 <img src="{{Storage::url($orderItem->image)}}" height="120" width="120" alt="Product image">
                 <h2>How was your item?</h2>
             </div>
             <label for="ratings">Rating</label>
-            <select name="rating" id="rating" required>
-                <option value="1">⭐</option>
-                <option value="2">⭐⭐</option>
-                <option value="3">⭐⭐⭐</option>
-                <option value="4">⭐⭐⭐⭐</option>
-                <option value="5">⭐⭐⭐⭐⭐</option>
+            <select name="rating" id="rating" class="form-control" required>
+                <option value="1" {{ (old('rating', $review?->rating) == 1) ? 'selected' : '' }}>⭐</option>
+                <option value="2" {{ (old('rating', $review?->rating) == 2) ? 'selected' : '' }}>⭐⭐</option>
+                <option value="3" {{ (old('rating', $review?->rating) == 3) ? 'selected' : '' }}>⭐⭐⭐</option>
+                <option value="4" {{ (old('rating', $review?->rating) == 4) ? 'selected' : '' }}>⭐⭐⭐⭐</option>
+                <option value="5" {{ (old('rating', $review?->rating) == 5) ? 'selected' : '' }}>⭐⭐⭐⭐⭐</option>
             </select>
             <br>
             <p>Write a review</p>
-            <textarea name="reviews" class="review-text" rows="3" cols="60" placeholder="Leave your review here (Optional)" required></textarea>
+            <textarea name="reviews" class="form-control" rows="3" cols="60"
+                      placeholder="Leave your review here (Optional)"
+                      required>{{ old('reviews', $review?->review) }}</textarea>
             <br>
-            <button type="submit" class="filter-btn">
-                Submit
-            </button>
+
+            @if(!$review)
+                <button type="submit" onclick="setRoute('{{ route('review.store', $orderItem) }}', 'POST')"
+                        class="filter-btn">
+                    Submit
+                </button>
+            @else
+                <button type="submit" onclick="setRoute('{{ route('review.update', $orderItem) }}', 'PATCH')"
+                        class="filter-btn">
+                    Update Review
+                </button>
+
+                <button type="submit" onclick="setRoute('{{ route('review.destroy', $orderItem) }}', 'DELETE')"
+                        class="filter-btn" style="background-color: red; color: white;">
+                    Delete Review
+                </button>
+            @endif
         </form>
     </div>
 
     @include('components.newfooter')
 
+    <script>
+        function setRoute(route, method) {
+            const form = document.getElementById('reviewForm');
+            form.action = route;
+            document.getElementById('method').value = method;
+        }
+    </script>
 </x-newheader>

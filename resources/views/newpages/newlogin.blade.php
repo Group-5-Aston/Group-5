@@ -42,7 +42,7 @@
                     in</button>
             </form>
             <p style="margin-top: 16px; font-size: 14px; color: #000;">
-                <a href="{{ route('passwordreset.request') }}" style="color: #426b1f; text-decoration: none;">Forgot password?</a>
+                <a href="{{ route('password.request') }}" style="color: #426b1f; text-decoration: none;">Forgot password?</a>
             </p>
             <p style="margin-top: 16px; font-size: 14px; color: #000;">Don't have an account? <a
                     href="{{ route('signup') }}" style="color: #426b1f; text-decoration: none;">Sign up here.</a></p>
