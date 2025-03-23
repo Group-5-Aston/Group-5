@@ -23,8 +23,8 @@
         }
     </style>
 
-    <x-alert type="success" :message="session('success')"/>
-    <x-alert type="error" :message="session('error')"/>
+    @include('components.validation-alert')
+
     <div class="card">
         <div class="return-flex">
             <img src="{{Storage::url($orderItem->image)}}" height="120" width="120" alt="Product image">

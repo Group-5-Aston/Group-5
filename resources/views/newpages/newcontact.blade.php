@@ -1,4 +1,6 @@
 <x-newheader>
+    @include('components.validation-alert')
+
     <section class="contact_section layout_padding">
         <div class="container px-0">
             <div class="heading_container ">

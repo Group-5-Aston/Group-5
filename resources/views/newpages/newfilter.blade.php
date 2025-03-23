@@ -220,6 +220,8 @@
             }
         </style>
 
+        @include('components.validation-alert')
+
         <div class="row">
             <div class="col-md-12">
                 <div class="filter-card">

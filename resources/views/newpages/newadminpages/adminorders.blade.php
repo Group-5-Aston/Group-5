@@ -51,6 +51,9 @@
 
     </style>
 
+    @include('components.validation-alert')
+
+
     <div class="heading_container heading_center">
         <h2>List of Orders</h2>
     </div>

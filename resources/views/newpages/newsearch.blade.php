@@ -1,5 +1,7 @@
 <x-newheader>
-<div class="container py-5">
+    @include('components.validation-alert')
+
+    <div class="container py-5">
     @if($products->isEmpty())
         <p class="text-center text-muted fs-4">No products found.</p>
     @else
@@ -161,7 +163,7 @@
         font-weight: 600;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
         z-index: 10;
-        
+
     }
 
     .quick-view {

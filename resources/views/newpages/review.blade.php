@@ -22,7 +22,8 @@
             width: 100%;
         }
     </style>
-    <x-alert type="error" :message="session('error')"/>
+
+    @include('components.validation-alert')
 
     <div class="card">
         <form method="POST" id="reviewForm" action="{{route('review.store', $orderItem)}}">

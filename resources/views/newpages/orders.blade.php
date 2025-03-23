@@ -85,8 +85,8 @@
     <div class="order-container">
         <h1>Your Orders</h1>
 
-        <x-alert type="success" :message="session('success')"/>
-        <x-alert type="error" :message="session('error')"/>
+        @include('components.validation-alert')
+
 
         @if(isset($orders) && $orders->count() > 0)
             @foreach($orders as $order)

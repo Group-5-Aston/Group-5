@@ -77,6 +77,8 @@ h2 {
 
 </style>
 
+    @include('components.validation-alert')
+
     <div class="heading_container heading_center">
         <h2>Create a new product</h2> <p></p>
     </div>

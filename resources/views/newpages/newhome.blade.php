@@ -2,6 +2,8 @@
     <section class="slider_section">
         <div class="slider_container" style="background-color: #fefbe6;">
 
+            @include('components.validation-alert')
+
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">

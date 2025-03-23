@@ -178,8 +178,8 @@
 
                 <h2>Profile</h2>
 
-                <x-alert type="success" :message="session('success')"/>
-                <x-alert type="error" :message="session('error')"/>
+                @include('components.validation-alert')
+
 
                 <form method="POST" action="{{route('profile.edit')}}">
                     @csrf

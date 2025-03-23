@@ -1,7 +1,6 @@
 <x-newheader>
 
-    <x-alert type="success" :message="session('success')"/>
-    <x-alert type="error" :message="session('error')"/>
+    @include('components.validation-alert')
 
     <div class="container2">
         <h2>User# {{$user->id}}</h2>

@@ -1,4 +1,7 @@
 <x-newheader>
+
+    @include('components.validation-alert')
+
     <!-- Product Section -->
     <div class="container my-5">
         <div class="row">
