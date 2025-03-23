@@ -57,7 +57,7 @@
     </div>
     <div class="button-container" style="display: flex; justify-content: space-between" >
     <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="form-control search-box">
-        <button class="filter-btn" style="margin: 0px 0px 10px 10px;" href="{{ route('adminaddproduct.show') }}">Add a new product</button>
+        <a href="{{ route('adminaddproduct.show') }}" style="margin: 0px 0px 10px 10px;" class="filter-btn">Add a new product</a>
     </div>
 
 

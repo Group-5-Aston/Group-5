@@ -171,6 +171,10 @@
             outline: none;
         }
 
+        .filter-btn:disabled {
+            background-color: lightgrey;
+        }
+
         /* Icon size for filter button */
         .filter-btn i.fa-filter {
             font-size: 16px;
