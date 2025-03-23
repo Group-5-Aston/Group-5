@@ -41,10 +41,10 @@
             </button>
         </form>
         </div>
-    </div>
 
 
-    <h1>Orders</h1>
+
+    <h1 style="padding-top: 20px;">Orders</h1>
     <table>
         <thead>
         <tr>
@@ -75,6 +75,7 @@
         @endif
         </tbody>
     </table>
+    </div>
 
     <script>
         //Script to make each row of the table clickable
@@ -148,38 +149,21 @@
             text-align: center;
         }
 
-        th {
-            background-color: #4B7C47;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #ddd;
-            cursor: pointer;
-        }
-
-        .heading_container {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
 
-        .search-box {
-            width: 100%;
-            max-width: 300px;
-            box-sizing: border-box;
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            margin: 0px 0px 10px 10px;
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .clickable:hover {
+            background-color: #f8f8f8;
+            cursor: pointer;
         }
 
     </style>

@@ -25,8 +25,8 @@
             <form method="POST" action="{{ route('adminordermessage.update', $order) }}">
                 @csrf
                 @method('PATCH')
-                <textarea rows="4" name="message" cols="50" placeholder="Leave a message for the customer" required style="width: 100%; margin-top: 10px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">{{ $order->message }}</textarea>
-                <button type="submit" class="green-btn" style="margin-top: 10px;">Update Message</button>
+                <textarea rows="4" name="message" cols="50" placeholder="Leave a message for the customer" required class="form-control">{{ $order->message }}</textarea>
+                <button type="submit" class="filter-btn" style="margin-top: 10px;">Update Message</button>
             </form>
         </div>
 
@@ -59,14 +59,14 @@
                 @csrf
                 @method('PATCH')
                 <input type="hidden" name="process" value="process">
-                <button type="submit" class="green-btn" {{ $order->status != 'pending' ? 'disabled' : '' }}>Process Order</button>
+                <button type="submit" class="filter-btn" {{ $order->status != 'pending' ? 'disabled' : '' }}>Process Order</button>
             </form>
 
             <form method="POST" action="{{ route('adminorder.cancel', $order) }}">
                 @csrf
                 @method('PATCH')
                 <input type="hidden" name="cancel" value="cancel">
-                <button type="submit" class="red-btn" {{ $order->status != 'pending' ? 'disabled' : '' }}>Cancel Order</button>
+                <button type="submit" class="delete-btn" {{ $order->status != 'pending' ? 'disabled' : '' }}>Cancel Order</button>
             </form>
         </div>
 
@@ -102,13 +102,13 @@
                                     @csrf
                                     @method('PATCH')
                                     <input type="hidden" name="confirm" value="confirm">
-                                    <button type="submit" class="green-btn small-btn" {{ $item->status != 'returned' ? 'disabled' : '' }}>Confirm</button>
+                                    <button type="submit" class="filter-btn small-btn" {{ $item->status != 'returned' ? 'disabled' : '' }}>Confirm</button>
                                 </form>
                                 <form method="POST" action="{{ route('adminrefund.reject', ['returnItem' => $item->return_id]) }}">
                                     @csrf
                                     @method('PATCH')
                                     <input type="hidden" name="reject" value="reject">
-                                    <button type="submit" class="red-btn small-btn" {{ $item->status != 'returned' ? 'disabled' : '' }}>Reject</button>
+                                    <button type="submit" class="delete-btn small-btn" {{ $item->status != 'returned' ? 'disabled' : '' }}>Reject</button>
                                 </form>
                             </td>
                         </tr>
@@ -119,9 +119,6 @@
     </div>
 
     <style>
-        h2 {
-            color: #426b1f;
-        }
         .container2 {
             width: 85%;
             margin: 40px auto;
@@ -129,7 +126,6 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-            border: 2px solid #4a6425; 
         }
         table {
             width: 100%;
@@ -143,27 +139,22 @@
             text-align: left;
         }
 
-        .green-btn, .red-btn {
-            padding: 10px 18px;
-            font-size: 14px;
-            border-radius: 25px;
-            border: none;
+        .delete-btn {
+            background-color: red;
             color: white;
-            cursor: pointer;
+            border-radius: 30px;
+            border: none;
+            padding: 9px 20px;
+            transition: background-color 0.3s ease-in-out;
+
         }
 
-        .green-btn {
-            background-color: #426b1f;
+        .delete-btn:hover {
+            background-color: darkred;
         }
 
-        .red-btn {
-            background-color: #990e0e;
-        }
-
-        .green-btn:disabled,
-        .red-btn:disabled {
-            background-color: #aaa;
-            cursor: not-allowed;
+        .delete-btn:disabled {
+            background-color: lightgrey;
         }
 
         .small-btn {

@@ -1,38 +1,32 @@
 <x-newheader>
-    <div class="heading_container heading_center">
-        <h2 style="padding-top:10px;">Product Details</h2>
-    </div> <p></p>
-
-    <x-alert type="success" :message="session('success')"/>
-    <x-alert type="error" :message="session('error')"/>
-
+    @include('components.validation-alert')
 
     <div class="container2" style="padding-top:30px">
-        <p><strong>Product ID:</strong> {{ $product->product_id }}</p>
+        <h2>Product ID: {{ $product->product_id }}</h2>
 
         <form method="POST" action="{{ route('adminimage.edit', ['product' => $product->product_id]) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <img src="{{ Storage::url($product['image']) }}" alt="product image" class="product-image"> <br>
-            <input type="file" name="image" id="image" required> <br>
-            <input type="submit" value="Change Image" class="green-btn">
+            <input type="file" class="form-control" name="image" id="image" required> <br>
+            <input type="submit" value="Change Image" class="filter-btn">
         </form>
 
-        <form method="POST" action="{{ route('adminproduct.edit', ['product' => $product->product_id]) }}">
+        <form method="POST" id="editForm" action="{{ route('adminproduct.edit', ['product' => $product->product_id]) }}">
             @csrf
             @method('PATCH')
             <label for="name">Name:</label>
-            <input type="text" name="name" value="{{ $product->name }}" required>
+            <input type="text" class="form-control" name="name" value="{{ $product->name }}" required>
 
             <label for="cat_or_dog">Animal:</label>
-            <select name="cat_or_dog" required>
+            <select name="cat_or_dog" class="form-control" required>
                 <option value="cat" {{ $product->cat_or_dog == 'cat' ? 'selected' : '' }}>Cat</option>
                 <option value="dog" {{ $product->cat_or_dog == 'dog' ? 'selected' : '' }}>Dog</option>
                 <option value="both" {{ $product->cat_or_dog == 'both' ? 'selected' : '' }}>Both</option>
             </select>
 
             <label for="type">Product Type:</label>
-            <select name="type" required>
+            <select name="type" class="form-control" required>
                 <option value="food" {{ $product->type == 'food' ? 'selected' : '' }}>Food</option>
                 <option value="toy" {{ $product->type == 'toy' ? 'selected' : '' }}>Toy</option>
                 <option value="hygiene" {{ $product->type == 'hygiene' ? 'selected' : '' }}>Hygiene</option>
@@ -41,22 +35,29 @@
             </select>
 
             <label for="price">Price:</label>
-            <input type="text" name="price" value="£ {{ $product->price }}" required>
-
+            <div style="display: flex; align-items: center; gap: 5px">
+            <p style="margin: 0">£</p>
+            <input type="text" class="form-control" name="price" value="{{ $product->price }}" required>
+            </div>
             <label for="label">Label:</label>
-            <textarea name="label" required>{{ $product->label }}</textarea>
+            <textarea name="label" class="form-control" required>{{ $product->label }}</textarea>
 
             <label for="description">Description:</label>
-            <textarea name="description">{{ $product->description }}</textarea>
-
-            <input type="submit" value="Edit Product" class="green-btn">
+            <textarea name="description" class="form-control">{{ $product->description }}</textarea>
         </form>
+
+        <div class="buttons">
+
+        <button type="button" class="filter-btn" onclick="document.getElementById('editForm').submit();">
+            Edit Product
+        </button>
 
         <form method="POST" action="{{ route('adminproduct.destroy', ['product' => $product->product_id] ) }}">
             @csrf
             @method('DELETE')
-            <input type="submit" value="Delete Product" class="red-btn" onclick="return confirm('Are you sure you want to delete this product?')">
+            <input type="submit" value="Delete Product" class="delete-btn" onclick="return confirm('Are you sure you want to delete this product?')">
         </form>
+        </div>
 
         <h2 style="padding-top: 40px">Stock Levels</h2>
         <table>
@@ -75,20 +76,22 @@
                     <td>{{ $option->option_id }}</td>
                     <td>{{ $option->size }}</td>
                     <td>{{ $option->flavor }}</td>
-                    <td class="stock-field">
-                        <form method="POST" action="{{ route('adminoption.edit', ['option' => $option->option_id]) }}" class="stock-form">
+                    <td>
+                        <form method="POST" id="optionEditForm" action="{{ route('adminoption.edit', ['option' => $option->option_id]) }}" class="stock-form">
                             @csrf
                             @method('PATCH')
-                            <input type="text" name="stock" value="{{ $option->stock }}" class="stock-input">
-                            <input type="submit" value="Edit" class="green-btn">
+                            <input type="text" class="form-control" style="width: 60px; text-align: center" name="stock" value="{{ $option->stock }}">
                         </form>
                     </td>
                     <td class="delete-field">
+                        <button type="submit" onclick="document.getElementById('optionEditForm').submit();" class="small filter-btn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
                         <form method="POST" action="{{ route('adminoption.delete', ['option' => $option->option_id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="red-btn" onclick="return confirm('Are you sure you want to delete this option?')">
-                                Delete
+                            <button type="submit" class="small delete-btn" onclick="return confirm('Are you sure you want to delete this option?')">
+                                <i class="fa-solid fa-trash"></i>
                             </button>
                         </form>
                     </td>
@@ -100,10 +103,10 @@
         <h2 style="padding-top: 40px">Add Stock Option</h2>
         <form method="POST" action="{{ route('adminoption.add', ['product' => $product->product_id]) }}">
             @csrf
-            <input type="text" name="size" placeholder="Size">
-            <input type="text" name="flavor" placeholder="Flavour">
-            <input type="text" name="stock" placeholder="Stock level">
-            <input type="submit" value="Add" class="green-btn">
+            <input type="text" style="margin-top: 15px" class="form-control" name="size" placeholder="Size">
+            <input type="text" style="margin-top: 15px" class="form-control" name="flavor" placeholder="Flavour">
+            <input type="text" style="margin-top: 15px" class="form-control" name="stock" placeholder="Stock level">
+            <input type="submit" style="margin-top: 10px" value="Add" class="filter-btn">
         </form>
 
     <h2 class="section" style="padding-top: 40px">Reviews</h2>
@@ -126,8 +129,8 @@
                         <form method="POST" action="{{ route('adminreview.destroy', $review) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="red-btn" onclick="return confirm('Are you sure you want to delete this review?')">
-                                Delete Review
+                            <button type="submit" class="small delete-btn" onclick="return confirm('Are you sure you want to delete this review?')">
+                                Delete
                             </button>
                         </form>
                     </td>
@@ -135,8 +138,6 @@
                 @endforeach
             </tbody>
         </table>
-
-        <a href="{{ route('admin.inventory') }}" class="back-btn section">← Back to Inventory</a>
     </div>
 
 
@@ -158,15 +159,6 @@
             margin-top: 10px;
         }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
         .stock-field {
             display: flex;
             align-items: center;
@@ -184,36 +176,26 @@
             text-align: center;
         }
 
-        .green-btn {
-            background-color: #4a6425;
+        .delete-btn {
+            background-color: red;
             color: white;
+            border-radius: 30px;
             border: none;
-            padding: 12px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease-in-out;
-            width: 100%;
+            padding: 9px 20px;
+            transition: background-color 0.3s ease-in-out;
+
         }
 
-        .green-btn:hover {
-            background-color: #3b511f;
-        }
+        .delete-field {
+            display: flex;
 
-        .red-btn {
-            background-color: #990e0e;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease-in-out;
-            width: 100%;
         }
-
-        .red-btn:hover {
+        .delete-btn:hover {
             background-color: darkred;
+        }
+
+        .delete-btn:disabled {
+            background-color: lightgrey;
         }
 
         .back-btn {
@@ -224,8 +206,22 @@
             color: #4a6425;
         }
 
-        h2 {
-    color: #426b1f;
-}
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
     </style>
 </x-newheader>
