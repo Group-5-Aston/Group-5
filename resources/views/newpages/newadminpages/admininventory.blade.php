@@ -16,7 +16,7 @@
         }
 
         th {
-            background-color: #426b1f;
+            background-color: #4B7C47;
             color: white;
         }
 
@@ -46,21 +46,19 @@
             box-sizing: border-box;
             padding: 8px 12px;
             border: 1px solid #ccc;
-            border-radius: 5px;
             margin: 0px 0px 10px 10px;
         }
 
-        h2 {
-            color: #426b1f;
-        }
 
     </style>
 
     <div class="heading_container heading_center">
         <h2>Inventory</h2>
     </div>
-    <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="search-box">
-
+    <div class="button-container" style="display: flex; justify-content: space-between" >
+    <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="form-control search-box">
+        <button class="filter-btn" style="margin: 0px 0px 10px 10px;" href="{{ route('adminaddproduct.show') }}">Add a new product</button>
+    </div>
 
 
     <div class="table-responsive">
@@ -98,10 +96,6 @@
             @endif
             </tbody>
         </table>
-    </div>
-
-    <div class="button-container">
-        <a href="{{ route('adminaddproduct.show') }}">Add a new product</a>
     </div>
 
     <script>

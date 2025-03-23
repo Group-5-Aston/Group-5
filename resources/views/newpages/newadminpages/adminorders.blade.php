@@ -16,7 +16,7 @@
         }
 
         th {
-            background-color: #426b1f;
+            background-color: #4B7C47;
             color: white;
         }
 
@@ -46,12 +46,7 @@
             box-sizing: border-box;
             padding: 8px 12px;
             border: 1px solid #ccc;
-            border-radius: 5px;
             margin: 0px 0px 10px 10px;
-        }
-
-        h2 {
-            color: #426b1f;
         }
 
     </style>
@@ -61,7 +56,7 @@
     </div>
 
     <!-- search bar -->
-    <input type="text" id="search" placeholder="Search by name or status" autocomplete="off" class="search-box">
+    <input type="text" id="search" placeholder="Search by name or status" autocomplete="off" class="form-control search-box">
 
     <table>
         <thead>
