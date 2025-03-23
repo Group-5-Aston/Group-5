@@ -36,7 +36,7 @@
         body {
             font-family: "Poppins", sans-serif;
             margin: 0;
-            padding-top: 150px; /* Adjust this so content doesn’t get hidden behind the fixed header */
+            padding-top: 100px;
         }
 
         /* the top header styles and designs  */

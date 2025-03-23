@@ -56,7 +56,7 @@
                             <input type="hidden" name="price" value="{{ $product['price'] }}">
                             <input type="hidden" name="image" value="{{ asset($product['image']) }}">
                             <!-- Add to Basket Button -->
-                            <button type="submit" class="btn btn-dark btn-block mt-4">Add to Basket</button>
+                            <button type="submit" class="filter-btn" style="width: 100%">Add to Basket</button>
                         </div>
                     </form>
                 </div>
