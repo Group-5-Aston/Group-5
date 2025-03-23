@@ -48,25 +48,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 // Shop routes
-Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
-Route::get('/fullshop', [ShopController::class, 'fullShop'])->name('fullshop');
-Route::get('/catshop', [ShopController::class, 'catShop'])->name('catshop');
-Route::get('/dogshop', [ShopController::class, 'dogShop'])->name('dogshop');
+Route::get('/shop/{animal}/{type}/{query}', [ShopController::class, 'shop'])->name('shop');
 
 //Product page
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
 
-// additional shop pages
-Route::get('/dogclothes', [ShopController::class, 'dogClothes'])->name('dogclothes');
-Route::get('/catclothes', [ShopController::class, 'catClothes'])->name('catclothes');
-
-// routes for cat and dog toys
-Route::get('/cattoys', [ShopController::class, 'catToys'])->name('cattoys');
-Route::get('/dogtoys', [ShopController::class, 'dogToys'])->name('dogtoys');
-
-//routes for cat and dog hygiene
-Route::get('/catHygiene', [ShopController::class, 'newcatGH'])->name('newcatGH');
-Route::get('/dogHygiene', [ShopController::class, 'newdogGH'])->name('newdogGH');
 
 //Login routes
 Route::get('/loginpage', [LoginController::class, 'login'])->name('loginpage');

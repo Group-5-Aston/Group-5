@@ -1,8 +1,6 @@
-<x-newheader>
+<x-newheader :products="$products">
     <x-newshopshower :products="$products">
-        <h2>
-            Dog Toys
-        </h2>
+        {{$title}}
     </x-newshopshower>
      <!-- Return to Home Button -->
      <div class="text-center mt-5">

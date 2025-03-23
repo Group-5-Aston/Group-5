@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-    public function getProducts(string $animal)
+    public function getProducts(string $type)
     {
-        switch ($animal) {
+        switch ($type) {
             case 'cat':
                 return Product::where('cat_or_dog', 'cat')->get();
 
             case 'dog':
                 return Product::where('cat_or_dog', 'dog')->get();
+
+            case 'both':
+                return Product::all();
 
             case 'catToys':
                 return Product::whereIn('cat_or_dog', ['cat', 'both'])
@@ -32,92 +35,58 @@ class ShopController extends Controller
                 return Product::whereIn('cat_or_dog', ['cat', 'both'])
                     ->where('type', 'clothes')->get();
 
-            case 'both':
-                return Product::all();
-
-            case 'catGH':
-                return Product::where('cat_or_dog', 'cat')
+            case 'catHygiene':
+                return Product::whereIn('cat_or_dog', ['cat', 'both'])
                     ->where('type', 'hygiene')->get();
 
-            case 'dogGH':
-                return Product::where('cat_or_dog', 'dog')
+            case 'dogHygiene':
+                return Product::whereIn('cat_or_dog', ['dog', 'both'])
                     ->where('type', 'hygiene')->get();
+
+            case 'catBed':
+                return Product::whereIn('cat_or_dog', ['cat', 'both'])
+                    ->where('type', 'bed')->get();
+
+            case 'dogBed':
+                return Product::whereIn('cat_or_dog', ['dog', 'both'])
+                    ->where('type', 'bed')->get();
+
+            case 'catFood':
+                return Product::whereIn('cat_or_dog', ['cat', 'both'])
+                    ->where('type', 'food')->get();
+
+            case 'dogFood':
+                return Product::whereIn('cat_or_dog', ['dog', 'both'])
+                    ->where('type', 'food')->get();
 
             default:
                 return collect();
         }
     }
-    public function shop()
+
+    /*
+     * Creates the title of the shop depending on the shop
+     */
+    public function getTitle($animal, $type,)
     {
-        $products = $this->getProducts('both');
-        return view('newpages.newshop', compact('products'));
+        if ($type === 'all' && $animal === 'all') {
+            return 'All Products';
+        } elseif ($type === 'all' && $animal === 'cat' || $type === 'all' && $animal === 'dog') {
+            return 'check out our ' . $animal . ' products';
+        } elseif ($type === 'clothes' && $animal === 'cat' || $type === 'clothes' && $animal === 'dog') {
+            return $animal . "'s clothes and accessories";
+        }
+        else {
+            return $animal . "'s " . $type;
+        }
     }
 
-    public function fullShop()
+    public function shop($animal, $type, $query)
     {
-        $products = $this->getProducts('both');
-        return view('newpages.newshopfull', compact('products'));
+        $title = $this->getTitle($animal, $type);
+        $products = $this->getProducts($query);
+        return view('newpages.shop', compact('products', 'title'));
     }
-
-    public function catShop()
-    {
-        $products = $this->getProducts('cat');
-        return view('newpages.newcat', compact('products'));
-    }
-
-    public function dogShop()
-    {
-        $products = $this->getProducts('dog');
-        return view('newpages.newdog', compact('products'));
-    }
-
-    public function productPage(Product $product)
-    {
-        return view('newpages.newproduct', compact('product'));
-    }
-
-    public function dogClothes()
-    {
-        $products = $this->getProducts('dogClothes');
-        return view('newpages.dogclothes', compact('products'));
-    }
-
-    public function dogToys()
-    {
-        $products = $this->getProducts('dogToys');
-        return view('newpages.dogtoys', compact('products'));
-    }
-
-    public function catClothes()
-    {
-        $products = $this->getProducts('catClothes');
-        return view('newpages.catclothes', compact('products'));
-    }
-
-    public function catToys()
-    {
-        $products = $this->getProducts('catToys');
-        return view('newpages.cattoys', compact('products'));
-    }
-
-    public function newcatGH()
-    {
-        $products = $this->getProducts('catGH');
-        return view('newpages.newcatGH', compact('products'));
-    }
-
-    public function newdogGH()
-    {
-        $products = $this->getProducts('dogGH');
-        return view('newpages.newdogGH', compact('products'));
-    }
-
-
-
-
-
-
-
 }
 
 

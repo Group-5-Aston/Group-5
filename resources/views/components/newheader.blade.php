@@ -367,20 +367,26 @@
 
             <div class="navbar-links">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropbtn" href="{{ route('catshop') }}">Cats</a>
+                    <a class="nav-link dropbtn" href="{{ route('shop', ['animal' => 'cat', 'type' => 'all', 'query' => 'cat'])  }}">Cats</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('catshop') }}" class="dropdown-item">All Products</a></li>
-                        <li><a href="{{ route('catclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
-                        <li><a href="{{ route('cattoys') }}" class="dropdown-item">Toys</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'cat', 'type' => 'all', 'query' => 'cat'])  }}" class="dropdown-item">All Products</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'cat', 'type' => 'clothes', 'query' => 'catClothes']) }}" class="dropdown-item">Clothes & Accessories</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'cat', 'type' => 'toys', 'query' => 'catToys']) }}" class="dropdown-item">Toys</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'cat', 'type' => 'food', 'query' => 'catFood']) }}" class="dropdown-item">Food</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'cat', 'type' => 'hygiene', 'query' => 'catHygiene']) }}" class="dropdown-item">Hygiene</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'cat', 'type' => 'bed', 'query' => 'catBed']) }}" class="dropdown-item">Bedding</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropbtn" href="{{ route('dogshop') }}">Dogs</a>
+                    <a class="nav-link dropbtn" href="{{ route('shop', ['animal' => 'dog', 'type' => 'all', 'query' => 'dog']) }}">Dogs</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('dogshop') }}" class="dropdown-item">All Products</a></li>
-                        <li><a href="{{ route('dogclothes') }}" class="dropdown-item">Clothes & Accessories</a></li>
-                        <li><a href="{{ route('dogtoys') }}" class="dropdown-item">Toys</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'dog', 'type' => 'all', 'query' => 'dog']) }}" class="dropdown-item">All Products</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'dog', 'type' => 'clothes', 'query' => 'dogClothes']) }}" class="dropdown-item">Clothes & Accessories</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'dog', 'type' => 'toys', 'query' => 'dogToys']) }}" class="dropdown-item">Toys</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'dog', 'type' => 'food', 'query' => 'dogFood']) }}" class="dropdown-item">Food</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'dog', 'type' => 'hygiene', 'query' => 'dogHygiene']) }}" class="dropdown-item">Hygiene</a></li>
+                        <li><a href="{{ route('shop', ['animal' => 'dog', 'type' => 'bed', 'query' => 'dogBed']) }}" class="dropdown-item">Bedding</a></li>
                     </ul>
                 </li>
 
@@ -426,7 +432,6 @@
                             {{ strlen(Auth::user()->name) > 17 ? substr(Auth::user()->name, 0, 17) . '...' : Auth::user()->name }}
                         </a>
 
-                        <!-- Dropdown Menu -->
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"  style="right: -40px; left: auto">
                             <li><a href="{{ route('profile.edit') }}" class="dropdown-item">Edit Profile</a></li>
                             <li><a href="{{ route('order.index') }}" class="dropdown-item">Orders</a></li>
@@ -436,10 +441,8 @@
                                 <li><a href="{{ route('admin.dashboard') }}" class="dropdown-item">Admin Dashboard</a></li>
                             @endif
 
-                            <!-- Divider for clarity -->
                             <li><hr class="dropdown-divider"></li>
 
-                            <!-- Logout -->
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
@@ -448,7 +451,6 @@
                             </li>
                         </ul>
                     @else
-                        <!-- If not logged in -->
                         <a href="{{ route('loginpage') }}" class="nav-link">
                             <i class="fa fa-user"></i>
                             Login
