@@ -117,7 +117,7 @@ test('User can checkout their basket', function () {
 
     $this->assertDatabaseMissing('Baskets', ['user_id' => $user->id]);
 
-    $response->assertRedirect(route('payment.index'))->assertSessionHas('success', 'Payment processed successfully!');
+    $response->assertRedirect(route('basket.index'))->assertSessionHas('success', 'Payment processed successfully! Order has been placed!');
 });
 
 test('User can change quantity of items in basket', function () {

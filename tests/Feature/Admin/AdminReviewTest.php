@@ -1,21 +1,25 @@
 <?php
 
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Product;
+use App\Models\ProductOption;
 use App\Models\Review;
 use App\Models\User;
 
 test('Admin can delete user reviews', function () {
-   $admin = User::factory()->create([
-       'usertype' => 'admin'
-   ]) ;
-   $review = Review::factory()->create();
+    $admin = User::factory()->create([
+        'usertype' => 'admin'
+    ]);
+    $review = Review::factory()->create();
 
-   $this->actingAs($admin);
+    $this->actingAs($admin);
 
-   $response = $this->delete(route('adminreview.destroy', $review));
+    $response = $this->delete(route('adminreview.destroy', $review));
 
-   $this->assertDatabaseMissing('Reviews', [
-       'review_id' => $review->review_id,
-   ]);
+    $this->assertDatabaseMissing('Reviews', [
+        'review_id' => $review->review_id,
+    ]);
 
-   $response->assertStatus(302);
+    $response->assertStatus(302);
 });

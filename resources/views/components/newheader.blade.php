@@ -84,6 +84,7 @@
 
         .nav-item.dropdown {
             position: relative;
+
         }
 
         .navbar-links li {
@@ -92,6 +93,16 @@
 
         .navbar-links a:hover {
             font-weight: bold;
+        }
+
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            padding: 10px 0;
+        }
+
+        .nav-item.dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
         }
 
         .navbar-icons {
@@ -106,7 +117,6 @@
         }
 
 
-        /* Container for search + filter */
         .search-filter-container {
             display: flex;
             align-items: center;

@@ -115,7 +115,7 @@
 
         <!-- Order Summary -->
         <div class="col-md-4">
-            <div class="card shadow-sm border basket-summary-card">
+            <div class="basket-summary-card">
                 <div class="card-body p-4">
                     <h4 class="fw-bold mb-4 basket-summary-title">Order Summary</h4>
 
@@ -190,7 +190,7 @@
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-  background-color: #fff; /* White background */
+  background-color: #fff;
   padding: 5px;
 }
 
@@ -220,13 +220,14 @@
 
 /* Basket Summary Card */
 .basket-summary-card {
-  background-color: #fdfde7;
-  border-radius: 30px;
-  border-color: #3b5e3b;
+    background-color: #fdfde7;
+    border-radius: 30px;
+    border: 1px solid #4B7C47;
+    box-shadow: 0 4px 12px rgba(77, 122, 46, 0.08);
 }
 
 .basket-summary-title {
-  color: #3b5e3b;
+  color: #4B7C47;
 }
 
 .btn-filter {
