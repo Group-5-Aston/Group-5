@@ -1,132 +1,187 @@
-<h1>Order #{{ $order->order_id }}</h1>
+<x-newheader>
 
-<x-alert type="success" :message="session('success')" />
-<x-alert type="error" :message="session('error')" />
+<div class="container2">
+        <h2 style="padding-top: 20px;">Order #{{ $order->order_id }}</h2>
 
-<p>User id: {{ $order->user_id }}</p>
-<p>User name: {{ $order->user->name }}</p>
-<p>Shipping address: {{ $order->address }}</p>
-<br>
-<p>Subtotal: £{{$subtotal}}</p>
-<p>VAT: £{{$vat}}</p>
-<p>Shipping: {{$shipping}}</p>
-<p>Total: £{{$order->total}}</p>
-<br>
-<p>Status: {{ $order->getOrderStatus() }}</p>
+        <x-alert type="success" :message="session('success')" />
+        <x-alert type="error" :message="session('error')" />
 
-<form method="POST" action="{{ route('adminordermessage.update', $order) }}">
-    @csrf
-    @method('PATCH')
-    <textarea rows="5" name="message" cols="50" placeholder="Leave a message for customer about the order" required>{{$order->message}}</textarea> <br>
-    <input type="submit" value="Update message">
-</form>
+        <div style="margin-top: 20px;">
+            <p><strong>User ID:</strong> {{ $order->user_id }}</p>
+            <p><strong>User Name:</strong> {{ $order->user->name }}</p>
+            <p><strong>Shipping Address:</strong> {{ $order->address }}</p>
+        </div>
 
-<h2>Items</h2>
+        <div style="margin-top: 30px;">
+            <p><strong>Subtotal:</strong> £{{ $subtotal }}</p>
+            <p><strong>VAT:</strong> £{{ $vat }}</p>
+            <p><strong>Shipping:</strong> {{ $shipping }}</p>
+            <p><strong>Total:</strong> £{{ $order->total }}</p>
+        </div>
 
-<table>
-    <thead>
-    <tr>
-        <th>Order Item ID</th>
-        <th>Name</th>
-        <th>Option ID</th>
-        <th>Quantity</th>
-        <th>Total</th>
-    </tr>
-    </thead>
-    <tbody id="productTable">
-    @if(isset($orderItems) && $orderItems->count() > 0)
-        @foreach($orderItems as $item)
-            {{--Gives every row a link to the product, if there is no product then redirect to the inventory --}}
-            <tr class="clickable" data-href="{{ optional(optional($item->productOption)->product)
-                ? route('adminproduct.show', optional($item->productOption)->product)
-                : route('admin.inventory',['message' => 'That product no longer exists'])
-            }}">
-                <td>{{ $item->order_item_id }}</td>
-                <td>{{ $item->name}}</td>
-                <td>{{ $item->option_id }}</td>
-                <td>{{ $item->quantity }}</td>
-                <td>{{ $item->total }}</td>
-            </tr>
-        @endforeach
-    @else
-        <tr>
-            <td colspan="8">No products found.</td>
-        </tr>
-    @endif
-    </tbody>
-</table>
+        <div style="margin-top: 30px;">
+            <p><strong>Status:</strong> {{ $order->getOrderStatus() }}</p>
 
-<form method="POST" action="{{ route('adminorder.process', $order) }}">
-    @csrf
-    @method('PATCH')
-    <input type="hidden" name="process" value="process">
-    <button type="submit" {{$order->status != 'pending' ? 'disabled' : '' }}>Process Order</button>
-</form>
+            <form method="POST" action="{{ route('adminordermessage.update', $order) }}">
+                @csrf
+                @method('PATCH')
+                <textarea rows="4" name="message" cols="50" placeholder="Leave a message for the customer" required style="width: 100%; margin-top: 10px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">{{ $order->message }}</textarea>
+                <button type="submit" class="green-btn" style="margin-top: 10px;">Update Message</button>
+            </form>
+        </div>
 
-<form method="POST" action="{{ route('adminorder.cancel', $order) }}">
-    @csrf
-    @method('PATCH')
-    <input type="hidden" name="cancel" value="cancel">
-    <button type="submit" {{$order->status != 'pending' ? 'disabled' : '' }}>Cancel Order</button>
-</form>
-
-@if($order->status == 'returned')
-    <h2>Returned items</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Return ID</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Refund Amount</th>
-            <th>Reason</th>
-            <th>Status</th>
-            <th>Requested At</th>
-            <th>Updated At</th>
-        </tr>
-        </thead>
-        <tbody id="productTable">
-        @if(isset($returnItems) && $returnItems->count() > 0)
-            @foreach($returnItems as $item)
+        <h3 style="padding-top: 40px;">Items</h3>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>{{ $item->return_id }}</td>
-                    <td>{{ $item->orderItem->name }}</td>
-                    <td>{{ $item->quantity }}</td>
-                    <td>{{ $item->total }}</td>
-                    <td>{{ $item->reason }}</td>
-                    <td>{{ $item->status }}</td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->updated_at }}</td>
-                    <td>
-                        <form method="POST" action="{{route('adminrefund.confirm', ['returnItem' => $item->return_id]) }}">
-                            @csrf
-                            @method('PATCH')
-                            <input type="hidden" name="confirm" value="confirm">
-                            <button type="submit" {{$item->status != 'returned' ? 'disabled' : '' }}>Confirm Refund</button>
-                        </form>
-                        <form method="POST" action="{{route('adminrefund.reject', ['returnItem' => $item->return_id]) }}">
-                            @csrf
-                            @method('PATCH')
-                            <input type="hidden" name="reject" value="reject">
-                            <button type="submit" {{$item->status != 'returned' ? 'disabled' : '' }}>Reject Refund</button>
-                        </form>
-                    </td>
+                    <th>Item ID</th>
+                    <th>Name</th>
+                    <th>Option ID</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
                 </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="8">No products found.</td>
-            </tr>
-        @endif
-        </tbody>
-    </table>
-@endif
+            </thead>
+            <tbody>
+                @foreach($orderItems as $item)
+                    <tr class="clickable" data-href="{{ optional(optional($item->productOption)->product) ? route('adminproduct.show', optional($item->productOption)->product) : route('admin.inventory', ['message' => 'That product no longer exists']) }}">
+                        <td>{{ $item->order_item_id }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->option_id }}</td>
+                        <td>{{ $item->quantity }}</td>
+                        <td>£{{ $item->total }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
 
-<script>
-//Script to make each row of the table clickable
-    document.querySelectorAll('.clickable').forEach(row => {
-        row.addEventListener('click', function () {
-            window.location.href = this.dataset.href;
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <form method="POST" action="{{ route('adminorder.process', $order) }}">
+                @csrf
+                @method('PATCH')
+                <input type="hidden" name="process" value="process">
+                <button type="submit" class="green-btn" {{ $order->status != 'pending' ? 'disabled' : '' }}>Process Order</button>
+            </form>
+
+            <form method="POST" action="{{ route('adminorder.cancel', $order) }}">
+                @csrf
+                @method('PATCH')
+                <input type="hidden" name="cancel" value="cancel">
+                <button type="submit" class="red-btn" {{ $order->status != 'pending' ? 'disabled' : '' }}>Cancel Order</button>
+            </form>
+        </div>
+
+        @if($order->status == 'returned')
+            <h3 style="padding-top: 40px;">Returned Items</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Return ID</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Refund</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Requested</th>
+                        <th>Updated</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($returnItems as $item)
+                        <tr>
+                            <td>{{ $item->return_id }}</td>
+                            <td>{{ $item->orderItem->name }}</td>
+                            <td>{{ $item->quantity }}</td>
+                            <td>£{{ $item->total }}</td>
+                            <td>{{ $item->reason }}</td>
+                            <td>{{ $item->status }}</td>
+                            <td>{{ $item->created_at }}</td>
+                            <td>{{ $item->updated_at }}</td>
+                            <td style="display: flex; flex-direction: column; gap: 5px;">
+                                <form method="POST" action="{{ route('adminrefund.confirm', ['returnItem' => $item->return_id]) }}">
+                                    @csrf
+                                    @method('PATCH')
+                                    <input type="hidden" name="confirm" value="confirm">
+                                    <button type="submit" class="green-btn small-btn" {{ $item->status != 'returned' ? 'disabled' : '' }}>Confirm</button>
+                                </form>
+                                <form method="POST" action="{{ route('adminrefund.reject', ['returnItem' => $item->return_id]) }}">
+                                    @csrf
+                                    @method('PATCH')
+                                    <input type="hidden" name="reject" value="reject">
+                                    <button type="submit" class="red-btn small-btn" {{ $item->status != 'returned' ? 'disabled' : '' }}>Reject</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
+    </div>
+
+    <style>
+        h2 {
+            color: #426b1f;
+        }
+        .container2 {
+            width: 85%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+            border: 2px solid #4a6425; 
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .green-btn, .red-btn {
+            padding: 10px 18px;
+            font-size: 14px;
+            border-radius: 25px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .green-btn {
+            background-color: #426b1f;
+        }
+
+        .red-btn {
+            background-color: #990e0e;
+        }
+
+        .green-btn:disabled,
+        .red-btn:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .small-btn {
+            font-size: 13px;
+            padding: 6px 12px;
+        }
+
+        .clickable:hover {
+            background-color: #f8f8f8;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        document.querySelectorAll('.clickable').forEach(row => {
+            row.addEventListener('click', function () {
+                window.location.href = this.dataset.href;
+            });
         });
-    });
-</script>
+    </script>
+</x-newheader>
