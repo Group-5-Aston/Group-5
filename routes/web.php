@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminInventoryController;
+use App\Http\Controllers\Admin\AdminNotificationController;
 use App\Http\Controllers\Admin\AdminOrdersController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProductCreationController;
@@ -19,9 +20,9 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ReviewController;
 
 //newsletter route
 route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('subscribe');
@@ -156,6 +157,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //Reject refund
     Route::patch('/admin/order/{returnItem}/reject', [AdminViewOrderController::class, 'rejectRefund'])->name('adminrefund.reject');
 
+    //Notification
+    Route::delete('/admin/dashboard/{notification}', [AdminNotificationController::class, 'destroy'])->name('notification.destroy');
 
 });
 

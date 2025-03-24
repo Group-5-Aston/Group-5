@@ -224,11 +224,20 @@
 @if(isset($notifications) && $notifications->count() > 0)
     @foreach($notifications as $notification)
         <div class="notification-box">
+            <div style="display: flex; justify-content: space-between">
             <a href="{{$notification->data['url']}}" style="text-decoration: none; color: inherit;">
                 <h4>{{$notification->data['subject']}}</h4>
                 <p>{{$notification->data['message']}}</p>
                 <small>{{ $notification->created_at->shortAbsoluteDiffForHumans() }}</small>
             </a>
+            <form action="{{route('notification.destroy', $notification)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+            </form>
+        </div>
         </div>
     @endforeach
 @else

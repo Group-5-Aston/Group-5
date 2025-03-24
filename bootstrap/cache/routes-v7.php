@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::pvYTGSGRnSYMdj34',
+            '_route' => 'generated::pnz2ue4TLBVP9Yh8',
           ),
           1 => NULL,
           2 => 
@@ -510,7 +510,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xb18JYc02Rx3Be63',
+            '_route' => 'generated::MfZ0V5wDrVM7AZed',
           ),
           1 => NULL,
           2 => 
@@ -546,7 +546,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::MWa6W3vx80qR532k',
+            '_route' => 'generated::bTw4JDXiQOmpkxIg',
           ),
           1 => NULL,
           2 => 
@@ -676,7 +676,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::psk6QyAvLO33Wti4',
+            '_route' => 'generated::GXl3noQ3zXYFuKwX',
           ),
           1 => NULL,
           2 => 
@@ -830,7 +830,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/basket/(?|remove/([^/]++)(*:33)|quantity/([^/]++)(*:57)|add/([^/]++)(*:76))|/s(?|hop/([^/]++)/([^/]++)/([^/]++)(*:119)|torage/(.*)(*:138))|/product/([^/]++)(?|(*:167)|(*:175))|/orders/(?|([^/]++)(*:203)|re(?|turn/([^/]++)(?|(*:232)|/create(*:247))|view(?|/([^/]++)(*:272)|s/([^/]++)(?|(*:293)))))|/reset\\-password/([^/]++)(*:330)|/verify\\-email/([^/]++)/([^/]++)(*:370)|/user/([^/]++)(?|(*:395))|/admin/(?|inventory/(?|([^/]++)(?|(*:438)|/(?|image(*:455)|review(*:469))|(*:478))|newproduct(*:497)|([^/]++)/option(?|(*:523)|(*:531)|(*:539)))|order/([^/]++)(?|(*:566)|/(?|message(*:585)|process(*:600)|c(?|ancel(*:617)|onfirm(*:631))|reject(*:646)))))/?$}sDu',
+      0 => '{^(?|/basket/(?|remove/([^/]++)(*:33)|quantity/([^/]++)(*:57)|add/([^/]++)(*:76))|/s(?|hop/([^/]++)/([^/]++)/([^/]++)(*:119)|torage/(.*)(*:138))|/product/([^/]++)(?|(*:167)|(*:175))|/orders/(?|([^/]++)(*:203)|re(?|turn/([^/]++)(?|(*:232)|/create(*:247))|view(?|/([^/]++)(*:272)|s/([^/]++)(?|(*:293)))))|/reset\\-password/([^/]++)(*:330)|/verify\\-email/([^/]++)/([^/]++)(*:370)|/user/([^/]++)(?|(*:395))|/admin/(?|inventory/(?|([^/]++)(?|(*:438)|/(?|image(*:455)|review(*:469))|(*:478))|newproduct(*:497)|([^/]++)/option(?|(*:523)|(*:531)|(*:539)))|order/([^/]++)(?|(*:566)|/(?|message(*:585)|process(*:600)|c(?|ancel(*:617)|onfirm(*:631))|reject(*:646)))|dashboard/([^/]++)(*:674)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1579,6 +1579,28 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
+      ),
+      674 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'notification.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'notification',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
         1 => 
         array (
           0 => NULL,
@@ -1595,7 +1617,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::pvYTGSGRnSYMdj34' => 
+    'generated::pnz2ue4TLBVP9Yh8' => 
     array (
       'methods' => 
       array (
@@ -1624,7 +1646,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004d40000000000000000";}}',
-        'as' => 'generated::pvYTGSGRnSYMdj34',
+        'as' => 'generated::pnz2ue4TLBVP9Yh8',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3055,7 +3077,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::xb18JYc02Rx3Be63' => 
+    'generated::MfZ0V5wDrVM7AZed' => 
     array (
       'methods' => 
       array (
@@ -3076,7 +3098,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::xb18JYc02Rx3Be63',
+        'as' => 'generated::MfZ0V5wDrVM7AZed',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3130,7 +3152,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::MWa6W3vx80qR532k' => 
+    'generated::bTw4JDXiQOmpkxIg' => 
     array (
       'methods' => 
       array (
@@ -3151,7 +3173,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::MWa6W3vx80qR532k',
+        'as' => 'generated::bTw4JDXiQOmpkxIg',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3471,7 +3493,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::psk6QyAvLO33Wti4' => 
+    'generated::GXl3noQ3zXYFuKwX' => 
     array (
       'methods' => 
       array (
@@ -3492,7 +3514,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::psk6QyAvLO33Wti4',
+        'as' => 'generated::GXl3noQ3zXYFuKwX',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4449,6 +4471,44 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'adminrefund.reject',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'notification.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/dashboard/{notification}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminNotificationController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminNotificationController@destroy',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'notification.destroy',
       ),
       'fallback' => false,
       'defaults' => 
