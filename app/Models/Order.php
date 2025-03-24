@@ -39,7 +39,7 @@ class Order extends Model
                 return 'Dispatched';
             case('out'):
                 return 'Out for delivery';
-            case('delivered'):
+            case('complete'):
                 return 'Delivered';
             case('cancelled'):
                 return 'Cancelled';
