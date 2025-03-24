@@ -13,10 +13,10 @@
         </div>
 
         <div style="margin-top: 30px;">
-            <p><strong>Subtotal:</strong> £{{ $subtotal }}</p>
-            <p><strong>VAT:</strong> £{{ $vat }}</p>
+            <p><strong>Subtotal:</strong> £{{ number_format($subtotal, 2) }}</p>
+            <p><strong>VAT:</strong> £{{ number_format($vat, 2) }}</p>
             <p><strong>Shipping:</strong> {{ $shipping }}</p>
-            <p><strong>Total:</strong> £{{ $order->total }}</p>
+            <p><strong>Total:</strong> £{{ number_format($vat, 2) }}</p>
         </div>
 
         <div style="margin-top: 30px;">
