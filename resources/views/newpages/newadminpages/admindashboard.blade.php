@@ -30,21 +30,14 @@
 
     .dashboard-item button {
         display: block;
-        background-color: #426b1f;
-        color: white;
-        border: none;
-        padding: 12px;
         margin: 8px 0;
-        font-size: 16px;
-        font-weight: bold;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out;
         width: 100%;
-        border-radius: 5px;
     }
 
     .dashboard-item button:hover {
-        background-color: #3b511f;
+        background-color: #4B7C47;
     }
 
     .search-box {
@@ -56,7 +49,6 @@
     }
 
     h2 {
-        color: #426b1f;
         text-align: center;
     }
 
@@ -67,7 +59,7 @@
     }
 
     thead {
-        background-color: #426b1f;
+        background-color: #4B7C47;
         color: white;
     }
 
@@ -104,7 +96,7 @@
 
     .notification-box h4 {
         margin: 0 0 5px;
-        color: #426b1f;
+        color: #4B7C47;
     }
 
     .notification-box p {
@@ -118,7 +110,7 @@
 
 <div class="heading_container heading_center" style="display: flex; flex-direction: column; align-items: center;">
     <h2>Admin Dashboard</h2>
-    <input type="text" id="search" placeholder="Search Task" autocomplete="off" class="search-box" style="margin-top: 10px;">
+    <input type="text" id="search" class="form-control" placeholder="Search Task" autocomplete="off" style="width: 20%; margin-top: 10px;">
 </div>
 
 @if(request('message'))
@@ -131,18 +123,18 @@
     <div class="grid-container">
         <div class="dashboard-item">
             <h4 style="color:#426b1f">Customers</h4>
-            <button onclick="location.href='/admin/customers'">Manage Customers</button>
+            <button class="filter-btn" onclick="location.href='/admin/customers'">Manage Customers</button>
         </div>
 
         <div class="dashboard-item">
             <h4 style="color:#426b1f">Inventory</h4>
-            <button onclick="location.href='/admin/inventory'">View Inventory</button>
-            <button onclick="location.href='/admin/inventory/newproduct'">Add New Product</button>
+            <button class="filter-btn" onclick="location.href='/admin/inventory' ">View Inventory</button>
+            <button class="filter-btn" onclick="location.href='/admin/inventory/newproduct'">Add New Product</button>
         </div>
 
         <div class="dashboard-item">
             <h4 style="color:#426b1f">Orders</h4>
-            <button onclick="location.href='/admin/orders'">View Orders</button>
+            <button class="filter-btn" onclick="location.href='/admin/orders'">View Orders</button>
         </div>
     </div>
 </div>

@@ -6,10 +6,10 @@
   14 => 'view',
   'app' => 
   array (
-    'name' => 'Laravel',
+    'name' => 'Pup & Purr',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost',
+    'url' => 'http://cs2team5.cs2410-web01pvm.aston.ac.uk',
     'frontend_url' => 'http://localhost:3000',
     'asset_url' => NULL,
     'timezone' => 'UTC',
@@ -17,7 +17,7 @@
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'cipher' => 'AES-256-CBC',
-    'key' => 'base64:mILKhmyiSiXJgqrrEIhIRnGg9Q12rahE5qbqTvuCvaM=',
+    'key' => 'base64:ajEfxaUVE425XczyzFshNs2Mznc78BJ2ngtkzCMO6ZY=',
     'previous_keys' => 
     array (
     ),
@@ -157,8 +157,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\framework/cache/data',
-        'lock_path' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\framework/cache/data',
+        'lock_path' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -213,7 +213,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\database\\database.sqlite',
+        'database' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\database\\database.sqlite',
         'prefix' => '',
         'foreign_key_constraints' => true,
         'busy_timeout' => NULL,
@@ -226,7 +226,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\database\\database.sqlite',
+        'database' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\database\\database.sqlite',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -246,7 +246,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\database\\database.sqlite',
+        'database' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\database\\database.sqlite',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -266,7 +266,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '5432',
-        'database' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\database\\database.sqlite',
+        'database' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\database\\database.sqlite',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -281,7 +281,7 @@
         'url' => NULL,
         'host' => 'localhost',
         'port' => '1433',
-        'database' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\database\\database.sqlite',
+        'database' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\database\\database.sqlite',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -300,7 +300,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'pup_purr_database_',
       ),
       'default' => 
       array (
@@ -330,15 +330,15 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\app/private',
+        'root' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\app/private',
         'serve' => true,
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'root' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\app/public',
+        'url' => 'http://cs2team5.cs2410-web01pvm.aston.ac.uk/storage',
         'visibility' => 'public',
         'throw' => false,
       ),
@@ -357,7 +357,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\public\\storage' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\app/public',
+      'C:\\xampp\\htdocs\\GitHub\\Group-5\\public\\storage' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\app/public',
     ),
   ),
   'logging' => 
@@ -382,14 +382,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -454,24 +454,24 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\logs/laravel.log',
       ),
     ),
   ),
   'mail' => 
   array (
-    'default' => 'log',
+    'default' => 'smtp',
     'mailers' => 
     array (
       'smtp' => 
       array (
         'transport' => 'smtp',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'sandbox.smtp.mailtrap.io',
         'port' => '2525',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'encryption' => 'tls',
+        'username' => '7a92faeffeea6e',
+        'password' => 'e660dc0b176a3e',
         'timeout' => NULL,
       ),
       'ses' => 
@@ -521,15 +521,15 @@
     ),
     'from' => 
     array (
-      'address' => 'hello@example.com',
-      'name' => 'Laravel',
+      'address' => 'pup_purr@yahoo.com',
+      'name' => 'Pup & Purr',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -624,7 +624,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -633,7 +633,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'pup_purr_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,
@@ -750,9 +750,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\daraa\\OneDrive\\CS1IADD\\xampp\\htdocs\\dashboard\\Group-5\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\GitHub\\Group-5\\storage\\framework\\views',
   ),
   'tinker' => 
   array (
