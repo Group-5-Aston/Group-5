@@ -45,7 +45,7 @@
             <tbody>
             @foreach($orderItems as $item)
                 <tr class="clickable"
-                    data-href="{{ optional(optional($item->productOption)->product) ? route('adminproduct.show', optional($item->productOption)->product) : route('admin.inventory', ['message' => 'That product no longer exists']) }}">
+                    data-href="{{ isset($item->productOption->product) ? route('adminproduct.show', $item->productOption->product) : route('admin.inventory', ['error' => 'That product no longer exists']) }}">
                     <td>{{ $item->order_item_id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->option_id }}</td>
