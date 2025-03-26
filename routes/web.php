@@ -20,27 +20,27 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReturnController;
-use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReviewController;
 
 //newsletter route
 route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('subscribe');
 
 Route::middleware('auth')->group(function () {
-//Payment routes
+    //Payment routes
     Route::post('/payment/prepare', [PaymentController::class, 'prepareOrder'])->name('payment.prepare');
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
     Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
 
-//Basket routes
+    //Basket routes
     Route::post('/basket/remove/{bitem}', [BasketController::class, 'removeItem'])->name('basket.removeItem');
     Route::patch('basket/quantity/{bitem}', [BasketController::class, 'quantity'])->name('basket.quantity.update');
     Route::post('/basket/add/{product}', [BasketController::class, 'addToBasket'])->name('basket.add');
     Route::get('/basket', [BasketController::class, 'index'])->name('basket.index');
     Route::post('/store-basket', [BasketController::class, 'storeBasket'])->name('basket.store');
 
-//Checkout route
+    //Checkout route
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 });
@@ -53,6 +53,10 @@ Route::get('/shop/{animal}/{type}/{query}', [ShopController::class, 'shop'])->na
 
 //Product page
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
+
+//Terms and Privacy Policy routes
+Route::view('/terms', 'static.terms')->name('terms');
+Route::view('/privacy', 'static.privacy')->name('privacy');
 
 
 //Login routes
@@ -78,23 +82,23 @@ Route::get('/filter/results', [ProductController::class, 'filterResults'])->name
 Route::get('/product/{product_id}', [ProductController::class, 'searchShow'])->name('product.searchshow');
 
 Route::middleware('auth')->group(function () {
-//Order page routes
+    //Order page routes
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::patch('/orders/{order}', [OrderController::class, 'cancel'])->name('order.cancel');
     Route::get('/orders/return/{orderItem}', [OrderController::class, 'returnForm'])->name('order.return');
     Route::post('/orders/return/{orderItem}/create', [OrderController::class, 'createReturn'])->name('order.createreturn');
     Route::get('/orders/return/create/address', [OrderController::class, 'returnAddress'])->name('order.return.address');
 
-//Review page routes
+    //Review page routes
     Route::get('/orders/review/{orderItem}', [ReviewController::class, 'index'])->name('review.index');
     Route::post('/orders/reviews/{orderItem}', [ReviewController::class, 'store'])->name('review.store');
     Route::patch('/orders/reviews/{orderItem}', [ReviewController::class, 'update'])->name('review.update');
     Route::delete('/orders/reviews/{orderItem}', [ReviewController::class, 'destroy'])->name('review.destroy');
 
-//Return page
+    //Return page
     Route::get('/returns', [ReturnController::class, 'index'])->name('return.index');
 
-//Profile routes
+    //Profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -159,6 +163,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     //Notification
     Route::delete('/admin/dashboard/{notification}', [AdminNotificationController::class, 'destroy'])->name('notification.destroy');
-
 });
 

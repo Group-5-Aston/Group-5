@@ -1,81 +1,62 @@
 <x-newheader>
-<style>
+    <style>
 
-.container2 {
-    width: 60%;
-    margin: auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .container2 {
+            width: 60%;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.container2 form {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .container2 form {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.container2 input, select, textarea {
-    width: 100%;
-    max-width: 700px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    text-align: left;
-    display: block;
-}
+        .container2 input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            text-align: left;
+            display: block;
+        }
 
-textarea {
-    resize: vertical;
-    min-height: 100px;
-    max-height: 250px;
-    overflow-y: auto;
-}
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
 
-select {
-}
+        select {
+        }
 
-input[type="file"] {
-    border: none;
-    margin-bottom: 12px;
-}
+        input[type="file"] {
+            border: none;
+            margin-bottom: 12px;
+        }
 
-.container2 input[type="submit"] {
-    background-color: #4a6425;
-    text-align: center;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 50%;
-    margin-top: 20px;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
 
-.container2 input[type="submit"]:hover {
-    background-color: #3b511f;
-}
+        p {
+            font-size: 14px;
+            font-weight: bold;
+            color: #4a6425;
+            margin-top: 20px;
+        }
 
-p {
-    font-size: 14px;
-    font-weight: bold;
-    color: #4a6425;
-    margin-top: 20px;
-}
+        h2 {
+            color: #426b1f;
+        }
 
-h2 {
-    color: #426b1f;
-}
-
-</style>
+    </style>
 
     @include('components.validation-alert')
 
@@ -96,15 +77,15 @@ h2 {
     <div class="container2">
         <form method="POST" action="{{route('adminproduct.add') }}" enctype="multipart/form-data">
             @csrf
-            <input type="file" name="image" required> <br>
-            <input type="text" name="name" placeholder="Name" required> <br>
-            <select name="cat_or_dog" required>
+            <input type="file" class="form-control" name="image" required> <br>
+            <input type="text" class="form-control"  name="name" placeholder="Name" required> <br>
+            <select name="cat_or_dog" class="form-control"  required>
                 <option value="">Animal type</option>
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
                 <option value="both">Both</option>
             </select> <br>
-            <select name="type" required>
+            <select name="type" class="form-control"  required>
                 <option value="">Product type</option>
                 <option value="food">Food</option>
                 <option value="toy">Toy</option>
@@ -112,17 +93,20 @@ h2 {
                 <option value="clothes">Clothes</option>
                 <option value="clothes">Bed</option>
             </select> <br>
-            <input type="text" name="price" placeholder="£ Price" required> <br>
-            <textarea name="label" placeholder="Label" required></textarea> <br>
-            <textarea name="description" placeholder="Description"></textarea> <br>
+            <input type="text" class="form-control"  name="price" placeholder="£ Price" required> <br>
+            <textarea name="label" class="form-control"  placeholder="Label" required></textarea> <br>
+            <textarea name="description" class="form-control"  placeholder="Description"></textarea> <br>
             <p>Add at least one stock option</p>
-            <input type="text" name="size" placeholder="Size">
-            <input type="text" name="flavor" placeholder="Flavour">
-            <input type="text" name="stock" placeholder="Stock level" required> <br>
-            <input type="submit"> <p></p>
+            <input type="text" class="form-control"  name="size" placeholder="Size">
+            <input type="text" class="form-control"  name="flavor" placeholder="Flavour">
+            <input type="text" class="form-control"  name="stock" placeholder="Stock level" required> <br>
+            <button type="submit" class="filter-btn">
+                Submit
+            </button>
         </form>
     </div>
     <p style="padding-top:48px;"></p>
     @include('components.newfooter')
 </x-newheader>
+
 

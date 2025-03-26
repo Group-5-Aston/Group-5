@@ -17,28 +17,27 @@ class ProductController extends Controller
     }
 
     public function search(Request $request)
-{
-    $query = $request->input('q');
+    {
+        $query = $request->input('q');
 
-    // If the user didn't type anything, return an empty collection
-    if (!$query) {
+        // If the user didn't type anything, return an empty collection
+        if (!$query) {
+            return view('newpages.newsearch', [
+                'products' => collect(),
+                'showProductDetails' => false
+            ]);
+        }
+
+        // Use wildcards for partial matching
+        $products = Product::where('name', 'LIKE', '%' . $query . '%')
+            ->orWhere('description', 'LIKE', '%' . $query . '%')
+            ->get();
+
         return view('newpages.newsearch', [
-            'products' => collect(),
+            'products' => $products,
             'showProductDetails' => false
         ]);
     }
-
-    // Use wildcards for partial matching
-    $products = Product::where('name', 'LIKE', '%' . $query . '%')
-        ->orWhere('description', 'LIKE', '%' . $query . '%')
-        ->get();
-
-    return view('newpages.newsearch', [
-        'products' => $products,
-        'showProductDetails' => false
-    ]);
-}
-
 
 
     public function filterPage()
@@ -118,23 +117,29 @@ class ProductController extends Controller
     }
 
     public function searchShow($product_id)
-{
-    // Find the product by its ID
-    $product = Product::find($product_id);
+    {
+        // Find the product by its ID
+        $product = Product::find($product_id);
 
-    // If the product doesn't exist, return a 404 error
-    if (!$product) {
-        abort(404, 'Product not found');
+        // If the product doesn't exist, return a 404 error
+        if (!$product) {
+            abort(404, 'Product not found');
+        }
+
+        // Return the search-specific product details view
+        return view('newpages.newsearch', [
+            'product' => $product,
+            'products' => collect(), // Empty collection
+            'showProductDetails' => true,
+        ]);
     }
 
-    // Return the search-specific product details view
-    return view('newpages.newsearch', [
-        'product' => $product,
-        'products' => collect(), // Empty collection
-        'showProductDetails' => true,
-    ]);
-}
-
+    public function show(Product $product)
+    {
+        $productOptions = $product->productOptions;
+        $product->load('reviews');
+        return view('products.product', compact('product', 'productOptions'));
+    }
 
 
 }

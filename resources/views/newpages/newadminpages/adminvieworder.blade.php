@@ -13,10 +13,10 @@
         </div>
 
         <div style="margin-top: 30px;">
-            <p><strong>Subtotal:</strong> £{{ $subtotal }}</p>
-            <p><strong>VAT:</strong> £{{ $vat }}</p>
+            <p><strong>Subtotal:</strong> £{{ number_format($subtotal, 2) }}</p>
+            <p><strong>VAT:</strong> £{{ number_format($vat, 2) }}</p>
             <p><strong>Shipping:</strong> {{ $shipping }}</p>
-            <p><strong>Total:</strong> £{{ $order->total }}</p>
+            <p><strong>Total:</strong> £{{ number_format($vat, 2) }}</p>
         </div>
 
         <div style="margin-top: 30px;">
@@ -45,7 +45,7 @@
             <tbody>
             @foreach($orderItems as $item)
                 <tr class="clickable"
-                    data-href="{{ optional(optional($item->productOption)->product) ? route('adminproduct.show', optional($item->productOption)->product) : route('admin.inventory', ['message' => 'That product no longer exists']) }}">
+                    data-href="{{ isset($item->productOption->product) ? route('adminproduct.show', $item->productOption->product) : route('admin.inventory', ['error' => 'That product no longer exists']) }}">
                     <td>{{ $item->order_item_id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->option_id }}</td>

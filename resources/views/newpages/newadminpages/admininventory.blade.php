@@ -52,12 +52,20 @@
 
     </style>
 
+    @if(request('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ request('error') }}
+        </div>
+    @endif
+
     <div class="heading_container heading_center">
         <h2>Inventory</h2>
     </div>
-    <div class="button-container" style="display: flex; justify-content: space-between" >
-    <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off" class="form-control search-box">
-        <a href="{{ route('adminaddproduct.show') }}" style="margin: 0px 0px 10px 10px;" class="filter-btn">Add a new product</a>
+    <div class="button-container" style="display: flex; justify-content: space-between">
+        <input type="text" id="search" placeholder="Search by Product Name" autocomplete="off"
+               class="form-control search-box">
+        <a href="{{ route('adminaddproduct.show') }}" style="margin: 0px 0px 10px 10px;" class="filter-btn">Add a new
+            product</a>
     </div>
 
 
